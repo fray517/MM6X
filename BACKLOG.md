@@ -16,20 +16,20 @@
 - [x] M0-011 Implement read-only manifest/hash audit
 - [x] M0-012 Implement dry-run staging
 - [x] M0-013 Verify clean restore
-- [ ] M0-014 Define dedicated test-save policy
+- [x] M0-014 Define dedicated test-save policy
 ### Localisation
 - [x] M0-020 Locate active localisation
 - [x] M0-021 Select safe test key
 - [x] M0-022 Apply staged string change
 - [x] M0-023 Verify in game
-- [ ] M0-024 Restore
-- [ ] M0-025 Document
+- [x] M0-024 Restore
+- [x] M0-025 Document
 ### StaticData
 - [x] M0-030 Inspect real schemas
-- [ ] M0-031 Select reversible value
-- [ ] M0-032 Apply test change
-- [ ] M0-033 Verify
-- [ ] M0-034 Restore
+- [x] M0-031 Select reversible value
+- [x] M0-032 Apply test change
+- [x] M0-033 Verify
+- [x] M0-034 Restore
 - [x] M0-035 Document delimiter/encoding/schema
 ### Dialog
 - [x] M0-040 Inspect Dialog schema
@@ -53,8 +53,8 @@
 - [ ] M0-064 Record ADR
 ### Acceptance
 - [ ] M0-070 Known-clean state
-- [ ] M0-071 Localisation reproducible
-- [ ] M0-072 StaticData reproducible
+- [x] M0-071 Localisation reproducible
+- [x] M0-072 StaticData reproducible
 - [ ] M0-073 Dialog reproducible
 - [ ] M0-074 Map modification reproducible
 - [ ] M0-075 Restore reproducible

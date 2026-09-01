@@ -83,9 +83,11 @@ Evidence: VERIFIED_LOCAL
   (главное меню). Процедура:
   `docs/milestones/M0_LOCALISATION_TEST.md`.
 - In-game, 2026-09-01: русское главное меню показало
-  `MM6X TEST — Параметры`. Evidence: VERIFIED_LOCAL
-  (подтверждение пользователя). Файл на диске всё ещё
-  `TEST_PATCHED`; restore (M0-024) не выполнен.
+  `MM6X TEST — Параметры`. Evidence: VERIFIED_LOCAL.
+- Restore loca: `state: ORIGINAL` (`de5a7668…e60d064`).
+- StaticData M0 test: `Potions.csv` StaticID=1 `Price` 45 → 9999
+  (Johara в Sorpigal). In-game: цена 9999. VERIFIED_LOCAL.
+  Restore: `ORIGINAL` (`f919fa74…c88372`).
 
 ## Managed
 22 DLL. Evidence: VERIFIED_LOCAL

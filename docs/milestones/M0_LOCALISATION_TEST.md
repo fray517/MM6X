@@ -2,7 +2,7 @@
 
 Evidence: VERIFIED_LOCAL (схема `ru/loca.xml`).  
 In-game 2026-09-01: главное меню показало
-`MM6X TEST — Параметры`. Restore ещё не подтверждён.
+`MM6X TEST — Параметры`. Restore подтверждён: `state: ORIGINAL`.
 
 ## Выбранный ключ
 

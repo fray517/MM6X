@@ -29,7 +29,31 @@ TEST_KEY = "Gui/Mainmenu/Options"
 TEST_PREFIX = "MM6X TEST \u2014 "
 CHUNK_SIZE = 1024 * 1024
 DEFAULT_BACKUP_DIR = REPO_ROOT / "backups" / "mmx" / "loca-ru"
+DEFAULT_SD_BACKUP_DIR = (
+    REPO_ROOT / "backups" / "mmx" / "staticdata-potions"
+)
 REPORTS_DIR = REPO_ROOT / "reports"
+SD_REL_PARTS = (
+    "StreamingAssets",
+    "StaticData",
+    "Potions.csv",
+)
+SD_COPY_NAME = "Potions.csv"
+SD_NEEDLE_ORIGINAL = (
+    "1,POTION_HEALTH_MINOR,ITM_consumable_potion_health_1,45,"
+)
+SD_NEEDLE_PATCHED = (
+    "1,POTION_HEALTH_MINOR,ITM_consumable_potion_health_1,9999,"
+)
+SD_ORIGINAL_PRICE = "45"
+SD_TEST_PRICE = "9999"
+SD_COMMANDS = {
+    "backup-staticdata",
+    "status-staticdata",
+    "prepare-staticdata-test",
+    "apply-staticdata-test",
+    "restore-staticdata-test",
+}
 
 
 def load_env(start: Path | None = None) -> None:
@@ -108,9 +132,9 @@ def resolve_data_dir(game_path: Path) -> Path:
     )
 
 
-def resolve_loca(game_path: Path) -> Path:
+def resolve_rel(game_path: Path, parts: tuple[str, ...]) -> Path:
     current = resolve_data_dir(game_path)
-    for part in LOCA_REL_PARTS:
+    for part in parts:
         nxt = find_child(current, part)
         if nxt is None:
             raise FileNotFoundError(
@@ -122,19 +146,39 @@ def resolve_loca(game_path: Path) -> Path:
     return current.resolve()
 
 
-def assert_allowed_loca(game_path: Path, target: Path) -> None:
+def assert_allowed(
+    game_path: Path,
+    target: Path,
+    expected_parts: tuple[str, ...],
+    label: str,
+) -> None:
     try:
         rel = target.resolve().relative_to(game_path.resolve())
     except ValueError as exc:
         raise PermissionError(
             "Цель вне каталога игры; запись запрещена."
         ) from exc
-    expected = Path(DATA_DIR_NAME, *LOCA_REL_PARTS)
+    expected = Path(DATA_DIR_NAME, *expected_parts)
     if rel.as_posix().casefold() != expected.as_posix().casefold():
         raise PermissionError(
-            "Разрешён только ru/loca.xml. "
-            f"Получено: {rel.as_posix()}"
+            f"Разрешён только {label}. Получено: {rel.as_posix()}"
         )
+
+
+def resolve_loca(game_path: Path) -> Path:
+    return resolve_rel(game_path, LOCA_REL_PARTS)
+
+
+def assert_allowed_loca(game_path: Path, target: Path) -> None:
+    assert_allowed(game_path, target, LOCA_REL_PARTS, "ru/loca.xml")
+
+
+def resolve_staticdata(game_path: Path) -> Path:
+    return resolve_rel(game_path, SD_REL_PARTS)
+
+
+def assert_allowed_staticdata(game_path: Path, target: Path) -> None:
+    assert_allowed(game_path, target, SD_REL_PARTS, "Potions.csv")
 
 
 def read_text_preserve(path: Path) -> tuple[str, bool]:
@@ -190,8 +234,11 @@ def proposed_value(original_inner: str) -> str:
     return TEST_PREFIX + original_inner
 
 
-def backup_paths(backup_dir: Path) -> tuple[Path, Path]:
-    return backup_dir / "loca.xml", backup_dir / "manifest.json"
+def backup_paths(
+    backup_dir: Path,
+    copy_name: str = "loca.xml",
+) -> tuple[Path, Path]:
+    return backup_dir / copy_name, backup_dir / "manifest.json"
 
 
 def load_manifest(path: Path) -> dict[str, Any] | None:
@@ -225,11 +272,14 @@ def classify_state(
 
 
 def cmd_backup(
-    loca: Path,
+    source: Path,
     backup_dir: Path,
     force: bool,
+    copy_name: str,
+    relative_target: str,
+    extra: dict[str, Any] | None = None,
 ) -> int:
-    copy_path, manifest_path = backup_paths(backup_dir)
+    copy_path, manifest_path = backup_paths(backup_dir, copy_name)
     if copy_path.exists() or manifest_path.exists():
         if not force:
             print(
@@ -243,7 +293,7 @@ def cmd_backup(
         backup_dir.rename(archive)
         print(f"Прежний backup сохранён: {archive}")
     backup_dir.mkdir(parents=True, exist_ok=True)
-    data = loca.read_bytes()
+    data = source.read_bytes()
     copy_path.write_bytes(data)
     digest = sha256_bytes(data)
     if sha256_file(copy_path) != digest:
@@ -252,14 +302,13 @@ def cmd_backup(
     manifest = {
         "schema_version": 1,
         "created_utc": utc_now(),
-        "relative_target": (
-            Path(DATA_DIR_NAME, *LOCA_REL_PARTS).as_posix()
-        ),
+        "relative_target": relative_target,
         "size": len(data),
         "sha256": digest,
-        "test_key": TEST_KEY,
         "read_only_source": True,
     }
+    if extra:
+        manifest.update(extra)
     write_json(manifest_path, manifest)
     print(f"Backup: {copy_path}")
     print(f"SHA-256: {digest}")
@@ -424,9 +473,10 @@ def cmd_apply(
 
 
 def cmd_restore(
-    loca: Path,
+    target: Path,
     backup_dir: Path,
     understand: bool,
+    copy_name: str,
 ) -> int:
     if not understand:
         print(
@@ -434,9 +484,9 @@ def cmd_restore(
             file=sys.stderr,
         )
         return 2
-    copy_path, manifest_path = backup_paths(backup_dir)
+    copy_path, manifest_path = backup_paths(backup_dir, copy_name)
     if not copy_path.is_file():
-        print("Нет backup loca.xml.", file=sys.stderr)
+        print(f"Нет backup {copy_name}.", file=sys.stderr)
         return 2
     original = copy_path.read_bytes()
     expected = sha256_bytes(original)
@@ -445,7 +495,7 @@ def cmd_restore(
         print("Manifest SHA-256 не совпадает с копией.", file=sys.stderr)
         return 1
     try:
-        loca.write_bytes(original)
+        target.write_bytes(original)
     except PermissionError:
         print(
             "Нет прав записи в Program Files. "
@@ -453,18 +503,24 @@ def cmd_restore(
             file=sys.stderr,
         )
         return 1
-    restored = sha256_file(loca)
+    restored = sha256_file(target)
     ok = restored == expected
     op = {
         "schema_version": 1,
-        "operation": "restore-localisation-test",
+        "operation": "restore",
         "created_utc": utc_now(),
+        "copy_name": copy_name,
         "expected_sha256": expected,
         "restored_sha256": restored,
         "success": ok,
     }
     write_json(backup_dir / "restore.json", op)
-    write_json(REPORTS_DIR / "loca_restore.json", op)
+    report_name = (
+        "staticdata_restore.json"
+        if copy_name == SD_COPY_NAME
+        else "loca_restore.json"
+    )
+    write_json(REPORTS_DIR / report_name, op)
     if ok:
         print("RESTORE ok")
         print(f"  SHA-256: {restored}")
@@ -475,11 +531,179 @@ def cmd_restore(
     return 1
 
 
+def sd_price_state(text: str) -> str:
+    has_orig = text.count(SD_NEEDLE_ORIGINAL)
+    has_test = text.count(SD_NEEDLE_PATCHED)
+    if has_orig == 1 and has_test == 0:
+        return "ORIGINAL"
+    if has_orig == 0 and has_test == 1:
+        return "TEST_PATCHED"
+    return "UNKNOWN"
+
+
+def cmd_sd_status(csv_path: Path, backup_dir: Path) -> int:
+    current_sha = sha256_file(csv_path)
+    text, _ = read_text_preserve(csv_path)
+    copy_path, manifest_path = backup_paths(backup_dir, SD_COPY_NAME)
+    backup_sha = None
+    if copy_path.is_file():
+        backup_sha = sha256_file(copy_path)
+    elif manifest_path.is_file():
+        manifest = load_manifest(manifest_path) or {}
+        backup_sha = manifest.get("sha256")
+    needle_state = sd_price_state(text)
+    if backup_sha is None:
+        state = "NO_BACKUP" if needle_state != "TEST_PATCHED" else (
+            "TEST_PATCHED"
+        )
+    elif current_sha == backup_sha:
+        state = "ORIGINAL"
+    else:
+        state = needle_state if needle_state != "ORIGINAL" else "UNKNOWN"
+    price = SD_TEST_PRICE if needle_state == "TEST_PATCHED" else (
+        SD_ORIGINAL_PRICE if needle_state == "ORIGINAL" else "?"
+    )
+    payload = {
+        "target": str(csv_path),
+        "file": SD_COPY_NAME,
+        "row": "StaticID=1 POTION_HEALTH_MINOR Price",
+        "current_sha256": current_sha,
+        "original_backup_sha256": backup_sha,
+        "state": state,
+        "current_price": price,
+    }
+    print(f"target: {csv_path}")
+    print("field: Potions.csv StaticID=1 Price")
+    print(f"current SHA-256: {current_sha}")
+    print(f"backup SHA-256: {backup_sha or '—'}")
+    print(f"state: {state}")
+    print(f"price: {price}")
+    write_json(REPORTS_DIR / "staticdata_status.json", payload)
+    return 0
+
+
+def cmd_sd_prepare(
+    game_path: Path,
+    csv_path: Path,
+    backup_dir: Path,
+) -> int:
+    text, has_bom = read_text_preserve(csv_path)
+    current_sha = sha256_file(csv_path)
+    copy_path, _ = backup_paths(backup_dir, SD_COPY_NAME)
+    backup_sha = sha256_file(copy_path) if copy_path.is_file() else None
+    payload = {
+        "dry_run": True,
+        "modified_game": False,
+        "file": SD_COPY_NAME,
+        "field": "StaticID=1 Price",
+        "original_value": SD_ORIGINAL_PRICE,
+        "proposed_value": SD_TEST_PRICE,
+        "source_game_path": str(game_path.resolve()),
+        "target": str(csv_path),
+        "backup_dir": str(backup_dir),
+        "backup_present": copy_path.is_file(),
+        "has_utf8_bom": has_bom,
+        "current_sha256": current_sha,
+        "backup_sha256": backup_sha,
+        "verify_in_game": (
+            "Sorpigal, Johara (ItemOffers 20: POTION,1). "
+            "Цена minor health potion 45 → 9999."
+        ),
+        "needle_state": sd_price_state(text),
+    }
+    print("PREPARE StaticData (игра не изменяется)")
+    print(f"  file: {SD_COPY_NAME}")
+    print("  field: StaticID=1 Price")
+    print(f"  original: {SD_ORIGINAL_PRICE}")
+    print(f"  proposed: {SD_TEST_PRICE}")
+    print(f"  target: {csv_path}")
+    print(f"  backup: {backup_dir}")
+    print(f"  current SHA-256: {current_sha}")
+    print(f"  backup SHA-256: {backup_sha or 'нет backup'}")
+    write_json(REPORTS_DIR / "staticdata_prepare.json", payload)
+    print(f"  report: {REPORTS_DIR / 'staticdata_prepare.json'}")
+    return 0
+
+
+def cmd_sd_apply(
+    csv_path: Path,
+    backup_dir: Path,
+    understand: bool,
+) -> int:
+    if not understand:
+        print(
+            "Отказ: нет --yes-i-understand. Файл игры не изменён.",
+            file=sys.stderr,
+        )
+        return 2
+    copy_path, manifest_path = backup_paths(backup_dir, SD_COPY_NAME)
+    if not copy_path.is_file() or not manifest_path.is_file():
+        print("Сначала выполните backup-staticdata.", file=sys.stderr)
+        return 2
+    original_bytes = copy_path.read_bytes()
+    backup_sha = sha256_bytes(original_bytes)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("sha256") != backup_sha:
+        print("Manifest backup не совпадает с копией.", file=sys.stderr)
+        return 1
+    current_sha = sha256_file(csv_path)
+    if current_sha != backup_sha:
+        print(
+            "Текущий Potions.csv не совпадает с backup. Патч отказан.\n"
+            f"  current: {current_sha}\n"
+            f"  backup:  {backup_sha}",
+            file=sys.stderr,
+        )
+        return 2
+    text, has_bom = read_text_preserve(csv_path)
+    if text.count(SD_NEEDLE_ORIGINAL) != 1:
+        print("Ожидалась ровно одна исходная строка зелья.", file=sys.stderr)
+        return 1
+    patched = text.replace(SD_NEEDLE_ORIGINAL, SD_NEEDLE_PATCHED, 1)
+    if sd_price_state(patched) != "TEST_PATCHED":
+        print("Патч цены не применился. Отказ.", file=sys.stderr)
+        return 1
+    if patched.count("\n") != text.count("\n"):
+        print("Число строк CSV изменилось. Отказ.", file=sys.stderr)
+        return 1
+    out_bytes = encode_text(patched, has_bom)
+    try:
+        csv_path.write_bytes(out_bytes)
+    except PermissionError:
+        print(
+            "Нет прав записи в Program Files. "
+            "Запустите PowerShell от имени администратора.",
+            file=sys.stderr,
+        )
+        return 1
+    new_sha = sha256_file(csv_path)
+    op = {
+        "schema_version": 1,
+        "operation": "apply-staticdata-test",
+        "created_utc": utc_now(),
+        "file": SD_COPY_NAME,
+        "field": "StaticID=1 Price",
+        "original_value": SD_ORIGINAL_PRICE,
+        "new_value": SD_TEST_PRICE,
+        "before_sha256": current_sha,
+        "after_sha256": new_sha,
+        "target_relative": Path(DATA_DIR_NAME, *SD_REL_PARTS).as_posix(),
+        "backup_sha256": backup_sha,
+    }
+    write_json(backup_dir / "apply.json", op)
+    write_json(REPORTS_DIR / "staticdata_apply.json", op)
+    print("APPLY ok")
+    print("  field: Potions.csv StaticID=1 Price 45 → 9999")
+    print(f"  new SHA-256: {new_sha}")
+    print(f"  manifest: {backup_dir / 'apply.json'}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="mmx_mod.py",
         description=(
-            "Backup/restore and one-entry Russian localisation test. "
+            "Backup/restore for localisation and StaticData tests. "
             "Writes game files only with --yes-i-understand."
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -498,8 +722,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--backup-dir",
         type=Path,
-        default=DEFAULT_BACKUP_DIR,
-        help="Каталог backup внутри репозитория.",
+        default=None,
+        help="Каталог backup. По умолчанию backups/mmx/<test>/.",
     )
     sub = parser.add_subparsers(dest="command", required=True)
     p_backup = sub.add_parser(
@@ -536,6 +760,43 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Разрешить запись в ru/loca.xml.",
     )
+    p_sd_backup = sub.add_parser(
+        "backup-staticdata",
+        help="Скопировать Potions.csv в backups/.",
+    )
+    p_sd_backup.add_argument(
+        "--force",
+        action="store_true",
+        help="Прежний backup уходит в архив, затем пишется новый.",
+    )
+    sub.add_parser(
+        "status-staticdata",
+        help="ORIGINAL / TEST_PATCHED / UNKNOWN для Potions.csv.",
+    )
+    sub.add_parser(
+        "prepare-staticdata-test",
+        help="Показать правку цены зелья, не менять игру.",
+    )
+    p_sd_apply = sub.add_parser(
+        "apply-staticdata-test",
+        help="Price 45→9999. Нужен --yes-i-understand.",
+    )
+    p_sd_apply.add_argument(
+        "--yes-i-understand",
+        dest="yes_i_understand",
+        action="store_true",
+        help="Разрешить запись в Potions.csv.",
+    )
+    p_sd_restore = sub.add_parser(
+        "restore-staticdata-test",
+        help="Вернуть точные байты backup Potions.csv.",
+    )
+    p_sd_restore.add_argument(
+        "--yes-i-understand",
+        dest="yes_i_understand",
+        action="store_true",
+        help="Разрешить запись в Potions.csv.",
+    )
     return parser
 
 
@@ -554,34 +815,63 @@ def main(argv: list[str] | None = None) -> int:
     if not game_path.is_dir():
         print(f"Каталог не найден: {game_path}", file=sys.stderr)
         return 2
+    command = args.command
+    if args.backup_dir is not None:
+        backup_dir = args.backup_dir
+    elif command in SD_COMMANDS:
+        backup_dir = DEFAULT_SD_BACKUP_DIR
+    else:
+        backup_dir = DEFAULT_BACKUP_DIR
+    if not backup_dir.is_absolute():
+        backup_dir = (Path.cwd() / backup_dir).resolve()
+    understand = getattr(args, "yes_i_understand", False)
+    force = getattr(args, "force", False)
     try:
-        loca = resolve_loca(game_path)
-        assert_allowed_loca(game_path, loca)
+        if command in SD_COMMANDS:
+            target = resolve_staticdata(game_path)
+            assert_allowed_staticdata(game_path, target)
+        else:
+            target = resolve_loca(game_path)
+            assert_allowed_loca(game_path, target)
     except (FileNotFoundError, PermissionError) as exc:
         print(str(exc), file=sys.stderr)
         return 2
-    backup_dir = args.backup_dir
-    if not backup_dir.is_absolute():
-        backup_dir = (Path.cwd() / backup_dir).resolve()
-    command = args.command
+    loca_rel = Path(DATA_DIR_NAME, *LOCA_REL_PARTS).as_posix()
+    sd_rel = Path(DATA_DIR_NAME, *SD_REL_PARTS).as_posix()
     if command == "backup":
-        return cmd_backup(loca, backup_dir, getattr(args, "force", False))
+        return cmd_backup(
+            target,
+            backup_dir,
+            force,
+            "loca.xml",
+            loca_rel,
+            {"test_key": TEST_KEY},
+        )
     if command == "status":
-        return cmd_status(loca, backup_dir)
+        return cmd_status(target, backup_dir)
     if command == "prepare-localisation-test":
-        return cmd_prepare(game_path, loca, backup_dir)
+        return cmd_prepare(game_path, target, backup_dir)
     if command == "apply-localisation-test":
-        return cmd_apply(
-            loca,
-            backup_dir,
-            getattr(args, "yes_i_understand", False),
-        )
+        return cmd_apply(target, backup_dir, understand)
     if command == "restore-localisation-test":
-        return cmd_restore(
-            loca,
+        return cmd_restore(target, backup_dir, understand, "loca.xml")
+    if command == "backup-staticdata":
+        return cmd_backup(
+            target,
             backup_dir,
-            getattr(args, "yes_i_understand", False),
+            force,
+            SD_COPY_NAME,
+            sd_rel,
+            {"field": "StaticID=1 Price", "original": SD_ORIGINAL_PRICE},
         )
+    if command == "status-staticdata":
+        return cmd_sd_status(target, backup_dir)
+    if command == "prepare-staticdata-test":
+        return cmd_sd_prepare(game_path, target, backup_dir)
+    if command == "apply-staticdata-test":
+        return cmd_sd_apply(target, backup_dir, understand)
+    if command == "restore-staticdata-test":
+        return cmd_restore(target, backup_dir, understand, SD_COPY_NAME)
     print(f"Неизвестная команда: {command}", file=sys.stderr)
     return 2
 
