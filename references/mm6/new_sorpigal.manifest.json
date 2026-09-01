@@ -4,24 +4,26 @@
   "title": "New Sorpigal slice",
   "mm6_source": {
     "container": "games.lod",
-    "entry": "Outd1.odm",
-    "events": "Icons.lod/OUTD1.EVT",
-    "evidence": "HYPOTHESIS"
+    "entry": "OutE3.Odm",
+    "events": "Icons.lod/OUTE3.EVT",
+    "mapstats_id": 15,
+    "evidence": "VERIFIED_LOCAL"
   },
   "entities": [
     "mm6.region.new_sorpigal",
+    "mm6.location.new_sorpigal.town_hall",
     "mm6.npc.new_sorpigal.andover",
     "mm6.quest.new_sorpigal.goblinwatch",
     "mm6.travel_link.new_sorpigal.goblinwatch"
   ],
   "landmarks_hypothesis": [
-    "town hall",
+    "town hall (2DEvents 89)",
+    "tavern Lonely Knight (2DEvents 92)",
     "docks",
     "temple",
-    "inn",
     "shops",
     "training",
-    "Goblinwatch approach"
+    "Goblinwatch entrance (2DEvents 171)"
   ],
-  "notes": "Outd1.odm exists VERIFIED_LOCAL; name mapping pending MapStats."
+  "notes": "MapStats #15 Нью-Сорпигаль -> OutE3.Odm. OutD1 is Silver Cove, not this town."
 }

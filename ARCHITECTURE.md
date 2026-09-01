@@ -25,6 +25,7 @@ custom C# patches
 
 ## Репозиторий
 - `tools/audit/` — read-only аудит MMX/MM6.
+- `tools/extract/` — read-only extract MM6 `.txt` из lod.
 - `tools/converters/` — normalized MM6 → MMX.
 - `tools/validators/` — проверки schema/IDs/references.
 - `mod/` — только наш authored/generated payload.

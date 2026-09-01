@@ -69,8 +69,9 @@
 - [x] M1-006 Item sources
 - [x] M1-007 Monster sources
 - [x] M1-008 Map/topology sources
-- [>] M1-009 New Sorpigal manifest
-- [>] M1-010 Goblinwatch manifest
+- [x] M1-009 New Sorpigal manifest
+- [x] M1-010 Goblinwatch manifest
+- [x] M1-011 Extract allowlisted Icons.lod .txt
 
 ## M2 — Conversion Framework
 - [ ] M2-001 ID registry

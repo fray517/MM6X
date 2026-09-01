@@ -1,7 +1,11 @@
 # MM6 source files (this GOG install)
 
-Evidence: VERIFIED_LOCAL (имена записей lod, тела не извлечены).
+Evidence: VERIFIED_LOCAL (имена записей lod + декодированные
+allowlisted `.txt`; полные таблицы в git не копировать).
 Сборка: GOG + MM6patch, см. `MM6_AUDIT.md`.
+
+Raw extract (gitignore): `references/mm6/raw/`.
+Команда: `python tools\extract\extract_mm6_text.py`.
 
 ## NPC (M1-004)
 
@@ -14,11 +18,25 @@ Evidence: VERIFIED_LOCAL (имена записей lod, тела не извл�
 
 Портреты: `NPC001`… в том же lod (графика, не копировать).
 
+Slice (не дамп таблицы):
+
+- NPC #1 `Андовер Портбелло`, pic 81, колонка 2D Location = 92.
+- 2DEvents #92 на карте E3 — таверна «Одинокий рыцарь»,
+  трактирщик Дирк (не дом Андовера).
+- 2DEvents #89 — Ратуша Нью-Сорпигаля, клерк Жанис.
+
 ## Quest / dialogue scripts (M1-005)
 
 - `Quests.txt`, `GLOBAL.TXT`, `GLOBAL.EVT`
-- По карте: `OUTD1.EVT`, `D01.EVT`, … (83 `.EVT`)
+- По карте: `OUTE3.EVT`, `D01.EVT`, … (83 `.EVT`)
 - `Awards.txt`, `Autonote.txt`
+
+Slice:
+
+- Quest #81 — письмо Сулмана Андоверу в Нью-Сорпигале.
+- Quest #83 — код двери Дозора гоблинов; **Set by Town Hall**,
+  возврат в ратушу. Не квест Андовера.
+- Quest #126 — канделябр для Андовера.
 
 ## Items (M1-006)
 
@@ -38,14 +56,27 @@ Evidence: VERIFIED_LOCAL (имена записей lod, тела не извл�
 - Outdoor: `Outa1.odm`…`Oute3.odm` (и `.ddm`)
 - Indoor: `d01.blv`…`d20.blv`, `t1.blv`…`t8.blv`, `hive.blv`,
   `oracle.blv`, `pyramid.blv`, `sewer.blv`, `sci-fi.blv`, CD/z*
-- `MapStats.txt` в `Icons.lod` (имена карт; тело пока не декодировали)
+- `MapStats.txt` в `Icons.lod` (имена карт)
 
-Slice HYPOTHESIS (файл есть, привязка имени — нет MapStats decode):
+Полный индекс id/имя/файл (gitignore):
+`reports/mapstats_index.json`.
 
-| Stable id | Кандидат |
-|---|---|
-| `mm6.region.new_sorpigal` | `Outd1.odm` + `OUTD1.EVT` |
-| `mm6.dungeon.goblinwatch` | `d01.blv` + `D01.EVT` |
+Slice VERIFIED_LOCAL:
 
-Следующий шаг extract: только нужные `.txt`/`.EVT` в
-`references/mm6/raw/` (gitignore), затем JSON модели.
+| Stable id | MapStats | Файл | EVT |
+|---|---:|---|---|
+| `mm6.region.new_sorpigal` | 15 Нью-Сорпигаль | `OutE3.Odm` | `OUTE3.EVT` |
+| `mm6.dungeon.goblinwatch` | 16 Дозор гоблинов | `D01.Blv` | `D01.EVT` |
+
+`OutD1.Odm` = «Серебряная бухта». Не путать с Нью-Сорпигалем.
+
+Вход в данж на outdoor E3: `2DEvents.txt` #171
+«Дозор гоблинов» (Dungeon Ent).
+
+## Decode lod (для extract)
+
+Каталог MM6: header 256 байт, root entry сразу после него.
+`file.abs_offset = root.dataOffset + entry.dataOffset`.
+Текстовые `.txt` в `Icons.lod`: `LodImageHeader_MM6` (48 байт),
+`flags & 0x100`, payload zlib (`78 9c`).
+VERIFIED_SOURCE: OpenEnroth `LodReader` / `LodFormats`.

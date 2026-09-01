@@ -39,5 +39,10 @@ Status: RUN 2026-09-01. Evidence: VERIFIED_LOCAL.
 Unpacked `.blv`/`.odm` рядом с Data нет.
 
 Индекс имён: `python tools\audit\audit_mm6.py` (без извлечения тел).
+Текстовые таблицы: `python tools\extract\extract_mm6_text.py`
+(Bodies в `references/mm6/raw/`, gitignore).
 
 Источники таблиц/карт: `docs/research/MM6_SOURCES.md`.
+
+Slice MapStats (VERIFIED_LOCAL): #15 Нью-Сорпигаль `OutE3.Odm`;
+#16 Дозор гоблинов `D01.Blv`. `OutD1` — Серебряная бухта.

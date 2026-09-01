@@ -4,9 +4,10 @@
   "title": "Goblinwatch slice",
   "mm6_source": {
     "container": "games.lod",
-    "entry": "d01.blv",
+    "entry": "D01.Blv",
     "events": "Icons.lod/D01.EVT",
-    "evidence": "HYPOTHESIS"
+    "mapstats_id": 16,
+    "evidence": "VERIFIED_LOCAL"
   },
   "entities": [
     "mm6.dungeon.goblinwatch",
@@ -15,11 +16,11 @@
     "mm6.travel_link.new_sorpigal.goblinwatch"
   ],
   "beats_hypothesis": [
-    "entrance from New Sorpigal area",
+    "entrance from New Sorpigal outdoor (2DEvents 171)",
     "goblin encounters",
     "NILBOG puzzle",
-    "quest item",
-    "return to town"
+    "vault combination quest item",
+    "return to town hall"
   ],
-  "notes": "d01.blv exists VERIFIED_LOCAL; Goblinwatch mapping pending MapStats."
+  "notes": "MapStats #16 Дозор гоблинов -> D01.Blv. Quest 83 is given by Town Hall, not Andover."
 }

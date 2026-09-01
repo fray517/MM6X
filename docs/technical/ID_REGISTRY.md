@@ -21,13 +21,18 @@ MMX numeric ID не выдаём, пока нет правил collision (M2-002
 
 ## Зарезервировано для slice
 
+Evidence: VERIFIED_LOCAL, кроме NILBOG (EVT ещё не разобран).
+
 | Stable ID | MM6 source | MMX target | Status |
 |---|---|---|---|
-| `mm6.region.new_sorpigal` | `games.lod` / `Outd1.odm` (HYPOTHESIS) | не MMX `Sorpigal` | research |
-| `mm6.dungeon.goblinwatch` | `games.lod` / `d01.blv` (HYPOTHESIS) | TBD | research |
-| `mm6.npc.new_sorpigal.andover` | `Icons.lod` NPC tables | TBD | research |
-| `mm6.quest.new_sorpigal.goblinwatch` | `OUTD1.EVT` / `D01.EVT` / `Quests.txt` | TBD | research |
+| `mm6.region.new_sorpigal` | MapStats #15 `OutE3.Odm` + `OUTE3.EVT` | не MMX `Sorpigal` | mapped |
+| `mm6.dungeon.goblinwatch` | MapStats #16 `D01.Blv` + `D01.EVT` | TBD | mapped |
+| `mm6.location.new_sorpigal.town_hall` | `2DEvents.txt` #89 Ратуша | TBD | mapped |
+| `mm6.npc.new_sorpigal.andover` | `NPCdata.txt` #1 Андовер Портбелло | TBD | mapped |
+| `mm6.quest.new_sorpigal.goblinwatch` | `Quests.txt` #83, giver = Town Hall | TBD | mapped |
 | `mm6.secret.goblinwatch.nilbog` | `D01.EVT` (HYPOTHESIS) | TBD | research |
-| `mm6.travel_link.new_sorpigal.goblinwatch` | Outd1 ↔ d01 | TBD | research |
+| `mm6.travel_link.new_sorpigal.goblinwatch` | `2DEvents.txt` #171 на карте E3 | TBD | mapped |
+
+`OutD1.Odm` — «Серебряная бухта», не Нью-Сорпигаль.
 
 Проверка id: `python tools\validators\validate_mm6_model.py`.

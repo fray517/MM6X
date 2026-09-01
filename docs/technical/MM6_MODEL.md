@@ -50,5 +50,6 @@ MM6 в MMX не масштабируем.
 - Манифесты slice: `references/mm6/*.manifest.json`.
 - ID: `docs/technical/ID_REGISTRY.md`.
 
-Из lod в git не копируем. Экстрактор (позже) пишет в
-`references/mm6/raw/` (gitignore).
+Из lod в git не копируем. Экстрактор пишет в
+`references/mm6/raw/` (gitignore):
+`python tools\extract\extract_mm6_text.py`.

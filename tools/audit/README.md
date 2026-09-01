@@ -12,9 +12,17 @@ python tools\audit\audit_mm6.py --game-path "D:\Games\Might and Magic 6"
 Если в `.env` задан `MMX_GAME_PATH` / `MM6_GAME_PATH`, `--game-path`
 можно не указывать. Шаблон: `env.example`.
 
+Extract текстовых таблиц MM6 (не аудит, игра не меняется):
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_text.py --dry-run
+```
+
 Отчёты (gitignore):
 
 - `reports\mmx_audit.json`, `reports\MMX_AUDIT.md`
 - `reports\mm6_audit.json`, `reports\MM6_AUDIT.md`
+- `reports\mapstats_index.json` (после extract `MapStats.txt`)
 
 SHA-256 только для exe (и ключевых DLL MMX), не для всех ассетов.

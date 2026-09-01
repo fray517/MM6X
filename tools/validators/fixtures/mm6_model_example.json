@@ -7,9 +7,9 @@
       "title": "New Sorpigal",
       "mm6_source": {
         "container": "games.lod",
-        "entry": null,
-        "id": null,
-        "evidence": "HYPOTHESIS"
+        "entry": "OutE3.Odm",
+        "id": 15,
+        "evidence": "VERIFIED_LOCAL"
       },
       "mmx_target": {
         "id": null,
@@ -18,9 +18,10 @@
       "fidelity": "F1",
       "related": [
         "mm6.dungeon.goblinwatch",
-        "mm6.quest.new_sorpigal.goblinwatch"
+        "mm6.quest.new_sorpigal.goblinwatch",
+        "mm6.location.new_sorpigal.town_hall"
       ],
-      "notes": "Starting town. MMX city Sorpigal is a different place."
+      "notes": "MapStats #15. MMX city Sorpigal is a different place. OutD1 is Silver Cove."
     },
     {
       "id": "mm6.dungeon.goblinwatch",
@@ -28,9 +29,9 @@
       "title": "Goblinwatch",
       "mm6_source": {
         "container": "games.lod",
-        "entry": null,
-        "id": null,
-        "evidence": "HYPOTHESIS"
+        "entry": "D01.Blv",
+        "id": 16,
+        "evidence": "VERIFIED_LOCAL"
       },
       "mmx_target": {
         "id": null,
@@ -41,17 +42,38 @@
         "mm6.secret.goblinwatch.nilbog",
         "mm6.travel_link.new_sorpigal.goblinwatch"
       ],
-      "notes": "First dungeon slice. NILBOG puzzle is F0/F1."
+      "notes": "MapStats #16 Дозор гоблинов. NILBOG puzzle is F0/F1."
+    },
+    {
+      "id": "mm6.location.new_sorpigal.town_hall",
+      "kind": "location",
+      "title": "New Sorpigal Town Hall",
+      "mm6_source": {
+        "container": "Icons.lod",
+        "entry": "2DEvents.txt",
+        "id": 89,
+        "evidence": "VERIFIED_LOCAL"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.quest.new_sorpigal.goblinwatch",
+        "mm6.region.new_sorpigal"
+      ],
+      "notes": "Ратуша, clerk Жанис. Gives Goblinwatch combination quest (Quests.txt #83)."
     },
     {
       "id": "mm6.npc.new_sorpigal.andover",
       "kind": "npc",
-      "title": "Andover",
+      "title": "Andover Potbello",
       "mm6_source": {
-        "container": "events.lod",
-        "entry": null,
-        "id": null,
-        "evidence": "HYPOTHESIS"
+        "container": "Icons.lod",
+        "entry": "NPCdata.txt",
+        "id": 1,
+        "evidence": "VERIFIED_LOCAL"
       },
       "mmx_target": {
         "id": null,
@@ -59,19 +81,19 @@
       },
       "fidelity": "F1",
       "related": [
-        "mm6.quest.new_sorpigal.goblinwatch"
+        "mm6.region.new_sorpigal"
       ],
-      "notes": "Quest-giver identity reserved; confirm from local MM6."
+      "notes": "NPCdata #1 Андовер Портбелло. Letter/candelabra, not Goblinwatch. 2D loc 92 is tavern Одинокий рыцарь."
     },
     {
       "id": "mm6.quest.new_sorpigal.goblinwatch",
       "kind": "quest",
-      "title": "Goblinwatch",
+      "title": "Goblinwatch vault combination",
       "mm6_source": {
-        "container": "events.lod",
-        "entry": null,
-        "id": null,
-        "evidence": "HYPOTHESIS"
+        "container": "Icons.lod",
+        "entry": "Quests.txt",
+        "id": 83,
+        "evidence": "VERIFIED_LOCAL"
       },
       "mmx_target": {
         "id": null,
@@ -79,18 +101,18 @@
       },
       "fidelity": "F1",
       "related": [
-        "mm6.npc.new_sorpigal.andover",
+        "mm6.location.new_sorpigal.town_hall",
         "mm6.dungeon.goblinwatch"
       ],
-      "notes": "Stages TBD after MM6 event extract."
+      "notes": "Set by Town Hall. Return to New Sorpigal town hall. EVT stages TBD."
     },
     {
       "id": "mm6.secret.goblinwatch.nilbog",
       "kind": "secret",
       "title": "NILBOG",
       "mm6_source": {
-        "container": null,
-        "entry": null,
+        "container": "Icons.lod",
+        "entry": "D01.EVT",
         "id": null,
         "evidence": "HYPOTHESIS"
       },
@@ -102,17 +124,17 @@
       "related": [
         "mm6.dungeon.goblinwatch"
       ],
-      "notes": "Goblin backwards. Keep as puzzle beat."
+      "notes": "Goblin backwards. Keep as puzzle beat. Confirm in D01.EVT."
     },
     {
       "id": "mm6.travel_link.new_sorpigal.goblinwatch",
       "kind": "travel_link",
       "title": "New Sorpigal to Goblinwatch",
       "mm6_source": {
-        "container": null,
-        "entry": null,
-        "id": null,
-        "evidence": "HYPOTHESIS"
+        "container": "Icons.lod",
+        "entry": "2DEvents.txt",
+        "id": 171,
+        "evidence": "VERIFIED_LOCAL"
       },
       "mmx_target": {
         "id": null,
@@ -123,7 +145,7 @@
         "mm6.region.new_sorpigal",
         "mm6.dungeon.goblinwatch"
       ],
-      "notes": "Route exists; metric distance will shrink on grid."
+      "notes": "2DEvents 171 Dungeon Ent on map E3. Outdoor file OutE3.Odm, indoor D01.Blv."
     }
   ]
 }
