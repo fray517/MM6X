@@ -12,6 +12,7 @@
   "entities": [
     "mm6.region.new_sorpigal",
     "mm6.location.new_sorpigal.town_hall",
+    "mm6.npc.new_sorpigal.janis",
     "mm6.npc.new_sorpigal.andover",
     "mm6.quest.new_sorpigal.goblinwatch",
     "mm6.travel_link.new_sorpigal.goblinwatch"

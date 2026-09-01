@@ -12,6 +12,8 @@ New Sorpigal как карта MMX — с M3, не здесь.
 - Манифесты slice: `references/mm6/*.manifest.json`
   (OutE3 / D01 — VERIFIED_LOCAL)
 - Extract `.txt`: `tools/extract/extract_mm6_text.py`
+- Extract `.EVT`/`.STR`: `tools/extract/extract_mm6_evt.py`
+  (OUTE3, D01, GLOBAL; индекс `reports/evt_slice.json`)
 
 ## Команды
 
@@ -20,7 +22,7 @@ $env:PYTHONIOENCODING = 'utf-8'
 python tools\validators\validate_mm6_model.py
 python tools\audit\audit_mm6.py
 python tools\extract\extract_mm6_text.py --dry-run
-python tools\extract\extract_mm6_text.py
+python tools\extract\extract_mm6_evt.py --dry-run
 ```
 
 (`MM6_GAME_PATH` в `.env`; агент Cursor `.env` не видит — тогда
@@ -31,5 +33,6 @@ python tools\extract\extract_mm6_text.py
 
 ## Дальше
 
-Разбор `OUTE3.EVT` / `D01.EVT` (NILBOG, stages).  
-Normalized JSON slice сверх fixture — по мере M2.
+Где в D01 появляется кодекс #543 (сундук BLV, не EVT).  
+Порядок плит НИЛБОГ — пока HYPOTHESIS.
+Normalized JSON сверх fixture — M2.

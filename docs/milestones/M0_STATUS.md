@@ -10,4 +10,5 @@ GOG MM6 найден. Аудит: `docs/research/MM6_AUDIT.md`.
 New Sorpigal = MapStats #15 `OutE3.Odm` + `OUTE3.EVT`.
 Goblinwatch = MapStats #16 `D01.Blv` + `D01.EVT`.
 `OutD1` — Серебряная бухта, не стартовый город.
+Квест #83: Жанис / `GLOBAL.EVT` e3–e4.
 VERIFIED_LOCAL.

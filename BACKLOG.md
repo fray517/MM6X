@@ -72,6 +72,7 @@
 - [x] M1-009 New Sorpigal manifest
 - [x] M1-010 Goblinwatch manifest
 - [x] M1-011 Extract allowlisted Icons.lod .txt
+- [x] M1-012 Decode slice EVT/STR (OUTE3, D01, GLOBAL)
 
 ## M2 — Conversion Framework
 - [ ] M2-001 ID registry

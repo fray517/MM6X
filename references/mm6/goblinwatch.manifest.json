@@ -16,11 +16,10 @@
     "mm6.travel_link.new_sorpigal.goblinwatch"
   ],
   "beats_hypothesis": [
-    "entrance from New Sorpigal outdoor (2DEvents 171)",
-    "goblin encounters",
-    "NILBOG puzzle",
-    "vault combination quest item",
-    "return to town hall"
+    "OUTE3 e101 house 171 -> D01.blv",
+    "letter plates А-П (D01 e19-34)",
+    "return D01 e51 -> OutE3.Odm",
+    "turn in codex 543 to Janis"
   ],
-  "notes": "MapStats #16 Дозор гоблинов -> D01.Blv. Quest 83 is given by Town Hall, not Andover."
+  "notes": "Quest 83: GLOBAL e3/e4, NPC 291 Жанис. Key 489 on accept. Codex 543 to turn in. Letter plates are not typed NILBOG."
 }

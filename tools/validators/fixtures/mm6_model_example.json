@@ -42,7 +42,7 @@
         "mm6.secret.goblinwatch.nilbog",
         "mm6.travel_link.new_sorpigal.goblinwatch"
       ],
-      "notes": "MapStats #16 Дозор гоблинов. NILBOG puzzle is F0/F1."
+      "notes": "MapStats #16. Exit event 51 MoveToMap OutE3.Odm."
     },
     {
       "id": "mm6.location.new_sorpigal.town_hall",
@@ -60,10 +60,32 @@
       },
       "fidelity": "F1",
       "related": [
+        "mm6.npc.new_sorpigal.janis",
         "mm6.quest.new_sorpigal.goblinwatch",
         "mm6.region.new_sorpigal"
       ],
-      "notes": "Ратуша, clerk Жанис. Gives Goblinwatch combination quest (Quests.txt #83)."
+      "notes": "OUTE3.EVT event 28 SpeakInHouse 89."
+    },
+    {
+      "id": "mm6.npc.new_sorpigal.janis",
+      "kind": "npc",
+      "title": "Janis",
+      "mm6_source": {
+        "container": "Icons.lod",
+        "entry": "NPCdata.txt",
+        "id": 291,
+        "evidence": "VERIFIED_LOCAL"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.location.new_sorpigal.town_hall",
+        "mm6.quest.new_sorpigal.goblinwatch"
+      ],
+      "notes": "Жанис, 2D loc 89, Event A=3. Goblinwatch and Temple of Baa."
     },
     {
       "id": "mm6.npc.new_sorpigal.andover",
@@ -83,7 +105,7 @@
       "related": [
         "mm6.region.new_sorpigal"
       ],
-      "notes": "NPCdata #1 Андовер Портбелло. Letter/candelabra, not Goblinwatch. 2D loc 92 is tavern Одинокий рыцарь."
+      "notes": "GLOBAL.EVT e1: item 505 letter, QBit 81->82. Not Goblinwatch."
     },
     {
       "id": "mm6.quest.new_sorpigal.goblinwatch",
@@ -101,20 +123,109 @@
       },
       "fidelity": "F1",
       "related": [
+        "mm6.npc.new_sorpigal.janis",
         "mm6.location.new_sorpigal.town_hall",
-        "mm6.dungeon.goblinwatch"
+        "mm6.dungeon.goblinwatch",
+        "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+        "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
+        "mm6.item.goblinwatch.key",
+        "mm6.item.goblinwatch.codex"
       ],
-      "notes": "Set by Town Hall. Return to New Sorpigal town hall. EVT stages TBD."
+      "notes": "QBit 83. Accept gives key 489; turn-in needs codex 543."
+    },
+    {
+      "id": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+      "kind": "quest_stage",
+      "title": "Accept Goblinwatch from Janis",
+      "mm6_source": {
+        "container": "Icons.lod",
+        "entry": "GLOBAL.EVT",
+        "id": 3,
+        "evidence": "VERIFIED_LOCAL"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.quest.new_sorpigal.goblinwatch",
+        "mm6.npc.new_sorpigal.janis",
+        "mm6.item.goblinwatch.key"
+      ],
+      "notes": "Set QBit 83, Add item 489, SetNPCTopic 291 -> event 4."
+    },
+    {
+      "id": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
+      "kind": "quest_stage",
+      "title": "Return Goblinwatch codex",
+      "mm6_source": {
+        "container": "Icons.lod",
+        "entry": "GLOBAL.EVT",
+        "id": 4,
+        "evidence": "VERIFIED_LOCAL"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.quest.new_sorpigal.goblinwatch",
+        "mm6.npc.new_sorpigal.janis",
+        "mm6.item.goblinwatch.codex"
+      ],
+      "notes": "Need item 543. Award 53, Exp 2000, Gold 2000, Sub QBit 83."
+    },
+    {
+      "id": "mm6.item.goblinwatch.key",
+      "kind": "item",
+      "title": "Goblinwatch key",
+      "mm6_source": {
+        "container": "Icons.lod",
+        "entry": "ITEMS.TXT",
+        "id": 489,
+        "evidence": "VERIFIED_LOCAL"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.quest.new_sorpigal.goblinwatch"
+      ],
+      "notes": "Ключ от Дозора гоблинов. Given on accept (GLOBAL e3)."
+    },
+    {
+      "id": "mm6.item.goblinwatch.codex",
+      "kind": "item",
+      "title": "Goblinwatch codex",
+      "mm6_source": {
+        "container": "Icons.lod",
+        "entry": "ITEMS.TXT",
+        "id": 543,
+        "evidence": "VERIFIED_LOCAL"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.quest.new_sorpigal.goblinwatch"
+      ],
+      "notes": "Кодекс Дозора гоблинов. Turn-in item. Chest spawn not in D01.EVT."
     },
     {
       "id": "mm6.secret.goblinwatch.nilbog",
       "kind": "secret",
-      "title": "NILBOG",
+      "title": "NILBOG letter plates",
       "mm6_source": {
         "container": "Icons.lod",
         "entry": "D01.EVT",
-        "id": null,
-        "evidence": "HYPOTHESIS"
+        "id": 20,
+        "evidence": "VERIFIED_LOCAL"
       },
       "mmx_target": {
         "id": null,
@@ -124,7 +235,7 @@
       "related": [
         "mm6.dungeon.goblinwatch"
       ],
-      "notes": "Goblin backwards. Keep as puzzle beat. Confirm in D01.EVT."
+      "notes": "Events 19-34, letters А-П. Not InputString. П resets. Word НИЛБОГ is HYPOTHESIS."
     },
     {
       "id": "mm6.travel_link.new_sorpigal.goblinwatch",
@@ -132,8 +243,8 @@
       "title": "New Sorpigal to Goblinwatch",
       "mm6_source": {
         "container": "Icons.lod",
-        "entry": "2DEvents.txt",
-        "id": 171,
+        "entry": "OUTE3.EVT",
+        "id": 101,
         "evidence": "VERIFIED_LOCAL"
       },
       "mmx_target": {
@@ -145,7 +256,7 @@
         "mm6.region.new_sorpigal",
         "mm6.dungeon.goblinwatch"
       ],
-      "notes": "2DEvents 171 Dungeon Ent on map E3. Outdoor file OutE3.Odm, indoor D01.Blv."
+      "notes": "OUTE3 event 101: house 171, MoveToMap D01.blv. Return D01 event 51."
     }
   ]
 }

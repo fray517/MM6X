@@ -33,10 +33,23 @@ Slice (не дамп таблицы):
 
 Slice:
 
-- Quest #81 — письмо Сулмана Андоверу в Нью-Сорпигале.
-- Quest #83 — код двери Дозора гоблинов; **Set by Town Hall**,
-  возврат в ратушу. Не квест Андовера.
-- Quest #126 — канделябр для Андовера.
+- Quest #81 — письмо Сулмана Андоверу (`GLOBAL.EVT` e1, NPC #1,
+  item 505, QBit 81→82).
+- Quest #83 — Дозор гоблинов: **Жанис** NPC #291, ратуша.
+  Accept `GLOBAL.EVT` e3: QBit 83, item **489** ключ.
+  Turn-in `GLOBAL.EVT` e4: item **543** кодекс, Award 53,
+  Exp 2000, Gold 2000, снять QBit 83.
+- Quest #126 — канделябр для Андовера (`GLOBAL.EVT` e296).
+
+EVT slice (не копировать bytecode в git):
+
+- `OUTE3.EVT` e28 house 89 ратуша; e101 house 171 → `D01.blv`.
+- `D01.EVT` e51 выход → `OutE3.Odm`.
+- `D01.EVT` e19–34: плиты букв А–П (не `InputString`).
+  П (e34) сбрасывает vars 105–117 и двери.
+  Слово НИЛБОГ — HYPOTHESIS (буквы Н,И,Л,Б,О,Г есть).
+- Декодер: `python tools\extract\extract_mm6_evt.py`.
+  MM6 Compare/Set: `u8 var + u32 value` (не MM7 u16).
 
 ## Items (M1-006)
 

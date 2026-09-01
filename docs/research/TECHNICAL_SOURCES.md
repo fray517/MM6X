@@ -9,7 +9,9 @@ MIT, rewritten Managed DLLs, last push 2017. **Не** hard dependency
 
 MM6 lod layout (extract): OpenEnroth `LodReader` /
 `LodFormats` (LodEntry_MM6, LodImageHeader_MM6 text flag 0x100).
-VERIFIED_SOURCE; тела lod в git не копировать.
+EVT: OpenEnroth `EvtProgram::load` (length + eventId + step + opcode);
+эта GOG MM6 — `u8 var + u32 value` для Compare/Set. VERIFIED_LOCAL.
+VERIFIED_SOURCE для layout; тела lod в git не копировать.
 
 Важно: внешняя документация не заменяет аудит локальной версии.
 Exact schemas/versions должны получить статус VERIFIED_LOCAL.

@@ -53,3 +53,4 @@ MM6 в MMX не масштабируем.
 Из lod в git не копируем. Экстрактор пишет в
 `references/mm6/raw/` (gitignore):
 `python tools\extract\extract_mm6_text.py`.
+EVT/STR: `python tools\extract\extract_mm6_evt.py`.
