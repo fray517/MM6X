@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "entities": [
+    {
+      "id": "mm6.region.new_sorpigal",
+      "kind": "region",
+      "title": "New Sorpigal",
+      "mm6_source": {
+        "container": "games.lod",
+        "entry": null,
+        "id": null,
+        "evidence": "HYPOTHESIS"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.dungeon.goblinwatch",
+        "mm6.quest.new_sorpigal.goblinwatch"
+      ],
+      "notes": "Starting town. MMX city Sorpigal is a different place."
+    },
+    {
+      "id": "mm6.dungeon.goblinwatch",
+      "kind": "dungeon",
+      "title": "Goblinwatch",
+      "mm6_source": {
+        "container": "games.lod",
+        "entry": null,
+        "id": null,
+        "evidence": "HYPOTHESIS"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.secret.goblinwatch.nilbog",
+        "mm6.travel_link.new_sorpigal.goblinwatch"
+      ],
+      "notes": "First dungeon slice. NILBOG puzzle is F0/F1."
+    },
+    {
+      "id": "mm6.npc.new_sorpigal.andover",
+      "kind": "npc",
+      "title": "Andover",
+      "mm6_source": {
+        "container": "events.lod",
+        "entry": null,
+        "id": null,
+        "evidence": "HYPOTHESIS"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.quest.new_sorpigal.goblinwatch"
+      ],
+      "notes": "Quest-giver identity reserved; confirm from local MM6."
+    },
+    {
+      "id": "mm6.quest.new_sorpigal.goblinwatch",
+      "kind": "quest",
+      "title": "Goblinwatch",
+      "mm6_source": {
+        "container": "events.lod",
+        "entry": null,
+        "id": null,
+        "evidence": "HYPOTHESIS"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.npc.new_sorpigal.andover",
+        "mm6.dungeon.goblinwatch"
+      ],
+      "notes": "Stages TBD after MM6 event extract."
+    },
+    {
+      "id": "mm6.secret.goblinwatch.nilbog",
+      "kind": "secret",
+      "title": "NILBOG",
+      "mm6_source": {
+        "container": null,
+        "entry": null,
+        "id": null,
+        "evidence": "HYPOTHESIS"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.dungeon.goblinwatch"
+      ],
+      "notes": "Goblin backwards. Keep as puzzle beat."
+    },
+    {
+      "id": "mm6.travel_link.new_sorpigal.goblinwatch",
+      "kind": "travel_link",
+      "title": "New Sorpigal to Goblinwatch",
+      "mm6_source": {
+        "container": null,
+        "entry": null,
+        "id": null,
+        "evidence": "HYPOTHESIS"
+      },
+      "mmx_target": {
+        "id": null,
+        "status": "unassigned"
+      },
+      "fidelity": "F1",
+      "related": [
+        "mm6.region.new_sorpigal",
+        "mm6.dungeon.goblinwatch"
+      ],
+      "notes": "Route exists; metric distance will shrink on grid."
+    }
+  ]
+}

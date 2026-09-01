@@ -61,16 +61,16 @@
 - [x] M0-076 Procedure reproducible from docs
 
 ## M1 — MM6 Source Model
-- [ ] M1-001 Define normalized schema
-- [ ] M1-002 Stable IDs
-- [ ] M1-003 MM6 installation audit
-- [ ] M1-004 NPC sources
-- [ ] M1-005 Quest sources
-- [ ] M1-006 Item sources
-- [ ] M1-007 Monster sources
-- [ ] M1-008 Map/topology sources
-- [ ] M1-009 New Sorpigal manifest
-- [ ] M1-010 Goblinwatch manifest
+- [x] M1-001 Define normalized schema
+- [x] M1-002 Stable IDs
+- [x] M1-003 MM6 installation audit
+- [x] M1-004 NPC sources
+- [x] M1-005 Quest sources
+- [x] M1-006 Item sources
+- [x] M1-007 Monster sources
+- [x] M1-008 Map/topology sources
+- [>] M1-009 New Sorpigal manifest
+- [>] M1-010 Goblinwatch manifest
 
 ## M2 — Conversion Framework
 - [ ] M2-001 ID registry

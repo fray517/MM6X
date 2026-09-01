@@ -1,2 +1,7 @@
 # Validators
-Future: schemas, stable IDs, MMX ID collisions, localisation/dialogue/quest references.
+Normalized MM6 JSON: schema_version, stable id, kind, mapping.
+
+```powershell
+python tools\validators\validate_mm6_model.py
+python tools\validators\validate_mm6_model.py path\to\model.json
+```

@@ -14,3 +14,6 @@ Thumbs.db
 dist/
 build/
 staging/
+might_and_magic_vi_202209/
+*.iso
+

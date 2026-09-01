@@ -24,4 +24,5 @@ Grid movement, turn-based encounter flow, UI, party presentation, inventory/dial
 Default: F0/F1.
 
 ## Первый production slice
-New Sorpigal + Goblinwatch, но только после M0.
+New Sorpigal + Goblinwatch, после закрытого M0. Сначала M1-модель
+источников, дизайн карты — M3.

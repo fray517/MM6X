@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal",
+  "title": "New Sorpigal slice",
+  "mm6_source": {
+    "container": "games.lod",
+    "entry": "Outd1.odm",
+    "events": "Icons.lod/OUTD1.EVT",
+    "evidence": "HYPOTHESIS"
+  },
+  "entities": [
+    "mm6.region.new_sorpigal",
+    "mm6.npc.new_sorpigal.andover",
+    "mm6.quest.new_sorpigal.goblinwatch",
+    "mm6.travel_link.new_sorpigal.goblinwatch"
+  ],
+  "landmarks_hypothesis": [
+    "town hall",
+    "docks",
+    "temple",
+    "inn",
+    "shops",
+    "training",
+    "Goblinwatch approach"
+  ],
+  "notes": "Outd1.odm exists VERIFIED_LOCAL; name mapping pending MapStats."
+}

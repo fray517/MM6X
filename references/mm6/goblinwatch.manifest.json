@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "mm6.dungeon.goblinwatch",
+  "title": "Goblinwatch slice",
+  "mm6_source": {
+    "container": "games.lod",
+    "entry": "d01.blv",
+    "events": "Icons.lod/D01.EVT",
+    "evidence": "HYPOTHESIS"
+  },
+  "entities": [
+    "mm6.dungeon.goblinwatch",
+    "mm6.secret.goblinwatch.nilbog",
+    "mm6.quest.new_sorpigal.goblinwatch",
+    "mm6.travel_link.new_sorpigal.goblinwatch"
+  ],
+  "beats_hypothesis": [
+    "entrance from New Sorpigal area",
+    "goblin encounters",
+    "NILBOG puzzle",
+    "quest item",
+    "return to town"
+  ],
+  "notes": "d01.blv exists VERIFIED_LOCAL; Goblinwatch mapping pending MapStats."
+}
