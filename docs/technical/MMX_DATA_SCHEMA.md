@@ -107,15 +107,16 @@ Localization
 NPC
  ├── StaticID              int, уникальный
  ├── NameKey               loca NPC_NAME_*
+ ├── HirelingProfession    пусто у большинства; иначе HIRELING_*
+ ├── (unnamed col)         ярлык, не ключ данных
  ├── PortraitKey           PIC_unique_* / PIC_generic_*
  ├── ConversationKey       имя Dialog-файла без .xml
- ├── MinimapSymbol         NORMAL | HOUSE | SHRINE | INN | SMITH
  ├── TravelStationID       в vanilla всегда 0
- ├── HirelingProfession    пусто у большинства; иначе HIRELING_*
  ├── NpcEffects            эффекты наёмника (см. ниже)
  ├── HirePrice / HireShare
  ├── CanBeFired            TRUE/FALSE
- └── AllowItemSell         TRUE/FALSE
+ ├── AllowItemSell         TRUE/FALSE
+ └── MinimapSymbol         NORMAL | HOUSE | SHRINE | INN | SMITH
 ```
 
 `ConversationKey` совпадает с файлом: `LordHaartDialog` → `Dialog/LordHaartDialog.xml`.

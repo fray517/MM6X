@@ -1,7 +1,7 @@
-"""Safe backup/restore and one-entry Russian localisation test.
+"""Safe backup/restore for M0 loca, StaticData and Dialog proofs.
 
-The only game file this tool may write is ru/loca.xml, and only after
---yes-i-understand. Backups live in the MM6X repo, not in the install.
+Writes a game file only after --yes-i-understand, and only the file of
+the active subcommand. Backups live in the MM6X repo, not the install.
 """
 
 from __future__ import annotations
@@ -53,6 +53,32 @@ SD_COMMANDS = {
     "prepare-staticdata-test",
     "apply-staticdata-test",
     "restore-staticdata-test",
+}
+DEFAULT_DL_BACKUP_DIR = (
+    REPO_ROOT / "backups" / "mmx" / "dialog-johara"
+)
+DL_REL_PARTS = (
+    "StreamingAssets",
+    "Dialog",
+    "JoharaDialog.xml",
+)
+DL_COPY_NAME = "JoharaDialog.xml"
+DL_NEEDLE_ORIGINAL = (
+    '<dialog id="1" randomText="false" fakeNpcID="0">\n'
+    '\t\t<text locaKey="DIALOG_TEXT_JOHARA_1" />'
+)
+DL_NEEDLE_PATCHED = (
+    '<dialog id="1" randomText="false" fakeNpcID="0">\n'
+    '\t\t<text locaKey="DIALOG_TEXT_JOHARA_5" />'
+)
+DL_ORIGINAL_KEY = "DIALOG_TEXT_JOHARA_1"
+DL_TEST_KEY = "DIALOG_TEXT_JOHARA_5"
+DL_COMMANDS = {
+    "backup-dialog",
+    "status-dialog",
+    "prepare-dialog-test",
+    "apply-dialog-test",
+    "restore-dialog-test",
 }
 
 
@@ -179,6 +205,19 @@ def resolve_staticdata(game_path: Path) -> Path:
 
 def assert_allowed_staticdata(game_path: Path, target: Path) -> None:
     assert_allowed(game_path, target, SD_REL_PARTS, "Potions.csv")
+
+
+def resolve_dialog(game_path: Path) -> Path:
+    return resolve_rel(game_path, DL_REL_PARTS)
+
+
+def assert_allowed_dialog(game_path: Path, target: Path) -> None:
+    assert_allowed(
+        game_path,
+        target,
+        DL_REL_PARTS,
+        "Dialog/JoharaDialog.xml",
+    )
 
 
 def read_text_preserve(path: Path) -> tuple[str, bool]:
@@ -515,11 +554,12 @@ def cmd_restore(
         "success": ok,
     }
     write_json(backup_dir / "restore.json", op)
-    report_name = (
-        "staticdata_restore.json"
-        if copy_name == SD_COPY_NAME
-        else "loca_restore.json"
-    )
+    if copy_name == SD_COPY_NAME:
+        report_name = "staticdata_restore.json"
+    elif copy_name == DL_COPY_NAME:
+        report_name = "dialog_restore.json"
+    else:
+        report_name = "loca_restore.json"
     write_json(REPORTS_DIR / report_name, op)
     if ok:
         print("RESTORE ok")
@@ -699,11 +739,195 @@ def cmd_sd_apply(
     return 0
 
 
+def dl_key_state(text: str) -> str:
+    has_orig = text.count(DL_NEEDLE_ORIGINAL)
+    has_test = text.count(DL_NEEDLE_PATCHED)
+    if has_orig == 1 and has_test == 0:
+        return "ORIGINAL"
+    if has_orig == 0 and has_test == 1:
+        return "TEST_PATCHED"
+    return "UNKNOWN"
+
+
+def cmd_dl_status(dialog_path: Path, backup_dir: Path) -> int:
+    current_sha = sha256_file(dialog_path)
+    text, _ = read_text_preserve(dialog_path)
+    copy_path, manifest_path = backup_paths(backup_dir, DL_COPY_NAME)
+    backup_sha = None
+    if copy_path.is_file():
+        backup_sha = sha256_file(copy_path)
+    elif manifest_path.is_file():
+        manifest = load_manifest(manifest_path) or {}
+        backup_sha = manifest.get("sha256")
+    needle_state = dl_key_state(text)
+    if backup_sha is None:
+        state = (
+            "TEST_PATCHED"
+            if needle_state == "TEST_PATCHED"
+            else "NO_BACKUP"
+        )
+    elif current_sha == backup_sha:
+        state = "ORIGINAL"
+    else:
+        state = (
+            needle_state if needle_state != "ORIGINAL" else "UNKNOWN"
+        )
+    loca_key = (
+        DL_TEST_KEY if needle_state == "TEST_PATCHED"
+        else DL_ORIGINAL_KEY if needle_state == "ORIGINAL"
+        else "?"
+    )
+    payload = {
+        "target": str(dialog_path),
+        "file": DL_COPY_NAME,
+        "field": "dialog id=1 text locaKey",
+        "current_sha256": current_sha,
+        "original_backup_sha256": backup_sha,
+        "state": state,
+        "current_loca_key": loca_key,
+    }
+    print(f"target: {dialog_path}")
+    print("field: JoharaDialog.xml dialog id=1 locaKey")
+    print(f"current SHA-256: {current_sha}")
+    print(f"backup SHA-256: {backup_sha or '—'}")
+    print(f"state: {state}")
+    print(f"locaKey: {loca_key}")
+    write_json(REPORTS_DIR / "dialog_status.json", payload)
+    return 0
+
+
+def cmd_dl_prepare(
+    game_path: Path,
+    dialog_path: Path,
+    backup_dir: Path,
+) -> int:
+    text, has_bom = read_text_preserve(dialog_path)
+    current_sha = sha256_file(dialog_path)
+    copy_path, _ = backup_paths(backup_dir, DL_COPY_NAME)
+    backup_sha = (
+        sha256_file(copy_path) if copy_path.is_file() else None
+    )
+    payload = {
+        "dry_run": True,
+        "modified_game": False,
+        "file": DL_COPY_NAME,
+        "field": "dialog id=1 text locaKey",
+        "original_value": DL_ORIGINAL_KEY,
+        "proposed_value": DL_TEST_KEY,
+        "source_game_path": str(game_path.resolve()),
+        "target": str(dialog_path),
+        "backup_dir": str(backup_dir),
+        "backup_present": copy_path.is_file(),
+        "has_utf8_bom": has_bom,
+        "current_sha256": current_sha,
+        "backup_sha256": backup_sha,
+        "verify_in_game": (
+            "Sorpigal, Johara. Первая реплика должна быть "
+            "DIALOG_TEXT_JOHARA_5 (тренировка), не приветствие."
+        ),
+        "needle_state": dl_key_state(text),
+    }
+    print("PREPARE Dialog (игра не изменяется)")
+    print(f"  file: {DL_COPY_NAME}")
+    print("  field: dialog id=1 locaKey")
+    print(f"  original: {DL_ORIGINAL_KEY}")
+    print(f"  proposed: {DL_TEST_KEY}")
+    print(f"  target: {dialog_path}")
+    print(f"  backup: {backup_dir}")
+    print(f"  current SHA-256: {current_sha}")
+    print(f"  backup SHA-256: {backup_sha or 'нет backup'}")
+    write_json(REPORTS_DIR / "dialog_prepare.json", payload)
+    print(f"  report: {REPORTS_DIR / 'dialog_prepare.json'}")
+    return 0
+
+
+def cmd_dl_apply(
+    dialog_path: Path,
+    backup_dir: Path,
+    understand: bool,
+) -> int:
+    if not understand:
+        print(
+            "Отказ: нет --yes-i-understand. Файл игры не изменён.",
+            file=sys.stderr,
+        )
+        return 2
+    copy_path, manifest_path = backup_paths(backup_dir, DL_COPY_NAME)
+    if not copy_path.is_file() or not manifest_path.is_file():
+        print("Сначала выполните backup-dialog.", file=sys.stderr)
+        return 2
+    original_bytes = copy_path.read_bytes()
+    backup_sha = sha256_bytes(original_bytes)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("sha256") != backup_sha:
+        print("Manifest backup не совпадает с копией.", file=sys.stderr)
+        return 1
+    current_sha = sha256_file(dialog_path)
+    if current_sha != backup_sha:
+        print(
+            "Текущий JoharaDialog.xml не совпадает с backup. "
+            "Патч отказан.\n"
+            f"  current: {current_sha}\n"
+            f"  backup:  {backup_sha}",
+            file=sys.stderr,
+        )
+        return 2
+    text, has_bom = read_text_preserve(dialog_path)
+    if text.count(DL_NEEDLE_ORIGINAL) != 1:
+        print(
+            "Ожидалась ровно одна исходная реплика Johara.",
+            file=sys.stderr,
+        )
+        return 1
+    patched = text.replace(DL_NEEDLE_ORIGINAL, DL_NEEDLE_PATCHED, 1)
+    if dl_key_state(patched) != "TEST_PATCHED":
+        print("Патч locaKey не применился. Отказ.", file=sys.stderr)
+        return 1
+    if patched.count("\n") != text.count("\n"):
+        print("Число строк XML изменилось. Отказ.", file=sys.stderr)
+        return 1
+    out_bytes = encode_text(patched, has_bom)
+    try:
+        dialog_path.write_bytes(out_bytes)
+    except PermissionError:
+        print(
+            "Нет прав записи в Program Files. "
+            "Запустите PowerShell от имени администратора.",
+            file=sys.stderr,
+        )
+        return 1
+    new_sha = sha256_file(dialog_path)
+    op = {
+        "schema_version": 1,
+        "operation": "apply-dialog-test",
+        "created_utc": utc_now(),
+        "file": DL_COPY_NAME,
+        "field": "dialog id=1 text locaKey",
+        "original_value": DL_ORIGINAL_KEY,
+        "new_value": DL_TEST_KEY,
+        "before_sha256": current_sha,
+        "after_sha256": new_sha,
+        "target_relative": Path(
+            DATA_DIR_NAME, *DL_REL_PARTS
+        ).as_posix(),
+        "backup_sha256": backup_sha,
+    }
+    write_json(backup_dir / "apply.json", op)
+    write_json(REPORTS_DIR / "dialog_apply.json", op)
+    print("APPLY ok")
+    print(
+        f"  field: dialog id=1 {DL_ORIGINAL_KEY} → {DL_TEST_KEY}"
+    )
+    print(f"  new SHA-256: {new_sha}")
+    print(f"  manifest: {backup_dir / 'apply.json'}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="mmx_mod.py",
         description=(
-            "Backup/restore for localisation and StaticData tests. "
+            "Backup/restore for loca, StaticData and Dialog tests. "
             "Writes game files only with --yes-i-understand."
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -797,6 +1021,43 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Разрешить запись в Potions.csv.",
     )
+    p_dl_backup = sub.add_parser(
+        "backup-dialog",
+        help="Скопировать JoharaDialog.xml в backups/.",
+    )
+    p_dl_backup.add_argument(
+        "--force",
+        action="store_true",
+        help="Прежний backup уходит в архив, затем пишется новый.",
+    )
+    sub.add_parser(
+        "status-dialog",
+        help="ORIGINAL / TEST_PATCHED / UNKNOWN для Johara.",
+    )
+    sub.add_parser(
+        "prepare-dialog-test",
+        help="Показать правку locaKey Johara, не менять игру.",
+    )
+    p_dl_apply = sub.add_parser(
+        "apply-dialog-test",
+        help="Johara greeting locaKey. Нужен --yes-i-understand.",
+    )
+    p_dl_apply.add_argument(
+        "--yes-i-understand",
+        dest="yes_i_understand",
+        action="store_true",
+        help="Разрешить запись в JoharaDialog.xml.",
+    )
+    p_dl_restore = sub.add_parser(
+        "restore-dialog-test",
+        help="Вернуть точные байты backup JoharaDialog.xml.",
+    )
+    p_dl_restore.add_argument(
+        "--yes-i-understand",
+        dest="yes_i_understand",
+        action="store_true",
+        help="Разрешить запись в JoharaDialog.xml.",
+    )
     return parser
 
 
@@ -820,6 +1081,8 @@ def main(argv: list[str] | None = None) -> int:
         backup_dir = args.backup_dir
     elif command in SD_COMMANDS:
         backup_dir = DEFAULT_SD_BACKUP_DIR
+    elif command in DL_COMMANDS:
+        backup_dir = DEFAULT_DL_BACKUP_DIR
     else:
         backup_dir = DEFAULT_BACKUP_DIR
     if not backup_dir.is_absolute():
@@ -830,6 +1093,9 @@ def main(argv: list[str] | None = None) -> int:
         if command in SD_COMMANDS:
             target = resolve_staticdata(game_path)
             assert_allowed_staticdata(game_path, target)
+        elif command in DL_COMMANDS:
+            target = resolve_dialog(game_path)
+            assert_allowed_dialog(game_path, target)
         else:
             target = resolve_loca(game_path)
             assert_allowed_loca(game_path, target)
@@ -838,6 +1104,7 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     loca_rel = Path(DATA_DIR_NAME, *LOCA_REL_PARTS).as_posix()
     sd_rel = Path(DATA_DIR_NAME, *SD_REL_PARTS).as_posix()
+    dl_rel = Path(DATA_DIR_NAME, *DL_REL_PARTS).as_posix()
     if command == "backup":
         return cmd_backup(
             target,
@@ -872,6 +1139,28 @@ def main(argv: list[str] | None = None) -> int:
         return cmd_sd_apply(target, backup_dir, understand)
     if command == "restore-staticdata-test":
         return cmd_restore(target, backup_dir, understand, SD_COPY_NAME)
+    if command == "backup-dialog":
+        return cmd_backup(
+            target,
+            backup_dir,
+            force,
+            DL_COPY_NAME,
+            dl_rel,
+            {
+                "field": "dialog id=1 locaKey",
+                "original": DL_ORIGINAL_KEY,
+            },
+        )
+    if command == "status-dialog":
+        return cmd_dl_status(target, backup_dir)
+    if command == "prepare-dialog-test":
+        return cmd_dl_prepare(game_path, target, backup_dir)
+    if command == "apply-dialog-test":
+        return cmd_dl_apply(target, backup_dir, understand)
+    if command == "restore-dialog-test":
+        return cmd_restore(
+            target, backup_dir, understand, DL_COPY_NAME
+        )
     print(f"Неизвестная команда: {command}", file=sys.stderr)
     return 2
 

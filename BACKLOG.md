@@ -33,10 +33,10 @@
 - [x] M0-035 Document delimiter/encoding/schema
 ### Dialog
 - [x] M0-040 Inspect Dialog schema
-- [ ] M0-041 Select test dialogue
-- [ ] M0-042 Modify/inject one entry
-- [ ] M0-043 Verify
-- [ ] M0-044 Restore
+- [x] M0-041 Select test dialogue
+- [x] M0-042 Modify/inject one entry
+- [x] M0-043 Verify
+- [x] M0-044 Restore
 - [x] M0-045 Document conditions/actions/IDs
 ### Maps
 - [x] M0-050 Identify map/modding workflow
@@ -55,7 +55,7 @@
 - [ ] M0-070 Known-clean state
 - [x] M0-071 Localisation reproducible
 - [x] M0-072 StaticData reproducible
-- [ ] M0-073 Dialog reproducible
+- [x] M0-073 Dialog reproducible
 - [ ] M0-074 Map modification reproducible
 - [ ] M0-075 Restore reproducible
 - [ ] M0-076 Procedure reproducible from docs

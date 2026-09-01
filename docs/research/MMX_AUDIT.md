@@ -71,6 +71,8 @@ Evidence: VERIFIED_LOCAL
 ## Dialog
 - `StreamingAssets/Dialog/*.xml`, 268 файлов.
 - Имена вида `*Dialog.xml` (NPC). Есть `TestConversation.xml`.
+- Johara: `JoharaDialog.xml` (1931 bytes, UTF-8 без BOM, LF).
+  `ConversationKey=JoharaDialog`, NPC StaticID=2. VERIFIED_LOCAL.
 - Evidence: VERIFIED_LOCAL
 
 ## Localisation
@@ -88,6 +90,10 @@ Evidence: VERIFIED_LOCAL
 - StaticData M0 test: `Potions.csv` StaticID=1 `Price` 45 → 9999
   (Johara в Sorpigal). In-game: цена 9999. VERIFIED_LOCAL.
   Restore: `ORIGINAL` (`f919fa74…c88372`).
+- Dialog M0 test: `JoharaDialog.xml` `dialog id=1` locaKey
+  `DIALOG_TEXT_JOHARA_1` → `DIALOG_TEXT_JOHARA_5`.
+  In-game: Johara говорит про знатока магии и Люс. VERIFIED_LOCAL.
+  Restore: `ORIGINAL` (`23bbb1a3…720dab`).
 
 ## Managed
 22 DLL. Evidence: VERIFIED_LOCAL
