@@ -1,0 +1,12 @@
+---
+description: MM6X project rules
+alwaysApply: true
+---
+- MM6 = narrative/content source of truth.
+- MMX = runtime/mechanics foundation.
+- No Unreal Engine.
+- Prefer data/config before C# patches.
+- Preserve topology; adapt distances.
+- Never redistribute proprietary assets.
+- Inspect real installed files before assuming schemas.
+- Never overwrite originals without rollback.

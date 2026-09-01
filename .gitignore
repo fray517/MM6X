@@ -1,0 +1,16 @@
+local/
+backups/
+reports/
+references/mm6/raw/
+references/mmx/raw/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+dist/
+build/
+staging/

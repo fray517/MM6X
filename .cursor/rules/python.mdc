@@ -1,0 +1,8 @@
+---
+description: Python tooling
+globs: tools/**/*.py
+alwaysApply: false
+---
+Python 3.11+, pathlib, argparse, type hints, no user-specific paths.
+Destructive operations require explicit flags and should support --dry-run.
+Prefer JSON machine-readable reports.

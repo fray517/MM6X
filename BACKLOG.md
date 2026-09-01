@@ -1,0 +1,121 @@
+# MM6X Backlog
+
+`[ ] Todo  [>] In progress  [x] Done  [!] Blocked`
+
+## M0 — Prove MMX Modding Pipeline
+### Audit
+- [x] M0-001 Identify exact MMX installation path
+- [x] M0-002 Identify distribution/build clues
+- [x] M0-003 Record executable and key DLL hashes
+- [x] M0-004 Inventory StreamingAssets
+- [x] M0-005 Inventory Managed assemblies
+- [x] M0-006 Detect ModdingKit/editor assets
+- [x] M0-007 Generate local MMX audit report
+### Safety
+- [ ] M0-010 Define backup plan
+- [x] M0-011 Implement read-only manifest/hash audit
+- [ ] M0-012 Implement dry-run staging
+- [ ] M0-013 Verify clean restore
+- [ ] M0-014 Define dedicated test-save policy
+### Localisation
+- [ ] M0-020 Locate active localisation
+- [ ] M0-021 Select safe test key
+- [ ] M0-022 Apply staged string change
+- [ ] M0-023 Verify in game
+- [ ] M0-024 Restore
+- [ ] M0-025 Document
+### StaticData
+- [ ] M0-030 Inspect real schemas
+- [ ] M0-031 Select reversible value
+- [ ] M0-032 Apply test change
+- [ ] M0-033 Verify
+- [ ] M0-034 Restore
+- [ ] M0-035 Document delimiter/encoding/schema
+### Dialog
+- [ ] M0-040 Inspect Dialog schema
+- [ ] M0-041 Select test dialogue
+- [ ] M0-042 Modify/inject one entry
+- [ ] M0-043 Verify
+- [ ] M0-044 Restore
+- [ ] M0-045 Document conditions/actions/IDs
+### Maps
+- [ ] M0-050 Identify map/modding workflow
+- [ ] M0-051 Open existing/test map
+- [ ] M0-052 Make reversible map change
+- [ ] M0-053 Verify in game
+- [ ] M0-054 Restore
+- [ ] M0-055 Document workflow/formats
+### MMXLegacy
+- [ ] M0-060 Research source/license
+- [ ] M0-061 Document compatibility
+- [ ] M0-062 Map relevant projects
+- [ ] M0-063 Decide whether M1 requires it
+- [ ] M0-064 Record ADR
+### Acceptance
+- [ ] M0-070 Known-clean state
+- [ ] M0-071 Localisation reproducible
+- [ ] M0-072 StaticData reproducible
+- [ ] M0-073 Dialog reproducible
+- [ ] M0-074 Map modification reproducible
+- [ ] M0-075 Restore reproducible
+- [ ] M0-076 Procedure reproducible from docs
+
+## M1 — MM6 Source Model
+- [ ] M1-001 Define normalized schema
+- [ ] M1-002 Stable IDs
+- [ ] M1-003 MM6 installation audit
+- [ ] M1-004 NPC sources
+- [ ] M1-005 Quest sources
+- [ ] M1-006 Item sources
+- [ ] M1-007 Monster sources
+- [ ] M1-008 Map/topology sources
+- [ ] M1-009 New Sorpigal manifest
+- [ ] M1-010 Goblinwatch manifest
+
+## M2 — Conversion Framework
+- [ ] M2-001 ID registry
+- [ ] M2-002 MMX target ID allocator
+- [ ] M2-003 Localisation generator
+- [ ] M2-004 Dialog generator/patcher
+- [ ] M2-005 StaticData patch generator
+- [ ] M2-006 Validation CLI
+- [ ] M2-007 Build manifest
+- [ ] M2-008 Install/stage CLI
+- [ ] M2-009 Restore CLI
+- [ ] M2-010 Regression fixtures
+
+## M3 — New Sorpigal Design
+- [ ] M3-001 Original topology
+- [ ] M3-002 Quest-critical landmarks
+- [ ] M3-003 NPC list
+- [ ] M3-004 Buildings/services
+- [ ] M3-005 Encounters
+- [ ] M3-006 Exits/travel
+- [ ] M3-007 Grid conversion sketch
+- [ ] M3-008 Cell budget
+- [ ] M3-009 Quest dependency graph
+- [ ] M3-010 Approve design
+
+## M4 — New Sorpigal Prototype
+- [ ] M4-001 Greybox/grid map
+- [ ] M4-002 Landmarks
+- [ ] M4-003 Andover
+- [ ] M4-004 Town Hall quest giver
+- [ ] M4-005 Localisation
+- [ ] M4-006 First quest flow
+- [ ] M4-007 Goblin encounter
+- [ ] M4-008 Goblinwatch entrance
+- [ ] M4-009 Route playtest
+- [ ] M4-010 Save/load
+
+## M5 — Goblinwatch
+- [ ] M5-001 Original topology
+- [ ] M5-002 MMX grid conversion
+- [ ] M5-003 Greybox
+- [ ] M5-004 Encounters
+- [ ] M5-005 Secrets
+- [ ] M5-006 NILBOG puzzle
+- [ ] M5-007 Quest item
+- [ ] M5-008 Return quest flow
+- [ ] M5-009 Playtest
+- [ ] M5-010 Vertical slice accepted

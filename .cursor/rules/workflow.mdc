@@ -1,0 +1,8 @@
+---
+description: Safe incremental workflow
+alwaysApply: true
+---
+Before: read CLAUDE/BACKLOG, inspect files, list changes.
+During: smallest reversible change; no silent redesign.
+After: validation + rollback + backlog update + research notes.
+Binary patches require exact build/hash.
