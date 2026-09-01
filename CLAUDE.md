@@ -4,9 +4,10 @@
 MM6X — total conversion MMX, воссоздающий MM6.
 
 ## Текущий milestone
-**M0 — Prove the MMX Modding Pipeline.**
+**M1 — MM6 Source Model.**
 
-Не начинай полноценный New Sorpigal до завершения M0.
+M0 пайплайн доказан (`docs/milestones/M0_ACCEPTANCE.md`).  
+Полноценный New Sorpigal — с M3, не раньше.
 
 ## Порядок технических решений
 Всегда проверяй от менее инвазивного к более инвазивному:

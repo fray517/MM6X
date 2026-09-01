@@ -46,11 +46,11 @@
 - [x] M0-054 Restore
 - [x] M0-055 Document workflow/formats
 ### MMXLegacy
-- [ ] M0-060 Research source/license
-- [ ] M0-061 Document compatibility
-- [ ] M0-062 Map relevant projects
-- [ ] M0-063 Decide whether M1 requires it
-- [ ] M0-064 Record ADR
+- [x] M0-060 Research source/license
+- [x] M0-061 Document compatibility
+- [x] M0-062 Map relevant projects
+- [x] M0-063 Decide whether M1 requires it
+- [x] M0-064 Record ADR
 ### Acceptance
 - [x] M0-070 Known-clean state
 - [x] M0-071 Localisation reproducible
@@ -58,7 +58,7 @@
 - [x] M0-073 Dialog reproducible
 - [x] M0-074 Map modification reproducible
 - [x] M0-075 Restore reproducible
-- [ ] M0-076 Procedure reproducible from docs
+- [x] M0-076 Procedure reproducible from docs
 
 ## M1 — MM6 Source Model
 - [ ] M1-001 Define normalized schema

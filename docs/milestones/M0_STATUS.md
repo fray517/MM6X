@@ -4,7 +4,7 @@
 
 Игра: `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\games\Might & Magic X Legacy`
 
-## Закрыто
+## M0 закрыт
 
 | Proof | Что меняли | In-game | Restore |
 |---|---|---|---|
@@ -13,17 +13,13 @@
 | Dialog | `JoharaDialog.xml` id=1 locaKey JOHARA_1→5 | знаток магии / Люс | `ORIGINAL` `23bbb1a3…720dab` |
 | Map | `Sorpigal.xml` Slot 29,19 Terrain → BLOCKED | вторая клетка — стена | `ORIGINAL` `f24b25f4…00d4bc` |
 
-Процедуры: `M0_LOCALISATION_TEST.md`, `M0_STATICDATA_TEST.md`,
-`M0_DIALOG_TEST.md`, `M0_MAP_TEST.md`.  
-CLI: `tools/modding/mmx_mod.py`. Сейвы: `M0_TEST_SAVE.md`.
-
-2026-09-01 status всех четырёх файлов: `ORIGINAL`.
+Acceptance: `M0_ACCEPTANCE.md`. ADR-008: MMXLegacy **не** hard dependency.
 
 ## Сейчас
 
-**MMXLegacy (M0-060…064) + ADR-008.** Нужен ли MMXLegacy/custom C# для M1, или хватает XML/CSV.
+**M1 — MM6 Source Model** (схема, stable IDs, аудит установки MM6).
 
-M0-076: прогнать процедуры только по докам. New Sorpigal не начинать до закрытия M0.
+New Sorpigal — с M3. DLL не патчить.
 
 ## Инварианты
 

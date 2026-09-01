@@ -129,8 +129,9 @@ UnityScript/Boo, Mono/`mscorlib`.
   `config.txt`, `modinfo.xml`
 
 Вывод для M0: vanilla data доступны. MMXL ModKit **неполон**
-на Ubisoft-сборке (нет `Legacy.Editor*.dll`). Нужен ли MMXLegacy —
-ещё не решено (ADR-008).
+на Ubisoft-сборке (нет `Legacy.Editor*.dll`). MMXLegacy **не**
+нужен для M1 и не закрывает editor-дыру (ADR-008).
+Заметки: `docs/research/MMXLEGACY.md`.
 
 ## Installed mods
 Признаков установленного third-party мода в StreamingAssets нет.

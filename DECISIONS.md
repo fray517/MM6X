@@ -22,4 +22,20 @@ Accepted.
 Accepted.
 
 ## ADR-008 — MMXLegacy hard dependency
-Pending M0 research.
+Rejected as hard dependency.
+
+M1 (MM6 source model) MMXLegacy не требует.
+
+Контент на Ubisoft-сборке грузится из StreamingAssets без замены
+Managed: loca, CSV, Dialog XML, Maps XML доказаны in-game (M0).
+
+MMXLegacy (https://github.com/Albeoris/MMXLegacy, MIT, last push
+2017-12-23) — rewritten engine, ставится копированием DLL в
+`Managed`. Не закрывает дыру ModdingKit (`Legacy.Editor*.dll`).
+Steam/Ubisoft DLL невзаимозаменяемы. Исходники движка в MM6X не
+вендорить.
+
+К слою C возвращаемся только при verified blocker vanilla data.
+До тех пор: data/XML overlay, как ADR-005.
+
+Исследование: `docs/research/MMXLEGACY.md`.

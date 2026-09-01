@@ -21,7 +21,8 @@ Manifest + originals только тех файлов, которые плани
 Одна видимая reversible map modification → game load → restore.
 
 ## G Dependency decision
-Определить, достаточно ли vanilla data/modding kit, нужен ли MMXLegacy или custom patch.
+Vanilla StreamingAssets достаточно для M0 и старта M1.
+MMXLegacy — не hard dependency (ADR-008). Custom C# — last resort.
 
 ## Exit
 Мы умеем повторяемо создать, установить, проверить и удалить маленький MMX mod.

@@ -401,7 +401,9 @@ ModdingKit/
 | `Legacy.Editor.LevelEditor.dll` | **нет**, только `.meta` |
 
 `ModInfo.asset` ссылается на скрипт из `Legacy.Editor.LevelEditor.dll` (guid `53992036…`). Без этих DLL Unity-редактор карт, скорее всего, не откроет инспектор мода.  
-**HYPOTHESIS:** Steam/другой depot или MMXLegacy содержат недостающие editor-сборки. На Ubisoft-копии можно **читать** XML/CSV/sample export, но не факт, что **собрать** новую карту штатным kit.
+**HYPOTHESIS:** Steam/другой depot могут содержать `Legacy.Editor*.dll`.
+MMXLegacy их не даёт (rewritten `Legacy.Core/Game`, не editor).
+На Ubisoft-копии карты правим XML, не Unity. VERIFIED_LOCAL (M0-074).
 
 В игровом `Managed/` есть `Legacy.Editor.Runtime.dll` — это runtime, не editor.
 
@@ -459,7 +461,9 @@ Staticdata/*.csv               почти полный набор таблиц
 2. Новые NPC/квесты = новые строки StaticData + файл диалога + ключи loca + (для мира) Trigger на карте.
 3. Карта — клеточная `Grid`; расстояния MM6 сюда не масштабируются.
 4. Токены — основной «флаг сюжета» между диалогом, квестом и картой.
-5. Официальный kit на Ubisoft-установке **неполон** (нет editor DLL). M0 map proof, возможно, начнётся с правки существующего `Maps/*.xml`, а не с Unity-сцены.
+5. Официальный kit на Ubisoft-установке **неполон** (нет editor DLL).
+   Карты: правка `Maps/*.xml`. VERIFIED_LOCAL.
 6. В MMX уже есть город `Sorpigal` — не путать с New Sorpigal MM6.
+7. MMXLegacy не hard dependency (ADR-008).
 
-Следующие M0-шаги: backup/restore, затем одна видимая правка loca / одно поле CSV / один dialog `locaKey`.
+M0 закрыт: `docs/milestones/M0_ACCEPTANCE.md`. Дальше — M1.
