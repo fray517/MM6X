@@ -308,7 +308,7 @@ Grid
                    │     @Type OPEN|CLOSED  @IsDynamic
                    └── Trigger*           объекты на клетке
                          ├── @ID          spawner id
-                         ├── SpawnObjectType
+                         ├── SpawnObjectType        элемент, не атрибут
                          ├── SpawnStaticID / SpawnDirection / SpawnTime
                          ├── MonsterGroupID / ChallengeID / Enabled / InitialState
                          ├── Position, OffsetPosition, ObjectRotation
@@ -319,6 +319,14 @@ Grid
 
 `Terrain` (проверено): `BLOCKED`, `PASSABLE`, редко `PASSABLE NO_PARTY_BARK`.  
 Ровно 4 `Transition` на слот → стороны света. HYPOTHESIS: порядок N,E,S,W.
+
+NPC на карте: `SET_DATA Extra="NPC_IDS,<StaticID>"`, не `SpawnStaticID`
+(у контейнеров часто `10`). Johara = `NPC_IDS,2` (Trigger 24, клетка 6,22).
+
+Старт новой игры в Sorpigal: PARTY Trigger ID=1, `Enabled=true`,
+клетка 31,19, `SpawnDirection=WEST`. VERIFIED_LOCAL.
+
+`Sorpigal.xml`: UTF-8 **with BOM**, CRLF, 506224 bytes. VERIFIED_LOCAL.
 
 ### SpawnObjectType
 
@@ -333,8 +341,9 @@ Grid
 | `DOOR` / `TELEPORTER` / `BARREL` | — | есть |
 | `PLACEHOLDER` / `COMMAND_CONTAINER` / `SIGN` / `RECHARGING_OBJECT` | — | есть |
 
-NPC на карте = `NPC_CONTAINER` + `SpawnStaticID` → `NpcStaticData`.  
-Партия = `PARTY`. Переходы между картами = `ENTRANCE` + команда `USE_ENTRANCE`.
+NPC на карте = `NPC_CONTAINER` + `SET_DATA Extra="NPC_IDS,<id>"`.  
+`SpawnStaticID` у городских контейнеров часто `10`, это не NPC id.  
+Партия = `PARTY`. Переходы между картами = `ENTRANCE` + `USE_ENTRANCE`.
 
 ### Command Type (Sorpigal)
 

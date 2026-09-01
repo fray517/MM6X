@@ -40,11 +40,11 @@
 - [x] M0-045 Document conditions/actions/IDs
 ### Maps
 - [x] M0-050 Identify map/modding workflow
-- [ ] M0-051 Open existing/test map
-- [ ] M0-052 Make reversible map change
-- [ ] M0-053 Verify in game
-- [ ] M0-054 Restore
-- [ ] M0-055 Document workflow/formats
+- [x] M0-051 Open existing/test map
+- [x] M0-052 Make reversible map change
+- [x] M0-053 Verify
+- [x] M0-054 Restore
+- [x] M0-055 Document workflow/formats
 ### MMXLegacy
 - [ ] M0-060 Research source/license
 - [ ] M0-061 Document compatibility
@@ -52,12 +52,12 @@
 - [ ] M0-063 Decide whether M1 requires it
 - [ ] M0-064 Record ADR
 ### Acceptance
-- [ ] M0-070 Known-clean state
+- [x] M0-070 Known-clean state
 - [x] M0-071 Localisation reproducible
 - [x] M0-072 StaticData reproducible
 - [x] M0-073 Dialog reproducible
-- [ ] M0-074 Map modification reproducible
-- [ ] M0-075 Restore reproducible
+- [x] M0-074 Map modification reproducible
+- [x] M0-075 Restore reproducible
 - [ ] M0-076 Procedure reproducible from docs
 
 ## M1 — MM6 Source Model

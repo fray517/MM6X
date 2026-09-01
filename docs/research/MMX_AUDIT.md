@@ -107,6 +107,13 @@ UnityScript/Boo, Mono/`mscorlib`.
 - Типы: DUNGEON 77, OUTDOOR 10, CITY 5.
 - Примеры: `Cave1.xml` (6×6 dungeon), `Sorpigal.xml` (32×30 city),
   `theworld.xml` (~7 MB outdoor).
+- `Sorpigal.xml`: UTF-8 BOM, CRLF, 506224 bytes.
+  Старт PARTY Trigger 1 = клетка 31,19 WEST. VERIFIED_LOCAL.
+- M0 map test: Slot `X=29 Y=19` Terrain
+  `PASSABLE NO_PARTY_BARK` → `BLOCKED`.
+  In-game: новая игра, второй шаг на запад — стена. VERIFIED_LOCAL.
+  Restore: `ORIGINAL` (`f24b25f4…00d4bc`).
+  Процедура: `docs/milestones/M0_MAP_TEST.md`.
 - Evidence: VERIFIED_LOCAL
 - Схема: `docs/technical/MMX_DATA_SCHEMA.md`.
 
@@ -134,7 +141,7 @@ Evidence: VERIFIED_LOCAL (по составу каталогов)
 - Modding surface совпадает с community-ожиданиями:
   StaticData CSV, Dialog XML, Localisation XML, Maps XML.
 - Есть официальный ModdingKit, но editor DLL на этой сборке нет.
-  Map proof, вероятно, через XML, не через Unity. HYPOTHESIS.
+  Map proof: правка `Maps/*.xml` без Unity. VERIFIED_LOCAL.
 - Схема данных (loca/dialog/CSV/maps/ModdingKit):
   `docs/technical/MMX_DATA_SCHEMA.md`. VERIFIED_LOCAL.
 - `resources.assets` ~334 MB; в репозиторий не копировать.

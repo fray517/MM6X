@@ -11,16 +11,19 @@
 | Localisation | `ru/loca.xml` ключ `Gui/Mainmenu/Options` | `MM6X TEST — Параметры` | `ORIGINAL` `de5a7668…e60d064` |
 | StaticData | `Potions.csv` StaticID=1 Price 45→9999 | Johara, цена 9999 | `ORIGINAL` `f919fa74…c88372` |
 | Dialog | `JoharaDialog.xml` id=1 locaKey JOHARA_1→5 | знаток магии / Люс | `ORIGINAL` `23bbb1a3…720dab` |
+| Map | `Sorpigal.xml` Slot 29,19 Terrain → BLOCKED | вторая клетка — стена | `ORIGINAL` `f24b25f4…00d4bc` |
 
 Процедуры: `M0_LOCALISATION_TEST.md`, `M0_STATICDATA_TEST.md`,
-`M0_DIALOG_TEST.md`.  
+`M0_DIALOG_TEST.md`, `M0_MAP_TEST.md`.  
 CLI: `tools/modding/mmx_mod.py`. Сейвы: `M0_TEST_SAVE.md`.
+
+2026-09-01 status всех четырёх файлов: `ORIGINAL`.
 
 ## Сейчас
 
-**Map proof (M0-051…055).** XML `Grid` в `StreamingAssets/Maps`, не Unity editor (ModdingKit неполон).
+**MMXLegacy (M0-060…064) + ADR-008.** Нужен ли MMXLegacy/custom C# для M1, или хватает XML/CSV.
 
-Ещё не начат. New Sorpigal не начинать до закрытия M0.
+M0-076: прогнать процедуры только по докам. New Sorpigal не начинать до закрытия M0.
 
 ## Инварианты
 

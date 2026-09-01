@@ -1,4 +1,4 @@
-"""Safe backup/restore for M0 loca, StaticData and Dialog proofs.
+"""Safe backup/restore for M0 loca, StaticData, Dialog and Map proofs.
 
 Writes a game file only after --yes-i-understand, and only the file of
 the active subcommand. Backups live in the MM6X repo, not the install.
@@ -79,6 +79,35 @@ DL_COMMANDS = {
     "prepare-dialog-test",
     "apply-dialog-test",
     "restore-dialog-test",
+}
+DEFAULT_MP_BACKUP_DIR = (
+    REPO_ROOT / "backups" / "mmx" / "map-sorpigal"
+)
+MP_REL_PARTS = (
+    "StreamingAssets",
+    "Maps",
+    "Sorpigal.xml",
+)
+MP_COPY_NAME = "Sorpigal.xml"
+MP_NEEDLE_ORIGINAL = (
+    '<Slot Height="-6.87566376" '
+    'Terrain="PASSABLE NO_PARTY_BARK" '
+    'TerrainSound="NONE" MapArea="NONE">'
+)
+MP_NEEDLE_PATCHED = (
+    '<Slot Height="-6.87566376" '
+    'Terrain="BLOCKED" '
+    'TerrainSound="NONE" MapArea="NONE">'
+)
+MP_ORIGINAL_TERRAIN = "PASSABLE NO_PARTY_BARK"
+MP_TEST_TERRAIN = "BLOCKED"
+MP_SLOT = "X=29 Y=19"
+MP_COMMANDS = {
+    "backup-map",
+    "status-map",
+    "prepare-map-test",
+    "apply-map-test",
+    "restore-map-test",
 }
 
 
@@ -217,6 +246,19 @@ def assert_allowed_dialog(game_path: Path, target: Path) -> None:
         target,
         DL_REL_PARTS,
         "Dialog/JoharaDialog.xml",
+    )
+
+
+def resolve_map(game_path: Path) -> Path:
+    return resolve_rel(game_path, MP_REL_PARTS)
+
+
+def assert_allowed_map(game_path: Path, target: Path) -> None:
+    assert_allowed(
+        game_path,
+        target,
+        MP_REL_PARTS,
+        "Maps/Sorpigal.xml",
     )
 
 
@@ -558,6 +600,8 @@ def cmd_restore(
         report_name = "staticdata_restore.json"
     elif copy_name == DL_COPY_NAME:
         report_name = "dialog_restore.json"
+    elif copy_name == MP_COPY_NAME:
+        report_name = "map_restore.json"
     else:
         report_name = "loca_restore.json"
     write_json(REPORTS_DIR / report_name, op)
@@ -647,7 +691,7 @@ def cmd_sd_prepare(
         "backup_sha256": backup_sha,
         "verify_in_game": (
             "Sorpigal, Johara (ItemOffers 20: POTION,1). "
-            "Цена minor health potion 45 → 9999."
+            "Цена minor health potion 45 -> 9999."
         ),
         "needle_state": sd_price_state(text),
     }
@@ -733,7 +777,7 @@ def cmd_sd_apply(
     write_json(backup_dir / "apply.json", op)
     write_json(REPORTS_DIR / "staticdata_apply.json", op)
     print("APPLY ok")
-    print("  field: Potions.csv StaticID=1 Price 45 → 9999")
+    print("  field: Potions.csv StaticID=1 Price 45 -> 9999")
     print(f"  new SHA-256: {new_sha}")
     print(f"  manifest: {backup_dir / 'apply.json'}")
     return 0
@@ -916,7 +960,192 @@ def cmd_dl_apply(
     write_json(REPORTS_DIR / "dialog_apply.json", op)
     print("APPLY ok")
     print(
-        f"  field: dialog id=1 {DL_ORIGINAL_KEY} → {DL_TEST_KEY}"
+        f"  field: dialog id=1 {DL_ORIGINAL_KEY} -> {DL_TEST_KEY}"
+    )
+    print(f"  new SHA-256: {new_sha}")
+    print(f"  manifest: {backup_dir / 'apply.json'}")
+    return 0
+
+
+def mp_terrain_state(text: str) -> str:
+    has_orig = text.count(MP_NEEDLE_ORIGINAL)
+    has_test = text.count(MP_NEEDLE_PATCHED)
+    if has_orig == 1 and has_test == 0:
+        return "ORIGINAL"
+    if has_orig == 0 and has_test == 1:
+        return "TEST_PATCHED"
+    return "UNKNOWN"
+
+
+def cmd_mp_status(map_path: Path, backup_dir: Path) -> int:
+    current_sha = sha256_file(map_path)
+    text, _ = read_text_preserve(map_path)
+    copy_path, manifest_path = backup_paths(backup_dir, MP_COPY_NAME)
+    backup_sha = None
+    if copy_path.is_file():
+        backup_sha = sha256_file(copy_path)
+    elif manifest_path.is_file():
+        manifest = load_manifest(manifest_path) or {}
+        backup_sha = manifest.get("sha256")
+    needle_state = mp_terrain_state(text)
+    if backup_sha is None:
+        state = (
+            "TEST_PATCHED"
+            if needle_state == "TEST_PATCHED"
+            else "NO_BACKUP"
+        )
+    elif current_sha == backup_sha:
+        state = "ORIGINAL"
+    else:
+        state = (
+            needle_state if needle_state != "ORIGINAL" else "UNKNOWN"
+        )
+    terrain = (
+        MP_TEST_TERRAIN if needle_state == "TEST_PATCHED"
+        else MP_ORIGINAL_TERRAIN if needle_state == "ORIGINAL"
+        else "?"
+    )
+    payload = {
+        "target": str(map_path),
+        "file": MP_COPY_NAME,
+        "field": f"Slot {MP_SLOT} Terrain",
+        "current_sha256": current_sha,
+        "original_backup_sha256": backup_sha,
+        "state": state,
+        "current_terrain": terrain,
+    }
+    print(f"target: {map_path}")
+    print(f"field: Sorpigal.xml Slot {MP_SLOT} Terrain")
+    print(f"current SHA-256: {current_sha}")
+    print(f"backup SHA-256: {backup_sha or '—'}")
+    print(f"state: {state}")
+    print(f"terrain: {terrain}")
+    write_json(REPORTS_DIR / "map_status.json", payload)
+    return 0
+
+
+def cmd_mp_prepare(
+    game_path: Path,
+    map_path: Path,
+    backup_dir: Path,
+) -> int:
+    text, has_bom = read_text_preserve(map_path)
+    current_sha = sha256_file(map_path)
+    copy_path, _ = backup_paths(backup_dir, MP_COPY_NAME)
+    backup_sha = (
+        sha256_file(copy_path) if copy_path.is_file() else None
+    )
+    payload = {
+        "dry_run": True,
+        "modified_game": False,
+        "file": MP_COPY_NAME,
+        "field": f"Slot {MP_SLOT} Terrain",
+        "original_value": MP_ORIGINAL_TERRAIN,
+        "proposed_value": MP_TEST_TERRAIN,
+        "source_game_path": str(game_path.resolve()),
+        "target": str(map_path),
+        "backup_dir": str(backup_dir),
+        "backup_present": copy_path.is_file(),
+        "has_utf8_bom": has_bom,
+        "current_sha256": current_sha,
+        "backup_sha256": backup_sha,
+        "verify_in_game": (
+            "Новая игра, спавн 31,19 лицом на запад. "
+            "Второй шаг вперёд (клетка 29,19) должен упереться в стену."
+        ),
+        "needle_state": mp_terrain_state(text),
+    }
+    print("PREPARE Map (игра не изменяется)")
+    print(f"  file: {MP_COPY_NAME}")
+    print(f"  field: Slot {MP_SLOT} Terrain")
+    print(f"  original: {MP_ORIGINAL_TERRAIN}")
+    print(f"  proposed: {MP_TEST_TERRAIN}")
+    print(f"  target: {map_path}")
+    print(f"  backup: {backup_dir}")
+    print(f"  current SHA-256: {current_sha}")
+    print(f"  backup SHA-256: {backup_sha or 'нет backup'}")
+    write_json(REPORTS_DIR / "map_prepare.json", payload)
+    print(f"  report: {REPORTS_DIR / 'map_prepare.json'}")
+    return 0
+
+
+def cmd_mp_apply(
+    map_path: Path,
+    backup_dir: Path,
+    understand: bool,
+) -> int:
+    if not understand:
+        print(
+            "Отказ: нет --yes-i-understand. Файл игры не изменён.",
+            file=sys.stderr,
+        )
+        return 2
+    copy_path, manifest_path = backup_paths(backup_dir, MP_COPY_NAME)
+    if not copy_path.is_file() or not manifest_path.is_file():
+        print("Сначала выполните backup-map.", file=sys.stderr)
+        return 2
+    original_bytes = copy_path.read_bytes()
+    backup_sha = sha256_bytes(original_bytes)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("sha256") != backup_sha:
+        print("Manifest backup не совпадает с копией.", file=sys.stderr)
+        return 1
+    current_sha = sha256_file(map_path)
+    if current_sha != backup_sha:
+        print(
+            "Текущий Sorpigal.xml не совпадает с backup. "
+            "Патч отказан.\n"
+            f"  current: {current_sha}\n"
+            f"  backup:  {backup_sha}",
+            file=sys.stderr,
+        )
+        return 2
+    text, has_bom = read_text_preserve(map_path)
+    if text.count(MP_NEEDLE_ORIGINAL) != 1:
+        print(
+            "Ожидалась ровно одна исходная клетка 29,19.",
+            file=sys.stderr,
+        )
+        return 1
+    patched = text.replace(MP_NEEDLE_ORIGINAL, MP_NEEDLE_PATCHED, 1)
+    if mp_terrain_state(patched) != "TEST_PATCHED":
+        print("Патч Terrain не применился. Отказ.", file=sys.stderr)
+        return 1
+    if patched.count("\n") != text.count("\n"):
+        print("Число строк XML изменилось. Отказ.", file=sys.stderr)
+        return 1
+    out_bytes = encode_text(patched, has_bom)
+    try:
+        map_path.write_bytes(out_bytes)
+    except PermissionError:
+        print(
+            "Нет прав записи в Program Files. "
+            "Запустите PowerShell от имени администратора.",
+            file=sys.stderr,
+        )
+        return 1
+    new_sha = sha256_file(map_path)
+    op = {
+        "schema_version": 1,
+        "operation": "apply-map-test",
+        "created_utc": utc_now(),
+        "file": MP_COPY_NAME,
+        "field": f"Slot {MP_SLOT} Terrain",
+        "original_value": MP_ORIGINAL_TERRAIN,
+        "new_value": MP_TEST_TERRAIN,
+        "before_sha256": current_sha,
+        "after_sha256": new_sha,
+        "target_relative": Path(
+            DATA_DIR_NAME, *MP_REL_PARTS
+        ).as_posix(),
+        "backup_sha256": backup_sha,
+    }
+    write_json(backup_dir / "apply.json", op)
+    write_json(REPORTS_DIR / "map_apply.json", op)
+    print("APPLY ok")
+    print(
+        f"  field: Slot {MP_SLOT} {MP_ORIGINAL_TERRAIN} -> "
+        f"{MP_TEST_TERRAIN}"
     )
     print(f"  new SHA-256: {new_sha}")
     print(f"  manifest: {backup_dir / 'apply.json'}")
@@ -927,7 +1156,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="mmx_mod.py",
         description=(
-            "Backup/restore for loca, StaticData and Dialog tests. "
+            "Backup/restore for loca, StaticData, Dialog and Map tests. "
             "Writes game files only with --yes-i-understand."
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -1058,6 +1287,43 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Разрешить запись в JoharaDialog.xml.",
     )
+    p_mp_backup = sub.add_parser(
+        "backup-map",
+        help="Скопировать Sorpigal.xml в backups/.",
+    )
+    p_mp_backup.add_argument(
+        "--force",
+        action="store_true",
+        help="Прежний backup уходит в архив, затем пишется новый.",
+    )
+    sub.add_parser(
+        "status-map",
+        help="ORIGINAL / TEST_PATCHED / UNKNOWN для Sorpigal.xml.",
+    )
+    sub.add_parser(
+        "prepare-map-test",
+        help="Показать правку Terrain клетки, не менять игру.",
+    )
+    p_mp_apply = sub.add_parser(
+        "apply-map-test",
+        help="Клетка 29,19 → BLOCKED. Нужен --yes-i-understand.",
+    )
+    p_mp_apply.add_argument(
+        "--yes-i-understand",
+        dest="yes_i_understand",
+        action="store_true",
+        help="Разрешить запись в Sorpigal.xml.",
+    )
+    p_mp_restore = sub.add_parser(
+        "restore-map-test",
+        help="Вернуть точные байты backup Sorpigal.xml.",
+    )
+    p_mp_restore.add_argument(
+        "--yes-i-understand",
+        dest="yes_i_understand",
+        action="store_true",
+        help="Разрешить запись в Sorpigal.xml.",
+    )
     return parser
 
 
@@ -1083,6 +1349,8 @@ def main(argv: list[str] | None = None) -> int:
         backup_dir = DEFAULT_SD_BACKUP_DIR
     elif command in DL_COMMANDS:
         backup_dir = DEFAULT_DL_BACKUP_DIR
+    elif command in MP_COMMANDS:
+        backup_dir = DEFAULT_MP_BACKUP_DIR
     else:
         backup_dir = DEFAULT_BACKUP_DIR
     if not backup_dir.is_absolute():
@@ -1096,6 +1364,9 @@ def main(argv: list[str] | None = None) -> int:
         elif command in DL_COMMANDS:
             target = resolve_dialog(game_path)
             assert_allowed_dialog(game_path, target)
+        elif command in MP_COMMANDS:
+            target = resolve_map(game_path)
+            assert_allowed_map(game_path, target)
         else:
             target = resolve_loca(game_path)
             assert_allowed_loca(game_path, target)
@@ -1105,6 +1376,7 @@ def main(argv: list[str] | None = None) -> int:
     loca_rel = Path(DATA_DIR_NAME, *LOCA_REL_PARTS).as_posix()
     sd_rel = Path(DATA_DIR_NAME, *SD_REL_PARTS).as_posix()
     dl_rel = Path(DATA_DIR_NAME, *DL_REL_PARTS).as_posix()
+    mp_rel = Path(DATA_DIR_NAME, *MP_REL_PARTS).as_posix()
     if command == "backup":
         return cmd_backup(
             target,
@@ -1160,6 +1432,28 @@ def main(argv: list[str] | None = None) -> int:
     if command == "restore-dialog-test":
         return cmd_restore(
             target, backup_dir, understand, DL_COPY_NAME
+        )
+    if command == "backup-map":
+        return cmd_backup(
+            target,
+            backup_dir,
+            force,
+            MP_COPY_NAME,
+            mp_rel,
+            {
+                "field": f"Slot {MP_SLOT} Terrain",
+                "original": MP_ORIGINAL_TERRAIN,
+            },
+        )
+    if command == "status-map":
+        return cmd_mp_status(target, backup_dir)
+    if command == "prepare-map-test":
+        return cmd_mp_prepare(game_path, target, backup_dir)
+    if command == "apply-map-test":
+        return cmd_mp_apply(target, backup_dir, understand)
+    if command == "restore-map-test":
+        return cmd_restore(
+            target, backup_dir, understand, MP_COPY_NAME
         )
     print(f"Неизвестная команда: {command}", file=sys.stderr)
     return 2
