@@ -77,8 +77,15 @@ Evidence: VERIFIED_LOCAL
 - `StreamingAssets/Localisation/<lang>/loca.xml`
 - Языки: br, cn, cz, de, en, es, fr, hu, it, jp, kr, pl, ro, ru
 - `en/loca.xml`: UTF-8 XML, корень `Localization`
+- `ru/loca.xml`: UTF-8 **with BOM**, 8127 `LocaData`, LF.
 - Evidence: VERIFIED_LOCAL
-- Русский `ru/loca.xml` есть — удобно для M0 localisation proof.
+- M0 test key: `Gui/Mainmenu/Options` → «Параметры»
+  (главное меню). Процедура:
+  `docs/milestones/M0_LOCALISATION_TEST.md`.
+- In-game, 2026-09-01: русское главное меню показало
+  `MM6X TEST — Параметры`. Evidence: VERIFIED_LOCAL
+  (подтверждение пользователя). Файл на диске всё ещё
+  `TEST_PATCHED`; restore (M0-024) не выполнен.
 
 ## Managed
 22 DLL. Evidence: VERIFIED_LOCAL
@@ -88,11 +95,12 @@ Evidence: VERIFIED_LOCAL
 UnityScript/Boo, Mono/`mscorlib`.
 
 ## Maps
-- `StreamingAssets/Maps/*.xml`, 92 файла.
-- Примеры: `Castle_Portmeyron_1.xml`, `Cave1.xml`,
-  `Tower_of_Enigma_3.xml`, `worldOfTEST.xml`
+- `StreamingAssets/Maps/*.xml`, 92 файла, корень `Grid`.
+- Типы: DUNGEON 77, OUTDOOR 10, CITY 5.
+- Примеры: `Cave1.xml` (6×6 dungeon), `Sorpigal.xml` (32×30 city),
+  `theworld.xml` (~7 MB outdoor).
 - Evidence: VERIFIED_LOCAL
-- Схема XML карт ещё не разбиралась (M0-050).
+- Схема: `docs/technical/MMX_DATA_SCHEMA.md`.
 
 ## ModdingKit / editor
 Каталог `ModdingKit/` лежит рядом с игрой. Evidence: VERIFIED_LOCAL
@@ -105,8 +113,9 @@ UnityScript/Boo, Mono/`mscorlib`.
   `Asset/`, `Localisation/`, `Map/`, `Staticdata/`,
   `config.txt`, `modinfo.xml`
 
-Вывод для M0: vanilla data + комплектный MMXL ModKit доступны
-локально. Нужен ли MMXLegacy — ещё не решено (ADR-008).
+Вывод для M0: vanilla data доступны. MMXL ModKit **неполон**
+на Ubisoft-сборке (нет `Legacy.Editor*.dll`). Нужен ли MMXLegacy —
+ещё не решено (ADR-008).
 
 ## Installed mods
 Признаков установленного third-party мода в StreamingAssets нет.
@@ -116,6 +125,11 @@ Evidence: VERIFIED_LOCAL (по составу каталогов)
 - Сборка Ubisoft; Steam/Ubisoft DLL не смешивать.
 - Modding surface совпадает с community-ожиданиями:
   StaticData CSV, Dialog XML, Localisation XML, Maps XML.
-- Есть официальный ModdingKit — карты, скорее всего, через него,
-  а не через правку `resources.assets`. HYPOTHESIS до M0-050.
-- `resources.assets` ~334 MB; в репозиторий не копировать.
+- Есть официальный ModdingKit, но editor DLL на этой сборке нет.
+  Map proof, вероятно, через XML, не через Unity. HYPOTHESIS.
+- Схема данных (loca/dialog/CSV/maps/ModdingKit):
+  `docs/technical/MMX_DATA_SCHEMA.md`. VERIFIED_LOCAL.
+- `resources.assets` ~334 MB; в репозиторий не копировать.
+- ModdingKit на этой Ubisoft-сборке **неполон**:
+  `Legacy.Editor.dll` и `Legacy.Editor.LevelEditor.dll` отсутствуют
+  (есть только `.meta` + `Ionic.Zip.dll`). VERIFIED_LOCAL.

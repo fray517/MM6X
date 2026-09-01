@@ -12,34 +12,34 @@
 - [x] M0-006 Detect ModdingKit/editor assets
 - [x] M0-007 Generate local MMX audit report
 ### Safety
-- [ ] M0-010 Define backup plan
+- [x] M0-010 Define backup plan
 - [x] M0-011 Implement read-only manifest/hash audit
-- [ ] M0-012 Implement dry-run staging
-- [ ] M0-013 Verify clean restore
+- [x] M0-012 Implement dry-run staging
+- [x] M0-013 Verify clean restore
 - [ ] M0-014 Define dedicated test-save policy
 ### Localisation
-- [ ] M0-020 Locate active localisation
-- [ ] M0-021 Select safe test key
-- [ ] M0-022 Apply staged string change
-- [ ] M0-023 Verify in game
+- [x] M0-020 Locate active localisation
+- [x] M0-021 Select safe test key
+- [x] M0-022 Apply staged string change
+- [x] M0-023 Verify in game
 - [ ] M0-024 Restore
 - [ ] M0-025 Document
 ### StaticData
-- [ ] M0-030 Inspect real schemas
+- [x] M0-030 Inspect real schemas
 - [ ] M0-031 Select reversible value
 - [ ] M0-032 Apply test change
 - [ ] M0-033 Verify
 - [ ] M0-034 Restore
-- [ ] M0-035 Document delimiter/encoding/schema
+- [x] M0-035 Document delimiter/encoding/schema
 ### Dialog
-- [ ] M0-040 Inspect Dialog schema
+- [x] M0-040 Inspect Dialog schema
 - [ ] M0-041 Select test dialogue
 - [ ] M0-042 Modify/inject one entry
 - [ ] M0-043 Verify
 - [ ] M0-044 Restore
-- [ ] M0-045 Document conditions/actions/IDs
+- [x] M0-045 Document conditions/actions/IDs
 ### Maps
-- [ ] M0-050 Identify map/modding workflow
+- [x] M0-050 Identify map/modding workflow
 - [ ] M0-051 Open existing/test map
 - [ ] M0-052 Make reversible map change
 - [ ] M0-053 Verify in game
