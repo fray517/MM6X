@@ -466,4 +466,6 @@ Staticdata/*.csv               почти полный набор таблиц
 6. В MMX уже есть город `Sorpigal` — не путать с New Sorpigal MM6.
 7. MMXLegacy не hard dependency (ADR-008).
 
-M0 закрыт: `docs/milestones/M0_ACCEPTANCE.md`. Дальше — M1.
+M0 закрыт: `docs/milestones/M0_ACCEPTANCE.md`.
+M1 slice: `docs/milestones/M1_SOURCE_MODEL.md`.
+M2 ID band: `docs/milestones/M2_CONVERSION.md`.

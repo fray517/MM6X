@@ -133,6 +133,26 @@ UnityScript/Boo, Mono/`mscorlib`.
 нужен для M1 и не закрывает editor-дыру (ADR-008).
 Заметки: `docs/research/MMXLEGACY.md`.
 
+## StaticID ranges (M2)
+Скан `StreamingAssets/StaticData`, VERIFIED_LOCAL:
+
+| Table | n | min | max |
+|---|---:|---:|---:|
+| NpcStaticData | 278 | 1 | 10000 |
+| QuestSteps | 120 | 1 | 10002 |
+| QuestObjectives | 209 | 1 | 10002 |
+| Token | 558 | -1 | 804 |
+| LoreBookStaticData | 39 | 1 | 39 |
+| DungeonEntryStaticData | 23 | 1 | 23 |
+| WorldMapPointsStaticData | 40 | 1 | 40 |
+| MonsterStaticData | 202 | 1 | 10006 |
+
+ID ≥10000 — test-строки (HirelingTest, TokenAddedTest, …).
+Полоса MM6X: 20000-29999 (ADR-009).
+Карта `Sorpigal` уже есть. Loca
+`LOCATION_SORPIGAL_THE_GOBLIN_WATCHTOWER` — дом MMX-Сорпигала,
+не данж MM6.
+
 ## Installed mods
 Признаков установленного third-party мода в StreamingAssets нет.
 Evidence: VERIFIED_LOCAL (по составу каталогов)

@@ -17,9 +17,11 @@
   ],
   "beats_hypothesis": [
     "OUTE3 e101 house 171 -> D01.blv",
-    "letter plates А-П (D01 e19-34)",
+    "letter plates А-П (D01 e19-34) door maze, not InputString; П resets",
+    "codex chest: D01 e41 OpenChest 1 / dlv chest[1]",
+    "codex text: Scroll.txt item 543 / ITEMS M44 (doors 1-6, no NILBOG word)",
     "return D01 e51 -> OutE3.Odm",
     "turn in codex 543 to Janis"
   ],
-  "notes": "Quest 83: GLOBAL e3/e4, NPC 291 Жанис. Key 489 on accept. Codex 543 to turn in. Letter plates are not typed NILBOG."
+  "notes": "Quest 83: GLOBAL e3/e4, NPC 291 Жанис. Key 489 on accept. Codex 543 to turn in. Plates are a door maze; sequence is not checked."
 }

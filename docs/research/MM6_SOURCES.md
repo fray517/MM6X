@@ -39,6 +39,10 @@ Slice:
   Accept `GLOBAL.EVT` e3: QBit 83, item **489** ключ.
   Turn-in `GLOBAL.EVT` e4: item **543** кодекс, Award 53,
   Exp 2000, Gold 2000, снять QBit 83.
+  Кодекс лежит в `d01.dlv` **chest[1]** (`D01.EVT` e41
+  `OpenChest 1`), плюс два случайных LB1 (`-1`).
+  Текст: `Scroll.txt` item 543 / ITEMS `Mod1=M44`.
+  `npctopic.txt` #3/#4: «Дозор гоблинов» (GLOBAL e3/e4).
 - Quest #126 — канделябр для Андовера (`GLOBAL.EVT` e296).
 
 EVT slice (не копировать bytecode в git):
@@ -46,16 +50,53 @@ EVT slice (не копировать bytecode в git):
 - `OUTE3.EVT` e28 house 89 ратуша; e101 house 171 → `D01.blv`.
 - `D01.EVT` e51 выход → `OutE3.Odm`.
 - `D01.EVT` e19–34: плиты букв А–П (не `InputString`).
-  П (e34) сбрасывает vars 105–117 и двери.
-  Слово НИЛБОГ — HYPOTHESIS (буквы Н,И,Л,Б,О,Г есть).
+  Это maze дверей, не пароль: каждая плита (кроме А/М/П)
+  одноразовая (`Compare var>=1` → Exit), открывает одни
+  двери (action 1) и закрывает другие (action 0).
+  П (e34) сбрасывает vars 105–117, текстуры `T1swDd` и
+  все maze-двери в 0. А (e19) — `CastSpell` (ловушка).
+  М (e31) — телепорт по той же карте (`map=0`).
+  Последовательность в EVT **не проверяется**.
+  Симулятор: `python tools\extract\extract_mm6_plates.py`.
+  НИЛБОГ оставляет открытыми все 14 maze-дверей;
+  ГОБЛИН — только 40/51/52. VERIFIED_LOCAL (симуляция).
+  Уникальный «верный порядок» для прохождения комнат
+  без BLV — HYPOTHESIS. e66 `OnMapReload` чинит текстуры;
+  var 107 дважды, 108 пропущен (баг оригинала).
 - Декодер: `python tools\extract\extract_mm6_evt.py`.
   MM6 Compare/Set: `u8 var + u32 value` (не MM7 u16).
+  Compare прыгает на target_step если `var >= value`.
 
 ## Items (M1-006)
 
 - `ITEMS.TXT`, `STDITEMS.TXT`, `SPCITEMS.TXT`
 - `RNDITEMS.TXT`, `USEITEMS.TXT`, `Scroll.txt`
 - Дубль `SPCITEMS.TXT` также в `games.lod`
+
+Slice VERIFIED_LOCAL:
+
+- #489 ключ: `Misc`, не свиток. Жанис даёт на accept.
+- #505 письмо Сулмана: `Mscroll` `M6` (текст в `Scroll.txt`).
+- #543 кодекс: `Mscroll` `M44`, dungeon `D1`.
+  Легенда плит А–П (ловушка / двери 1–6 / обслуживание /
+  сброс). Слово НИЛБОГ в свитке **нет**.
+  Полный текст только в `reports/scrolls_slice.json` (gitignore).
+- Логические двери свитка ↔ EVT (симулятор плит):
+
+| № | door_id |
+|---:|---|
+| 1 | 40, 51, 52 |
+| 2 | 36, 47, 48 |
+| 3 | 38, 44 |
+| 4 | 55, 56 |
+| 5 | 57, 58 |
+| 6 | 59, 60 |
+
+- #500 (`M1`, D1): короткая запись `III = 16 & IV = 4`
+  (другая комбинация кнопок; не кодекс).
+- Квест #83: «Найдите код к двери…»; Award #53:
+  «Разгадана загадка Дозора гоблинов».
+- CLI: `python tools\extract\extract_mm6_scrolls.py`.
 
 ## Monsters (M1-007)
 
@@ -92,4 +133,7 @@ Slice VERIFIED_LOCAL:
 `file.abs_offset = root.dataOffset + entry.dataOffset`.
 Текстовые `.txt` в `Icons.lod`: `LodImageHeader_MM6` (48 байт),
 `flags & 0x100`, payload zlib (`78 9c`).
+Карты в `games.lod` (`.blv`/`.dlv`/`.odm`): после записи lod —
+`u32 compressed + u32 decompressed + zlib` (`how=size_pair`).
 VERIFIED_SOURCE: OpenEnroth `LodReader` / `LodFormats`.
+VERIFIED_LOCAL: D01 blv/dlv.

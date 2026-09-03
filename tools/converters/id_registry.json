@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "id_band": {
+    "floor": 20000,
+    "ceil": 29999
+  },
+  "note": "Numeric MMX IDs are assigned by allocate_mmx_ids.py. String keys are reserved here. Vanilla Sorpigal / LOCATION_SORPIGAL_THE_GOBLIN_WATCHTOWER are not these entities.",
+  "entries": [
+    {
+      "stable_id": "mm6.region.new_sorpigal",
+      "kind": "region",
+      "slots": [
+        {
+          "namespace": "map",
+          "value": "New_Sorpigal",
+          "status": "reserved"
+        },
+        {
+          "namespace": "world_map_point",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "LOCATION_MM6_NEW_SORPIGAL",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "WORLDMAP_MM6_NEW_SORPIGAL",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.dungeon.goblinwatch",
+      "kind": "dungeon",
+      "slots": [
+        {
+          "namespace": "map",
+          "value": "Goblinwatch",
+          "status": "reserved"
+        },
+        {
+          "namespace": "dungeon_entry",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "dungeon_entry_key",
+          "value": "DE_MM6_Goblinwatch",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "LOCATION_MM6_GOBLINWATCH",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.location.new_sorpigal.town_hall",
+      "kind": "location",
+      "slots": [
+        {
+          "namespace": "loca",
+          "value": "LOCATION_MM6_NEW_SORPIGAL_TOWN_HALL",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.npc.new_sorpigal.janis",
+      "kind": "npc",
+      "slots": [
+        {
+          "namespace": "npc",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "dialog",
+          "value": "Mm6JanisDialog",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "NPC_NAME_MM6_JANIS",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.npc.new_sorpigal.andover",
+      "kind": "npc",
+      "slots": [
+        {
+          "namespace": "npc",
+          "value": 20001,
+          "status": "reserved"
+        },
+        {
+          "namespace": "dialog",
+          "value": "Mm6AndoverDialog",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "NPC_NAME_MM6_ANDOVER",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.quest.new_sorpigal.goblinwatch",
+      "kind": "quest",
+      "slots": [
+        {
+          "namespace": "token",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "TOKEN_MM6_GOBLINWATCH",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_GOBLINWATCH_NAME",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_GOBLINWATCH_FLAVOR",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_GOBLINWATCH_SHORT",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+      "kind": "quest_stage",
+      "slots": [
+        {
+          "namespace": "quest_step",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "quest_objective",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_OBJECTIVE_MM6_GOBLINWATCH_ACCEPT",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
+      "kind": "quest_stage",
+      "slots": [
+        {
+          "namespace": "quest_step",
+          "value": 20001,
+          "status": "reserved"
+        },
+        {
+          "namespace": "quest_objective",
+          "value": 20001,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_OBJECTIVE_MM6_GOBLINWATCH_TURNIN",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.item.goblinwatch.key",
+      "kind": "item",
+      "slots": [
+        {
+          "namespace": "token",
+          "value": 20001,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "TOKEN_MM6_GOBLINWATCH_KEY",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.item.goblinwatch.codex",
+      "kind": "item",
+      "slots": [
+        {
+          "namespace": "lorebook",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "LOREBOOK_TITLE_MM6_GOBLINWATCH_CODEX",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "LOREBOOK_TEXT_MM6_GOBLINWATCH_CODEX",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.secret.goblinwatch.nilbog",
+      "kind": "secret",
+      "slots": []
+    },
+    {
+      "stable_id": "mm6.travel_link.new_sorpigal.goblinwatch",
+      "kind": "travel_link",
+      "slots": []
+    }
+  ]
+}

@@ -73,10 +73,13 @@
 - [x] M1-010 Goblinwatch manifest
 - [x] M1-011 Extract allowlisted Icons.lod .txt
 - [x] M1-012 Decode slice EVT/STR (OUTE3, D01, GLOBAL)
+- [x] M1-013 D01 chest items (codex 543 in dlv)
+- [x] M1-014 D01 letter plates (door maze, not password)
+- [x] M1-015 Codex #543 scroll text (Scroll.txt M44)
 
 ## M2 — Conversion Framework
-- [ ] M2-001 ID registry
-- [ ] M2-002 MMX target ID allocator
+- [x] M2-001 ID registry
+- [x] M2-002 MMX target ID allocator
 - [ ] M2-003 Localisation generator
 - [ ] M2-004 Dialog generator/patcher
 - [ ] M2-005 StaticData patch generator

@@ -105,6 +105,10 @@ def _decode_var_op(opcode: int, data: bytes) -> dict[str, Any]:
 
     MM7 OpenEnroth uses u16 var. This GOG MM6 EVT is the shorter
     layout (Compare 6 bytes, Set/Add/Sub 5). VERIFIED_LOCAL.
+
+    Compare: GrayFace `evt.Cmp` is usually `var >= value`. Binary
+    jumps to target_step if the comparison is true (D01 e66:
+    Cmp then Jmp-skip vs SetTexture). VERIFIED_LOCAL.
     """
     info: dict[str, Any] = {}
     is_cmp = opcode == 14
@@ -133,6 +137,12 @@ def decode_payload(opcode: int, data: bytes) -> dict[str, Any]:
         info["house_id"] = _u32(data, 0)
     elif opcode in (7,):
         info["chest_id"] = _u8(data, 0)
+    elif opcode == 11 and len(data) >= 5:
+        info["face_id"] = struct.unpack_from("<I", data, 0)[0]
+        info["texture"] = data[4:].split(b"\x00", 1)[0].decode(
+            "ascii",
+            errors="replace",
+        )
     elif opcode == 15:
         info["door_id"] = _u8(data, 0)
         info["door_action"] = _u8(data, 1)

@@ -39,3 +39,14 @@ Steam/Ubisoft DLL невзаимозаменяемы. Исходники дви�
 До тех пор: data/XML overlay, как ADR-005.
 
 Исследование: `docs/research/MMXLEGACY.md`.
+
+## ADR-009 — MM6X numeric ID band 20000-29999
+Accepted.
+
+Vanilla StaticID уже использует ~10000 для test/DLC строк
+(NPC 10000, QuestSteps 10000-10002, Monster 10000-10006).
+VERIFIED_LOCAL, Ubisoft-сборка.
+
+Новые ID MM6X берём из 20000-29999, после скана used values.
+Не переиспользуем `Sorpigal` и loca `LOCATION_SORPIGAL_*`.
+Engine accept этого диапазона — HYPOTHESIS до in-game bind (M4).

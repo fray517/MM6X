@@ -48,9 +48,12 @@ MM6 в MMX не масштабируем.
   (правила в `validate_mm6_model.py`).
 - Пример: `tools/validators/fixtures/mm6_model_example.json`.
 - Манифесты slice: `references/mm6/*.manifest.json`.
-- ID: `docs/technical/ID_REGISTRY.md`.
+- ID: `docs/technical/ID_REGISTRY.md`
+  (MMX слоты: `tools/converters/id_registry.json`).
 
 Из lod в git не копируем. Экстрактор пишет в
 `references/mm6/raw/` (gitignore):
 `python tools\extract\extract_mm6_text.py`.
 EVT/STR: `python tools\extract\extract_mm6_evt.py`.
+Плиты D01: `python tools\extract\extract_mm6_plates.py`.
+Свитки: `python tools\extract\extract_mm6_scrolls.py`.

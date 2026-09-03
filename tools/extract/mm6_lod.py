@@ -3,7 +3,8 @@
 Offsets follow OpenEnroth LodEntry_MM6: file dataOffset is relative
 to the root directory dataOffset, not an absolute file position.
 Text tables in Icons.lod use LodImageHeader_MM6 with flags bit 0x100
-and a zlib payload. VERIFIED_SOURCE: OpenEnroth LodReader / LodFormats.
+and a zlib payload. games.lod maps use u32+u32+zlib (`size_pair`).
+VERIFIED_SOURCE: OpenEnroth LodReader / LodFormats.
 """
 
 from __future__ import annotations
@@ -136,8 +137,21 @@ def _inflate(payload: bytes, expected: int) -> bytes:
     return raw
 
 
+def _is_size_pair_zlib(blob: bytes) -> bool:
+    """games.lod maps: u32 comp_size, u32 decomp_size, zlib payload."""
+    if len(blob) < 10:
+        return False
+    comp_size, decomp_size = struct.unpack_from("<II", blob, 0)
+    if comp_size + 8 != len(blob):
+        return False
+    if decomp_size < comp_size:
+        return False
+    cmf_flg = blob[8:10]
+    return cmf_flg[0] == 0x78 and cmf_flg[1] in (0x01, 0x9C, 0xDA)
+
+
 def decode_maybe_compressed(blob: bytes) -> tuple[bytes, str]:
-    """Return (payload, how). how: mvii | text_image | raw."""
+    """Return (payload, how). how: mvii | text_image | size_pair | raw."""
     if _is_mvii(blob):
         data_size, dec_size = struct.unpack_from("<II", blob, 8)
         start = COMPRESSION_HEADER_SIZE
@@ -155,4 +169,8 @@ def decode_maybe_compressed(blob: bytes) -> tuple[bytes, str]:
         if dec_size:
             return _inflate(payload, dec_size), "text_image"
         return payload, "text_image"
+    if _is_size_pair_zlib(blob):
+        decomp_size = struct.unpack_from("<I", blob, 4)[0]
+        payload = blob[8:]
+        return _inflate(payload, decomp_size), "size_pair"
     return blob, "raw"

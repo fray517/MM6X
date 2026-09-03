@@ -25,7 +25,8 @@ custom C# patches
 
 ## Репозиторий
 - `tools/audit/` — read-only аудит MMX/MM6.
-- `tools/extract/` — read-only extract MM6 `.txt` / `.EVT` из lod.
+- `tools/extract/` — read-only extract MM6 `.txt` / `.EVT` /
+  сундуки `.dlv` / плиты D01 / свитки.
 - `tools/converters/` — normalized MM6 → MMX.
 - `tools/validators/` — проверки schema/IDs/references.
 - `mod/` — только наш authored/generated payload.
@@ -70,6 +71,8 @@ custom C# patches
 `python tools/build_mod.py --game-path "..."`
 
 Этапы: validate → allocate/check IDs → generate data/dialog/localisation → stage maps → manifest.
+
+Сейчас: `python tools\converters\allocate_mmx_ids.py --dry-run`
 
 ## Safety
 Install tooling в будущем поддерживает `--dry-run`, backup и restore.

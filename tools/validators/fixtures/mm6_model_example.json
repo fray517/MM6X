@@ -215,7 +215,7 @@
       "related": [
         "mm6.quest.new_sorpigal.goblinwatch"
       ],
-      "notes": "Кодекс Дозора гоблинов. Turn-in item. Chest spawn not in D01.EVT."
+      "notes": "Кодекс Дозора гоблинов. Scroll.txt M44; d01.dlv chest[1]; D01.EVT e41 OpenChest 1. Legend maps plates to doors 1-6. No NILBOG word."
     },
     {
       "id": "mm6.secret.goblinwatch.nilbog",
@@ -235,7 +235,7 @@
       "related": [
         "mm6.dungeon.goblinwatch"
       ],
-      "notes": "Events 19-34, letters А-П. Not InputString. П resets. Word НИЛБОГ is HYPOTHESIS."
+      "notes": "Events 19-34 door maze, not InputString. One-shot vars 105-117. П resets. А trap, М teleport. Sequence not checked. НИЛБОГ opens all 14 maze doors (sim)."
     },
     {
       "id": "mm6.travel_link.new_sorpigal.goblinwatch",

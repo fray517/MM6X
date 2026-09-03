@@ -15,6 +15,8 @@ python tools\extract\extract_mm6_text.py --game-path "C:\Program Files\GOG Galax
 
 По умолчанию: `MapStats.txt`, `NPCdata.txt`, `npcnames.txt`,
 `Quests.txt`, `2DEvents.txt`, `ITEMS.TXT`, `MONSTERS.TXT`.
+Свитки: `--name Scroll.txt` (gitignore raw). Slice кодекса:
+`python tools\extract\extract_mm6_scrolls.py`.
 
 Эта русская GOG-сборка: `--encoding cp1251` (дефолт). Выход — UTF-8.
 
@@ -38,5 +40,42 @@ Compare/Set: `u8 var + u32 value` (эта сборка). VERIFIED_LOCAL.
 STR: NUL-separated strings. VERIFIED_SOURCE: OpenEnroth
 `EvtProgram::load` / `initLevelStrings`.
 
+## Chests (indoor .dlv)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_chests.py --dry-run
+python tools\extract\extract_mm6_chests.py
+```
+
+По умолчанию: `D01`. Индекс: `reports/chests_slice.json`.
+`games.lod` карты: `u32 comp + u32 decomp + zlib` (`size_pair`).
+MM6 MapChest: picture/flags + 140×Item(0x1C) + 140×i16.
+VERIFIED_LOCAL: D01 chest[1] = item 543.
+
 Offset в lod: `root.dataOffset + entry.dataOffset`
 (OpenEnroth `LodEntry_MM6`). Не брать абсолютный offset из каталога.
+
+## Letter plates (D01)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_plates.py --self-test
+python tools\extract\extract_mm6_plates.py --dry-run
+python tools\extract\extract_mm6_plates.py --sequence НИЛБОГ
+```
+
+Не `InputString`: одноразовые двери (vars 105-117), П сбрасывает.
+Слово в EVT не проверяется. Индекс: `reports/plates_d01.json`.
+
+## Message scrolls
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_scrolls.py --self-test
+python tools\extract\extract_mm6_scrolls.py --dry-run
+```
+
+По умолчанию: 489 (ключ), 500 (D01 M1), 505 (письмо Сулмана),
+543 (кодекс, `Mod1=M44`). Индекс: `reports/scrolls_slice.json`.
+Полные письма в git не класть.
