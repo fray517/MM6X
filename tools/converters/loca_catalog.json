@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "note": "MM6X-authored loca for reserved keys. Not a vanilla dump. Lorebook is the door legend, not the full MM6 letter.",
+  "strings": {
+    "LOCATION_MM6_NEW_SORPIGAL": {
+      "en": "New Sorpigal",
+      "ru": "Нью-Сорпигаль"
+    },
+    "WORLDMAP_MM6_NEW_SORPIGAL": {
+      "en": "New Sorpigal",
+      "ru": "Нью-Сорпигаль"
+    },
+    "LOCATION_MM6_GOBLINWATCH": {
+      "en": "Goblinwatch",
+      "ru": "Дозор гоблинов"
+    },
+    "LOCATION_MM6_NEW_SORPIGAL_TOWN_HALL": {
+      "en": "Town Hall",
+      "ru": "Ратуша"
+    },
+    "NPC_NAME_MM6_JANIS": {
+      "en": "Janis",
+      "ru": "Жанис"
+    },
+    "NPC_NAME_MM6_ANDOVER": {
+      "en": "Andover Potbello",
+      "ru": "Андовер Портбелло"
+    },
+    "TOKEN_MM6_GOBLINWATCH": {
+      "en": "Goblinwatch",
+      "ru": "Дозор гоблинов"
+    },
+    "QUEST_STEP_MM6_GOBLINWATCH_NAME": {
+      "en": "The Goblinwatch combination",
+      "ru": "Код Дозора гоблинов"
+    },
+    "QUEST_STEP_MM6_GOBLINWATCH_FLAVOR": {
+      "en": "Find the combination to the vault in Goblinwatch and return to the Town Hall in New Sorpigal.",
+      "ru": "Найдите код к двери, ведущей в подземелье Дозора гоблинов, и вернитесь в ратушу Нью-Сорпигаля."
+    },
+    "QUEST_STEP_MM6_GOBLINWATCH_SHORT": {
+      "en": "Retrieve the Goblinwatch combination.",
+      "ru": "Достать код Дозора гоблинов."
+    },
+    "QUEST_OBJECTIVE_MM6_GOBLINWATCH_ACCEPT": {
+      "en": "Enter Goblinwatch and recover the combination.",
+      "ru": "Войти в Дозор гоблинов и добыть код."
+    },
+    "QUEST_OBJECTIVE_MM6_GOBLINWATCH_TURNIN": {
+      "en": "Return the Goblinwatch codex to Janis at the Town Hall.",
+      "ru": "Вернуть кодекс Дозора гоблинов Жанис в ратуше."
+    },
+    "TOKEN_MM6_GOBLINWATCH_KEY": {
+      "en": "Goblinwatch Key",
+      "ru": "Ключ от Дозора гоблинов"
+    },
+    "LOREBOOK_TITLE_MM6_GOBLINWATCH_CODEX": {
+      "en": "Goblinwatch Codex",
+      "ru": "Кодекс Дозора гоблинов"
+    },
+    "LOREBOOK_TEXT_MM6_GOBLINWATCH_CODEX": {
+      "en": "Letter-plate legend (this build uses А–П, not a typed password).\n\nА: trap.\nБ: opens door 4, closes door 5.\nВ: opens door 5, closes door 4.\nД: opens door 1, closes door 5.\nЕ: opens door 5, closes door 1.\nЖ: opens door 2, closes door 4.\nГ: opens door 6.\nЗ: opens door 3, closes door 2.\nИ: opens door 2, closes door 3.\nЙ: opens door 2, closes door 1.\nК: opens door 6, closes door 5.\nЛ: opens door 3, closes door 4.\nМ: maintenance (teleport).\nН: opens door 1, closes door 2.\nО: opens door 5, closes door 6.\nП: reset.",
+      "ru": "Легенда плит (не ввод слова с клавиатуры).\n\nА: ловушка.\nБ: открывает дверь 4, закрывает дверь 5.\nВ: открывает дверь 5, закрывает дверь 4.\nД: открывает дверь 1, закрывает дверь 5.\nЕ: открывает дверь 5, закрывает дверь 1.\nЖ: открывает дверь 2, закрывает дверь 4.\nГ: открывает дверь 6.\nЗ: открывает дверь 3, закрывает дверь 2.\nИ: открывает дверь 2, закрывает дверь 3.\nЙ: открывает дверь 2, закрывает дверь 1.\nК: открывает дверь 6, закрывает дверь 5.\nЛ: открывает дверь 3, закрывает дверь 4.\nМ: обслуживание (телепорт).\nН: открывает дверь 1, закрывает дверь 2.\nО: открывает дверь 5, закрывает дверь 6.\nП: сброс."
+    }
+  }
+}

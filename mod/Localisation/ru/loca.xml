@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Might & Magic - Legacy-->
+<Localization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocaData id="LOCATION_MM6_NEW_SORPIGAL">Нью-Сорпигаль</LocaData>
+  <LocaData id="WORLDMAP_MM6_NEW_SORPIGAL">Нью-Сорпигаль</LocaData>
+  <LocaData id="LOCATION_MM6_GOBLINWATCH">Дозор гоблинов</LocaData>
+  <LocaData id="LOCATION_MM6_NEW_SORPIGAL_TOWN_HALL">Ратуша</LocaData>
+  <LocaData id="NPC_NAME_MM6_JANIS">Жанис</LocaData>
+  <LocaData id="NPC_NAME_MM6_ANDOVER">Андовер Портбелло</LocaData>
+  <LocaData id="TOKEN_MM6_GOBLINWATCH">Дозор гоблинов</LocaData>
+  <LocaData id="QUEST_STEP_MM6_GOBLINWATCH_NAME">Код Дозора гоблинов</LocaData>
+  <LocaData id="QUEST_STEP_MM6_GOBLINWATCH_FLAVOR">Найдите код к двери, ведущей в подземелье Дозора гоблинов, и вернитесь в ратушу Нью-Сорпигаля.</LocaData>
+  <LocaData id="QUEST_STEP_MM6_GOBLINWATCH_SHORT">Достать код Дозора гоблинов.</LocaData>
+  <LocaData id="QUEST_OBJECTIVE_MM6_GOBLINWATCH_ACCEPT">Войти в Дозор гоблинов и добыть код.</LocaData>
+  <LocaData id="QUEST_OBJECTIVE_MM6_GOBLINWATCH_TURNIN">Вернуть кодекс Дозора гоблинов Жанис в ратуше.</LocaData>
+  <LocaData id="TOKEN_MM6_GOBLINWATCH_KEY">Ключ от Дозора гоблинов</LocaData>
+  <LocaData id="LOREBOOK_TITLE_MM6_GOBLINWATCH_CODEX">Кодекс Дозора гоблинов</LocaData>
+  <LocaData id="LOREBOOK_TEXT_MM6_GOBLINWATCH_CODEX">Легенда плит (не ввод слова с клавиатуры).\n\nА: ловушка.\nБ: открывает дверь 4, закрывает дверь 5.\nВ: открывает дверь 5, закрывает дверь 4.\nД: открывает дверь 1, закрывает дверь 5.\nЕ: открывает дверь 5, закрывает дверь 1.\nЖ: открывает дверь 2, закрывает дверь 4.\nГ: открывает дверь 6.\nЗ: открывает дверь 3, закрывает дверь 2.\nИ: открывает дверь 2, закрывает дверь 3.\nЙ: открывает дверь 2, закрывает дверь 1.\nК: открывает дверь 6, закрывает дверь 5.\nЛ: открывает дверь 3, закрывает дверь 4.\nМ: обслуживание (телепорт).\nН: открывает дверь 1, закрывает дверь 2.\nО: открывает дверь 5, закрывает дверь 6.\nП: сброс.</LocaData>
+</Localization>

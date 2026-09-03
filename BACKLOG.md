@@ -80,7 +80,7 @@
 ## M2 — Conversion Framework
 - [x] M2-001 ID registry
 - [x] M2-002 MMX target ID allocator
-- [ ] M2-003 Localisation generator
+- [x] M2-003 Localisation generator
 - [ ] M2-004 Dialog generator/patcher
 - [ ] M2-005 StaticData patch generator
 - [ ] M2-006 Validation CLI

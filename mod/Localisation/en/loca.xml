@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Might & Magic - Legacy-->
+<Localization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocaData id="LOCATION_MM6_NEW_SORPIGAL">New Sorpigal</LocaData>
+  <LocaData id="WORLDMAP_MM6_NEW_SORPIGAL">New Sorpigal</LocaData>
+  <LocaData id="LOCATION_MM6_GOBLINWATCH">Goblinwatch</LocaData>
+  <LocaData id="LOCATION_MM6_NEW_SORPIGAL_TOWN_HALL">Town Hall</LocaData>
+  <LocaData id="NPC_NAME_MM6_JANIS">Janis</LocaData>
+  <LocaData id="NPC_NAME_MM6_ANDOVER">Andover Potbello</LocaData>
+  <LocaData id="TOKEN_MM6_GOBLINWATCH">Goblinwatch</LocaData>
+  <LocaData id="QUEST_STEP_MM6_GOBLINWATCH_NAME">The Goblinwatch combination</LocaData>
+  <LocaData id="QUEST_STEP_MM6_GOBLINWATCH_FLAVOR">Find the combination to the vault in Goblinwatch and return to the Town Hall in New Sorpigal.</LocaData>
+  <LocaData id="QUEST_STEP_MM6_GOBLINWATCH_SHORT">Retrieve the Goblinwatch combination.</LocaData>
+  <LocaData id="QUEST_OBJECTIVE_MM6_GOBLINWATCH_ACCEPT">Enter Goblinwatch and recover the combination.</LocaData>
+  <LocaData id="QUEST_OBJECTIVE_MM6_GOBLINWATCH_TURNIN">Return the Goblinwatch codex to Janis at the Town Hall.</LocaData>
+  <LocaData id="TOKEN_MM6_GOBLINWATCH_KEY">Goblinwatch Key</LocaData>
+  <LocaData id="LOREBOOK_TITLE_MM6_GOBLINWATCH_CODEX">Goblinwatch Codex</LocaData>
+  <LocaData id="LOREBOOK_TEXT_MM6_GOBLINWATCH_CODEX">Letter-plate legend (this build uses А–П, not a typed password).\n\nА: trap.\nБ: opens door 4, closes door 5.\nВ: opens door 5, closes door 4.\nД: opens door 1, closes door 5.\nЕ: opens door 5, closes door 1.\nЖ: opens door 2, closes door 4.\nГ: opens door 6.\nЗ: opens door 3, closes door 2.\nИ: opens door 2, closes door 3.\nЙ: opens door 2, closes door 1.\nК: opens door 6, closes door 5.\nЛ: opens door 3, closes door 4.\nМ: maintenance (teleport).\nН: opens door 1, closes door 2.\nО: opens door 5, closes door 6.\nП: reset.</LocaData>
+</Localization>

@@ -72,7 +72,8 @@ custom C# patches
 
 Этапы: validate → allocate/check IDs → generate data/dialog/localisation → stage maps → manifest.
 
-Сейчас: `python tools\converters\allocate_mmx_ids.py --dry-run`
+Сейчас: `python tools\converters\allocate_mmx_ids.py --dry-run`  
+Loca overlay: `python tools\converters\generate_mmx_loca.py --dry-run`.
 
 ## Safety
 Install tooling в будущем поддерживает `--dry-run`, backup и restore.
