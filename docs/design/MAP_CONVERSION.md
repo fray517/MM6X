@@ -17,6 +17,16 @@
 Quest landmarks: `docs/design/NEW_SORPIGAL_LANDMARKS.md`,
 `references/mm6/new_sorpigal.landmarks.json`.
 
-Refresh topology:
-`python tools\extract\extract_mm6_topology.py --write-curated`.
+NPC list: `docs/design/NEW_SORPIGAL_NPCS.md`,
+`references/mm6/new_sorpigal.npcs.json`.
+
+Services: `docs/design/NEW_SORPIGAL_SERVICES.md`,
+`references/mm6/new_sorpigal.services.json`.
+
+Refresh:
+```powershell
+python tools\extract\extract_mm6_topology.py --write-curated
+python tools\extract\extract_mm6_npcs.py --write-curated
+python tools\extract\extract_mm6_services.py --write-curated
+```
 

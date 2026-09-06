@@ -140,6 +140,16 @@ Quest landmarks (M3-002):
 `docs/design/NEW_SORPIGAL_LANDMARKS.md` — F0 ратуша #89 +
 вход #171; F1 таверна #92.
 
+NPC list (M3-003): `docs/design/NEW_SORPIGAL_NPCS.md` —
+27 NPCdata на E3, 15 2D-proprietors; M4: #291 Жанис, #1 Андовер.
+`python tools\extract\extract_mm6_npcs.py --write-curated`.
+
+Buildings/services (M3-004):
+`docs/design/NEW_SORPIGAL_SERVICES.md` — 18 сервисов + 22 дома;
+M4: #89/#171/#92. `extract_mm6_services.py --write-curated`.
+
+## Decode lod (для extract)
+
 Каталог MM6: header 256 байт, root entry сразу после него.
 `file.abs_offset = root.dataOffset + entry.dataOffset`.
 Текстовые `.txt` в `Icons.lod`: `LodImageHeader_MM6` (48 байт),

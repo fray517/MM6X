@@ -93,3 +93,28 @@ python tools\extract\extract_mm6_topology.py --write-curated
 Curated git: `references/mm6/new_sorpigal.topology.json`.
 Report gitignore: `reports/topology_oute3.json`.
 
+## NPCs (New Sorpigal / E3)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_npcs.py --self-test
+python tools\extract\extract_mm6_npcs.py --dry-run
+python tools\extract\extract_mm6_npcs.py --write-curated
+```
+
+Нужен `references/mm6/new_sorpigal.topology.json`.
+Curated: `references/mm6/new_sorpigal.npcs.json`.
+
+## Buildings / services (E3)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_services.py --self-test
+python tools\extract\extract_mm6_services.py --dry-run
+python tools\extract\extract_mm6_services.py --write-curated
+```
+
+Curated: `references/mm6/new_sorpigal.services.json`.
+
+
+
