@@ -87,7 +87,7 @@
 - [x] M2-007 Build manifest
 - [x] M2-008 Install/stage CLI
 - [x] M2-009 Restore CLI
-- [ ] M2-010 Regression fixtures
+- [x] M2-010 Regression fixtures
 
 ## M3 — New Sorpigal Design
 - [ ] M3-001 Original topology

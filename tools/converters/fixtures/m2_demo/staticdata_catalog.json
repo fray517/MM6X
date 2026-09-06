@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "note": "Minimal StaticData tables for M2 regression.",
+  "tables": {
+    "NpcStaticData.csv": {
+      "comments": [
+        "# MM6X NPC overlay,,,,,,,,,,,,",
+        "#Comments,,,,,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "NameKey",
+        "HirelingProfession",
+        "",
+        "PortraitKey",
+        "ConversationKey",
+        "TravelStationID",
+        "NpcEffects",
+        "HirePrice",
+        "HireShare",
+        "CanBeFired",
+        "AllowItemSell",
+        "MinimapSymbol"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.npc.demo.clerk",
+            "slot": "npc"
+          },
+          "NameKey": "NPC_NAME_MM6_DEMO",
+          "HirelingProfession": "",
+          "": "MM6 demo clerk",
+          "PortraitKey": "PIC_generic_NOBLEWOMAN",
+          "ConversationKey": {
+            "ref": "mm6.npc.demo.clerk",
+            "slot": "dialog"
+          },
+          "TravelStationID": 0,
+          "NpcEffects": "",
+          "HirePrice": 0,
+          "HireShare": 0,
+          "CanBeFired": true,
+          "AllowItemSell": true,
+          "MinimapSymbol": "HOUSE"
+        }
+      ]
+    },
+    "QuestSteps.csv": {
+      "comments": [
+        "# MM6X QuestSteps overlay,,,,,,,,,,Loot,,,,,,,,,,",
+        "# Comments,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "Type",
+        "Name",
+        "FlavorDescription",
+        "ShortDescription",
+        "GivenByNPCID",
+        "Objectives",
+        "RepeatTime",
+        "RewardXP",
+        "FollowUpStep",
+        "SteadyLoot",
+        "ItemModels",
+        "ItemDropChance",
+        "PrefixChance",
+        "PrefixProbabilities",
+        "SuffixChance",
+        "SuffixProbabilities",
+        "ItemSpecificationList",
+        "GoldChance",
+        "GoldAmount",
+        "TokenID"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.quest_stage.demo.accept",
+            "slot": "quest_step"
+          },
+          "Type": "QUEST_TYPE_SIDE",
+          "Name": "QUEST_STEP_MM6_DEMO_NAME",
+          "FlavorDescription": "QUEST_STEP_MM6_DEMO_FLAVOR",
+          "ShortDescription": "QUEST_STEP_MM6_DEMO_SHORT",
+          "GivenByNPCID": {
+            "ref": "mm6.npc.demo.clerk",
+            "slot": "npc"
+          },
+          "Objectives": "20000,1",
+          "RepeatTime": 0,
+          "RewardXP": 0,
+          "FollowUpStep": 0,
+          "SteadyLoot": "",
+          "ItemModels": "",
+          "ItemDropChance": 0,
+          "PrefixChance": 0,
+          "PrefixProbabilities": "",
+          "SuffixChance": 0,
+          "SuffixProbabilities": "",
+          "ItemSpecificationList": "NONE",
+          "GoldChance": 0,
+          "GoldAmount": "0,0",
+          "TokenID": {
+            "ref": "mm6.quest.demo.flag",
+            "slot": "token"
+          }
+        }
+      ]
+    },
+    "QuestObjectives.csv": {
+      "comments": [
+        "# MM6X QuestObjectives overlay,,,,,,,,,,,",
+        "# Comments,,,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "Description",
+        "KillMonsterClass",
+        "KillMonsterType",
+        "KillMonsterStaticID",
+        "TokenID",
+        "NpcID",
+        "IsReturn",
+        "IsMainObjective",
+        "DaysToPass",
+        "StepsOnTerrain",
+        "Location"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.quest_stage.demo.accept",
+            "slot": "quest_objective"
+          },
+          "Description": "QUEST_OBJECTIVE_MM6_DEMO",
+          "KillMonsterClass": "NONE",
+          "KillMonsterType": "NONE",
+          "KillMonsterStaticID": 0,
+          "TokenID": {
+            "ref": "mm6.item.demo.codex",
+            "slot": "token"
+          },
+          "NpcID": 0,
+          "IsReturn": false,
+          "IsMainObjective": true,
+          "DaysToPass": 0,
+          "StepsOnTerrain": "",
+          "Location": ""
+        }
+      ]
+    },
+    "Token.csv": {
+      "comments": [
+        "# MM6X Token overlay,,,,,,,,,",
+        "# Comments,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "Icon",
+        "Name",
+        "Usage",
+        "Description",
+        "Menupath",
+        "TokenVisible",
+        "SetID",
+        "Replacement",
+        "RemoveSilent"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.quest.demo.flag",
+            "slot": "token"
+          },
+          "Icon": "INVISIBLE",
+          "Name": "TOKEN_MM6_DEMO",
+          "Usage": "Demo quest flag",
+          "Description": "",
+          "Menupath": "QUESTS/MM6_DEMO",
+          "TokenVisible": false,
+          "SetID": 0,
+          "Replacement": 0,
+          "RemoveSilent": false
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.item.demo.token",
+            "slot": "token"
+          },
+          "Icon": "ICO_quest_token_sewer_key",
+          "Name": "TOKEN_MM6_DEMO_ITEM",
+          "Usage": "Demo key",
+          "Description": "",
+          "Menupath": "QUESTS/MM6_DEMO_KEY",
+          "TokenVisible": true,
+          "SetID": 0,
+          "Replacement": 0,
+          "RemoveSilent": false
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.item.demo.codex",
+            "slot": "token"
+          },
+          "Icon": "ICO_quest_token_mysterious_book",
+          "Name": "TOKEN_MM6_DEMO_CODEX",
+          "Usage": "Demo codex token",
+          "Description": "",
+          "Menupath": "QUESTS/MM6_DEMO_CODEX",
+          "TokenVisible": true,
+          "SetID": 0,
+          "Replacement": 0,
+          "RemoveSilent": false
+        }
+      ]
+    },
+    "LoreBookStaticData.csv": {
+      "comments": [
+        "# MM6X Lore Books overlay,,,,,",
+        "#Comments,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "TitleKey",
+        "Category",
+        "TextKey",
+        "AuthorKey",
+        "ImagePath"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.item.demo.codex",
+            "slot": "lorebook"
+          },
+          "TitleKey": "LOREBOOK_TITLE_MM6_DEMO",
+          "Category": "OTHER",
+          "TextKey": "LOREBOOK_TEXT_MM6_DEMO",
+          "AuthorKey": "LOREBOOK_AUTHOR_MM6_DEMO",
+          "ImagePath": "ART_lore_ashan_TheWarOfBitterAshes"
+        }
+      ]
+    }
+  }
+}

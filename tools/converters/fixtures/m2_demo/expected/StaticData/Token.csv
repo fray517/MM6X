@@ -1,0 +1,6 @@
+# MM6X Token overlay,,,,,,,,,
+# Comments,,,,,,,,,
+StaticID,Icon,Name,Usage,Description,Menupath,TokenVisible,SetID,Replacement,RemoveSilent
+20000,INVISIBLE,TOKEN_MM6_DEMO,Demo quest flag,,QUESTS/MM6_DEMO,FALSE,0,0,FALSE
+20001,ICO_quest_token_sewer_key,TOKEN_MM6_DEMO_ITEM,Demo key,,QUESTS/MM6_DEMO_KEY,TRUE,0,0,FALSE
+20002,ICO_quest_token_mysterious_book,TOKEN_MM6_DEMO_CODEX,Demo codex token,,QUESTS/MM6_DEMO_CODEX,TRUE,0,0,FALSE

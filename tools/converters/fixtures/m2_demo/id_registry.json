@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "id_band": {"floor": 20000, "ceil": 29999},
+  "note": "Offline M2 regression demo slice. Not production goblinwatch.",
+  "entries": [
+    {
+      "stable_id": "mm6.npc.demo.clerk",
+      "kind": "npc",
+      "slots": [
+        {"namespace": "npc", "value": 20000, "status": "reserved"},
+        {
+          "namespace": "dialog",
+          "value": "Mm6DemoDialog",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "NPC_NAME_MM6_DEMO",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.quest.demo.flag",
+      "kind": "quest",
+      "slots": [
+        {"namespace": "token", "value": 20000, "status": "reserved"},
+        {
+          "namespace": "loca",
+          "value": "TOKEN_MM6_DEMO",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_DEMO_NAME",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_DEMO_FLAVOR",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_DEMO_SHORT",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.quest_stage.demo.accept",
+      "kind": "quest_stage",
+      "slots": [
+        {
+          "namespace": "quest_step",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "quest_objective",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_OBJECTIVE_MM6_DEMO",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.item.demo.token",
+      "kind": "item",
+      "slots": [
+        {"namespace": "token", "value": 20001, "status": "reserved"},
+        {
+          "namespace": "loca",
+          "value": "TOKEN_MM6_DEMO_ITEM",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.item.demo.codex",
+      "kind": "item",
+      "slots": [
+        {
+          "namespace": "lorebook",
+          "value": 20000,
+          "status": "reserved"
+        },
+        {"namespace": "token", "value": 20002, "status": "reserved"},
+        {
+          "namespace": "loca",
+          "value": "TOKEN_MM6_DEMO_CODEX",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "LOREBOOK_TITLE_MM6_DEMO",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "LOREBOOK_TEXT_MM6_DEMO",
+          "status": "reserved"
+        }
+      ]
+    }
+  ]
+}

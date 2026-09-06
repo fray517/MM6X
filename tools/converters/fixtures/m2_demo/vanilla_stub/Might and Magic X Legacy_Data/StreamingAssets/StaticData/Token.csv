@@ -1,0 +1,3 @@
+# comment
+StaticID,Icon,Name,Usage,Description,Menupath,TokenVisible,SetID,Replacement,RemoveSilent
+1,INVISIBLE,TOKEN_VANILLA,flag,,QUESTS/VANILLA,FALSE,0,0,FALSE

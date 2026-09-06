@@ -78,4 +78,14 @@ python tools\modding\stage_mmx_mod.py --restore --yes-i-understand
 
 См. `tools/modding/README.md`. ADR-010: merge, не replace.
 
+## Regression fixtures (M2-010)
+
+```powershell
+python tools\converters\run_m2_regression.py
+python tools\converters\run_m2_regression.py --update-expected
+```
+
+Fixture: `tools/converters/fixtures/m2_demo/` (offline, без игры).
+
+
 

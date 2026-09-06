@@ -1,0 +1,4 @@
+# MM6X QuestObjectives overlay,,,,,,,,,,,
+# Comments,,,,,,,,,,,
+StaticID,Description,KillMonsterClass,KillMonsterType,KillMonsterStaticID,TokenID,NpcID,IsReturn,IsMainObjective,DaysToPass,StepsOnTerrain,Location
+20000,QUEST_OBJECTIVE_MM6_DEMO,NONE,NONE,0,20002,0,FALSE,TRUE,0,,

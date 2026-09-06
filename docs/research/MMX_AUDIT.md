@@ -167,6 +167,7 @@ VERIFIED_LOCAL после generate:
 - `mod/build_manifest.json` — 9 files + sha256 + stage_rel
 - Stage dry-run (VERIFIED_LOCAL plan): 2 dialog copy (new),
   2 loca merge, 5 CSV merge; игра не писалась
+- M2 regression fixtures offline OK (`run_m2_regression.py`)
 
 ## Observations
 - Сборка Ubisoft; Steam/Ubisoft DLL не смешивать.

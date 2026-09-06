@@ -1,0 +1,4 @@
+# MM6X QuestSteps overlay,,,,,,,,,,Loot,,,,,,,,,,
+# Comments,,,,,,,,,
+StaticID,Type,Name,FlavorDescription,ShortDescription,GivenByNPCID,Objectives,RepeatTime,RewardXP,FollowUpStep,SteadyLoot,ItemModels,ItemDropChance,PrefixChance,PrefixProbabilities,SuffixChance,SuffixProbabilities,ItemSpecificationList,GoldChance,GoldAmount,TokenID
+20000,QUEST_TYPE_SIDE,QUEST_STEP_MM6_DEMO_NAME,QUEST_STEP_MM6_DEMO_FLAVOR,QUEST_STEP_MM6_DEMO_SHORT,20000,"20000,1",0,0,0,,,0,0,,0,,NONE,0,"0,0",20000

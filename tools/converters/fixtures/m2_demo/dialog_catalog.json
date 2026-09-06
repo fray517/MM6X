@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "note": "Minimal dialog for M2 regression.",
+  "dialogs": {
+    "Mm6DemoDialog": {
+      "rootDialogID": 1,
+      "dialogs": [
+        {
+          "id": 1,
+          "randomText": "false",
+          "fakeNpcID": "0",
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_DEMO_GREETING"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_DEMO_ACCEPT",
+              "conditions": [
+                {
+                  "type": "QuestInactiveCondition",
+                  "questID": {
+                    "ref": "mm6.quest_stage.demo.accept",
+                    "slot": "quest_step"
+                  },
+                  "failState": "HIDDEN"
+                }
+              ],
+              "functions": [
+                {
+                  "type": "QuestFunction",
+                  "questID": {
+                    "ref": "mm6.quest_stage.demo.accept",
+                    "slot": "quest_step"
+                  },
+                  "dialogID": 2
+                },
+                {
+                  "type": "GiveTokenFunction",
+                  "tokenID": {
+                    "ref": "mm6.item.demo.token",
+                    "slot": "token"
+                  }
+                }
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_DEMO_GOODBYE",
+              "functions": [{"type": "QuitFunction"}]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "texts": [{"locaKey": "DIALOG_TEXT_MM6_DEMO_DONE"}],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_DEMO_GOODBYE",
+              "functions": [{"type": "QuitFunction"}]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

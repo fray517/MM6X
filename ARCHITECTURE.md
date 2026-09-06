@@ -78,7 +78,8 @@ Dialog: `python tools\converters\generate_mmx_dialog.py --dry-run`
 StaticData: `python tools\converters\generate_mmx_staticdata.py --dry-run`  
 Manifest: `python tools\converters\build_mmx_manifest.py --dry-run`  
 Validate: `python tools\validators\validate_mmx_mod.py`  
-Stage: `python tools\modding\stage_mmx_mod.py --dry-run`.
+Stage: `python tools\modding\stage_mmx_mod.py --dry-run`  
+Regression: `python tools\converters\run_m2_regression.py`.
 
 ## Safety
 Install tooling поддерживает `--dry-run`, backup и restore.

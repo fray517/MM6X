@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "note": "M2 demo loca strings (en/ru).",
+  "strings": {
+    "NPC_NAME_MM6_DEMO": {"en": "Demo Clerk", "ru": "Клерк-демо"},
+    "TOKEN_MM6_DEMO": {"en": "Demo Quest", "ru": "Демо-квест"},
+    "QUEST_STEP_MM6_DEMO_NAME": {
+      "en": "Demo quest",
+      "ru": "Демо-квест"
+    },
+    "QUEST_STEP_MM6_DEMO_FLAVOR": {
+      "en": "Bring the demo token back.",
+      "ru": "Принесите демо-токен."
+    },
+    "QUEST_STEP_MM6_DEMO_SHORT": {
+      "en": "Return the token.",
+      "ru": "Верните токен."
+    },
+    "QUEST_OBJECTIVE_MM6_DEMO": {
+      "en": "Find the demo token.",
+      "ru": "Найдите демо-токен."
+    },
+    "TOKEN_MM6_DEMO_ITEM": {"en": "Demo Key", "ru": "Демо-ключ"},
+    "TOKEN_MM6_DEMO_CODEX": {"en": "Demo Codex", "ru": "Демо-кодекс"},
+    "LOREBOOK_TITLE_MM6_DEMO": {
+      "en": "Demo Codex",
+      "ru": "Демо-кодекс"
+    },
+    "LOREBOOK_TEXT_MM6_DEMO": {
+      "en": "Line one.\nLine two.",
+      "ru": "Строка один.\nСтрока два."
+    },
+    "LOREBOOK_AUTHOR_MM6_DEMO": {
+      "en": "Demo Author",
+      "ru": "Автор демо"
+    },
+    "DIALOG_TEXT_MM6_DEMO_GREETING": {
+      "en": "Hello, adventurer.",
+      "ru": "Здравствуй, искатель."
+    },
+    "DIALOG_OPTION_MM6_DEMO_ACCEPT": {
+      "en": "I accept.",
+      "ru": "Принимаю."
+    },
+    "DIALOG_OPTION_MM6_DEMO_GOODBYE": {
+      "en": "Goodbye.",
+      "ru": "До свидания."
+    },
+    "DIALOG_TEXT_MM6_DEMO_DONE": {
+      "en": "Thank you.",
+      "ru": "Спасибо."
+    }
+  }
+}

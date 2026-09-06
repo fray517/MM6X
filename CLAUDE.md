@@ -4,11 +4,12 @@
 MM6X — total conversion MMX, воссоздающий MM6.
 
 ## Текущий milestone
-**M2 — Conversion Framework.**
+**M3 — New Sorpigal Design.**
 
 M0 пайплайн доказан (`docs/milestones/M0_ACCEPTANCE.md`).
 M1 source model slice закрыт (`docs/milestones/M1_SOURCE_MODEL.md`).
-Полноценный New Sorpigal — с M3, не раньше.
+M2 conversion framework закрыт (`docs/milestones/M2_CONVERSION.md`).
+Полноценный New Sorpigal map — с M3/M4, не раньше.
 
 ## Порядок технических решений
 Всегда проверяй от менее инвазивного к более инвазивному:

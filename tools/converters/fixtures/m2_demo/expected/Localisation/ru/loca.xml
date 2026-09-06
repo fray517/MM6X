@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Might & Magic - Legacy-->
+<Localization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocaData id="NPC_NAME_MM6_DEMO">Клерк-демо</LocaData>
+  <LocaData id="TOKEN_MM6_DEMO">Демо-квест</LocaData>
+  <LocaData id="QUEST_STEP_MM6_DEMO_NAME">Демо-квест</LocaData>
+  <LocaData id="QUEST_STEP_MM6_DEMO_FLAVOR">Принесите демо-токен.</LocaData>
+  <LocaData id="QUEST_STEP_MM6_DEMO_SHORT">Верните токен.</LocaData>
+  <LocaData id="QUEST_OBJECTIVE_MM6_DEMO">Найдите демо-токен.</LocaData>
+  <LocaData id="TOKEN_MM6_DEMO_ITEM">Демо-ключ</LocaData>
+  <LocaData id="TOKEN_MM6_DEMO_CODEX">Демо-кодекс</LocaData>
+  <LocaData id="LOREBOOK_TITLE_MM6_DEMO">Демо-кодекс</LocaData>
+  <LocaData id="LOREBOOK_TEXT_MM6_DEMO">Строка один.\nСтрока два.</LocaData>
+  <LocaData id="LOREBOOK_AUTHOR_MM6_DEMO">Автор демо</LocaData>
+  <LocaData id="DIALOG_TEXT_MM6_DEMO_GREETING">Здравствуй, искатель.</LocaData>
+  <LocaData id="DIALOG_OPTION_MM6_DEMO_ACCEPT">Принимаю.</LocaData>
+  <LocaData id="DIALOG_OPTION_MM6_DEMO_GOODBYE">До свидания.</LocaData>
+  <LocaData id="DIALOG_TEXT_MM6_DEMO_DONE">Спасибо.</LocaData>
+</Localization>

@@ -1,0 +1,3 @@
+# comment
+StaticID,NameKey,HirelingProfession,,PortraitKey,ConversationKey,TravelStationID,NpcEffects,HirePrice,HireShare,CanBeFired,AllowItemSell,MinimapSymbol
+1,NPC_VANILLA_KEEP,,vanilla keep,PIC_generic_NOBLEWOMAN,VanillaKeepDialog,0,,0,0,TRUE,TRUE,NORMAL
