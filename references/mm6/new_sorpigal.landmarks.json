@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal.landmarks",
+  "region": "mm6.region.new_sorpigal",
+  "evidence": "VERIFIED_LOCAL",
+  "note": "Quest-critical landmarks for New Sorpigal design (M3-002). Coordinates not required; topology house_ids are anchors.",
+  "primary_quest": {
+    "stable_id": "mm6.quest.new_sorpigal.goblinwatch",
+    "mm6_quest_id": 83,
+    "title": "Дозор гоблинов",
+    "npc": {
+      "stable_id": "mm6.npc.new_sorpigal.janis",
+      "mm6_npc_id": 291,
+      "house_id": 89
+    }
+  },
+  "landmarks": [
+    {
+      "id": "lm.town_hall",
+      "stable_location": "mm6.location.new_sorpigal.town_hall",
+      "house_id": 89,
+      "name": "Ратуша",
+      "fidelity": "F0",
+      "m4_required": true,
+      "quests": ["mm6.quest.new_sorpigal.goblinwatch"],
+      "roles": ["accept", "turnin", "npc_janis"],
+      "mm6": {
+        "2d_type": "Town Hall",
+        "evt": "OUTE3.EVT SpeakInHouse e28",
+        "global": "GLOBAL.EVT e3 accept / e4 turnin"
+      },
+      "notes": "Accept: QBit 83 + item 489. Turn-in: item 543, Award 53, XP/Gold 2000."
+    },
+    {
+      "id": "lm.goblinwatch_entrance",
+      "stable_link": "mm6.travel_link.new_sorpigal.goblinwatch",
+      "house_id": 171,
+      "name": "Дозор гоблинов (вход)",
+      "fidelity": "F0",
+      "m4_required": true,
+      "quests": ["mm6.quest.new_sorpigal.goblinwatch"],
+      "roles": ["dungeon_gate", "key_consume"],
+      "mm6": {
+        "2d_type": "Dungeon Ent",
+        "evt": "OUTE3.EVT e101",
+        "requires_item": 489,
+        "sets_qbit": 300,
+        "move_to": "D01.blv",
+        "locked_text": "Дверь заперта."
+      },
+      "notes": "Compare/Subtract key 489; first open sets QBit 300."
+    },
+    {
+      "id": "lm.goblinwatch_interior",
+      "stable_dungeon": "mm6.dungeon.goblinwatch",
+      "house_id": null,
+      "name": "Дозор гоблинов (интерьер)",
+      "fidelity": "F0",
+      "m4_required": false,
+      "m5_required": true,
+      "quests": ["mm6.quest.new_sorpigal.goblinwatch"],
+      "roles": ["codex_chest", "nilbog_plates", "exit_to_oute3"],
+      "mm6": {
+        "map": "D01.Blv",
+        "codex_chest": 1,
+        "codex_item": 543,
+        "exit_event": 51,
+        "exit_map": "OutE3.Odm",
+        "plates": "D01.EVT e19-34"
+      },
+      "notes": "M4 may stub entrance-only; full dungeon is M5."
+    },
+    {
+      "id": "lm.tavern_lonely_knight",
+      "house_id": 92,
+      "name": "Одинокий рыцарь",
+      "fidelity": "F1",
+      "m4_required": true,
+      "quests": ["mm6.quest.new_sorpigal.sulman_letter"],
+      "roles": ["npc_andover_2d", "social_anchor"],
+      "mm6": {
+        "2d_type": "Tavern",
+        "proprietor": "Дирк",
+        "andover_npc_id": 1,
+        "andover_2d_location": 92,
+        "global": "GLOBAL.EVT e1 / letter item 505"
+      },
+      "notes": "Not on quest #83 path. Needed for Andover / Sulman letter slice (M4-003)."
+    },
+    {
+      "id": "lm.abandoned_temple_entrance",
+      "house_id": 172,
+      "name": "Заброшенный храм (вход)",
+      "fidelity": "F2",
+      "m4_required": false,
+      "quests": [],
+      "roles": ["optional_dungeon"],
+      "mm6": {"evt": "OUTE3.EVT e102 → D02.blv"},
+      "notes": "Preserve as landmark shell; not required for #83."
+    },
+    {
+      "id": "lm.garik_forge_entrance",
+      "house_id": 188,
+      "name": "Кузница Гарика (вход)",
+      "fidelity": "F2",
+      "m4_required": false,
+      "quests": [],
+      "roles": ["optional_dungeon"],
+      "mm6": {"evt": "OUTE3.EVT e103 → D18.Blv"},
+      "notes": "Preserve as landmark shell; not required for #83."
+    },
+    {
+      "id": "lm.stables",
+      "house_id": 48,
+      "name": "Экипажи Нью-Сорпигаля",
+      "fidelity": "F2",
+      "m4_required": false,
+      "quests": [],
+      "roles": ["travel_hub"],
+      "mm6": {"schedule_a": "Castle Ironfist D3,M,W,F,2"},
+      "notes": "World travel; can be stub service in M4."
+    },
+    {
+      "id": "lm.boats",
+      "house_id": 57,
+      "name": "Одиссей",
+      "fidelity": "F2",
+      "m4_required": false,
+      "quests": [],
+      "roles": ["travel_hub"],
+      "mm6": {"schedule_a": "Mist E2,Tu,Th,Sa,3"},
+      "notes": "World travel; can be stub service in M4."
+    },
+    {
+      "id": "lm.town_services_cluster",
+      "house_ids": [1, 15, 29, 42, 69, 79, 113, 137, 139, 141, 147],
+      "name": "Town services (shops/guilds/temple/train/bank)",
+      "fidelity": "F3",
+      "m4_required": false,
+      "quests": [],
+      "roles": ["atmosphere"],
+      "notes": "Fill after F0/F1 route is playable. Identities in topology JSON."
+    }
+  ],
+  "quest_route_83": {
+    "steps": [
+      {
+        "order": 1,
+        "landmark": "lm.town_hall",
+        "action": "accept",
+        "gives": ["item:489", "qbit:83"]
+      },
+      {
+        "order": 2,
+        "landmark": "lm.goblinwatch_entrance",
+        "action": "enter",
+        "requires": ["item:489"],
+        "consumes": ["item:489"],
+        "sets": ["qbit:300"]
+      },
+      {
+        "order": 3,
+        "landmark": "lm.goblinwatch_interior",
+        "action": "recover_codex",
+        "gives": ["item:543"],
+        "milestone": "M5"
+      },
+      {
+        "order": 4,
+        "landmark": "lm.goblinwatch_interior",
+        "action": "exit_to_town",
+        "via": "D01.EVT e51 → OutE3.Odm"
+      },
+      {
+        "order": 5,
+        "landmark": "lm.town_hall",
+        "action": "turnin",
+        "requires": ["item:543", "qbit:83"]
+      }
+    ],
+    "mmx_grid_implication": "Town hall and Goblinwatch entrance must be on a short walkable route. Interior may be separate map."
+  },
+  "quest_route_81_note": {
+    "mm6_quest_id": 81,
+    "landmark": "lm.tavern_lonely_knight",
+    "status": "secondary_slice",
+    "note": "Stable id for letter quest not allocated in id_registry yet; use tavern as Andover anchor."
+  }
+}

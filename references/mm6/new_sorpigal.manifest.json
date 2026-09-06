@@ -19,6 +19,7 @@
     "mm6.travel_link.new_sorpigal.goblinwatch"
   ],
   "topology": "references/mm6/new_sorpigal.topology.json",
+  "landmarks": "references/mm6/new_sorpigal.landmarks.json",
   "landmarks_verified": [
     "town hall #89 (Janis)",
     "tavern Lonely Knight #92 (Dirk / Andover 2D)",

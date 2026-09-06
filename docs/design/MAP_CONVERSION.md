@@ -9,9 +9,14 @@
 
 Не конвертировать координаты MM6 напрямую: topology важнее metric accuracy.
 
-## New Sorpigal (M3-001)
+## New Sorpigal (M3-001 / M3-002)
 
-Исходная топология: `docs/design/NEW_SORPIGAL_TOPOLOGY.md`,
+Топология: `docs/design/NEW_SORPIGAL_TOPOLOGY.md`,
 `references/mm6/new_sorpigal.topology.json`.
-Refresh: `python tools\extract\extract_mm6_topology.py --write-curated`.
+
+Quest landmarks: `docs/design/NEW_SORPIGAL_LANDMARKS.md`,
+`references/mm6/new_sorpigal.landmarks.json`.
+
+Refresh topology:
+`python tools\extract\extract_mm6_topology.py --write-curated`.
 

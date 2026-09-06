@@ -91,7 +91,7 @@
 
 ## M3 — New Sorpigal Design
 - [x] M3-001 Original topology
-- [ ] M3-002 Quest-critical landmarks
+- [x] M3-002 Quest-critical landmarks
 - [ ] M3-003 NPC list
 - [ ] M3-004 Buildings/services
 - [ ] M3-005 Encounters

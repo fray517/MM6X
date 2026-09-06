@@ -136,6 +136,10 @@ Design: `docs/design/NEW_SORPIGAL_TOPOLOGY.md`.
 VERIFIED_LOCAL: 40 узлов на Map=E3 (18 значимых + 22 дома),
 4 `MoveToMap` (D01/D02/D18/OutB3). ODM XY не декодированы.
 
+Quest landmarks (M3-002):
+`docs/design/NEW_SORPIGAL_LANDMARKS.md` — F0 ратуша #89 +
+вход #171; F1 таверна #92.
+
 Каталог MM6: header 256 байт, root entry сразу после него.
 `file.abs_offset = root.dataOffset + entry.dataOffset`.
 Текстовые `.txt` в `Icons.lod`: `LodImageHeader_MM6` (48 байт),
