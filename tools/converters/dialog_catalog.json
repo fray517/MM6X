@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "note": "Slice dialogs. Quest/token IDs resolve from id_registry.json.",
+  "dialogs": {
+    "Mm6JanisDialog": {
+      "rootDialogID": 1,
+      "dialogs": [
+        {
+          "id": 1,
+          "randomText": "false",
+          "fakeNpcID": "0",
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_JANIS_GREETING"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_GOBLINWATCH",
+              "conditions": [
+                {
+                  "type": "QuestInactiveCondition",
+                  "questID": {
+                    "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+                    "slot": "quest_step"
+                  },
+                  "failState": "HIDDEN"
+                }
+              ],
+              "functions": [
+                {
+                  "type": "GoToFunction",
+                  "dialogID": 2
+                }
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_TURNIN",
+              "conditions": [
+                {
+                  "type": "QuestActiveCondition",
+                  "questID": {
+                    "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+                    "slot": "quest_step"
+                  },
+                  "failState": "HIDDEN"
+                }
+              ],
+              "functions": [
+                {
+                  "type": "GoToFunction",
+                  "dialogID": 4
+                }
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_GOODBYE",
+              "functions": [
+                {"type": "QuitFunction"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_JANIS_GOBLINWATCH_OFFER"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_ACCEPT",
+              "functions": [
+                {
+                  "type": "QuestFunction",
+                  "questID": {
+                    "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+                    "slot": "quest_step"
+                  },
+                  "dialogID": 3
+                }
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_DECLINE",
+              "functions": [
+                {"type": "GoToFunction", "dialogID": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_JANIS_GOBLINWATCH_ACCEPTED"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_GOODBYE",
+              "functions": [
+                {
+                  "type": "GiveTokenFunction",
+                  "tokenID": {
+                    "ref": "mm6.item.goblinwatch.key",
+                    "slot": "token"
+                  },
+                  "dialogID": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_JANIS_TURNIN_PROMPT"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_TURNIN_SUBMIT",
+              "conditions": [
+                {
+                  "type": "TokenAcquiredCondition",
+                  "tokenID": {
+                    "ref": "mm6.item.goblinwatch.codex",
+                    "slot": "token"
+                  },
+                  "failState": "HIDDEN"
+                }
+              ],
+              "functions": [
+                {
+                  "type": "SolveQuestFunction",
+                  "questID": {
+                    "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
+                    "slot": "quest_step"
+                  },
+                  "dialogID": 5
+                }
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_GOODBYE",
+              "functions": [
+                {"type": "GoToFunction", "dialogID": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_JANIS_TURNIN_DONE"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_GOODBYE",
+              "functions": [
+                {"type": "QuitFunction"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Mm6AndoverDialog": {
+      "rootDialogID": 1,
+      "dialogs": [
+        {
+          "id": 1,
+          "randomText": "false",
+          "fakeNpcID": "0",
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_ANDOVER_GREETING"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_ANDOVER_LETTER",
+              "functions": [
+                {"type": "GoToFunction", "dialogID": 2}
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_ANDOVER_GOODBYE",
+              "functions": [
+                {"type": "QuitFunction"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_ANDOVER_LETTER"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_ANDOVER_GOODBYE",
+              "functions": [
+                {"type": "QuitFunction"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

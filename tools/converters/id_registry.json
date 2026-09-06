@@ -210,6 +210,16 @@
           "status": "reserved"
         },
         {
+          "namespace": "token",
+          "value": 20002,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "TOKEN_MM6_GOBLINWATCH_CODEX",
+          "status": "reserved"
+        },
+        {
           "namespace": "loca",
           "value": "LOREBOOK_TITLE_MM6_GOBLINWATCH_CODEX",
           "status": "reserved"

@@ -13,10 +13,13 @@ New Sorpigal как карта — **M3**, не здесь.
 - Полоса ID `20000-29999` (ADR-009)
 - Проверка: `tools/validators/validate_id_registry.py`
 - Loca overlay: `tools/converters/generate_mmx_loca.py` (M2-003)
-  (`mod/Localisation/en|ru/loca.xml`, только ключи MM6X)
+  (`mod/Localisation/en|ru/loca.xml`, 31 ключ MM6X)
+- Dialog overlay: `tools/converters/generate_mmx_dialog.py` (M2-004)
+  (`mod/Dialog/Mm6JanisDialog.xml`, `Mm6AndoverDialog.xml`)
 
 Numeric ID reserved, не bound: в StreamingAssets ещё не писали.
-Ключ Дозора → Token, кодекс → LoreBook: **HYPOTHESIS** до M2-005.
+Ключ = Token 20001, кодекс = LoreBook 20000 + Token 20002
+(**HYPOTHESIS** до M2-005 / StaticData).
 
 Не путать с vanilla `Sorpigal` и
 `LOCATION_SORPIGAL_THE_GOBLIN_WATCHTOWER` (дом в MMX-городе).
@@ -32,13 +35,15 @@ python tools\converters\allocate_mmx_ids.py --write
 python tools\converters\generate_mmx_loca.py --self-test
 python tools\converters\generate_mmx_loca.py --dry-run --check-vanilla
 python tools\converters\generate_mmx_loca.py --write --check-vanilla
+python tools\converters\generate_mmx_dialog.py --self-test
+python tools\converters\generate_mmx_dialog.py --dry-run --check-vanilla
+python tools\converters\generate_mmx_dialog.py --write --check-vanilla
 ```
 
 (`MMX_GAME_PATH` в `.env`; иначе `--game-path` как в `env.example`.)
 
 ## Дальше
 
-M2-004 Dialog generator, затем StaticData patch,
-build manifest, stage/restore. Overlay loca **не** подмешивается
-в игру до M2-008 (HYPOTHESIS: sample mod копирует полный loca).
-Игра пока не меняется.
+M2-005 StaticData patch (NPC / QuestSteps / Token / LoreBook),
+затем build manifest, stage/restore. Overlay **не** в игре до
+M2-008. Игра пока не меняется.

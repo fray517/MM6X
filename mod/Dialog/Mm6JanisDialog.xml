@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NpcConversationStaticData rootDialogID="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<dialog id="1" randomText="false" fakeNpcID="0">
+		<text locaKey="DIALOG_TEXT_MM6_JANIS_GREETING" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOBLINWATCH" />
+			<condition xsi:type="QuestInactiveCondition" failState="HIDDEN" questID="20000" />
+			<function xsi:type="GoToFunction" dialogID="2" />
+		</entry>
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_TURNIN" />
+			<condition xsi:type="QuestActiveCondition" failState="HIDDEN" questID="20000" />
+			<function xsi:type="GoToFunction" dialogID="4" />
+		</entry>
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
+			<function xsi:type="QuitFunction" />
+		</entry>
+	</dialog>
+	<dialog id="2">
+		<text locaKey="DIALOG_TEXT_MM6_JANIS_GOBLINWATCH_OFFER" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_ACCEPT" />
+			<function xsi:type="QuestFunction" dialogID="3" questID="20000" />
+		</entry>
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_DECLINE" />
+			<function xsi:type="GoToFunction" dialogID="1" />
+		</entry>
+	</dialog>
+	<dialog id="3">
+		<text locaKey="DIALOG_TEXT_MM6_JANIS_GOBLINWATCH_ACCEPTED" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
+			<function xsi:type="GiveTokenFunction" dialogID="1" tokenID="20001" />
+		</entry>
+	</dialog>
+	<dialog id="4">
+		<text locaKey="DIALOG_TEXT_MM6_JANIS_TURNIN_PROMPT" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_TURNIN_SUBMIT" />
+			<condition xsi:type="TokenAcquiredCondition" failState="HIDDEN" tokenID="20002" />
+			<function xsi:type="SolveQuestFunction" dialogID="5" questID="20001" />
+		</entry>
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
+			<function xsi:type="GoToFunction" dialogID="1" />
+		</entry>
+	</dialog>
+	<dialog id="5">
+		<text locaKey="DIALOG_TEXT_MM6_JANIS_TURNIN_DONE" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
+			<function xsi:type="QuitFunction" />
+		</entry>
+	</dialog>
+</NpcConversationStaticData>

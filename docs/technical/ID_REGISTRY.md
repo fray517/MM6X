@@ -40,7 +40,7 @@ python tools\converters\allocate_mmx_ids.py --dry-run
 ## Зарезервировано для slice
 
 Evidence: VERIFIED_LOCAL (скан Ubisoft MMX + MM6 slice).
-Ключ→Token и кодекс→LoreBook — HYPOTHESIS.
+Ключ→Token и кодекс→LoreBook+Token — HYPOTHESIS до M2-005.
 Плиты NILBOG — maze дверей, не слот StaticID.
 
 | Stable ID | MM6 source | MMX target | Status |
@@ -54,7 +54,7 @@ Evidence: VERIFIED_LOCAL (скан Ubisoft MMX + MM6 slice).
 | `mm6.quest_stage...accept` | `GLOBAL.EVT` e3 | step/obj 20000 | reserved |
 | `mm6.quest_stage...turnin` | `GLOBAL.EVT` e4 | step/obj 20001 | reserved |
 | `mm6.item.goblinwatch.key` | `ITEMS.TXT` #489 | Token 20001 | reserved |
-| `mm6.item.goblinwatch.codex` | #543 / `Scroll.txt` M44 | LoreBook 20000 | reserved |
+| `mm6.item.goblinwatch.codex` | #543 / `Scroll.txt` M44 | LoreBook 20000, Token 20002 | reserved |
 | `mm6.secret.goblinwatch.nilbog` | `D01.EVT` e19–34 | карта (слотов нет) | — |
 | `mm6.travel_link...goblinwatch` | `OUTE3.EVT` e101 | карта (слотов нет) | — |
 

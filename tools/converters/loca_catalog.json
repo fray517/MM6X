@@ -61,6 +61,70 @@
     "LOREBOOK_TEXT_MM6_GOBLINWATCH_CODEX": {
       "en": "Letter-plate legend (this build uses А–П, not a typed password).\n\nА: trap.\nБ: opens door 4, closes door 5.\nВ: opens door 5, closes door 4.\nД: opens door 1, closes door 5.\nЕ: opens door 5, closes door 1.\nЖ: opens door 2, closes door 4.\nГ: opens door 6.\nЗ: opens door 3, closes door 2.\nИ: opens door 2, closes door 3.\nЙ: opens door 2, closes door 1.\nК: opens door 6, closes door 5.\nЛ: opens door 3, closes door 4.\nМ: maintenance (teleport).\nН: opens door 1, closes door 2.\nО: opens door 5, closes door 6.\nП: reset.",
       "ru": "Легенда плит (не ввод слова с клавиатуры).\n\nА: ловушка.\nБ: открывает дверь 4, закрывает дверь 5.\nВ: открывает дверь 5, закрывает дверь 4.\nД: открывает дверь 1, закрывает дверь 5.\nЕ: открывает дверь 5, закрывает дверь 1.\nЖ: открывает дверь 2, закрывает дверь 4.\nГ: открывает дверь 6.\nЗ: открывает дверь 3, закрывает дверь 2.\nИ: открывает дверь 2, закрывает дверь 3.\nЙ: открывает дверь 2, закрывает дверь 1.\nК: открывает дверь 6, закрывает дверь 5.\nЛ: открывает дверь 3, закрывает дверь 4.\nМ: обслуживание (телепорт).\nН: открывает дверь 1, закрывает дверь 2.\nО: открывает дверь 5, закрывает дверь 6.\nП: сброс."
+    },
+    "TOKEN_MM6_GOBLINWATCH_CODEX": {
+      "en": "Goblinwatch Codex",
+      "ru": "Кодекс Дозора гоблинов"
+    },
+    "DIALOG_TEXT_MM6_JANIS_GREETING": {
+      "en": "Welcome to the Town Hall. I am Janis, clerk of New Sorpigal.",
+      "ru": "Добро пожаловать в ратушу. Я Жанис, секретарь Нью-Сорпигаля."
+    },
+    "DIALOG_OPTION_MM6_JANIS_GOBLINWATCH": {
+      "en": "Tell me about the Goblinwatch.",
+      "ru": "Расскажите о Дозоре гоблинов."
+    },
+    "DIALOG_OPTION_MM6_JANIS_TURNIN": {
+      "en": "I found the Goblinwatch codex.",
+      "ru": "Я нашёл кодекс Дозора гоблинов."
+    },
+    "DIALOG_OPTION_MM6_JANIS_GOODBYE": {
+      "en": "Goodbye.",
+      "ru": "До свидания."
+    },
+    "DIALOG_TEXT_MM6_JANIS_GOBLINWATCH_OFFER": {
+      "en": "Goblins hold an old watchtower east of town. We need the combination to their vault. Will you retrieve it?",
+      "ru": "Гоблины держат старую сторожевую башню к востоку от города. Нам нужен код к их хранилищу. Достаньте его?"
+    },
+    "DIALOG_OPTION_MM6_JANIS_ACCEPT": {
+      "en": "I will help.",
+      "ru": "Я помогу."
+    },
+    "DIALOG_OPTION_MM6_JANIS_DECLINE": {
+      "en": "Not now.",
+      "ru": "Не сейчас."
+    },
+    "DIALOG_TEXT_MM6_JANIS_GOBLINWATCH_ACCEPTED": {
+      "en": "Thank you. Take this key to the Goblinwatch entrance. Return with the codex.",
+      "ru": "Спасибо. Возьмите этот ключ к входу в Дозор. Вернитесь с кодексом."
+    },
+    "DIALOG_TEXT_MM6_JANIS_TURNIN_PROMPT": {
+      "en": "Do you have the Goblinwatch codex for the vault combination?",
+      "ru": "У вас есть кодекс Дозора с кодом к хранилищу?"
+    },
+    "DIALOG_OPTION_MM6_JANIS_TURNIN_SUBMIT": {
+      "en": "Here is the codex.",
+      "ru": "Вот кодекс."
+    },
+    "DIALOG_TEXT_MM6_JANIS_TURNIN_DONE": {
+      "en": "Excellent work. The town is in your debt.",
+      "ru": "Отличная работа. Город вам благодарен."
+    },
+    "DIALOG_TEXT_MM6_ANDOVER_GREETING": {
+      "en": "Andover Potbello, at your service. Sulman sent you, perhaps?",
+      "ru": "Андовер Портбелло, к вашим услугам. Вас прислал Сулман?"
+    },
+    "DIALOG_OPTION_MM6_ANDOVER_LETTER": {
+      "en": "Do you have a letter for Sulman?",
+      "ru": "У вас есть письмо для Сулмана?"
+    },
+    "DIALOG_OPTION_MM6_ANDOVER_GOODBYE": {
+      "en": "Goodbye.",
+      "ru": "До свидания."
+    },
+    "DIALOG_TEXT_MM6_ANDOVER_LETTER": {
+      "en": "Ah, the courier run. Sulman's letter is not ready in this slice yet — check back later.",
+      "ru": "А, курьерское поручение. Письмо для Сулмана в этом срезе ещё не готово — загляните позже."
     }
   }
 }

@@ -180,6 +180,22 @@ def scan_namespace(assets: Path, namespace: str) -> set[Any]:
     raise AllocError(f"не умею сканировать {namespace}")
 
 
+def registry_slot(
+    registry: dict[str, Any],
+    stable_id: str,
+    namespace: str,
+) -> Any:
+    """First slot value for stable_id + namespace."""
+    for entry in registry.get("entries") or []:
+        if entry.get("stable_id") != stable_id:
+            continue
+        for slot in entry.get("slots") or []:
+            if slot.get("namespace") != namespace:
+                continue
+            return slot.get("value")
+    raise AllocError(f"нет слота {stable_id} {namespace}")
+
+
 def run_self_test() -> None:
     assert next_free({10000, 20000}) == 20001
     assert next_free(set()) == BAND_FLOOR

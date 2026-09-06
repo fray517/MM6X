@@ -130,3 +130,23 @@ def run_self_test() -> None:
         ]
     }
     assert loca_keys(registry) == ["A", "B"]
+
+
+def merge_loca_keys(
+    registry: dict[str, Any],
+    catalog: dict[str, Any],
+) -> list[str]:
+    """Registry loca slots first, then extra catalog keys."""
+    keys = loca_keys(registry)
+    seen = set(keys)
+    strings = catalog.get("strings") or {}
+    if not isinstance(strings, dict):
+        raise ValueError("catalog.strings должен быть объектом")
+    for key in strings:
+        if not isinstance(key, str) or not key:
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        keys.append(key)
+    return keys

@@ -26,3 +26,17 @@ python tools\converters\generate_mmx_loca.py --write --check-vanilla
 Каталог строк: `tools/converters/loca_catalog.json`.
 Выход: `mod/Localisation/<lang>/loca.xml` (en, ru).
 Vanilla loca не копируется. Игру CLI не патчит.
+
+## Dialog overlay (M2-004)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\converters\generate_mmx_dialog.py --self-test
+python tools\converters\generate_mmx_dialog.py --dry-run --check-vanilla
+python tools\converters\generate_mmx_dialog.py --write --check-vanilla
+```
+
+Каталог: `tools/converters/dialog_catalog.json`.
+Выход: `mod/Dialog/Mm6JanisDialog.xml`, `Mm6AndoverDialog.xml`.
+Quest/token ID берутся из `id_registry.json`. Игру CLI не патчит.
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NpcConversationStaticData rootDialogID="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<dialog id="1" randomText="false" fakeNpcID="0">
+		<text locaKey="DIALOG_TEXT_MM6_ANDOVER_GREETING" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_LETTER" />
+			<function xsi:type="GoToFunction" dialogID="2" />
+		</entry>
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_GOODBYE" />
+			<function xsi:type="QuitFunction" />
+		</entry>
+	</dialog>
+	<dialog id="2">
+		<text locaKey="DIALOG_TEXT_MM6_ANDOVER_LETTER" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_GOODBYE" />
+			<function xsi:type="QuitFunction" />
+		</entry>
+	</dialog>
+</NpcConversationStaticData>
