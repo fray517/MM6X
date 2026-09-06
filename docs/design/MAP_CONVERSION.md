@@ -29,7 +29,11 @@ Encounters: `docs/design/NEW_SORPIGAL_ENCOUNTERS.md`,
 Travel: `docs/design/NEW_SORPIGAL_TRAVEL.md`,
 `references/mm6/new_sorpigal.travel.json`.
 
-Refresh:
+Grid sketch: `docs/design/NEW_SORPIGAL_GRID_SKETCH.md`,
+`references/mm6/new_sorpigal.grid_sketch.json`
+(24×18 CITY; layout HYPOTHESIS).
+
+Refresh extracts:
 ```powershell
 python tools\extract\extract_mm6_topology.py --write-curated
 python tools\extract\extract_mm6_npcs.py --write-curated

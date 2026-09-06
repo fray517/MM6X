@@ -96,7 +96,7 @@
 - [x] M3-004 Buildings/services
 - [x] M3-005 Encounters
 - [x] M3-006 Exits/travel
-- [ ] M3-007 Grid conversion sketch
+- [x] M3-007 Grid conversion sketch
 - [ ] M3-008 Cell budget
 - [ ] M3-009 Quest dependency graph
 - [ ] M3-010 Approve design

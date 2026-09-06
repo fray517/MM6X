@@ -51,7 +51,8 @@ Topology base: `docs/design/NEW_SORPIGAL_TOPOLOGY.md`.
 
 **MMX implication:** ратуша и вход Дозора — на коротком
 пешеходном маршруте одной outdoor/town map. Интерьер —
-отдельная map (как MM6).
+отдельная map (как MM6). Sketch клеток: M3-007
+`NEW_SORPIGAL_GRID_SKETCH.md`.
 
 ## F1 — таверна `#92` (не #83)
 

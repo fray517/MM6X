@@ -156,6 +156,9 @@ Exits/travel (M3-006): `docs/design/NEW_SORPIGAL_TRAVEL.md` —
 F0 Town↔D01; F2 D02/D18/OutB3 + stables/boats.
 `extract_mm6_travel.py --write-curated`.
 
+Grid sketch (M3-007): `docs/design/NEW_SORPIGAL_GRID_SKETCH.md` —
+`New_Sorpigal` 24×18; hall→gate corridor; ≠ vanilla Sorpigal.
+
 ## Decode lod (для extract)
 
 Каталог MM6: header 256 байт, root entry сразу после него.
