@@ -57,8 +57,8 @@ Spawn XYZ на целевой карте есть в EVT (см. topology JSON);
 
 ## Encounter layer (MapStats #15)
 
-- Mon1: Goblin / Гоблин
-- Mon2: PeasantM2 / Ученик мага
+См. M3-005: `docs/design/NEW_SORPIGAL_ENCOUNTERS.md`.
+Mon1 Goblin 50%, Mon2 PeasantM2 50%, enc 10%.
 
 Зоны спавна на outdoor — HYPOTHESIS до ODM/DDM decode.
 

@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal.encounters",
+  "region": "mm6.region.new_sorpigal",
+  "evidence": "VERIFIED_LOCAL",
+  "note": "MapStats random encounters. Exact ODM spawn XY not decoded — placement on MMX grid is HYPOTHESIS (route town→Goblinwatch).",
+  "outdoor": {
+    "mapstats_id": 15,
+    "name": "Нью-Сорпигаль",
+    "file_name": "OutE3.Odm",
+    "refill_days": 168,
+    "lock": 0,
+    "trap": 1,
+    "tres": 6,
+    "enc_chance_pct": 10,
+    "monsters": [
+      {
+        "slot": 1,
+        "pic_stem": "Goblin",
+        "name": "Гоблин",
+        "chance_pct": 50,
+        "dif": 1,
+        "count_range": "3-5",
+        "tiers": [
+          {
+            "mm6_monster_id": 76,
+            "picture": "GoblinA",
+            "name": "Гоблин",
+            "level": "4",
+            "hp": "13",
+            "ac": "6",
+            "exp": "56",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 77,
+            "picture": "GoblinB",
+            "name": "Гоблин - шаман",
+            "level": "6",
+            "hp": "21",
+            "ac": "10",
+            "exp": "96",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 78,
+            "picture": "GoblinC",
+            "name": "Король гоблинов",
+            "level": "10",
+            "hp": "40",
+            "ac": "14",
+            "exp": "200",
+            "evidence": "VERIFIED_LOCAL"
+          }
+        ]
+      },
+      {
+        "slot": 2,
+        "pic_stem": "PeasantM2",
+        "name": "Ученик мага",
+        "chance_pct": 50,
+        "dif": 1,
+        "count_range": "3-5",
+        "tiers": [
+          {
+            "mm6_monster_id": 136,
+            "picture": "PeasantM2A",
+            "name": "Ученик мага",
+            "level": "2",
+            "hp": "6",
+            "ac": "3",
+            "exp": "24",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 137,
+            "picture": "PeasantM2B",
+            "name": "Начинающий маг",
+            "level": "6",
+            "hp": "21",
+            "ac": "5",
+            "exp": "96",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 138,
+            "picture": "PeasantM2C",
+            "name": "Маг",
+            "level": "10",
+            "hp": "40",
+            "ac": "7",
+            "exp": "200",
+            "evidence": "VERIFIED_LOCAL"
+          }
+        ]
+      }
+    ],
+    "evidence": "VERIFIED_LOCAL"
+  },
+  "quest_dungeon": {
+    "mapstats_id": 16,
+    "name": "Дозор гоблинов",
+    "file_name": "D01.Blv",
+    "refill_days": 672,
+    "lock": 0,
+    "trap": 1,
+    "tres": 6,
+    "enc_chance_pct": 10,
+    "monsters": [
+      {
+        "slot": 1,
+        "pic_stem": "Rat",
+        "name": "Обыкновенная крыса",
+        "chance_pct": 40,
+        "dif": 2,
+        "count_range": "3-5",
+        "tiers": [
+          {
+            "mm6_monster_id": 145,
+            "picture": "RatA",
+            "name": "Обыкновенная крыса",
+            "level": "2",
+            "hp": "6",
+            "ac": "4",
+            "exp": "24",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 146,
+            "picture": "RatB",
+            "name": "Большая крыса",
+            "level": "4",
+            "hp": "13",
+            "ac": "5",
+            "exp": "56",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 147,
+            "picture": "RatC",
+            "name": "Гигантская крыса",
+            "level": "6",
+            "hp": "21",
+            "ac": "8",
+            "exp": "96",
+            "evidence": "VERIFIED_LOCAL"
+          }
+        ]
+      },
+      {
+        "slot": 2,
+        "pic_stem": "Goblin",
+        "name": "Гоблин",
+        "chance_pct": 30,
+        "dif": 2,
+        "count_range": "3-5",
+        "tiers": [
+          {
+            "mm6_monster_id": 76,
+            "picture": "GoblinA",
+            "name": "Гоблин",
+            "level": "4",
+            "hp": "13",
+            "ac": "6",
+            "exp": "56",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 77,
+            "picture": "GoblinB",
+            "name": "Гоблин - шаман",
+            "level": "6",
+            "hp": "21",
+            "ac": "10",
+            "exp": "96",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 78,
+            "picture": "GoblinC",
+            "name": "Король гоблинов",
+            "level": "10",
+            "hp": "40",
+            "ac": "14",
+            "exp": "200",
+            "evidence": "VERIFIED_LOCAL"
+          }
+        ]
+      },
+      {
+        "slot": 3,
+        "pic_stem": "Bloodsucker",
+        "name": "Пиявка",
+        "chance_pct": 30,
+        "dif": 1,
+        "count_range": "4-6",
+        "tiers": [
+          {
+            "mm6_monster_id": 13,
+            "picture": "BloodsuckerA",
+            "name": "Пиявка",
+            "level": "2",
+            "hp": "6",
+            "ac": "6",
+            "exp": "24",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 14,
+            "picture": "BloodsuckerB",
+            "name": "Мозговая пиявка",
+            "level": "4",
+            "hp": "13",
+            "ac": "8",
+            "exp": "56",
+            "evidence": "VERIFIED_LOCAL"
+          },
+          {
+            "mm6_monster_id": 15,
+            "picture": "BloodsuckerC",
+            "name": "Пиявка души",
+            "level": "8",
+            "hp": "30",
+            "ac": "10",
+            "exp": "144",
+            "evidence": "VERIFIED_LOCAL"
+          }
+        ]
+      }
+    ],
+    "evidence": "VERIFIED_LOCAL"
+  },
+  "m4_design": {
+    "required": true,
+    "fidelity": "F1",
+    "intent": "At least one outdoor Goblin pack on the walk from Town Hall toward Goblinwatch entrance; optional PeasantM2 (mage apprentice) pack.",
+    "mmx_binding": "HYPOTHESIS — map Trigger MONSTER / spawn later",
+    "d01_encounters": "M5 (not M4 greybox blocker)"
+  }
+}

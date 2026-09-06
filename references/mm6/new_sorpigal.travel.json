@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal.travel",
+  "region": "mm6.region.new_sorpigal",
+  "evidence": "VERIFIED_LOCAL",
+  "note": "Outbound OUTE3.EVT MoveToMap + D01 return + stables/boats schedules. Spawn XYZ are MM6 coords, not MMX cells.",
+  "summary": {
+    "outbound_exits": 4,
+    "return_links": 1,
+    "scheduled_hubs": 2
+  },
+  "m4_required": [
+    "exit.oute3.e101",
+    "exit.d01.e51"
+  ],
+  "exits_outbound": [
+    {
+      "id": "exit.oute3.e101",
+      "kind": "map_transition",
+      "direction": "outbound",
+      "from_region": "mm6.region.new_sorpigal",
+      "event_id": 101,
+      "house_id": 171,
+      "to_map": "D01.blv",
+      "to_stable_id": "mm6.dungeon.goblinwatch",
+      "to_title": "Дозор гоблинов",
+      "spawn_on_dest": {
+        "x": 601,
+        "y": 6871,
+        "z": 177
+      },
+      "fidelity": "F0",
+      "evidence": "VERIFIED_LOCAL",
+      "requires_item": 489,
+      "stable_link": "mm6.travel_link.new_sorpigal.goblinwatch"
+    },
+    {
+      "id": "exit.oute3.e102",
+      "kind": "map_transition",
+      "direction": "outbound",
+      "from_region": "mm6.region.new_sorpigal",
+      "event_id": 102,
+      "house_id": 172,
+      "to_map": "D02.blv",
+      "to_stable_id": "mm6.dungeon.abandoned_temple",
+      "to_title": "Заброшенный храм",
+      "spawn_on_dest": {
+        "x": 16406,
+        "y": -19669,
+        "z": 865
+      },
+      "fidelity": "F2",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "id": "exit.oute3.e103",
+      "kind": "map_transition",
+      "direction": "outbound",
+      "from_region": "mm6.region.new_sorpigal",
+      "event_id": 103,
+      "house_id": 188,
+      "to_map": "D18.Blv",
+      "to_stable_id": "mm6.dungeon.garik_forge",
+      "to_title": "Кузница Гарика",
+      "spawn_on_dest": {
+        "x": -2688,
+        "y": 1216,
+        "z": 1153
+      },
+      "fidelity": "F2",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "id": "exit.oute3.e104",
+      "kind": "map_transition",
+      "direction": "outbound",
+      "from_region": "mm6.region.new_sorpigal",
+      "event_id": 104,
+      "house_id": null,
+      "to_map": "OutB3.Odm",
+      "to_stable_id": "mm6.region.dragonsand",
+      "to_title": "Драконсэнд",
+      "spawn_on_dest": {
+        "x": 12808,
+        "y": 6832,
+        "z": 64
+      },
+      "fidelity": "F2",
+      "evidence": "VERIFIED_LOCAL"
+    }
+  ],
+  "exits_return": [
+    {
+      "id": "exit.d01.e51",
+      "kind": "map_transition",
+      "direction": "inbound_to_oute3",
+      "from_map": "D01.Blv",
+      "from_stable_id": "mm6.dungeon.goblinwatch",
+      "event_id": 51,
+      "to_map": "OutE3.Odm",
+      "to_region": "mm6.region.new_sorpigal",
+      "spawn_on_dest": {
+        "x": -18400,
+        "y": -14982,
+        "z": 1600
+      },
+      "fidelity": "F0",
+      "evidence": "VERIFIED_LOCAL",
+      "note": "Quest #83 return to New Sorpigal outdoor."
+    }
+  ],
+  "scheduled_travel": [
+    {
+      "id": "travel.stables.48",
+      "kind": "stables",
+      "house_id": 48,
+      "schedule": {
+        "raw": "Castle Ironfist D3,M,W,F,2",
+        "label": "Castle Ironfist",
+        "map_code": "D3",
+        "days": [
+          "M",
+          "W",
+          "F"
+        ],
+        "cost": 2
+      },
+      "dest_file": "OutD3.Odm",
+      "dest_title": "Замок Айронфист",
+      "dest_mapstats_id": 12,
+      "fidelity": "F2",
+      "evidence": "VERIFIED_LOCAL",
+      "mmx_note": "Stub service in M4; full world travel later."
+    },
+    {
+      "id": "travel.boats.57",
+      "kind": "boats",
+      "house_id": 57,
+      "schedule": {
+        "raw": "Mist E2,Tu,Th,Sa,3",
+        "label": "Mist",
+        "map_code": "E2",
+        "days": [
+          "Tu",
+          "Th",
+          "Sa"
+        ],
+        "cost": 3
+      },
+      "dest_file": "OutE2.Odm",
+      "dest_title": "Остров Тумана",
+      "dest_mapstats_id": 14,
+      "fidelity": "F2",
+      "evidence": "VERIFIED_LOCAL",
+      "mmx_note": "Stub service in M4; full world travel later."
+    }
+  ],
+  "m4_design": {
+    "required_links": [
+      "Town ↔ Goblinwatch (#171 / D01 e51)"
+    ],
+    "stub_ok": [
+      "D02 / D18 entrances",
+      "OutB3 outdoor edge",
+      "Stables → Ironfist",
+      "Boats → Mist"
+    ]
+  }
+}

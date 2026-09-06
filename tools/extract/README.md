@@ -116,5 +116,30 @@ python tools\extract\extract_mm6_services.py --write-curated
 
 Curated: `references/mm6/new_sorpigal.services.json`.
 
+## Encounters (OutE3 / D01)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_encounters.py --self-test
+python tools\extract\extract_mm6_encounters.py --dry-run
+python tools\extract\extract_mm6_encounters.py --write-curated
+```
+
+Curated: `references/mm6/new_sorpigal.encounters.json`.
+
+## Travel / exits (OutE3)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_travel.py --self-test
+python tools\extract\extract_mm6_travel.py --dry-run
+python tools\extract\extract_mm6_travel.py --write-curated
+```
+
+Нужны topology + `reports/evt_slice.json`.
+Curated: `references/mm6/new_sorpigal.travel.json`.
+
+
+
 
 

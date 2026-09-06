@@ -94,8 +94,8 @@
 - [x] M3-002 Quest-critical landmarks
 - [x] M3-003 NPC list
 - [x] M3-004 Buildings/services
-- [ ] M3-005 Encounters
-- [ ] M3-006 Exits/travel
+- [x] M3-005 Encounters
+- [x] M3-006 Exits/travel
 - [ ] M3-007 Grid conversion sketch
 - [ ] M3-008 Cell budget
 - [ ] M3-009 Quest dependency graph

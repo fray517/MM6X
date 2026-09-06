@@ -1,7 +1,7 @@
 # M3 — New Sorpigal Design
 
 Цель: спроектировать MMX-карту Нью-Сорпигаля **до** greybox (M4).
-Источник — MM6 `OutE3` / `2DEvents` / `NPCdata` / EVT.
+Источник — MM6 `OutE3` / `2DEvents` / `NPCdata` / MapStats / EVT.
 Не масштабировать координаты MM6 напрямую
 (`docs/design/MAP_CONVERSION.md`).
 
@@ -9,24 +9,25 @@
 
 | ID | Артефакты |
 |---|---|
-| M3-001 | `new_sorpigal.topology.json`, `NEW_SORPIGAL_TOPOLOGY.md` |
-| M3-002 | `new_sorpigal.landmarks.json`, `NEW_SORPIGAL_LANDMARKS.md` |
-| M3-003 | `new_sorpigal.npcs.json`, `NEW_SORPIGAL_NPCS.md` |
-| M3-004 | `new_sorpigal.services.json`, `NEW_SORPIGAL_SERVICES.md` |
+| M3-001 | topology |
+| M3-002 | landmarks |
+| M3-003 | npcs |
+| M3-004 | services |
+| M3-005 | encounters |
+| M3-006 | `new_sorpigal.travel.json`, `NEW_SORPIGAL_TRAVEL.md` |
 
-M3-004: 18 сервисов + 22 дома; M4 houses **89 / 171 / 92**.
+M3-006: F0 Town↔D01; F2 D02/D18/OutB3 + stables/boats.
 
 ## Команды
 
 ```powershell
 $env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_evt.py
 python tools\extract\extract_mm6_topology.py --write-curated
-python tools\extract\extract_mm6_npcs.py --write-curated
-python tools\extract\extract_mm6_services.py --self-test
-python tools\extract\extract_mm6_services.py --write-curated
+python tools\extract\extract_mm6_travel.py --write-curated
 ```
 
 ## Дальше
 
-M3-005 Encounters, M3-006 Exits/travel, затем grid sketch /
-cell budget / quest graph / approve.
+M3-007 Grid conversion sketch, M3-008 cell budget,
+M3-009 quest dependency graph, M3-010 approve.

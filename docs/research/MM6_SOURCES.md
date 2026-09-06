@@ -148,6 +148,14 @@ Buildings/services (M3-004):
 `docs/design/NEW_SORPIGAL_SERVICES.md` — 18 сервисов + 22 дома;
 M4: #89/#171/#92. `extract_mm6_services.py --write-curated`.
 
+Encounters (M3-005): `docs/design/NEW_SORPIGAL_ENCOUNTERS.md` —
+OutE3 Goblin/PeasantM2; D01 = M5.
+`extract_mm6_encounters.py --write-curated`.
+
+Exits/travel (M3-006): `docs/design/NEW_SORPIGAL_TRAVEL.md` —
+F0 Town↔D01; F2 D02/D18/OutB3 + stables/boats.
+`extract_mm6_travel.py --write-curated`.
+
 ## Decode lod (для extract)
 
 Каталог MM6: header 256 байт, root entry сразу после него.
