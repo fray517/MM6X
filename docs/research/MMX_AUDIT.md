@@ -157,6 +157,17 @@ ID ≥10000 — test-строки (HirelingTest, TokenAddedTest, …).
 Признаков установленного third-party мода в StreamingAssets нет.
 Evidence: VERIFIED_LOCAL (по составу каталогов)
 
+## M2 overlay (mod/, не в игре)
+VERIFIED_LOCAL после generate:
+- `mod/Localisation/en|ru/loca.xml` — 32 ключа MM6X
+- `mod/Dialog/Mm6JanisDialog.xml`, `Mm6AndoverDialog.xml`
+- `mod/StaticData/` — NPC/QuestSteps/QuestObjectives/Token/LoreBook
+  в полосе 20000+
+- `validate_mmx_mod.py` сверяет registry ↔ catalogs ↔ `mod/`
+- `mod/build_manifest.json` — 9 files + sha256 + stage_rel
+- Stage dry-run (VERIFIED_LOCAL plan): 2 dialog copy (new),
+  2 loca merge, 5 CSV merge; игра не писалась
+
 ## Observations
 - Сборка Ubisoft; Steam/Ubisoft DLL не смешивать.
 - Modding surface совпадает с community-ожиданиями:

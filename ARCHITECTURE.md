@@ -74,7 +74,12 @@ custom C# patches
 
 Сейчас: `python tools\converters\allocate_mmx_ids.py --dry-run`  
 Loca: `python tools\converters\generate_mmx_loca.py --dry-run`  
-Dialog: `python tools\converters\generate_mmx_dialog.py --dry-run`.
+Dialog: `python tools\converters\generate_mmx_dialog.py --dry-run`  
+StaticData: `python tools\converters\generate_mmx_staticdata.py --dry-run`  
+Manifest: `python tools\converters\build_mmx_manifest.py --dry-run`  
+Validate: `python tools\validators\validate_mmx_mod.py`  
+Stage: `python tools\modding\stage_mmx_mod.py --dry-run`.
 
 ## Safety
-Install tooling в будущем поддерживает `--dry-run`, backup и restore.
+Install tooling поддерживает `--dry-run`, backup и restore.
+Stage merge (не wholesale replace) для loca/CSV.

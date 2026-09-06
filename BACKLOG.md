@@ -82,11 +82,11 @@
 - [x] M2-002 MMX target ID allocator
 - [x] M2-003 Localisation generator
 - [x] M2-004 Dialog generator/patcher
-- [ ] M2-005 StaticData patch generator
-- [ ] M2-006 Validation CLI
-- [ ] M2-007 Build manifest
-- [ ] M2-008 Install/stage CLI
-- [ ] M2-009 Restore CLI
+- [x] M2-005 StaticData patch generator
+- [x] M2-006 Validation CLI
+- [x] M2-007 Build manifest
+- [x] M2-008 Install/stage CLI
+- [x] M2-009 Restore CLI
 - [ ] M2-010 Regression fixtures
 
 ## M3 — New Sorpigal Design

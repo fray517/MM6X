@@ -1,0 +1,4 @@
+# MM6X Lore Books overlay,,,,,
+#Comments,,,,,
+StaticID,TitleKey,Category,TextKey,AuthorKey,ImagePath
+20000,LOREBOOK_TITLE_MM6_GOBLINWATCH_CODEX,OTHER,LOREBOOK_TEXT_MM6_GOBLINWATCH_CODEX,LOREBOOK_AUTHOR_MM6_GOBLINWATCH_CODEX,ART_lore_ashan_TheWarOfBitterAshes

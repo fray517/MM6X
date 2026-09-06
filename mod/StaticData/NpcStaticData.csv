@@ -1,0 +1,5 @@
+# MM6X NPC overlay,,,,,,,,,,,,
+#Comments,,,,,,,,,,,,,
+StaticID,NameKey,HirelingProfession,,PortraitKey,ConversationKey,TravelStationID,NpcEffects,HirePrice,HireShare,CanBeFired,AllowItemSell,MinimapSymbol
+20000,NPC_NAME_MM6_JANIS,,MM6 Janis town hall clerk,PIC_generic_NOBLEWOMAN,Mm6JanisDialog,0,,0,0,TRUE,TRUE,HOUSE
+20001,NPC_NAME_MM6_ANDOVER,,MM6 Andover Potbello,PIC_generic_BRIGAND_MALE,Mm6AndoverDialog,0,,0,0,TRUE,TRUE,NORMAL

@@ -17,6 +17,7 @@
   <LocaData id="TOKEN_MM6_GOBLINWATCH_CODEX">Кодекс Дозора гоблинов</LocaData>
   <LocaData id="LOREBOOK_TITLE_MM6_GOBLINWATCH_CODEX">Кодекс Дозора гоблинов</LocaData>
   <LocaData id="LOREBOOK_TEXT_MM6_GOBLINWATCH_CODEX">Легенда плит (не ввод слова с клавиатуры).\n\nА: ловушка.\nБ: открывает дверь 4, закрывает дверь 5.\nВ: открывает дверь 5, закрывает дверь 4.\nД: открывает дверь 1, закрывает дверь 5.\nЕ: открывает дверь 5, закрывает дверь 1.\nЖ: открывает дверь 2, закрывает дверь 4.\nГ: открывает дверь 6.\nЗ: открывает дверь 3, закрывает дверь 2.\nИ: открывает дверь 2, закрывает дверь 3.\nЙ: открывает дверь 2, закрывает дверь 1.\nК: открывает дверь 6, закрывает дверь 5.\nЛ: открывает дверь 3, закрывает дверь 4.\nМ: обслуживание (телепорт).\nН: открывает дверь 1, закрывает дверь 2.\nО: открывает дверь 5, закрывает дверь 6.\nП: сброс.</LocaData>
+  <LocaData id="LOREBOOK_AUTHOR_MM6_GOBLINWATCH_CODEX">Монахи Дроккэба</LocaData>
   <LocaData id="DIALOG_TEXT_MM6_JANIS_GREETING">Добро пожаловать в ратушу. Я Жанис, секретарь Нью-Сорпигаля.</LocaData>
   <LocaData id="DIALOG_OPTION_MM6_JANIS_GOBLINWATCH">Расскажите о Дозоре гоблинов.</LocaData>
   <LocaData id="DIALOG_OPTION_MM6_JANIS_TURNIN">Я нашёл кодекс Дозора гоблинов.</LocaData>

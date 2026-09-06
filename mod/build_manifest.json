@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-06T16:12:21Z",
+  "mod_id": "mm6x",
+  "note": "MM6X staged overlay. Not installed until stage CLI. stage_rel is relative to game Data dir.",
+  "counts": {
+    "dialog": 2,
+    "loca": 2,
+    "staticdata": 5
+  },
+  "files": [
+    {
+      "path": "Dialog/Mm6AndoverDialog.xml",
+      "kind": "dialog",
+      "size": 791,
+      "sha256": "485befb190a94698df467dd832759b808bb3682d2a2910a498000a148015d1d9",
+      "stage_rel": "StreamingAssets/Dialog/Mm6AndoverDialog.xml"
+    },
+    {
+      "path": "Dialog/Mm6JanisDialog.xml",
+      "kind": "dialog",
+      "size": 2181,
+      "sha256": "476aae56f82c42ca038947ed56e67f4fef1e9d086c07f9839eb9f7eb5127f95d",
+      "stage_rel": "StreamingAssets/Dialog/Mm6JanisDialog.xml"
+    },
+    {
+      "path": "Localisation/en/loca.xml",
+      "kind": "loca",
+      "size": 3780,
+      "sha256": "f784125302a5f987c0f9442038d7b13dbaaf9cb0fbcd3ba0e9d2d1fae9fc273f",
+      "stage_rel": "StreamingAssets/Localisation/en/loca.xml"
+    },
+    {
+      "path": "Localisation/ru/loca.xml",
+      "kind": "loca",
+      "size": 5067,
+      "sha256": "6a0891281e31829e44efc2612871e4536da33eeae5a15d5f42a7b19c1794d1a3",
+      "stage_rel": "StreamingAssets/Localisation/ru/loca.xml"
+    },
+    {
+      "path": "StaticData/LoreBookStaticData.csv",
+      "kind": "staticdata",
+      "size": 263,
+      "sha256": "b3ea12fe594b990df72c8dc9bad41f3471c0de610c240c5407317709ca743175",
+      "stage_rel": "StreamingAssets/StaticData/LoreBookStaticData.csv"
+    },
+    {
+      "path": "StaticData/NpcStaticData.csv",
+      "kind": "staticdata",
+      "size": 438,
+      "sha256": "609ec9e53fa63d1156ca486654bffa118aa79d5a5806bd3458f29e1d7cb676ba",
+      "stage_rel": "StreamingAssets/StaticData/NpcStaticData.csv"
+    },
+    {
+      "path": "StaticData/QuestObjectives.csv",
+      "kind": "staticdata",
+      "size": 435,
+      "sha256": "06a57785dd704f0f0f999e0d85ab392f4a16a19f26de872a8a205561ea4c480b",
+      "stage_rel": "StreamingAssets/StaticData/QuestObjectives.csv"
+    },
+    {
+      "path": "StaticData/QuestSteps.csv",
+      "kind": "staticdata",
+      "size": 695,
+      "sha256": "ca3b5c1c8b74f963be447ed4e818591a0685ba49eeaa6447aa4792b458c7fb4e",
+      "stage_rel": "StreamingAssets/StaticData/QuestSteps.csv"
+    },
+    {
+      "path": "StaticData/Token.csv",
+      "kind": "staticdata",
+      "size": 521,
+      "sha256": "c50b89fa5fb9a20de407c890a99a9e4c930badc464b3c2601e7c34cc2db06614",
+      "stage_rel": "StreamingAssets/StaticData/Token.csv"
+    }
+  ]
+}

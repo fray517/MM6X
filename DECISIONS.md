@@ -50,3 +50,21 @@ VERIFIED_LOCAL, Ubisoft-сборка.
 Новые ID MM6X берём из 20000-29999, после скана used values.
 Не переиспользуем `Sorpigal` и loca `LOCATION_SORPIGAL_*`.
 Engine accept этого диапазона — HYPOTHESIS до in-game bind (M4).
+
+## ADR-010 — Stage via merge, not wholesale replace
+Accepted.
+
+`mod/` хранит **overlay** (фрагмент loca, только MM6X CSV-строки,
+новые Dialog XML). Подмена целых `loca.xml` / `NpcStaticData.csv`
+уничтожит vanilla.
+
+Stage CLI (`tools/modding/stage_mmx_mod.py`):
+- loca — upsert ключей;
+- StaticData — upsert строк по `StaticID`;
+- Dialog — copy файла (backup, если уже был).
+
+Backup: `backups/mmx/mm6x-overlay/`. Запись только с
+`--yes-i-understand`. Как игра подхватывает отдельную Mod-папку
+sample export — по-прежнему HYPOTHESIS; текущий путь = merge в
+StreamingAssets (как M0 proofs).
+

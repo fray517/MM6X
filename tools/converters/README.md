@@ -40,3 +40,42 @@ python tools\converters\generate_mmx_dialog.py --write --check-vanilla
 Выход: `mod/Dialog/Mm6JanisDialog.xml`, `Mm6AndoverDialog.xml`.
 Quest/token ID берутся из `id_registry.json`. Игру CLI не патчит.
 
+## StaticData overlay (M2-005)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\converters\generate_mmx_staticdata.py --self-test
+python tools\converters\generate_mmx_staticdata.py --dry-run --check-vanilla
+python tools\converters\generate_mmx_staticdata.py --write --check-vanilla
+```
+
+Каталог: `tools/converters/staticdata_catalog.json`.
+Выход: `mod/StaticData/` — только строки MM6X
+(Npc / QuestSteps / QuestObjectives / Token / LoreBook).
+Header сверяется с vanilla. Игру CLI не патчит.
+
+## Build manifest (M2-007)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\converters\build_mmx_manifest.py --self-test
+python tools\converters\build_mmx_manifest.py --dry-run
+python tools\converters\build_mmx_manifest.py --write
+python tools\converters\build_mmx_manifest.py --check
+```
+
+Выход: `mod/build_manifest.json` — path / kind / size / sha256 /
+`stage_rel` (относительно Data). Игру CLI не патчит.
+
+## Stage / restore (M2-008 / M2-009)
+
+```powershell
+python tools\modding\stage_mmx_mod.py --self-test
+python tools\modding\stage_mmx_mod.py --dry-run
+python tools\modding\stage_mmx_mod.py --stage --yes-i-understand
+python tools\modding\stage_mmx_mod.py --restore --yes-i-understand
+```
+
+См. `tools/modding/README.md`. ADR-010: merge, не replace.
+
+

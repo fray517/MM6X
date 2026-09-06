@@ -1,0 +1,5 @@
+# MM6X QuestSteps overlay,,,,,,,,,,Loot,,,,,,,,,,
+# Comments,,,,,,,,,,
+StaticID,Type,Name,FlavorDescription,ShortDescription,GivenByNPCID,Objectives,RepeatTime,RewardXP,FollowUpStep,SteadyLoot,ItemModels,ItemDropChance,PrefixChance,PrefixProbabilities,SuffixChance,SuffixProbabilities,ItemSpecificationList,GoldChance,GoldAmount,TokenID
+20000,QUEST_TYPE_SIDE,QUEST_STEP_MM6_GOBLINWATCH_NAME,QUEST_STEP_MM6_GOBLINWATCH_FLAVOR,QUEST_STEP_MM6_GOBLINWATCH_SHORT,20000,"20000,1",0,0,20001,,,0,0,,0,,NONE,0,"0,0",20000
+20001,QUEST_TYPE_SIDE,QUEST_STEP_MM6_GOBLINWATCH_NAME,QUEST_STEP_MM6_GOBLINWATCH_FLAVOR,QUEST_STEP_MM6_GOBLINWATCH_SHORT,20000,"20001,1",0,2000,0,,,0,0,,0,,NONE,1,"2000,2000",0

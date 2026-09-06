@@ -62,6 +62,10 @@
       "en": "Letter-plate legend (this build uses А–П, not a typed password).\n\nА: trap.\nБ: opens door 4, closes door 5.\nВ: opens door 5, closes door 4.\nД: opens door 1, closes door 5.\nЕ: opens door 5, closes door 1.\nЖ: opens door 2, closes door 4.\nГ: opens door 6.\nЗ: opens door 3, closes door 2.\nИ: opens door 2, closes door 3.\nЙ: opens door 2, closes door 1.\nК: opens door 6, closes door 5.\nЛ: opens door 3, closes door 4.\nМ: maintenance (teleport).\nН: opens door 1, closes door 2.\nО: opens door 5, closes door 6.\nП: reset.",
       "ru": "Легенда плит (не ввод слова с клавиатуры).\n\nА: ловушка.\nБ: открывает дверь 4, закрывает дверь 5.\nВ: открывает дверь 5, закрывает дверь 4.\nД: открывает дверь 1, закрывает дверь 5.\nЕ: открывает дверь 5, закрывает дверь 1.\nЖ: открывает дверь 2, закрывает дверь 4.\nГ: открывает дверь 6.\nЗ: открывает дверь 3, закрывает дверь 2.\nИ: открывает дверь 2, закрывает дверь 3.\nЙ: открывает дверь 2, закрывает дверь 1.\nК: открывает дверь 6, закрывает дверь 5.\nЛ: открывает дверь 3, закрывает дверь 4.\nМ: обслуживание (телепорт).\nН: открывает дверь 1, закрывает дверь 2.\nО: открывает дверь 5, закрывает дверь 6.\nП: сброс."
     },
+    "LOREBOOK_AUTHOR_MM6_GOBLINWATCH_CODEX": {
+      "en": "Monks of Drokka",
+      "ru": "Монахи Дроккэба"
+    },
     "TOKEN_MM6_GOBLINWATCH_CODEX": {
       "en": "Goblinwatch Codex",
       "ru": "Кодекс Дозора гоблинов"

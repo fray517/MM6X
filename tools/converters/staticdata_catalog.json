@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "note": "MM6X StaticData overlay rows. IDs resolve from id_registry.json. Not a vanilla dump.",
+  "tables": {
+    "NpcStaticData.csv": {
+      "comments": [
+        "# MM6X NPC overlay,,,,,,,,,,,,",
+        "#Comments,,,,,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "NameKey",
+        "HirelingProfession",
+        "",
+        "PortraitKey",
+        "ConversationKey",
+        "TravelStationID",
+        "NpcEffects",
+        "HirePrice",
+        "HireShare",
+        "CanBeFired",
+        "AllowItemSell",
+        "MinimapSymbol"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.npc.new_sorpigal.janis",
+            "slot": "npc"
+          },
+          "NameKey": "NPC_NAME_MM6_JANIS",
+          "HirelingProfession": "",
+          "": "MM6 Janis town hall clerk",
+          "PortraitKey": "PIC_generic_NOBLEWOMAN",
+          "ConversationKey": {
+            "ref": "mm6.npc.new_sorpigal.janis",
+            "slot": "dialog"
+          },
+          "TravelStationID": 0,
+          "NpcEffects": "",
+          "HirePrice": 0,
+          "HireShare": 0,
+          "CanBeFired": true,
+          "AllowItemSell": true,
+          "MinimapSymbol": "HOUSE"
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.npc.new_sorpigal.andover",
+            "slot": "npc"
+          },
+          "NameKey": "NPC_NAME_MM6_ANDOVER",
+          "HirelingProfession": "",
+          "": "MM6 Andover Potbello",
+          "PortraitKey": "PIC_generic_BRIGAND_MALE",
+          "ConversationKey": {
+            "ref": "mm6.npc.new_sorpigal.andover",
+            "slot": "dialog"
+          },
+          "TravelStationID": 0,
+          "NpcEffects": "",
+          "HirePrice": 0,
+          "HireShare": 0,
+          "CanBeFired": true,
+          "AllowItemSell": true,
+          "MinimapSymbol": "NORMAL"
+        }
+      ]
+    },
+    "QuestSteps.csv": {
+      "comments": [
+        "# MM6X QuestSteps overlay,,,,,,,,,,Loot,,,,,,,,,,",
+        "# Comments,,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "Type",
+        "Name",
+        "FlavorDescription",
+        "ShortDescription",
+        "GivenByNPCID",
+        "Objectives",
+        "RepeatTime",
+        "RewardXP",
+        "FollowUpStep",
+        "SteadyLoot",
+        "ItemModels",
+        "ItemDropChance",
+        "PrefixChance",
+        "PrefixProbabilities",
+        "SuffixChance",
+        "SuffixProbabilities",
+        "ItemSpecificationList",
+        "GoldChance",
+        "GoldAmount",
+        "TokenID"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+            "slot": "quest_step"
+          },
+          "Type": "QUEST_TYPE_SIDE",
+          "Name": "QUEST_STEP_MM6_GOBLINWATCH_NAME",
+          "FlavorDescription": "QUEST_STEP_MM6_GOBLINWATCH_FLAVOR",
+          "ShortDescription": "QUEST_STEP_MM6_GOBLINWATCH_SHORT",
+          "GivenByNPCID": {
+            "ref": "mm6.npc.new_sorpigal.janis",
+            "slot": "npc"
+          },
+          "Objectives": "20000,1",
+          "RepeatTime": 0,
+          "RewardXP": 0,
+          "FollowUpStep": {
+            "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
+            "slot": "quest_step"
+          },
+          "SteadyLoot": "",
+          "ItemModels": "",
+          "ItemDropChance": 0,
+          "PrefixChance": 0,
+          "PrefixProbabilities": "",
+          "SuffixChance": 0,
+          "SuffixProbabilities": "",
+          "ItemSpecificationList": "NONE",
+          "GoldChance": 0,
+          "GoldAmount": "0,0",
+          "TokenID": {
+            "ref": "mm6.quest.new_sorpigal.goblinwatch",
+            "slot": "token"
+          }
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
+            "slot": "quest_step"
+          },
+          "Type": "QUEST_TYPE_SIDE",
+          "Name": "QUEST_STEP_MM6_GOBLINWATCH_NAME",
+          "FlavorDescription": "QUEST_STEP_MM6_GOBLINWATCH_FLAVOR",
+          "ShortDescription": "QUEST_STEP_MM6_GOBLINWATCH_SHORT",
+          "GivenByNPCID": {
+            "ref": "mm6.npc.new_sorpigal.janis",
+            "slot": "npc"
+          },
+          "Objectives": "20001,1",
+          "RepeatTime": 0,
+          "RewardXP": 2000,
+          "FollowUpStep": 0,
+          "SteadyLoot": "",
+          "ItemModels": "",
+          "ItemDropChance": 0,
+          "PrefixChance": 0,
+          "PrefixProbabilities": "",
+          "SuffixChance": 0,
+          "SuffixProbabilities": "",
+          "ItemSpecificationList": "NONE",
+          "GoldChance": 1,
+          "GoldAmount": "2000,2000",
+          "TokenID": 0
+        }
+      ]
+    },
+    "QuestObjectives.csv": {
+      "comments": [
+        "# MM6X QuestObjectives overlay,,,,,,,,,,,",
+        "# Comments,,,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "Description",
+        "KillMonsterClass",
+        "KillMonsterType",
+        "KillMonsterStaticID",
+        "TokenID",
+        "NpcID",
+        "IsReturn",
+        "IsMainObjective",
+        "DaysToPass",
+        "StepsOnTerrain",
+        "Location"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+            "slot": "quest_objective"
+          },
+          "Description": "QUEST_OBJECTIVE_MM6_GOBLINWATCH_ACCEPT",
+          "KillMonsterClass": "NONE",
+          "KillMonsterType": "NONE",
+          "KillMonsterStaticID": 0,
+          "TokenID": {
+            "ref": "mm6.item.goblinwatch.codex",
+            "slot": "token"
+          },
+          "NpcID": 0,
+          "IsReturn": false,
+          "IsMainObjective": true,
+          "DaysToPass": 0,
+          "StepsOnTerrain": "",
+          "Location": "LOCATION_MM6_GOBLINWATCH"
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
+            "slot": "quest_objective"
+          },
+          "Description": "QUEST_OBJECTIVE_MM6_GOBLINWATCH_TURNIN",
+          "KillMonsterClass": "NONE",
+          "KillMonsterType": "NONE",
+          "KillMonsterStaticID": 0,
+          "TokenID": 0,
+          "NpcID": {
+            "ref": "mm6.npc.new_sorpigal.janis",
+            "slot": "npc"
+          },
+          "IsReturn": true,
+          "IsMainObjective": true,
+          "DaysToPass": 0,
+          "StepsOnTerrain": "",
+          "Location": "LOCATION_MM6_NEW_SORPIGAL_TOWN_HALL"
+        }
+      ]
+    },
+    "Token.csv": {
+      "comments": [
+        "# MM6X Token overlay,,,,,,,,,",
+        "# Comments,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "Icon",
+        "Name",
+        "Usage",
+        "Description",
+        "Menupath",
+        "TokenVisible",
+        "SetID",
+        "Replacement",
+        "RemoveSilent"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.quest.new_sorpigal.goblinwatch",
+            "slot": "token"
+          },
+          "Icon": "INVISIBLE",
+          "Name": "TOKEN_MM6_GOBLINWATCH",
+          "Usage": "MM6 Goblinwatch quest flag",
+          "Description": "",
+          "Menupath": "QUESTS/MM6_GOBLINWATCH",
+          "TokenVisible": false,
+          "SetID": 0,
+          "Replacement": 0,
+          "RemoveSilent": false
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.item.goblinwatch.key",
+            "slot": "token"
+          },
+          "Icon": "ICO_quest_token_sewer_key",
+          "Name": "TOKEN_MM6_GOBLINWATCH_KEY",
+          "Usage": "Key to Goblinwatch entrance",
+          "Description": "",
+          "Menupath": "QUESTS/MM6_GOBLINWATCH_KEY",
+          "TokenVisible": true,
+          "SetID": 0,
+          "Replacement": 0,
+          "RemoveSilent": false
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.item.goblinwatch.codex",
+            "slot": "token"
+          },
+          "Icon": "ICO_quest_token_mysterious_book",
+          "Name": "TOKEN_MM6_GOBLINWATCH_CODEX",
+          "Usage": "Goblinwatch combination codex",
+          "Description": "",
+          "Menupath": "QUESTS/MM6_GOBLINWATCH_CODEX",
+          "TokenVisible": true,
+          "SetID": 0,
+          "Replacement": 0,
+          "RemoveSilent": false
+        }
+      ]
+    },
+    "LoreBookStaticData.csv": {
+      "comments": [
+        "# MM6X Lore Books overlay,,,,,",
+        "#Comments,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "TitleKey",
+        "Category",
+        "TextKey",
+        "AuthorKey",
+        "ImagePath"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.item.goblinwatch.codex",
+            "slot": "lorebook"
+          },
+          "TitleKey": "LOREBOOK_TITLE_MM6_GOBLINWATCH_CODEX",
+          "Category": "OTHER",
+          "TextKey": "LOREBOOK_TEXT_MM6_GOBLINWATCH_CODEX",
+          "AuthorKey": "LOREBOOK_AUTHOR_MM6_GOBLINWATCH_CODEX",
+          "ImagePath": "ART_lore_ashan_TheWarOfBitterAshes"
+        }
+      ]
+    }
+  }
+}
