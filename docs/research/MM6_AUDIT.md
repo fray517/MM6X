@@ -46,3 +46,7 @@ Unpacked `.blv`/`.odm` рядом с Data нет.
 
 Slice MapStats (VERIFIED_LOCAL): #15 Нью-Сорпигаль `OutE3.Odm`;
 #16 Дозор гоблинов `D01.Blv`. `OutD1` — Серебряная бухта.
+
+Topology OutE3 (M3-001): `extract_mm6_topology.py` —
+40 узлов / 4 перехода; см. `NEW_SORPIGAL_TOPOLOGY.md`.
+

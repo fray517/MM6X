@@ -79,3 +79,17 @@ python tools\extract\extract_mm6_scrolls.py --dry-run
 По умолчанию: 489 (ключ), 500 (D01 M1), 505 (письмо Сулмана),
 543 (кодекс, `Mod1=M44`). Индекс: `reports/scrolls_slice.json`.
 Полные письма в git не класть.
+
+## Topology (OutE3 / New Sorpigal)
+
+```powershell
+$env:PYTHONIOENCODING = 'utf-8'
+python tools\extract\extract_mm6_topology.py --self-test
+python tools\extract\extract_mm6_topology.py --dry-run
+python tools\extract\extract_mm6_topology.py --write-curated
+```
+
+Нужен `reports/evt_slice.json` (см. EVT выше).
+Curated git: `references/mm6/new_sorpigal.topology.json`.
+Report gitignore: `reports/topology_oute3.json`.
+

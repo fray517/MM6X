@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal",
+  "mapstats_id": 15,
+  "map_file": "OutE3.Odm",
+  "map_code_2d": "E3",
+  "title": "Нью-Сорпигаль",
+  "evidence": "VERIFIED_LOCAL",
+  "note": "Только топология (узлы/переходы). Координаты ODM не извлечены — относительный layout HYPOTHESIS до decode OutE3.Odm.",
+  "summary": {
+    "node_count": 40,
+    "edge_count": 4,
+    "by_role": {
+      "service": 11,
+      "travel_hub": 2,
+      "quest_hub": 1,
+      "social": 1,
+      "dungeon_entrance": 3,
+      "residence": 22
+    }
+  },
+  "nodes": [
+    {
+      "house_id": 1,
+      "type": "Weapon Shop",
+      "role": "service",
+      "name": "Магазин ножей",
+      "proprietor": "Кейн",
+      "title": "кузнец",
+      "schedule_a": "L1 Weap",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 15,
+      "type": "Armor Shop",
+      "role": "service",
+      "name": "Простая защита",
+      "proprietor": "Гарри",
+      "title": "оружейник",
+      "schedule_a": "L1 Leat,Chai,Shld,Helm or Gaunt",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 29,
+      "type": "Magic Shop",
+      "role": "service",
+      "name": "Всевидящее око",
+      "proprietor": "Вильма",
+      "title": "алхимик",
+      "schedule_a": "L1 Misc All",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 42,
+      "type": "General Store",
+      "role": "service",
+      "name": "Все для дороги",
+      "proprietor": "Рино",
+      "title": "владелец лавки",
+      "schedule_a": "L1 Items, Bottles, herbs",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 48,
+      "type": "Stables",
+      "role": "travel_hub",
+      "name": "Экипажи Нью-Сорпигаля",
+      "proprietor": "Арон",
+      "title": "владелец конюшен",
+      "schedule_a": "Castle Ironfist D3,M,W,F,2",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 57,
+      "type": "Boats",
+      "role": "travel_hub",
+      "name": "Одиссей",
+      "proprietor": "Брайан",
+      "title": "капитан",
+      "schedule_a": "Mist E2,Tu,Th,Sa,3",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 69,
+      "type": "Temple",
+      "role": "service",
+      "name": "Храм Нью-Сорпигаль",
+      "proprietor": "Джошуа",
+      "title": "знахарь",
+      "schedule_a": "No Errad",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 79,
+      "type": "Training",
+      "role": "service",
+      "name": "Полигон Нью-Сорпигаля",
+      "proprietor": "Натан",
+      "title": "инструктор",
+      "schedule_a": "Max level = 15",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 89,
+      "type": "Town Hall",
+      "role": "quest_hub",
+      "name": "Ратуша",
+      "proprietor": "Жанис",
+      "title": "клерк",
+      "schedule_a": "",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 92,
+      "type": "Tavern",
+      "role": "social",
+      "name": "Одинокий рыцарь",
+      "proprietor": "Дирк",
+      "title": "трактирщик",
+      "schedule_a": "",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 113,
+      "type": "Bank",
+      "role": "service",
+      "name": "Сберегательный дом",
+      "proprietor": "Шмиди",
+      "title": "банкир",
+      "schedule_a": "",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 137,
+      "type": "Element Guild",
+      "role": "service",
+      "name": "Начальная гильдия Стихий",
+      "proprietor": "Джероми",
+      "title": "глава гильдии",
+      "schedule_a": "Type = F, A, W, E, Spells = 1-4",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 139,
+      "type": "Self Guild",
+      "role": "service",
+      "name": "Начальная гильдия Эго",
+      "proprietor": "Телиана",
+      "title": "глава гильдии",
+      "schedule_a": "Type = S, M, B, Spells = 1-4",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 141,
+      "type": "Merc Guild",
+      "role": "service",
+      "name": "Острие клинка",
+      "proprietor": "Далимар",
+      "title": "глава гильдии",
+      "schedule_a": "Skills = Sword, Axe, Spear, Staff, Leather",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 147,
+      "type": "Thieves Guild",
+      "role": "service",
+      "name": "Притон морских разбойников",
+      "proprietor": "Отшельник",
+      "title": "глава гильдии",
+      "schedule_a": "Skills = Dagger, Merchant, Identify, Perception, Disarm Trap",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 171,
+      "type": "Dungeon Ent",
+      "role": "dungeon_entrance",
+      "name": "Дозор гоблинов",
+      "proprietor": "",
+      "title": "",
+      "schedule_a": "",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 172,
+      "type": "Dungeon Ent",
+      "role": "dungeon_entrance",
+      "name": "Заброшенный храм",
+      "proprietor": "",
+      "title": "",
+      "schedule_a": "",
+      "evidence": "VERIFIED_LOCAL"
+    },
+    {
+      "house_id": 188,
+      "type": "Dungeon Ent",
+      "role": "dungeon_entrance",
+      "name": "Кузница Гарика",
+      "proprietor": "",
+      "title": "",
+      "schedule_a": "",
+      "evidence": "VERIFIED_LOCAL"
+    }
+  ],
+  "residence_house_ids": [
+    465,
+    466,
+    467,
+    468,
+    469,
+    470,
+    471,
+    472,
+    473,
+    474,
+    475,
+    476,
+    477,
+    478,
+    480,
+    481,
+    482,
+    483,
+    484,
+    485,
+    486,
+    487
+  ],
+  "edges": [
+    {
+      "kind": "map_transition",
+      "from": "mm6.region.new_sorpigal",
+      "event_id": 101,
+      "house_id": 171,
+      "to_map": "D01.blv",
+      "spawn": {
+        "x": 601,
+        "y": 6871,
+        "z": 177
+      },
+      "evidence": "VERIFIED_LOCAL",
+      "to_stable_id": "mm6.dungeon.goblinwatch",
+      "to_title": "Дозор гоблинов"
+    },
+    {
+      "kind": "map_transition",
+      "from": "mm6.region.new_sorpigal",
+      "event_id": 102,
+      "house_id": 172,
+      "to_map": "D02.blv",
+      "spawn": {
+        "x": 16406,
+        "y": -19669,
+        "z": 865
+      },
+      "evidence": "VERIFIED_LOCAL",
+      "to_stable_id": "mm6.dungeon.abandoned_temple",
+      "to_title": "Заброшенный храм"
+    },
+    {
+      "kind": "map_transition",
+      "from": "mm6.region.new_sorpigal",
+      "event_id": 103,
+      "house_id": 188,
+      "to_map": "D18.Blv",
+      "spawn": {
+        "x": -2688,
+        "y": 1216,
+        "z": 1153
+      },
+      "evidence": "VERIFIED_LOCAL",
+      "to_stable_id": "mm6.dungeon.garik_forge",
+      "to_title": "Кузница Гарика"
+    },
+    {
+      "kind": "map_transition",
+      "from": "mm6.region.new_sorpigal",
+      "event_id": 104,
+      "house_id": null,
+      "to_map": "OutB3.Odm",
+      "spawn": {
+        "x": 12808,
+        "y": 6832,
+        "z": 64
+      },
+      "evidence": "VERIFIED_LOCAL",
+      "to_stable_id": "mm6.region.dragonsand",
+      "to_title": "Драконсэнд"
+    }
+  ],
+  "encounter_table": {
+    "source": "MapStats.txt #15",
+    "mon1": "Goblin / Гоблин",
+    "mon2": "PeasantM2 / Ученик мага",
+    "evidence": "VERIFIED_LOCAL"
+  },
+  "travel_notes": [
+    {
+      "hub_house_id": 48,
+      "kind": "stables",
+      "schedule_a": "Castle Ironfist D3,M,W,F,2",
+      "dest_mapstats": "OutD3.Odm Замок Айронфист"
+    },
+    {
+      "hub_house_id": 57,
+      "kind": "boats",
+      "schedule_a": "Mist E2,Tu,Th,Sa,3",
+      "dest_mapstats": "OutE2.Odm Остров Тумана"
+    }
+  ]
+}

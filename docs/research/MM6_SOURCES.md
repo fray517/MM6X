@@ -127,7 +127,14 @@ Slice VERIFIED_LOCAL:
 Вход в данж на outdoor E3: `2DEvents.txt` #171
 «Дозор гоблинов» (Dungeon Ent).
 
-## Decode lod (для extract)
+## Topology OutE3 (M3-001)
+
+CLI: `python tools\extract\extract_mm6_topology.py --write-curated`.
+Curated: `references/mm6/new_sorpigal.topology.json`.
+Design: `docs/design/NEW_SORPIGAL_TOPOLOGY.md`.
+
+VERIFIED_LOCAL: 40 узлов на Map=E3 (18 значимых + 22 дома),
+4 `MoveToMap` (D01/D02/D18/OutB3). ODM XY не декодированы.
 
 Каталог MM6: header 256 байт, root entry сразу после него.
 `file.abs_offset = root.dataOffset + entry.dataOffset`.

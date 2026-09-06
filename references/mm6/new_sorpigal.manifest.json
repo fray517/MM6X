@@ -7,6 +7,7 @@
     "entry": "OutE3.Odm",
     "events": "Icons.lod/OUTE3.EVT",
     "mapstats_id": 15,
+    "map_code_2d": "E3",
     "evidence": "VERIFIED_LOCAL"
   },
   "entities": [
@@ -17,14 +18,20 @@
     "mm6.quest.new_sorpigal.goblinwatch",
     "mm6.travel_link.new_sorpigal.goblinwatch"
   ],
-  "landmarks_hypothesis": [
-    "town hall (2DEvents 89)",
-    "tavern Lonely Knight (2DEvents 92)",
-    "docks",
-    "temple",
-    "shops",
-    "training",
-    "Goblinwatch entrance (2DEvents 171)"
+  "topology": "references/mm6/new_sorpigal.topology.json",
+  "landmarks_verified": [
+    "town hall #89 (Janis)",
+    "tavern Lonely Knight #92 (Dirk / Andover 2D)",
+    "stables #48 → Ironfist",
+    "boats #57 → Mist",
+    "temple #69",
+    "training #79",
+    "shops #1/#15/#29/#42",
+    "bank #113",
+    "guilds #137/#139/#141/#147",
+    "Goblinwatch entrance #171",
+    "Abandoned temple entrance #172",
+    "Garik forge entrance #188"
   ],
-  "notes": "MapStats #15 Нью-Сорпигаль -> OutE3.Odm. OutD1 is Silver Cove, not this town."
+  "notes": "MapStats #15 Нью-Сорпигаль -> OutE3.Odm. OutD1 is Silver Cove, not this town. M3-001 topology extracted from 2DEvents+EVT."
 }

@@ -90,7 +90,7 @@
 - [x] M2-010 Regression fixtures
 
 ## M3 — New Sorpigal Design
-- [ ] M3-001 Original topology
+- [x] M3-001 Original topology
 - [ ] M3-002 Quest-critical landmarks
 - [ ] M3-003 NPC list
 - [ ] M3-004 Buildings/services
