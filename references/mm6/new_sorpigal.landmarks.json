@@ -184,6 +184,6 @@
     "mm6_quest_id": 81,
     "landmark": "lm.tavern_lonely_knight",
     "status": "secondary_slice",
-    "note": "Stable id for letter quest not allocated in id_registry yet; use tavern as Andover anchor."
+    "note": "Stable ids allocated M4-003: quest/token 20003, letter token 20004, step 20002."
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "created_utc": "2026-09-08T14:53:04Z",
+  "created_utc": "2026-09-08T15:09:25Z",
   "mod_id": "mm6x",
   "note": "MM6X staged overlay. Not installed until stage CLI. stage_rel is relative to game Data dir.",
   "counts": {
@@ -13,36 +13,36 @@
     {
       "path": "Dialog/Mm6AndoverDialog.xml",
       "kind": "dialog",
-      "size": 791,
-      "sha256": "485befb190a94698df467dd832759b808bb3682d2a2910a498000a148015d1d9",
+      "size": 1728,
+      "sha256": "c42fdaecde53ad3c33b9188401827387a99a66b79828993991e31b01f479bbf2",
       "stage_rel": "StreamingAssets/Dialog/Mm6AndoverDialog.xml"
     },
     {
       "path": "Dialog/Mm6JanisDialog.xml",
       "kind": "dialog",
-      "size": 2181,
-      "sha256": "476aae56f82c42ca038947ed56e67f4fef1e9d086c07f9839eb9f7eb5127f95d",
+      "size": 2624,
+      "sha256": "6cab9b0274da071f9dea46d5dea8eaa82b016f1361ba931b552ab2c038213336",
       "stage_rel": "StreamingAssets/Dialog/Mm6JanisDialog.xml"
     },
     {
       "path": "Localisation/en/loca.xml",
       "kind": "loca",
-      "size": 3780,
-      "sha256": "f784125302a5f987c0f9442038d7b13dbaaf9cb0fbcd3ba0e9d2d1fae9fc273f",
+      "size": 5858,
+      "sha256": "7a2c3e305b4a198c493a32e2873d017a7067522377b797b784aa056ef98f2322",
       "stage_rel": "StreamingAssets/Localisation/en/loca.xml"
     },
     {
       "path": "Localisation/ru/loca.xml",
       "kind": "loca",
-      "size": 5067,
-      "sha256": "6a0891281e31829e44efc2612871e4536da33eeae5a15d5f42a7b19c1794d1a3",
+      "size": 7735,
+      "sha256": "6ddda4ca6dad0d06ca850be5999f904ad797aa072934ac722ed00fe1333b905d",
       "stage_rel": "StreamingAssets/Localisation/ru/loca.xml"
     },
     {
       "path": "Maps/New_Sorpigal.xml",
       "kind": "map",
-      "size": 170390,
-      "sha256": "19ea3727ac46656b3dce649c8319a00269de738f4e23fe4d52cc38417d043352",
+      "size": 178874,
+      "sha256": "eda25de09534597a39ed242b9e8a97ecbd63ab9f7889debb085fdfe5ff87f0ac",
       "stage_rel": "StreamingAssets/Maps/New_Sorpigal.xml"
     },
     {
@@ -62,22 +62,22 @@
     {
       "path": "StaticData/QuestObjectives.csv",
       "kind": "staticdata",
-      "size": 435,
-      "sha256": "06a57785dd704f0f0f999e0d85ab392f4a16a19f26de872a8a205561ea4c480b",
+      "size": 536,
+      "sha256": "e6291d7acef989919bd0d2858d994bd51793134f941b472fdc699ab323f2024f",
       "stage_rel": "StreamingAssets/StaticData/QuestObjectives.csv"
     },
     {
       "path": "StaticData/QuestSteps.csv",
       "kind": "staticdata",
-      "size": 695,
-      "sha256": "ca3b5c1c8b74f963be447ed4e818591a0685ba49eeaa6447aa4792b458c7fb4e",
+      "size": 874,
+      "sha256": "2a579b1aa3c06fa0ec0eba3d7e6143ea17e3827bc115916150442635396adbef",
       "stage_rel": "StreamingAssets/StaticData/QuestSteps.csv"
     },
     {
       "path": "StaticData/Token.csv",
       "kind": "staticdata",
-      "size": 521,
-      "sha256": "c50b89fa5fb9a20de407c890a99a9e4c930badc464b3c2601e7c34cc2db06614",
+      "size": 777,
+      "sha256": "4dccb6bcbdaffb361ecd542c036b60a948109837a7fcff07126bfb12191cc504",
       "stage_rel": "StreamingAssets/StaticData/Token.csv"
     }
   ]

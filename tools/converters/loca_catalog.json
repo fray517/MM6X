@@ -82,6 +82,10 @@
       "en": "I found the Goblinwatch codex.",
       "ru": "Я нашёл кодекс Дозора гоблинов."
     },
+    "DIALOG_OPTION_MM6_JANIS_PROGRESS": {
+      "en": "About the Goblinwatch…",
+      "ru": "Насчёт Дозора гоблинов…"
+    },
     "DIALOG_OPTION_MM6_JANIS_GOODBYE": {
       "en": "Goodbye.",
       "ru": "До свидания."
@@ -102,6 +106,14 @@
       "en": "Thank you. Take this key to the Goblinwatch entrance. Return with the codex.",
       "ru": "Спасибо. Возьмите этот ключ к входу в Дозор. Вернитесь с кодексом."
     },
+    "DIALOG_OPTION_MM6_JANIS_TAKE_KEY": {
+      "en": "I will take the key.",
+      "ru": "Я возьму ключ."
+    },
+    "DIALOG_TEXT_MM6_JANIS_PROGRESS": {
+      "en": "The east road leads to Goblinwatch. Use the key, find the vault combination, and bring the codex here.",
+      "ru": "Восточная дорога ведёт к Дозору. Откройте ключом, найдите код хранилища и принесите кодекс сюда."
+    },
     "DIALOG_TEXT_MM6_JANIS_TURNIN_PROMPT": {
       "en": "Do you have the Goblinwatch codex for the vault combination?",
       "ru": "У вас есть кодекс Дозора с кодом к хранилищу?"
@@ -111,24 +123,96 @@
       "ru": "Вот кодекс."
     },
     "DIALOG_TEXT_MM6_JANIS_TURNIN_DONE": {
-      "en": "Excellent work. The town is in your debt.",
-      "ru": "Отличная работа. Город вам благодарен."
+      "en": "Excellent work. The town is in your debt — gold and experience are yours.",
+      "ru": "Отличная работа. Город вам благодарен — золото и опыт ваши."
     },
     "DIALOG_TEXT_MM6_ANDOVER_GREETING": {
-      "en": "Andover Potbello, at your service. Sulman sent you, perhaps?",
-      "ru": "Андовер Портбелло, к вашим услугам. Вас прислал Сулман?"
+      "en": "Andover Potbello at your service. The Lonely Knight has rooms, gossip, and errands.",
+      "ru": "Андовер Портбелло к вашим услугам. В «Одиноком рыцаре» есть комнаты, сплетни и поручения."
     },
     "DIALOG_OPTION_MM6_ANDOVER_LETTER": {
       "en": "Do you have a letter for Sulman?",
       "ru": "У вас есть письмо для Сулмана?"
     },
+    "DIALOG_OPTION_MM6_ANDOVER_LETTER_STATUS": {
+      "en": "About Sulman's letter…",
+      "ru": "Насчёт письма Сулмана…"
+    },
     "DIALOG_OPTION_MM6_ANDOVER_GOODBYE": {
       "en": "Goodbye.",
       "ru": "До свидания."
     },
-    "DIALOG_TEXT_MM6_ANDOVER_LETTER": {
-      "en": "Ah, the courier run. Sulman's letter is not ready in this slice yet — check back later.",
-      "ru": "А, курьерское поручение. Письмо для Сулмана в этом срезе ещё не готово — загляните позже."
+    "DIALOG_TEXT_MM6_ANDOVER_LETTER_OFFER": {
+      "en": "Yes — a sealed note for Sulman. Carry it for me and keep it safe. Delivery is beyond this town slice.",
+      "ru": "Да — запечатанная записка для Сулмана. Отнесите её и берегите. Доставка за пределами этого среза города."
+    },
+    "DIALOG_OPTION_MM6_ANDOVER_ACCEPT": {
+      "en": "I will take the letter.",
+      "ru": "Я возьму письмо."
+    },
+    "DIALOG_OPTION_MM6_ANDOVER_DECLINE": {
+      "en": "Not right now.",
+      "ru": "Не сейчас."
+    },
+    "DIALOG_TEXT_MM6_ANDOVER_LETTER_ACCEPTED": {
+      "en": "Good. Here is the letter. Find Sulman when your road allows — and do not open it.",
+      "ru": "Отлично. Вот письмо. Найдите Сулмана, когда позволит дорога — и не вскрывайте его."
+    },
+    "DIALOG_TEXT_MM6_ANDOVER_LETTER_HELD": {
+      "en": "You already carry Sulman's letter. Safe travels.",
+      "ru": "Письмо Сулмана уже у вас. Счастливого пути."
+    },
+    "TOKEN_MM6_SULMAN_LETTER_QUEST": {
+      "en": "Sulman's Letter",
+      "ru": "Письмо Сулмана"
+    },
+    "QUEST_STEP_MM6_SULMAN_LETTER_NAME": {
+      "en": "Sulman's letter",
+      "ru": "Письмо Сулмана"
+    },
+    "QUEST_STEP_MM6_SULMAN_LETTER_FLAVOR": {
+      "en": "Andover gave you a sealed letter for Sulman. Deliver it when you leave New Sorpigal.",
+      "ru": "Андовер отдал вам запечатанное письмо для Сулмана. Доставьте его, когда покинете Нью-Сорпигаль."
+    },
+    "QUEST_STEP_MM6_SULMAN_LETTER_SHORT": {
+      "en": "Deliver Sulman's letter.",
+      "ru": "Доставить письмо Сулмана."
+    },
+    "QUEST_OBJECTIVE_MM6_SULMAN_LETTER": {
+      "en": "Keep Sulman's letter and deliver it later.",
+      "ru": "Сохранить письмо Сулмана и доставить позже."
+    },
+    "TOKEN_MM6_SULMAN_LETTER": {
+      "en": "Letter for Sulman",
+      "ru": "Письмо для Сулмана"
+    },
+    "SIGN_MM6_NEW_SORPIGAL_TOWN_HALL": {
+      "en": "Town Hall",
+      "ru": "Ратуша"
+    },
+    "SIGN_MM6_NEW_SORPIGAL_TAVERN": {
+      "en": "The Lonely Knight",
+      "ru": "Одинокий рыцарь"
+    },
+    "SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE": {
+      "en": "Goblinwatch — locked",
+      "ru": "Дозор гоблинов — заперто"
+    },
+    "SIGN_MM6_NEW_SORPIGAL_STABLES": {
+      "en": "Stables (travel stub)",
+      "ru": "Конюшни (заглушка)"
+    },
+    "SIGN_MM6_NEW_SORPIGAL_BOATS": {
+      "en": "Boats (travel stub)",
+      "ru": "Лодки (заглушка)"
+    },
+    "SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE": {
+      "en": "Abandoned Temple (stub)",
+      "ru": "Заброшенный храм (заглушка)"
+    },
+    "SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE": {
+      "en": "Gharik's Forge (stub)",
+      "ru": "Кузница Гарика (заглушка)"
     }
   }
 }

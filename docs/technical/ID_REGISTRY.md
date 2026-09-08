@@ -55,6 +55,9 @@ Evidence: VERIFIED_LOCAL (скан Ubisoft MMX + MM6 slice).
 | `mm6.quest_stage...turnin` | `GLOBAL.EVT` e4 | step/obj 20001 | reserved |
 | `mm6.item.goblinwatch.key` | `ITEMS.TXT` #489 | Token 20001 | reserved |
 | `mm6.item.goblinwatch.codex` | #543 / `Scroll.txt` M44 | LoreBook 20000, Token 20002 | reserved |
+| `mm6.quest.new_sorpigal.sulman_letter` | QBit 81/82 | Token 20003 | reserved |
+| `mm6.quest_stage...sulman.accept` | `GLOBAL.EVT` e1 | step/obj 20002 | reserved |
+| `mm6.item.sulman.letter` | `ITEMS.TXT` #505 | Token 20004 | reserved |
 
 StaticData overlay (не в игре): `mod/StaticData/`.
 | `mm6.secret.goblinwatch.nilbog` | `D01.EVT` e19–34 | карта (слотов нет) | — |

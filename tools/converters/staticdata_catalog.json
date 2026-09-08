@@ -159,6 +159,38 @@
           "GoldChance": 1,
           "GoldAmount": "2000,2000",
           "TokenID": 0
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.quest_stage.new_sorpigal.sulman_letter.accept",
+            "slot": "quest_step"
+          },
+          "Type": "QUEST_TYPE_SIDE",
+          "Name": "QUEST_STEP_MM6_SULMAN_LETTER_NAME",
+          "FlavorDescription": "QUEST_STEP_MM6_SULMAN_LETTER_FLAVOR",
+          "ShortDescription": "QUEST_STEP_MM6_SULMAN_LETTER_SHORT",
+          "GivenByNPCID": {
+            "ref": "mm6.npc.new_sorpigal.andover",
+            "slot": "npc"
+          },
+          "Objectives": "20002,1",
+          "RepeatTime": 0,
+          "RewardXP": 0,
+          "FollowUpStep": 0,
+          "SteadyLoot": "",
+          "ItemModels": "",
+          "ItemDropChance": 0,
+          "PrefixChance": 0,
+          "PrefixProbabilities": "",
+          "SuffixChance": 0,
+          "SuffixProbabilities": "",
+          "ItemSpecificationList": "NONE",
+          "GoldChance": 0,
+          "GoldAmount": "0,0",
+          "TokenID": {
+            "ref": "mm6.quest.new_sorpigal.sulman_letter",
+            "slot": "token"
+          }
         }
       ]
     },
@@ -221,6 +253,26 @@
           "DaysToPass": 0,
           "StepsOnTerrain": "",
           "Location": "LOCATION_MM6_NEW_SORPIGAL_TOWN_HALL"
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.quest_stage.new_sorpigal.sulman_letter.accept",
+            "slot": "quest_objective"
+          },
+          "Description": "QUEST_OBJECTIVE_MM6_SULMAN_LETTER",
+          "KillMonsterClass": "NONE",
+          "KillMonsterType": "NONE",
+          "KillMonsterStaticID": 0,
+          "TokenID": {
+            "ref": "mm6.item.sulman.letter",
+            "slot": "token"
+          },
+          "NpcID": 0,
+          "IsReturn": false,
+          "IsMainObjective": true,
+          "DaysToPass": 0,
+          "StepsOnTerrain": "",
+          "Location": "LOCATION_MM6_NEW_SORPIGAL"
         }
       ]
     },
@@ -282,6 +334,36 @@
           "Usage": "Goblinwatch combination codex",
           "Description": "",
           "Menupath": "QUESTS/MM6_GOBLINWATCH_CODEX",
+          "TokenVisible": true,
+          "SetID": 0,
+          "Replacement": 0,
+          "RemoveSilent": false
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.quest.new_sorpigal.sulman_letter",
+            "slot": "token"
+          },
+          "Icon": "INVISIBLE",
+          "Name": "TOKEN_MM6_SULMAN_LETTER_QUEST",
+          "Usage": "MM6 Sulman letter quest flag",
+          "Description": "",
+          "Menupath": "QUESTS/MM6_SULMAN_LETTER",
+          "TokenVisible": false,
+          "SetID": 0,
+          "Replacement": 0,
+          "RemoveSilent": false
+        },
+        {
+          "StaticID": {
+            "ref": "mm6.item.sulman.letter",
+            "slot": "token"
+          },
+          "Icon": "ICO_quest_token_mysterious_book",
+          "Name": "TOKEN_MM6_SULMAN_LETTER",
+          "Usage": "Letter for Sulman (MM6 #505)",
+          "Description": "",
+          "Menupath": "QUESTS/MM6_SULMAN_LETTER_ITEM",
           "TokenVisible": true,
           "SetID": 0,
           "Replacement": 0,

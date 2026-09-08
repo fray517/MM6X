@@ -229,7 +229,7 @@ NpcConversationStaticData @rootDialogID
 | `GoToFunction` | `dialogID` |
 | `QuitFunction` | — |
 | `QuestFunction` | `questID` (выдать/активировать) |
-| `SolveQuestFunction` / `ForceSolveQuestFunction` | `questID` |
+| `SolveQuestFunction` / `ForceSolveQuestFunction` | `questID`; часто `removeTokenID` (Ulagan) |
 | `GiveTokenFunction` | `tokenID` |
 | `ActivateLevelTriggerFunction` | `targetSpawnerID` |
 | `HirelingFunction` | `npcID`, `conditionTarget` (HIRE / FIRE) |

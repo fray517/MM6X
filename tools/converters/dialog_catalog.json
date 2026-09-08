@@ -38,7 +38,7 @@
                 {
                   "type": "QuestActiveCondition",
                   "questID": {
-                    "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+                    "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
                     "slot": "quest_step"
                   },
                   "failState": "HIDDEN"
@@ -48,6 +48,25 @@
                 {
                   "type": "GoToFunction",
                   "dialogID": 4
+                }
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_PROGRESS",
+              "conditions": [
+                {
+                  "type": "QuestActiveCondition",
+                  "questID": {
+                    "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+                    "slot": "quest_step"
+                  },
+                  "failState": "HIDDEN"
+                }
+              ],
+              "functions": [
+                {
+                  "type": "GoToFunction",
+                  "dialogID": 6
                 }
               ]
             },
@@ -93,7 +112,7 @@
           ],
           "entries": [
             {
-              "locaKey": "DIALOG_OPTION_MM6_JANIS_GOODBYE",
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_TAKE_KEY",
               "functions": [
                 {
                   "type": "GiveTokenFunction",
@@ -132,6 +151,10 @@
                     "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
                     "slot": "quest_step"
                   },
+                  "removeTokenID": {
+                    "ref": "mm6.item.goblinwatch.codex",
+                    "slot": "token"
+                  },
                   "dialogID": 5
                 }
               ]
@@ -157,6 +180,20 @@
               ]
             }
           ]
+        },
+        {
+          "id": 6,
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_JANIS_PROGRESS"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_JANIS_GOODBYE",
+              "functions": [
+                {"type": "QuitFunction"}
+              ]
+            }
+          ]
         }
       ]
     },
@@ -173,8 +210,34 @@
           "entries": [
             {
               "locaKey": "DIALOG_OPTION_MM6_ANDOVER_LETTER",
+              "conditions": [
+                {
+                  "type": "QuestInactiveCondition",
+                  "questID": {
+                    "ref": "mm6.quest_stage.new_sorpigal.sulman_letter.accept",
+                    "slot": "quest_step"
+                  },
+                  "failState": "HIDDEN"
+                }
+              ],
               "functions": [
                 {"type": "GoToFunction", "dialogID": 2}
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_ANDOVER_LETTER_STATUS",
+              "conditions": [
+                {
+                  "type": "QuestActiveCondition",
+                  "questID": {
+                    "ref": "mm6.quest_stage.new_sorpigal.sulman_letter.accept",
+                    "slot": "quest_step"
+                  },
+                  "failState": "HIDDEN"
+                }
+              ],
+              "functions": [
+                {"type": "GoToFunction", "dialogID": 4}
               ]
             },
             {
@@ -188,7 +251,55 @@
         {
           "id": 2,
           "texts": [
-            {"locaKey": "DIALOG_TEXT_MM6_ANDOVER_LETTER"}
+            {"locaKey": "DIALOG_TEXT_MM6_ANDOVER_LETTER_OFFER"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_ANDOVER_ACCEPT",
+              "functions": [
+                {
+                  "type": "QuestFunction",
+                  "questID": {
+                    "ref": "mm6.quest_stage.new_sorpigal.sulman_letter.accept",
+                    "slot": "quest_step"
+                  },
+                  "dialogID": 3
+                }
+              ]
+            },
+            {
+              "locaKey": "DIALOG_OPTION_MM6_ANDOVER_DECLINE",
+              "functions": [
+                {"type": "GoToFunction", "dialogID": 1}
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_ANDOVER_LETTER_ACCEPTED"}
+          ],
+          "entries": [
+            {
+              "locaKey": "DIALOG_OPTION_MM6_ANDOVER_GOODBYE",
+              "functions": [
+                {
+                  "type": "GiveTokenFunction",
+                  "tokenID": {
+                    "ref": "mm6.item.sulman.letter",
+                    "slot": "token"
+                  },
+                  "dialogID": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "texts": [
+            {"locaKey": "DIALOG_TEXT_MM6_ANDOVER_LETTER_HELD"}
           ],
           "entries": [
             {

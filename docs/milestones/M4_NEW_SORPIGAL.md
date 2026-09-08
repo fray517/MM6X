@@ -25,8 +25,7 @@
 | Corridor #83 | Y≈9, ~6 PASSABLE steps |
 | PASSABLE | zone union ≈208/432 (~48%) |
 
-Диалоги / START_DIALOGUE / live Goblin / enable gate —
-следующие задачи M4-002+.
+Диалоги / live Goblin / enable gate — M4-003+.
 
 ### Команды
 
@@ -45,6 +44,50 @@ python tools\modding\stage_mmx_mod.py --dry-run
 Удалить `mod/Maps/New_Sorpigal.xml` и пересобрать manifest.
 Если когда-то staging: `stage_mmx_mod.py --restore`.
 
+## M4-002 Landmarks — Done
+
+- NPC: `START_DIALOGUE` на Жанис (10) / Андовер (11)
+- SIGN ×7 (F0/F1 + F2 shells) + loca `SIGN_MM6_*`
+- Binding: `references/mm6/new_sorpigal.landmarks_mmx.json`
+- Prefab: Generic_Guard / Sign_V5 (**HYPOTHESIS** reuse)
+- Gate ENTRANCE остаётся **Enabled=false** (M4-008)
+- Quest content: M4-003 Andover, M4-004 Janis
+
+```powershell
+python tools\converters\generate_mmx_loca.py --write --check-vanilla
+python tools\converters\generate_mmx_map.py --write
+python tools\validators\validate_mmx_mod.py
+```
+
+## M4-003 Andover — Done
+
+Квест **#81** «Письмо Сулмана» (parallel к #83):
+
+| | |
+|---|---|
+| Quest step / obj | **20002** |
+| Quest flag token | **20003** |
+| Letter token | **20004** (MM6 item 505) |
+| Dialog | offer → accept → `GiveToken` letter |
+| Delivery | outside New Sorpigal slice (FollowUp=0) |
+
+Текст письма MM6 `Scroll.txt` **не** копируем — только authored loca.
+Registry: `mm6.quest.new_sorpigal.sulman_letter` + stage + item.
+
+## M4-004 Town Hall quest giver — Done
+
+Жанис / квест **#83** (паттерн **VERIFIED_LOCAL** `UlaganDialog`):
+
+| Этап | Поведение |
+|---|---|
+| Accept | `QuestFunction` 20000 → `GiveToken` ключ **20001** |
+| In progress | опция при active **20000** |
+| Turn-in | active FollowUp **20001** + codex **20002** |
+| Solve | `SolveQuest` 20001 + `removeTokenID` 20002 |
+| Reward | XP/Gold на step 20001 (уже в StaticData) |
+
+Генератор: `removeTokenID` в `mmx_dialog.py`.
+
 ## Дальше
 
-M4-002 Landmarks (полноценные объекты / prefab / dialog hooks).
+M4-005 Localisation (сверка ключей / smoke en+ru).

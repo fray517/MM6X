@@ -544,6 +544,34 @@
         <Transition Type="OPEN" IsDynamic="false" />
         <Transition Type="OPEN" IsDynamic="false" />
         <Transition Type="OPEN" IsDynamic="false" />
+
+        <Trigger ID="41">
+          <MonsterGroupID>0</MonsterGroupID>
+          <ObjectTypeCommand Type="SET_DATA" TargetSpawnID="41" Extra="PREFAB,Prefabs/InteractiveObjects/Signs/Sign_V5" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <ObjectTypeCommand Type="VIEW_SIGN" TargetSpawnID="41" Extra="" Precondition="PLAIN,NONE,SIGN_MM6_NEW_SORPIGAL_BOATS" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>SIGN</SpawnObjectType>
+          <SpawnDirection>SOUTH</SpawnDirection>
+          <SpawnStaticID>1</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>3</X>
+            <Y>2</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
       </Slot>
       <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
         <Position>
@@ -1440,6 +1468,34 @@
         <Transition Type="CLOSED" IsDynamic="false" />
         <Transition Type="CLOSED" IsDynamic="false" />
         <Transition Type="CLOSED" IsDynamic="false" />
+
+        <Trigger ID="43">
+          <MonsterGroupID>0</MonsterGroupID>
+          <ObjectTypeCommand Type="SET_DATA" TargetSpawnID="43" Extra="PREFAB,Prefabs/InteractiveObjects/Signs/Sign_V5" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <ObjectTypeCommand Type="VIEW_SIGN" TargetSpawnID="43" Extra="" Precondition="PLAIN,NONE,SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>SIGN</SpawnObjectType>
+          <SpawnDirection>SOUTH</SpawnDirection>
+          <SpawnStaticID>1</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>20</X>
+            <Y>5</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
       </Slot>
       <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
         <Position>
@@ -2076,10 +2132,38 @@
         <Trigger ID="11">
           <MonsterGroupID>0</MonsterGroupID>
           <Command Type="SET_DATA" TargetSpawnID="11" Extra="NPC_IDS,20001" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <Command Type="START_DIALOGUE" TargetSpawnID="11" Extra="" Precondition="NONE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
           <Command Type="SET_DATA" TargetSpawnID="11" Extra="PREFAB,Prefabs/InteractiveObjects/NPC/Generic_Guard" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
           <SpawnObjectType>NPC_CONTAINER</SpawnObjectType>
           <SpawnDirection>SOUTH</SpawnDirection>
           <SpawnStaticID>10</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>8</X>
+            <Y>8</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
+        <Trigger ID="31">
+          <MonsterGroupID>0</MonsterGroupID>
+          <ObjectTypeCommand Type="SET_DATA" TargetSpawnID="31" Extra="PREFAB,Prefabs/InteractiveObjects/Signs/Sign_V5" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <ObjectTypeCommand Type="VIEW_SIGN" TargetSpawnID="31" Extra="" Precondition="PLAIN,NONE,SIGN_MM6_NEW_SORPIGAL_TAVERN" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>SIGN</SpawnObjectType>
+          <SpawnDirection>SOUTH</SpawnDirection>
+          <SpawnStaticID>1</SpawnStaticID>
           <SpawnTime>EVERYTIME</SpawnTime>
           <Enabled>true</Enabled>
           <OpenableByMonsters>false</OpenableByMonsters>
@@ -2366,10 +2450,38 @@
         <Trigger ID="10">
           <MonsterGroupID>0</MonsterGroupID>
           <Command Type="SET_DATA" TargetSpawnID="10" Extra="NPC_IDS,20000" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <Command Type="START_DIALOGUE" TargetSpawnID="10" Extra="" Precondition="NONE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
           <Command Type="SET_DATA" TargetSpawnID="10" Extra="PREFAB,Prefabs/InteractiveObjects/NPC/Generic_Guard" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
           <SpawnObjectType>NPC_CONTAINER</SpawnObjectType>
           <SpawnDirection>SOUTH</SpawnDirection>
           <SpawnStaticID>10</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>10</X>
+            <Y>9</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
+        <Trigger ID="30">
+          <MonsterGroupID>0</MonsterGroupID>
+          <ObjectTypeCommand Type="SET_DATA" TargetSpawnID="30" Extra="PREFAB,Prefabs/InteractiveObjects/Signs/Sign_V5" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <ObjectTypeCommand Type="VIEW_SIGN" TargetSpawnID="30" Extra="" Precondition="PLAIN,NONE,SIGN_MM6_NEW_SORPIGAL_TOWN_HALL" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>SIGN</SpawnObjectType>
+          <SpawnDirection>SOUTH</SpawnDirection>
+          <SpawnStaticID>1</SpawnStaticID>
           <SpawnTime>EVERYTIME</SpawnTime>
           <Enabled>true</Enabled>
           <OpenableByMonsters>false</OpenableByMonsters>
@@ -2510,6 +2622,33 @@
           <SpawnStaticID>3</SpawnStaticID>
           <SpawnTime>EVERYTIME</SpawnTime>
           <Enabled>false</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>21</X>
+            <Y>9</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
+        <Trigger ID="32">
+          <MonsterGroupID>0</MonsterGroupID>
+          <ObjectTypeCommand Type="SET_DATA" TargetSpawnID="32" Extra="PREFAB,Prefabs/InteractiveObjects/Signs/Sign_V5" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <ObjectTypeCommand Type="VIEW_SIGN" TargetSpawnID="32" Extra="" Precondition="PLAIN,NONE,SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>SIGN</SpawnObjectType>
+          <SpawnDirection>SOUTH</SpawnDirection>
+          <SpawnStaticID>1</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
           <OpenableByMonsters>false</OpenableByMonsters>
           <ChallengeID>0</ChallengeID>
           <InitialState>NONE</InitialState>
@@ -3708,6 +3847,34 @@
         <Transition Type="CLOSED" IsDynamic="false" />
         <Transition Type="CLOSED" IsDynamic="false" />
         <Transition Type="CLOSED" IsDynamic="false" />
+
+        <Trigger ID="42">
+          <MonsterGroupID>0</MonsterGroupID>
+          <ObjectTypeCommand Type="SET_DATA" TargetSpawnID="42" Extra="PREFAB,Prefabs/InteractiveObjects/Signs/Sign_V5" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <ObjectTypeCommand Type="VIEW_SIGN" TargetSpawnID="42" Extra="" Precondition="PLAIN,NONE,SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>SIGN</SpawnObjectType>
+          <SpawnDirection>SOUTH</SpawnDirection>
+          <SpawnStaticID>1</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>18</X>
+            <Y>14</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
       </Slot>
       <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
         <Position>
@@ -3890,6 +4057,34 @@
         <Transition Type="OPEN" IsDynamic="false" />
         <Transition Type="OPEN" IsDynamic="false" />
         <Transition Type="OPEN" IsDynamic="false" />
+
+        <Trigger ID="40">
+          <MonsterGroupID>0</MonsterGroupID>
+          <ObjectTypeCommand Type="SET_DATA" TargetSpawnID="40" Extra="PREFAB,Prefabs/InteractiveObjects/Signs/Sign_V5" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <ObjectTypeCommand Type="VIEW_SIGN" TargetSpawnID="40" Extra="" Precondition="PLAIN,NONE,SIGN_MM6_NEW_SORPIGAL_STABLES" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>SIGN</SpawnObjectType>
+          <SpawnDirection>SOUTH</SpawnDirection>
+          <SpawnStaticID>1</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>12</X>
+            <Y>15</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
       </Slot>
       <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
         <Position>

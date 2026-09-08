@@ -482,6 +482,17 @@ def check_new_sorpigal_map(
         _err(errors, "map: нет PARTY")
     if "NPC_IDS,20000" not in text or "NPC_IDS,20001" not in text:
         _err(errors, "map: нет stub Janis/Andover NPC_IDS")
+    if "START_DIALOGUE" not in text:
+        _err(errors, "map: нет START_DIALOGUE (M4-002)")
+    if text.count("SpawnObjectType>SIGN") < 7:
+        _err(errors, "map: ожидали ≥7 SIGN landmarks")
+    for key in (
+        "SIGN_MM6_NEW_SORPIGAL_TOWN_HALL",
+        "SIGN_MM6_NEW_SORPIGAL_TAVERN",
+        "SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE",
+    ):
+        if key not in text:
+            _err(errors, f"map: нет {key}")
     if 'Enabled>false</Enabled>' not in text:
         _err(errors, "map: ожидается disabled gate ENTRANCE")
 

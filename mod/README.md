@@ -4,12 +4,13 @@ assets и не копировать vanilla loca/CSV целиком.
 
 Сейчас:
 
-- `mod/Localisation/en|ru/loca.xml` — 32 ключа MM6X
-- `mod/Dialog/Mm6JanisDialog.xml` — квест Дозора (accept/turn-in)
-- `mod/Dialog/Mm6AndoverDialog.xml` — заглушка письма Сулмана
-- `mod/Maps/New_Sorpigal.xml` — greybox 24×18 (M4-001)
-- `mod/StaticData/*.csv` — NPC 20000/20001, quest 20000/20001,
-  tokens 20000–20002, lorebook 20000
+- `mod/Localisation/en|ru/loca.xml` — 53 ключа MM6X
+- `mod/Dialog/Mm6JanisDialog.xml` — #83 accept/key/progress/turn-in
+  (FollowUp 20001 + removeTokenID; M4-004)
+- `mod/Dialog/Mm6AndoverDialog.xml` — письмо Сулмана #81 (M4-003)
+- `mod/Maps/New_Sorpigal.xml` — greybox 24×18 + landmarks (M4-001/002)
+- `mod/StaticData/*.csv` — NPC 20000/20001; quests 20000–20002;
+  tokens 20000–20004; lorebook 20000
 - `mod/build_manifest.json` — SHA-256 inventory для stage
 
 ```powershell

@@ -103,9 +103,9 @@
 
 ## M4 — New Sorpigal Prototype
 - [x] M4-001 Greybox/grid map
-- [ ] M4-002 Landmarks
-- [ ] M4-003 Andover
-- [ ] M4-004 Town Hall quest giver
+- [x] M4-002 Landmarks
+- [x] M4-003 Andover
+- [x] M4-004 Town Hall quest giver
 - [ ] M4-005 Localisation
 - [ ] M4-006 First quest flow
 - [ ] M4-007 Goblin encounter

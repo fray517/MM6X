@@ -28,7 +28,7 @@
       "m5_required": false,
       "qbits": [81, 82],
       "npc": "mm6.npc.new_sorpigal.andover",
-      "registry_status": "stable_id provisional (not in id_registry yet)",
+      "registry_status": "bound in id_registry (M4-003)",
       "independent_of": ["mm6.quest.new_sorpigal.goblinwatch"]
     },
     {

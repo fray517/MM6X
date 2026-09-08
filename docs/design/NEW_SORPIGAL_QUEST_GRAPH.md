@@ -35,6 +35,9 @@ landmarks). Machine:
 
 Узлы/рёбра — в JSON (`nodes`, `edges`, `critical_path_83`).
 
+M4-004 MMX: accept step **20000** + key token **20001**;
+turn-in FollowUp **20001** + codex **20002** (`removeTokenID`).
+
 ## M4 vs M5
 
 | Must M4 | Stub OK M4 | Must M5 |
@@ -46,8 +49,9 @@ landmarks). Machine:
 ## #81 (кратко)
 
 Андовер @ таверна #92 → letter **505**, QBit **81→82**
-(`GLOBAL.EVT` e1). Не блокирует #83. Stable id в registry
-пока provisional.
+(`GLOBAL.EVT` e1). Не блокирует #83.
+M4-003: MMX step/obj **20002**, quest token **20003**,
+letter token **20004**; delivery вне slice.
 
 ## Зависимости для grid (связь с M3-007/008)
 

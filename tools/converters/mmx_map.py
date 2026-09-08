@@ -137,14 +137,14 @@ def _trigger_party(tid: int, x: int, y: int, direction: str) -> str:
     return "\n".join(lines)
 
 
-def _trigger_npc_stub(
+def _trigger_npc(
     tid: int,
     x: int,
     y: int,
     npc_static_id: int,
     direction: str = "SOUTH",
 ) -> str:
-    """NPC_CONTAINER without START_DIALOGUE (wired in M4-003/004)."""
+    """NPC_CONTAINER + START_DIALOGUE (ConversationKey via StaticData)."""
     pad = _indent(4)
     lines = [
         f'{pad}<Trigger ID="{tid}">',
@@ -154,6 +154,12 @@ def _trigger_npc_stub(
             f'TargetSpawnID="{tid}" '
             f'Extra="NPC_IDS,{npc_static_id}" '
             f'Precondition="NONE" Timing="ON_SPAWN" '
+            f'RequiredState="NONE" ActivateCount="-1" />'
+        ),
+        (
+            f'{pad}  <Command Type="START_DIALOGUE" '
+            f'TargetSpawnID="{tid}" Extra="" '
+            f'Precondition="NONE" Timing="ON_EXECUTE" '
             f'RequiredState="NONE" ActivateCount="-1" />'
         ),
         (
@@ -189,6 +195,61 @@ def _trigger_npc_stub(
         f"{pad}</Trigger>",
     ]
     return "\n".join(lines)
+
+
+def _trigger_sign(
+    tid: int,
+    x: int,
+    y: int,
+    loca_key: str,
+    direction: str = "SOUTH",
+) -> str:
+    """SIGN with VIEW_SIGN → loca (vanilla pattern VERIFIED_LOCAL)."""
+    pad = _indent(4)
+    pre = f"PLAIN,NONE,{loca_key}"
+    lines = [
+        f'{pad}<Trigger ID="{tid}">',
+        f"{pad}  <MonsterGroupID>0</MonsterGroupID>",
+        (
+            f'{pad}  <ObjectTypeCommand Type="SET_DATA" '
+            f'TargetSpawnID="{tid}" '
+            f'Extra="PREFAB,Prefabs/InteractiveObjects/'
+            f'Signs/Sign_V5" '
+            f'Precondition="NONE" Timing="ON_SPAWN" '
+            f'RequiredState="NONE" ActivateCount="-1" />'
+        ),
+        (
+            f'{pad}  <ObjectTypeCommand Type="VIEW_SIGN" '
+            f'TargetSpawnID="{tid}" Extra="" '
+            f'Precondition="{pre}" Timing="ON_EXECUTE" '
+            f'RequiredState="NONE" ActivateCount="-1" />'
+        ),
+        f"{pad}  <SpawnObjectType>SIGN</SpawnObjectType>",
+        f"{pad}  <SpawnDirection>{direction}</SpawnDirection>",
+        f"{pad}  <SpawnStaticID>1</SpawnStaticID>",
+        f"{pad}  <SpawnTime>EVERYTIME</SpawnTime>",
+        f"{pad}  <Enabled>true</Enabled>",
+        f"{pad}  <OpenableByMonsters>false</OpenableByMonsters>",
+        f"{pad}  <ChallengeID>0</ChallengeID>",
+        f"{pad}  <InitialState>NONE</InitialState>",
+        f"{pad}  <Position>",
+        f"{pad}    <X>{x}</X>",
+        f"{pad}    <Y>{y}</Y>",
+        f"{pad}  </Position>",
+        f"{pad}  <OffsetPosition>",
+        f"{pad}    <X>0</X>",
+        f"{pad}    <Y>0</Y>",
+        f"{pad}    <Z>0</Z>",
+        f"{pad}  </OffsetPosition>",
+        f"{pad}  <ObjectRotation>",
+        f"{pad}    <X>0</X>",
+        f"{pad}    <Y>0</Y>",
+        f"{pad}    <Z>0</Z>",
+        f"{pad}  </ObjectRotation>",
+        f"{pad}</Trigger>",
+    ]
+    return "\n".join(lines)
+
 
 
 def _trigger_entrance_stub(
@@ -256,10 +317,56 @@ def _triggers_for_cell(
     return "\n" + "\n".join(chunks)
 
 
+# landmark_id → (npc_trigger, sign_trigger, sign_loca, npc_id|None)
+_LANDMARK_BINDINGS: dict[str, dict[str, Any]] = {
+    "lm.town_hall": {
+        "npc_tid": 10,
+        "npc_static_id": 20000,
+        "sign_tid": 30,
+        "sign_loca": "SIGN_MM6_NEW_SORPIGAL_TOWN_HALL",
+        "fidelity": "F0",
+    },
+    "lm.tavern_lonely_knight": {
+        "npc_tid": 11,
+        "npc_static_id": 20001,
+        "sign_tid": 31,
+        "sign_loca": "SIGN_MM6_NEW_SORPIGAL_TAVERN",
+        "fidelity": "F1",
+    },
+    "lm.goblinwatch_entrance": {
+        "entrance_tid": 20,
+        "sign_tid": 32,
+        "sign_loca": "SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE",
+        "fidelity": "F0",
+        "target_map": "Goblinwatch.xml",
+    },
+    "lm.stables": {
+        "sign_tid": 40,
+        "sign_loca": "SIGN_MM6_NEW_SORPIGAL_STABLES",
+        "fidelity": "F2",
+    },
+    "lm.boats": {
+        "sign_tid": 41,
+        "sign_loca": "SIGN_MM6_NEW_SORPIGAL_BOATS",
+        "fidelity": "F2",
+    },
+    "lm.abandoned_temple_entrance": {
+        "sign_tid": 42,
+        "sign_loca": "SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE",
+        "fidelity": "F2",
+    },
+    "lm.garik_forge_entrance": {
+        "sign_tid": 43,
+        "sign_loca": "SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE",
+        "fidelity": "F2",
+    },
+}
+
+
 def build_placements(
     sketch: dict[str, Any],
 ) -> dict[tuple[int, int], list[str]]:
-    """Map cell → XML trigger fragments."""
+    """Map cell → XML trigger fragments (M4-001/002)."""
     place: dict[tuple[int, int], list[str]] = {}
     start = sketch["party_start"]["cell"]
     sx, sy = int(start["x"]), int(start["y"])
@@ -270,22 +377,38 @@ def build_placements(
     by_lm = {
         a["landmark_id"]: a for a in (sketch.get("anchors") or [])
     }
-    hall = by_lm["lm.town_hall"]["cell"]
-    tavern = by_lm["lm.tavern_lonely_knight"]["cell"]
-    gate = by_lm["lm.goblinwatch_entrance"]["cell"]
-    hx, hy = int(hall["x"]), int(hall["y"])
-    tx, ty = int(tavern["x"]), int(tavern["y"])
-    gx, gy = int(gate["x"]), int(gate["y"])
-    # NPC StaticIDs from id_registry / StaticData overlay.
-    place.setdefault((hx, hy), []).append(
-        _trigger_npc_stub(10, hx, hy, 20000)
-    )
-    place.setdefault((tx, ty), []).append(
-        _trigger_npc_stub(11, tx, ty, 20001)
-    )
-    place.setdefault((gx, gy), []).append(
-        _trigger_entrance_stub(20, gx, gy, "Goblinwatch.xml")
-    )
+    for lm_id, bind in _LANDMARK_BINDINGS.items():
+        if lm_id not in by_lm:
+            raise MapGenError(f"нет anchor {lm_id} в sketch")
+        cell = by_lm[lm_id]["cell"]
+        x, y = int(cell["x"]), int(cell["y"])
+        bucket = place.setdefault((x, y), [])
+        if "npc_tid" in bind:
+            bucket.append(
+                _trigger_npc(
+                    int(bind["npc_tid"]),
+                    x,
+                    y,
+                    int(bind["npc_static_id"]),
+                )
+            )
+        if "entrance_tid" in bind:
+            bucket.append(
+                _trigger_entrance_stub(
+                    int(bind["entrance_tid"]),
+                    x,
+                    y,
+                    str(bind["target_map"]),
+                )
+            )
+        bucket.append(
+            _trigger_sign(
+                int(bind["sign_tid"]),
+                x,
+                y,
+                str(bind["sign_loca"]),
+            )
+        )
     return place
 
 
@@ -404,7 +527,19 @@ def summarize(sketch: dict[str, Any], xml_text: str) -> dict[str, Any]:
         "corridor_steps": corridor_steps(sketch),
         "xml_bytes": len(xml_text.encode("utf-8")),
         "party": sketch["party_start"]["cell"],
-        "triggers": ["PARTY:1", "Janis:10", "Andover:11", "Gate:20"],
+        "triggers": [
+            "PARTY:1",
+            "Janis:10",
+            "Andover:11",
+            "Gate:20",
+            "signs:30-32,40-43",
+        ],
+        "sign_keys": sorted(
+            {
+                str(b["sign_loca"])
+                for b in _LANDMARK_BINDINGS.values()
+            }
+        ),
     }
 
 
@@ -417,6 +552,9 @@ def run_self_test() -> None:
     assert 'SpawnObjectType>PARTY' in xml
     assert "NPC_IDS,20000" in xml
     assert "NPC_IDS,20001" in xml
+    assert "START_DIALOGUE" in xml
+    assert "SpawnObjectType>SIGN" in xml
+    assert "SIGN_MM6_NEW_SORPIGAL_TOWN_HALL" in xml
     assert "Goblinwatch.xml" in xml
     assert "Sorpigal.xml" not in xml.replace(
         "MAP_Sorpigal", "MAP_X"
@@ -424,6 +562,7 @@ def run_self_test() -> None:
     # Count slots
     assert xml.count("<Slot ") == 24 * 18
     assert xml.count("<Row>") == 18
+    assert xml.count("SpawnObjectType>SIGN") == 7
     info = summarize(sketch, xml)
     assert info["corridor_steps"] <= 10
     assert info["passable"] >= 50

@@ -159,14 +159,18 @@ Evidence: VERIFIED_LOCAL (по составу каталогов)
 
 ## M2 overlay (mod/, не в игре)
 VERIFIED_LOCAL после generate:
-- `mod/Localisation/en|ru/loca.xml` — 32 ключа MM6X
+- `mod/Localisation/en|ru/loca.xml` — 53 ключа MM6X
 - `mod/Dialog/Mm6JanisDialog.xml`, `Mm6AndoverDialog.xml`
+  (Janis M4-004: turn-in on FollowUp 20001 + `removeTokenID`;
+  Andover: QuestFunction 20002 + GiveToken 20004)
+  `SolveQuestFunction@removeTokenID` — VERIFIED_LOCAL (Ulagan)
 - `mod/StaticData/` — NPC/QuestSteps/QuestObjectives/Token/LoreBook
-  в полосе 20000+
-- `mod/Maps/New_Sorpigal.xml` — greybox 24×18 (M4-001);
-  layout HYPOTHESIS; schema VERIFIED_LOCAL (Cave1/Sorpigal)
+  в полосе 20000+ (tokens до 20004; quest step 20002)
+- `mod/Maps/New_Sorpigal.xml` — greybox 24×18 + landmarks
+  (START_DIALOGUE, SIGN×7; layout HYPOTHESIS)
+- `references/mm6/new_sorpigal.landmarks_mmx.json` — binding
 - `validate_mmx_mod.py` сверяет registry ↔ catalogs ↔ `mod/`
-  (+ size/PARTY/NPC stubs для New_Sorpigal)
+  (+ size/PARTY/NPC/SIGN для New_Sorpigal)
 - `mod/build_manifest.json` — files + sha256 + stage_rel
   (kinds: loca, dialog, staticdata, **map**)
 - Stage dry-run: dialog+map **copy**, loca/CSV **merge**;

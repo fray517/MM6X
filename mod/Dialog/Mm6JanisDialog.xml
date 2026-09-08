@@ -9,8 +9,13 @@
 		</entry>
 		<entry>
 			<text locaKey="DIALOG_OPTION_MM6_JANIS_TURNIN" />
-			<condition xsi:type="QuestActiveCondition" failState="HIDDEN" questID="20000" />
+			<condition xsi:type="QuestActiveCondition" failState="HIDDEN" questID="20001" />
 			<function xsi:type="GoToFunction" dialogID="4" />
+		</entry>
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_PROGRESS" />
+			<condition xsi:type="QuestActiveCondition" failState="HIDDEN" questID="20000" />
+			<function xsi:type="GoToFunction" dialogID="6" />
 		</entry>
 		<entry>
 			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
@@ -31,7 +36,7 @@
 	<dialog id="3">
 		<text locaKey="DIALOG_TEXT_MM6_JANIS_GOBLINWATCH_ACCEPTED" />
 		<entry>
-			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_TAKE_KEY" />
 			<function xsi:type="GiveTokenFunction" dialogID="1" tokenID="20001" />
 		</entry>
 	</dialog>
@@ -40,7 +45,7 @@
 		<entry>
 			<text locaKey="DIALOG_OPTION_MM6_JANIS_TURNIN_SUBMIT" />
 			<condition xsi:type="TokenAcquiredCondition" failState="HIDDEN" tokenID="20002" />
-			<function xsi:type="SolveQuestFunction" dialogID="5" questID="20001" />
+			<function xsi:type="SolveQuestFunction" dialogID="5" questID="20001" removeTokenID="20002" />
 		</entry>
 		<entry>
 			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
@@ -49,6 +54,13 @@
 	</dialog>
 	<dialog id="5">
 		<text locaKey="DIALOG_TEXT_MM6_JANIS_TURNIN_DONE" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
+			<function xsi:type="QuitFunction" />
+		</entry>
+	</dialog>
+	<dialog id="6">
+		<text locaKey="DIALOG_TEXT_MM6_JANIS_PROGRESS" />
 		<entry>
 			<text locaKey="DIALOG_OPTION_MM6_JANIS_GOODBYE" />
 			<function xsi:type="QuitFunction" />

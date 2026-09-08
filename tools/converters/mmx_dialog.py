@@ -95,6 +95,7 @@ def render_function(
         "questID",
         "objectiveID",
         "tokenID",
+        "removeTokenID",
         "npcID",
         "targetSpawnerID",
         "containerID",

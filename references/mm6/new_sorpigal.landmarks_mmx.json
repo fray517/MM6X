@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal.landmarks_mmx",
+  "region": "mm6.region.new_sorpigal",
+  "milestone": "M4-002",
+  "evidence_prefab": "HYPOTHESIS",
+  "evidence_sign_pattern": "VERIFIED_LOCAL",
+  "note": "MMX Grid bindings for New_Sorpigal landmarks. Generated map: mod/Maps/New_Sorpigal.xml via generate_mmx_map.py.",
+  "map": "New_Sorpigal",
+  "npc_prefab": "Prefabs/InteractiveObjects/NPC/Generic_Guard",
+  "sign_prefab": "Prefabs/InteractiveObjects/Signs/Sign_V5",
+  "placements": [
+    {
+      "landmark_id": "lm.town_hall",
+      "fidelity": "F0",
+      "cell": {"x": 10, "y": 9},
+      "triggers": [
+        {
+          "id": 10,
+          "type": "NPC_CONTAINER",
+          "npc_static_id": 20000,
+          "dialog": "Mm6JanisDialog",
+          "commands": ["SET_DATA NPC_IDS", "START_DIALOGUE", "SET_DATA PREFAB"]
+        },
+        {
+          "id": 30,
+          "type": "SIGN",
+          "loca": "SIGN_MM6_NEW_SORPIGAL_TOWN_HALL"
+        }
+      ]
+    },
+    {
+      "landmark_id": "lm.tavern_lonely_knight",
+      "fidelity": "F1",
+      "cell": {"x": 8, "y": 8},
+      "triggers": [
+        {
+          "id": 11,
+          "type": "NPC_CONTAINER",
+          "npc_static_id": 20001,
+          "dialog": "Mm6AndoverDialog",
+          "commands": ["SET_DATA NPC_IDS", "START_DIALOGUE", "SET_DATA PREFAB"]
+        },
+        {
+          "id": 31,
+          "type": "SIGN",
+          "loca": "SIGN_MM6_NEW_SORPIGAL_TAVERN"
+        }
+      ]
+    },
+    {
+      "landmark_id": "lm.goblinwatch_entrance",
+      "fidelity": "F0",
+      "cell": {"x": 21, "y": 9},
+      "triggers": [
+        {
+          "id": 20,
+          "type": "ENTRANCE",
+          "target": "Goblinwatch.xml",
+          "enabled": false,
+          "note": "Enable in M4-008 when stub D01/Goblinwatch exists"
+        },
+        {
+          "id": 32,
+          "type": "SIGN",
+          "loca": "SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE"
+        }
+      ]
+    },
+    {
+      "landmark_id": "lm.stables",
+      "fidelity": "F2",
+      "cell": {"x": 12, "y": 15},
+      "triggers": [
+        {"id": 40, "type": "SIGN", "loca": "SIGN_MM6_NEW_SORPIGAL_STABLES"}
+      ]
+    },
+    {
+      "landmark_id": "lm.boats",
+      "fidelity": "F2",
+      "cell": {"x": 3, "y": 2},
+      "triggers": [
+        {"id": 41, "type": "SIGN", "loca": "SIGN_MM6_NEW_SORPIGAL_BOATS"}
+      ]
+    },
+    {
+      "landmark_id": "lm.abandoned_temple_entrance",
+      "fidelity": "F2",
+      "cell": {"x": 18, "y": 14},
+      "triggers": [
+        {
+          "id": 42,
+          "type": "SIGN",
+          "loca": "SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE"
+        }
+      ]
+    },
+    {
+      "landmark_id": "lm.garik_forge_entrance",
+      "fidelity": "F2",
+      "cell": {"x": 20, "y": 5},
+      "triggers": [
+        {
+          "id": 43,
+          "type": "SIGN",
+          "loca": "SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE"
+        }
+      ]
+    }
+  ],
+  "deferred": {
+    "M4-003": "Done — Sulman letter accept + token 20004",
+    "M4-004": "Done — Janis FollowUp turn-in + removeTokenID codex",
+    "M4-008": "Enable gate ENTRANCE + Goblinwatch stub map"
+  }
+}

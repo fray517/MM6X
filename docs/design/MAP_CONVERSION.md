@@ -45,6 +45,10 @@ Greybox map (M4-001): `mod/Maps/New_Sorpigal.xml`,
 `docs/milestones/M4_NEW_SORPIGAL.md`.
 Generate: `python tools\converters\generate_mmx_map.py --write`.
 
+Landmarks MMX (M4-002):
+`references/mm6/new_sorpigal.landmarks_mmx.json`
+(SIGN + START_DIALOGUE; F2 shells).
+
 Refresh extracts:
 ```powershell
 python tools\extract\extract_mm6_topology.py --write-curated

@@ -232,6 +232,74 @@
       ]
     },
     {
+      "stable_id": "mm6.quest.new_sorpigal.sulman_letter",
+      "kind": "quest",
+      "slots": [
+        {
+          "namespace": "token",
+          "value": 20003,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "TOKEN_MM6_SULMAN_LETTER_QUEST",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_SULMAN_LETTER_NAME",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_SULMAN_LETTER_FLAVOR",
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_STEP_MM6_SULMAN_LETTER_SHORT",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.quest_stage.new_sorpigal.sulman_letter.accept",
+      "kind": "quest_stage",
+      "slots": [
+        {
+          "namespace": "quest_step",
+          "value": 20002,
+          "status": "reserved"
+        },
+        {
+          "namespace": "quest_objective",
+          "value": 20002,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "QUEST_OBJECTIVE_MM6_SULMAN_LETTER",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
+      "stable_id": "mm6.item.sulman.letter",
+      "kind": "item",
+      "slots": [
+        {
+          "namespace": "token",
+          "value": 20004,
+          "status": "reserved"
+        },
+        {
+          "namespace": "loca",
+          "value": "TOKEN_MM6_SULMAN_LETTER",
+          "status": "reserved"
+        }
+      ]
+    },
+    {
       "stable_id": "mm6.secret.goblinwatch.nilbog",
       "kind": "secret",
       "slots": []

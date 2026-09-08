@@ -4,7 +4,13 @@
 		<text locaKey="DIALOG_TEXT_MM6_ANDOVER_GREETING" />
 		<entry>
 			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_LETTER" />
+			<condition xsi:type="QuestInactiveCondition" failState="HIDDEN" questID="20002" />
 			<function xsi:type="GoToFunction" dialogID="2" />
+		</entry>
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_LETTER_STATUS" />
+			<condition xsi:type="QuestActiveCondition" failState="HIDDEN" questID="20002" />
+			<function xsi:type="GoToFunction" dialogID="4" />
 		</entry>
 		<entry>
 			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_GOODBYE" />
@@ -12,7 +18,25 @@
 		</entry>
 	</dialog>
 	<dialog id="2">
-		<text locaKey="DIALOG_TEXT_MM6_ANDOVER_LETTER" />
+		<text locaKey="DIALOG_TEXT_MM6_ANDOVER_LETTER_OFFER" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_ACCEPT" />
+			<function xsi:type="QuestFunction" dialogID="3" questID="20002" />
+		</entry>
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_DECLINE" />
+			<function xsi:type="GoToFunction" dialogID="1" />
+		</entry>
+	</dialog>
+	<dialog id="3">
+		<text locaKey="DIALOG_TEXT_MM6_ANDOVER_LETTER_ACCEPTED" />
+		<entry>
+			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_GOODBYE" />
+			<function xsi:type="GiveTokenFunction" dialogID="1" tokenID="20004" />
+		</entry>
+	</dialog>
+	<dialog id="4">
+		<text locaKey="DIALOG_TEXT_MM6_ANDOVER_LETTER_HELD" />
 		<entry>
 			<text locaKey="DIALOG_OPTION_MM6_ANDOVER_GOODBYE" />
 			<function xsi:type="QuitFunction" />
