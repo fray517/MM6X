@@ -36,6 +36,15 @@ Grid sketch: `docs/design/NEW_SORPIGAL_GRID_SKETCH.md`,
 Cell budget: `docs/design/NEW_SORPIGAL_CELL_BUDGET.md`,
 `references/mm6/new_sorpigal.cell_budget.json` (432 cells).
 
+Quest graph: `docs/design/NEW_SORPIGAL_QUEST_GRAPH.md`,
+`references/mm6/new_sorpigal.quest_graph.json`.
+
+Design approval: `docs/design/NEW_SORPIGAL_DESIGN_APPROVAL.md`.
+
+Greybox map (M4-001): `mod/Maps/New_Sorpigal.xml`,
+`docs/milestones/M4_NEW_SORPIGAL.md`.
+Generate: `python tools\converters\generate_mmx_map.py --write`.
+
 Refresh extracts:
 ```powershell
 python tools\extract\extract_mm6_topology.py --write-curated

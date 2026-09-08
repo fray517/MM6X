@@ -443,7 +443,47 @@ def validate_mod(
         mod_dir,
         errors,
     )
+    check_new_sorpigal_map(registry, mod_dir, errors)
     return errors
+
+
+def check_new_sorpigal_map(
+    registry: dict[str, Any],
+    mod_dir: Path,
+    errors: list[str],
+) -> None:
+    """Greybox New_Sorpigal.xml (M4-001) if present."""
+    map_names = registry_values(registry, "map")
+    if "New_Sorpigal" not in map_names:
+        return
+    path = mod_dir / "Maps" / "New_Sorpigal.xml"
+    if not path.is_file():
+        _err(errors, "нет mod/Maps/New_Sorpigal.xml (M4-001)")
+        return
+    try:
+        text = path.read_text(encoding="utf-8")
+        root = ET.fromstring(text)
+    except (OSError, ET.ParseError) as exc:
+        _err(errors, f"map New_Sorpigal: {exc}")
+        return
+    if root.tag != "Grid":
+        _err(errors, "map New_Sorpigal: корень не Grid")
+    name = root.findtext("Name")
+    if name != "New_Sorpigal":
+        _err(errors, f"map Name={name!r}")
+    width = root.findtext("Width")
+    height = root.findtext("Height")
+    if width != "24" or height != "18":
+        _err(errors, f"map size {width}x{height} != 24x18")
+    slots = list(root.iter("Slot"))
+    if len(slots) != 24 * 18:
+        _err(errors, f"map slots={len(slots)} != 432")
+    if "SpawnObjectType>PARTY" not in text:
+        _err(errors, "map: нет PARTY")
+    if "NPC_IDS,20000" not in text or "NPC_IDS,20001" not in text:
+        _err(errors, "map: нет stub Janis/Andover NPC_IDS")
+    if 'Enabled>false</Enabled>' not in text:
+        _err(errors, "map: ожидается disabled gate ENTRANCE")
 
 
 def run_self_test() -> None:

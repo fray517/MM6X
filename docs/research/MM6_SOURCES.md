@@ -162,6 +162,12 @@ Grid sketch (M3-007): `docs/design/NEW_SORPIGAL_GRID_SKETCH.md` —
 Cell budget (M3-008): `docs/design/NEW_SORPIGAL_CELL_BUDGET.md` —
 432 cells; PASSABLE 55–70%; caps F0/F1.
 
+Quest graph (M3-009): `docs/design/NEW_SORPIGAL_QUEST_GRAPH.md` —
+#83 critical path; #81 parallel.
+
+Design approval (M3-010):
+`docs/design/NEW_SORPIGAL_DESIGN_APPROVAL.md`.
+
 ## Decode lod (для extract)
 
 Каталог MM6: header 256 байт, root entry сразу после него.

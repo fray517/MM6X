@@ -4,16 +4,22 @@
 Не масштабировать координаты MM6 напрямую
 (`docs/design/MAP_CONVERSION.md`).
 
-## Сделано
+## Done (M3-001 … M3-010)
 
-| ID | Артефакты |
-|---|---|
-| M3-001…007 | topology → grid sketch |
-| M3-008 | `new_sorpigal.cell_budget.json`, `NEW_SORPIGAL_CELL_BUDGET.md` |
+Все design-артефакты в `docs/design/NEW_SORPIGAL_*.md` и
+`references/mm6/new_sorpigal.*.json`.
+Index: `references/mm6/new_sorpigal.manifest.json`.
 
-M3-008: **24×18 = 432** cells; PASSABLE 55–70%; F0/F1 caps;
-expansion 28×20 / 32×24 optional. Vanilla CITY refs 960–1024.
+**Approve:** `docs/design/NEW_SORPIGAL_DESIGN_APPROVAL.md`
+— **APPROVED** 2026-09-08 (freeze as-is; #81 must).
 
-## Дальше
+## Summary
 
-M3-009 Quest dependency graph, M3-010 Approve design.
+- Topology / landmarks / NPCs / services / encounters / travel  
+- Grid sketch 24×18 + cell budget 432  
+- Quest graph #83 critical; #81 parallel  
+- ≠ vanilla MMX Sorpigal  
+
+## Next
+
+**M4 — New Sorpigal Prototype** (старт: M4-001 Greybox).

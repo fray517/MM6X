@@ -14,4 +14,4 @@ python tools\modding\stage_mmx_mod.py --status
 ```
 
 Merge (не replace): loca keys, CSV rows by StaticID.
-Dialog: copy новых XML. Backup: `backups/mmx/mm6x-overlay/`.
+Dialog + Maps: copy новых XML. Backup: `backups/mmx/mm6x-overlay/`.

@@ -21,6 +21,7 @@ KIND_BY_PREFIX = (
     ("Localisation/", "loca"),
     ("Dialog/", "dialog"),
     ("StaticData/", "staticdata"),
+    ("Maps/", "map"),
 )
 
 

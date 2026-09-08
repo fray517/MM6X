@@ -85,7 +85,8 @@ World exits (OutB3 / stables / boats) — маркеры F2, без
 
 ## Что не входит в M3-007
 
-- Полный `New_Sorpigal.xml` (M4-001)
-- Финальный cell budget (M3-008)
-- Quest dependency graph formal (M3-009)
-- Approve (M3-010)
+- ~~Полный `New_Sorpigal.xml`~~ → **M4-001 Done**
+  (`mod/Maps/New_Sorpigal.xml`)
+- Финальный cell budget (M3-008) — Done
+- Quest dependency graph formal (M3-009) — Done
+- Approve (M3-010) — Done

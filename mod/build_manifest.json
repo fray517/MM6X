@@ -1,11 +1,12 @@
 {
   "schema_version": 1,
-  "created_utc": "2026-09-06T16:12:21Z",
+  "created_utc": "2026-09-08T14:53:04Z",
   "mod_id": "mm6x",
   "note": "MM6X staged overlay. Not installed until stage CLI. stage_rel is relative to game Data dir.",
   "counts": {
     "dialog": 2,
     "loca": 2,
+    "map": 1,
     "staticdata": 5
   },
   "files": [
@@ -36,6 +37,13 @@
       "size": 5067,
       "sha256": "6a0891281e31829e44efc2612871e4536da33eeae5a15d5f42a7b19c1794d1a3",
       "stage_rel": "StreamingAssets/Localisation/ru/loca.xml"
+    },
+    {
+      "path": "Maps/New_Sorpigal.xml",
+      "kind": "map",
+      "size": 170390,
+      "sha256": "19ea3727ac46656b3dce649c8319a00269de738f4e23fe4d52cc38417d043352",
+      "stage_rel": "StreamingAssets/Maps/New_Sorpigal.xml"
     },
     {
       "path": "StaticData/LoreBookStaticData.csv",

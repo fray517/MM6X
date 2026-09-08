@@ -227,7 +227,7 @@ def plan_from_manifest(
             "target": str(target),
             "existed": existed,
         }
-        if kind == "dialog":
+        if kind in ("dialog", "map"):
             action["mode"] = "copy"
         elif kind == "loca":
             action["mode"] = "merge_keys"
@@ -268,7 +268,7 @@ def apply_actions(
         src = mod_dir / Path(*action["path"].split("/"))
         target = Path(action["target"])
         record = dict(action)
-        if kind == "dialog":
+        if kind in ("dialog", "map"):
             if action["existed"]:
                 data = target.read_bytes()
                 digest = sha256_bytes(data)
@@ -332,7 +332,7 @@ def restore_actions(
     for action in reversed(actions):
         target = Path(action["target"])
         kind = action["kind"]
-        if kind == "dialog" and not action.get("existed"):
+        if kind in ("dialog", "map") and not action.get("existed"):
             if target.is_file():
                 logs.append(f"delete {target}")
                 if not dry_run:

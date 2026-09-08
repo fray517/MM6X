@@ -98,11 +98,11 @@
 - [x] M3-006 Exits/travel
 - [x] M3-007 Grid conversion sketch
 - [x] M3-008 Cell budget
-- [ ] M3-009 Quest dependency graph
-- [ ] M3-010 Approve design
+- [x] M3-009 Quest dependency graph
+- [x] M3-010 Approve design
 
 ## M4 — New Sorpigal Prototype
-- [ ] M4-001 Greybox/grid map
+- [x] M4-001 Greybox/grid map
 - [ ] M4-002 Landmarks
 - [ ] M4-003 Andover
 - [ ] M4-004 Town Hall quest giver

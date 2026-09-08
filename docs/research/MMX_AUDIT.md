@@ -163,10 +163,14 @@ VERIFIED_LOCAL после generate:
 - `mod/Dialog/Mm6JanisDialog.xml`, `Mm6AndoverDialog.xml`
 - `mod/StaticData/` — NPC/QuestSteps/QuestObjectives/Token/LoreBook
   в полосе 20000+
+- `mod/Maps/New_Sorpigal.xml` — greybox 24×18 (M4-001);
+  layout HYPOTHESIS; schema VERIFIED_LOCAL (Cave1/Sorpigal)
 - `validate_mmx_mod.py` сверяет registry ↔ catalogs ↔ `mod/`
-- `mod/build_manifest.json` — 9 files + sha256 + stage_rel
-- Stage dry-run (VERIFIED_LOCAL plan): 2 dialog copy (new),
-  2 loca merge, 5 CSV merge; игра не писалась
+  (+ size/PARTY/NPC stubs для New_Sorpigal)
+- `mod/build_manifest.json` — files + sha256 + stage_rel
+  (kinds: loca, dialog, staticdata, **map**)
+- Stage dry-run: dialog+map **copy**, loca/CSV **merge**;
+  игра не писалась
 - M2 regression fixtures offline OK (`run_m2_regression.py`)
 
 ## Observations

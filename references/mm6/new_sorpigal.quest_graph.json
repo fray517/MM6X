@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal.quest_graph",
+  "region": "mm6.region.new_sorpigal",
+  "evidence": "VERIFIED_LOCAL",
+  "note": "Quest dependency graph for New Sorpigal slice. #83 primary for M4; #81 secondary; #126 deferred.",
+  "quests": [
+    {
+      "stable_id": "mm6.quest.new_sorpigal.goblinwatch",
+      "mm6_quest_id": 83,
+      "title": "Дозор гоблинов",
+      "priority": "primary",
+      "m4_required": true,
+      "m5_required": true,
+      "qbit": 83,
+      "npc": "mm6.npc.new_sorpigal.janis",
+      "independent_of": [
+        "mm6.quest.new_sorpigal.sulman_letter",
+        "mm6.quest.new_sorpigal.andover_candelabra"
+      ]
+    },
+    {
+      "stable_id": "mm6.quest.new_sorpigal.sulman_letter",
+      "mm6_quest_id": 81,
+      "title": "Письмо Сулмана (Андовер)",
+      "priority": "secondary",
+      "m4_required": true,
+      "m5_required": false,
+      "qbits": [81, 82],
+      "npc": "mm6.npc.new_sorpigal.andover",
+      "registry_status": "stable_id provisional (not in id_registry yet)",
+      "independent_of": ["mm6.quest.new_sorpigal.goblinwatch"]
+    },
+    {
+      "stable_id": "mm6.quest.new_sorpigal.andover_candelabra",
+      "mm6_quest_id": 126,
+      "title": "Канделябр для Андовера",
+      "priority": "deferred",
+      "m4_required": false,
+      "m5_required": false,
+      "npc": "mm6.npc.new_sorpigal.andover",
+      "global_event": 296,
+      "note": "Same NPC as #81; not on M4 critical path."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "n.janis",
+      "kind": "npc",
+      "ref": "mm6.npc.new_sorpigal.janis",
+      "landmark": "lm.town_hall"
+    },
+    {
+      "id": "n.andover",
+      "kind": "npc",
+      "ref": "mm6.npc.new_sorpigal.andover",
+      "landmark": "lm.tavern_lonely_knight"
+    },
+    {
+      "id": "n.accept_83",
+      "kind": "quest_stage",
+      "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.accept",
+      "mm6": "GLOBAL.EVT e3"
+    },
+    {
+      "id": "n.turnin_83",
+      "kind": "quest_stage",
+      "ref": "mm6.quest_stage.new_sorpigal.goblinwatch.turnin",
+      "mm6": "GLOBAL.EVT e4"
+    },
+    {
+      "id": "n.item_key",
+      "kind": "item",
+      "ref": "mm6.item.goblinwatch.key",
+      "mm6_item_id": 489
+    },
+    {
+      "id": "n.item_codex",
+      "kind": "item",
+      "ref": "mm6.item.goblinwatch.codex",
+      "mm6_item_id": 543
+    },
+    {
+      "id": "n.item_letter",
+      "kind": "item",
+      "mm6_item_id": 505,
+      "title": "Письмо Сулмана"
+    },
+    {
+      "id": "n.qbit_83",
+      "kind": "flag",
+      "qbit": 83
+    },
+    {
+      "id": "n.qbit_300",
+      "kind": "flag",
+      "qbit": 300,
+      "note": "Door opened once at Goblinwatch entrance"
+    },
+    {
+      "id": "n.gate",
+      "kind": "landmark",
+      "ref": "lm.goblinwatch_entrance"
+    },
+    {
+      "id": "n.d01",
+      "kind": "map",
+      "ref": "mm6.dungeon.goblinwatch"
+    },
+    {
+      "id": "n.chest_codex",
+      "kind": "container",
+      "map": "D01",
+      "chest_index": 1
+    },
+    {
+      "id": "n.plates",
+      "kind": "puzzle",
+      "ref": "mm6.secret.goblinwatch.nilbog"
+    },
+    {
+      "id": "n.award_53",
+      "kind": "reward",
+      "award": 53,
+      "xp": 2000,
+      "gold": 2000
+    }
+  ],
+  "edges": [
+    {
+      "from": "n.janis",
+      "to": "n.accept_83",
+      "rel": "offers",
+      "quest": 83
+    },
+    {
+      "from": "n.accept_83",
+      "to": "n.qbit_83",
+      "rel": "sets"
+    },
+    {
+      "from": "n.accept_83",
+      "to": "n.item_key",
+      "rel": "gives"
+    },
+    {
+      "from": "n.item_key",
+      "to": "n.gate",
+      "rel": "required_to_enter"
+    },
+    {
+      "from": "n.gate",
+      "to": "n.item_key",
+      "rel": "consumes"
+    },
+    {
+      "from": "n.gate",
+      "to": "n.qbit_300",
+      "rel": "sets_on_first_open"
+    },
+    {
+      "from": "n.gate",
+      "to": "n.d01",
+      "rel": "enters_map"
+    },
+    {
+      "from": "n.d01",
+      "to": "n.plates",
+      "rel": "contains",
+      "milestone": "M5"
+    },
+    {
+      "from": "n.d01",
+      "to": "n.chest_codex",
+      "rel": "contains",
+      "milestone": "M5"
+    },
+    {
+      "from": "n.chest_codex",
+      "to": "n.item_codex",
+      "rel": "gives"
+    },
+    {
+      "from": "n.d01",
+      "to": "n.janis",
+      "rel": "return_via_exit_e51",
+      "via": "OutE3"
+    },
+    {
+      "from": "n.item_codex",
+      "to": "n.turnin_83",
+      "rel": "required"
+    },
+    {
+      "from": "n.qbit_83",
+      "to": "n.turnin_83",
+      "rel": "required"
+    },
+    {
+      "from": "n.janis",
+      "to": "n.turnin_83",
+      "rel": "accepts_turnin"
+    },
+    {
+      "from": "n.turnin_83",
+      "to": "n.qbit_83",
+      "rel": "clears"
+    },
+    {
+      "from": "n.turnin_83",
+      "to": "n.award_53",
+      "rel": "gives"
+    },
+    {
+      "from": "n.andover",
+      "to": "n.item_letter",
+      "rel": "quest_81_flow",
+      "mm6": "GLOBAL.EVT e1; QBit 81→82",
+      "quest": 81
+    }
+  ],
+  "critical_path_83": [
+    "n.janis",
+    "n.accept_83",
+    "n.item_key",
+    "n.gate",
+    "n.d01",
+    "n.chest_codex",
+    "n.item_codex",
+    "n.turnin_83",
+    "n.award_53"
+  ],
+  "m4_vs_m5": {
+    "m4_must_implement": [
+      "accept_83",
+      "key_item",
+      "gate_transition",
+      "turnin_83_if_codex_present"
+    ],
+    "m4_may_stub": [
+      "d01_interior_full",
+      "nilbog_plates",
+      "auto_grant_codex_after_enter"
+    ],
+    "m5_must_implement": [
+      "d01_grid",
+      "plates_nilbog",
+      "chest_1_codex",
+      "exit_e51"
+    ]
+  },
+  "parallelism": {
+    "note": "Quest #81 and #83 share the town map but have no item/QBit cross-dependencies in this slice.",
+    "shared_map": "New_Sorpigal",
+    "shared_npc_none": true
+  }
+}
