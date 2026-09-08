@@ -1,0 +1,4 @@
+# MM6X World Map overlay,,,,,,,,,
+#Comments,,,,,,,,,
+StaticID,NameKey,InfoKey,StateChangeType,InitialState,QuestChangedType,QuestID,TokenID,GridPosition,Icon
+20000,WORLDMAP_MM6_NEW_SORPIGAL,WORLDMAP_MM6_NEW_SORPIGAL,NONE,VISIBLE,NONE,0,0,"126,36",ICO_worldmap_town

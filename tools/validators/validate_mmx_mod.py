@@ -38,6 +38,11 @@ from mmx_staticdata import (  # noqa: E402
     load_json as load_sd_json,
     parse_csv_data,
 )
+from mmx_map import (  # noqa: E402
+    DEFAULT_SKETCH,
+    load_json as load_map_json,
+    verify_routes,
+)
 from validate_id_registry import validate_registry  # noqa: E402
 
 DEFAULT_REGISTRY = TOOLS / "converters" / "id_registry.json"
@@ -398,6 +403,26 @@ def check_staticdata(
                             errors,
                             f"LoreBook {sid}: {col} {key!r}",
                         )
+            elif name == "WorldMapPointsStaticData.csv":
+                wmp_ids = registry_values(
+                    registry, "world_map_point"
+                )
+                if sid not in wmp_ids:
+                    _err(
+                        errors,
+                        f"WorldMapPoint {sid}: нет в registry",
+                    )
+                for col in ("NameKey", "InfoKey"):
+                    col_i = _col_index(header, col)
+                    if col_i is None or col_i >= len(row):
+                        continue
+                    key = row[col_i]
+                    if key and key not in loca_keys:
+                        _err(
+                            errors,
+                            f"WorldMapPoint {sid}: {col} "
+                            f"{key!r}",
+                        )
 
 
 def validate_mod(
@@ -473,13 +498,36 @@ def check_new_sorpigal_map(
     name = root.findtext("Name")
     if name != "New_Sorpigal":
         _err(errors, f"map Name={name!r}")
+    scene = root.findtext("SceneName")
+    if scene != "Sorpigal":
+        _err(
+            errors,
+            f"map SceneName={scene!r} (ожидали Sorpigal reuse)",
+        )
     width = root.findtext("Width")
     height = root.findtext("Height")
-    if width != "24" or height != "18":
-        _err(errors, f"map size {width}x{height} != 24x18")
+    if width != "32" or height != "30":
+        _err(errors, f"map size {width}x{height} != 32x30")
+    # Offline route playtest (M4-009).
+    sketch_path = DEFAULT_SKETCH
+    if sketch_path.is_file():
+        try:
+            sketch = load_map_json(sketch_path)
+            for route in verify_routes(sketch):
+                if not route["ok"]:
+                    _err(
+                        errors,
+                        f"route {route['id']}: "
+                        f"bfs={route['bfs_steps']} "
+                        f"via_ok={route['via_passable']}",
+                    )
+        except Exception as exc:  # noqa: BLE001
+            _err(errors, f"route verify: {exc}")
+    else:
+        _err(errors, f"нет sketch {sketch_path}")
     slots = list(root.iter("Slot"))
-    if len(slots) != 24 * 18:
-        _err(errors, f"map slots={len(slots)} != 432")
+    if len(slots) != 32 * 30:
+        _err(errors, f"map slots={len(slots)} != 960")
     if "SpawnObjectType>PARTY" not in text:
         _err(errors, "map: нет PARTY")
     if "NPC_IDS,20000" not in text or "NPC_IDS,20001" not in text:
@@ -504,14 +552,37 @@ def check_new_sorpigal_map(
         _err(errors, "map: нет ENTRANCE → Goblinwatch.xml")
     if "SpawnObjectType>MONSTER" not in text:
         _err(errors, "map: нет MONSTER (M4-007 Goblin)")
-    if "SpawnStaticID>50</SpawnStaticID>" not in text:
-        _err(errors, "map: ожидался Goblin SpawnStaticID=50")
-    # Gate must be enabled for M4-006 E2E (key gate polish = M4-008).
+    if "SpawnStaticID>150</SpawnStaticID>" not in text:
+        _err(errors, "map: ожидался road mob SpawnStaticID=150")
+    # Gate Enabled + key-lock (M4-008).
     if not re.search(
         r'Trigger ID="20"[\s\S]*?<Enabled>true</Enabled>',
         text,
     ):
         _err(errors, "map: gate Trigger 20 должен быть Enabled=true")
+    gate_m = re.search(
+        r'<Trigger ID="20">([\s\S]*?)</Trigger>',
+        text,
+    )
+    if not gate_m:
+        _err(errors, "map: нет Trigger 20 (Goblinwatch gate)")
+    else:
+        gate = gate_m.group(1)
+        if "PARTY_CHECK" not in gate or "20001" not in gate:
+            _err(
+                errors,
+                "map: gate 20 должен требовать token 20001 "
+                "(PARTY_CHECK)",
+            )
+        if 'Type="REMOVE_TOKEN"' not in gate or 'Extra="20001"' not in gate:
+            _err(errors, "map: gate 20 должен REMOVE_TOKEN 20001")
+        if "ON_FAIL" not in gate or "GAME_MESSAGE" not in gate:
+            _err(errors, "map: gate 20 должен GAME_MESSAGE ON_FAIL")
+        locked = "OBJECT_INTERACTION_MM6_GOBLINWATCH_LOCKED"
+        if locked not in gate:
+            _err(errors, f"map: gate 20 нет {locked}")
+        elif locked not in loca_keys:
+            _err(errors, f"map loca missing: {locked}")
     gw = mod_dir / "Maps" / "Goblinwatch.xml"
     if not gw.is_file():
         _err(errors, "нет mod/Maps/Goblinwatch.xml (M4-006 stub)")
@@ -524,10 +595,22 @@ def check_new_sorpigal_map(
             return
         if groot.findtext("Name") != "Goblinwatch":
             _err(errors, "Goblinwatch: Name != Goblinwatch")
-        if groot.findtext("Width") != "8" or groot.findtext("Height") != "8":
-            _err(errors, "Goblinwatch: ожидали 8x8 stub")
+        if groot.findtext("SceneName") != "Cave1":
+            _err(errors, "Goblinwatch: SceneName != Cave1")
+        if groot.findtext("Width") != "6" or groot.findtext("Height") != "6":
+            _err(errors, "Goblinwatch: ожидали 6x6 Cave1-matched stub")
+        if "<X>0</X>" not in gtext or 'Trigger ID="1"' not in gtext:
+            _err(errors, "Goblinwatch: party spawn ожидался (0,1)")
         if "ADD_TOKEN" not in gtext or "Extra=\"20002\"" not in gtext:
             _err(errors, "Goblinwatch: нет ADD_TOKEN codex 20002")
+        if "ObjectTypeCommand" not in gtext or "USE_ENTRANCE" not in gtext:
+            _err(
+                errors,
+                "Goblinwatch: exit должен быть ObjectTypeCommand "
+                "USE_ENTRANCE (Cave1)",
+            )
+        if "SIGN_MM6_GOBLINWATCH_EXIT" not in gtext:
+            _err(errors, "Goblinwatch: нет SIGN exit")
         if "New_Sorpigal.xml" not in gtext:
             _err(errors, "Goblinwatch: нет exit → New_Sorpigal")
 

@@ -50,9 +50,11 @@
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_TOWN_HALL">Town Hall</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_TAVERN">The Lonely Knight</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE">Goblinwatch</LocaData>
+  <LocaData id="OBJECT_INTERACTION_MM6_GOBLINWATCH_LOCKED">The Goblinwatch gate is locked. You need the key from the Town Hall.</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_STABLES">New Sorpigal Stables</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_BOATS">New Sorpigal Docks</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE">Abandoned Temple — sealed</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE">Gharik's Forge — sealed</LocaData>
-  <LocaData id="SIGN_MM6_GOBLINWATCH_STUB_VAULT">Vault combination (take the plates)</LocaData>
+  <LocaData id="SIGN_MM6_GOBLINWATCH_STUB_VAULT">Vault plates — open the chest (Space), then leave via the exit sign.</LocaData>
+  <LocaData id="SIGN_MM6_GOBLINWATCH_EXIT">Exit to New Sorpigal — face the portal and press Space.</LocaData>
 </Localization>

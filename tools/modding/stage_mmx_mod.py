@@ -201,7 +201,13 @@ def main(argv: list[str] | None = None) -> int:
         if not writing:
             print("dry-run: restore not applied")
         else:
+            # Clear backup so a following --stage can run.
+            import shutil
+
+            if args.backup_dir.is_dir():
+                shutil.rmtree(args.backup_dir)
             print("OK restore")
+            print(f"cleared backup {args.backup_dir}")
         return 0
 
     if args.dry_run and not args.stage:

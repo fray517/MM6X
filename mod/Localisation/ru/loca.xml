@@ -50,9 +50,11 @@
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_TOWN_HALL">Ратуша</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_TAVERN">Одинокий рыцарь</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE">Дозор гоблинов</LocaData>
+  <LocaData id="OBJECT_INTERACTION_MM6_GOBLINWATCH_LOCKED">Вход в Дозор гоблинов заперт. Нужен ключ из ратуши.</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_STABLES">Конюшни Нью-Сорпигаля</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_BOATS">Пристань Нью-Сорпигаля</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE">Заброшенный храм — запечатан</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE">Кузница Гарика — запечатана</LocaData>
-  <LocaData id="SIGN_MM6_GOBLINWATCH_STUB_VAULT">Код хранилища (возьмите плиты)</LocaData>
+  <LocaData id="SIGN_MM6_GOBLINWATCH_STUB_VAULT">Плиты хранилища — откройте сундук (Пробел), затем уходите по знаку выхода.</LocaData>
+  <LocaData id="SIGN_MM6_GOBLINWATCH_EXIT">Выход в Нью-Сорпигаль — повернитесь к порталу и нажмите Пробел.</LocaData>
 </Localization>

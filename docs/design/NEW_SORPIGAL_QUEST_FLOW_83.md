@@ -1,9 +1,8 @@
 # New Sorpigal — quest #83 first flow (M4-006)
 
 Evidence dialog/StaticData: **VERIFIED_LOCAL** (M4-004).
-Stub dungeon: **HYPOTHESIS** layout 8×8; auto-codex via
-`ADD_TOKEN` / `ADD_LOREBOOK` (vanilla command pattern
-VERIFIED_LOCAL). Key-lock gate polish → **M4-008**.
+Stub dungeon: **Cave1-matched 6×6** (size+walk VERIFIED_LOCAL);
+auto-codex via `ADD_TOKEN` / `ADD_LOREBOOK`.
 
 Machine checklist:
 `references/mm6/new_sorpigal.quest_flow_83.json`.
@@ -14,12 +13,12 @@ Machine checklist:
 Janis accept → key token 20001
       │
       ▼
-East road → gate (21,9) ENTRANCE Enabled
+East road → gate (28,17) key 20001 → consume
       │
       ▼
-Goblinwatch stub 8×8
+Goblinwatch stub 6×6 (Cave1 walk)
   chest (4,4): ADD_TOKEN 20002 + ADD_LOREBOOK 20000
-  exit → New_Sorpigal party spawn
+  exit (0,1) → New_Sorpigal party spawn
       │
       ▼
 Objective/FollowUp → turn-in step 20001
@@ -47,10 +46,10 @@ python tools\validators\validate_mmx_mod.py
 
 | M4 stub | M5 |
 |---|---|
-| 8×8 empty corridors | full D01 grid |
+| 6×6 Cave1 footprint | full D01 grid + own scene |
 | Click chest → codex | NILBOG plates + chest[1] |
-| No key consume at gate | Compare/Subtract key |
-| No monsters required | encounters |
+| Key PARTY_CHECK + REMOVE_TOKEN | Compare/Subtract #489 |
+| Goblin road optional | full encounters |
 
 ## Parallel #81
 

@@ -1,0 +1,9 @@
+# MM6X M4 playtest harness.
+# Stage applies ONLY the start= line onto vanilla config.txt
+# (backup + restore). Do not copy this file wholesale into the game.
+#
+# New game → New_Sorpigal (bypass vanilla Sorpigal tutorial lock:
+# exit to theworld requires TOKEN_BLESSING_CLAIRVOYANCE).
+
+[map]
+start = "New_Sorpigal"

@@ -1,15 +1,23 @@
 {
   "schema_version": 1,
-  "created_utc": "2026-09-08T15:21:50Z",
+  "created_utc": "2026-09-08T17:38:56Z",
   "mod_id": "mm6x",
   "note": "MM6X staged overlay. Not installed until stage CLI. stage_rel is relative to game Data dir.",
   "counts": {
+    "config": 1,
     "dialog": 2,
     "loca": 2,
     "map": 2,
-    "staticdata": 5
+    "staticdata": 6
   },
   "files": [
+    {
+      "path": "config.txt",
+      "kind": "config",
+      "size": 316,
+      "sha256": "fef7a2784661b2bb1797dd6ece6fa2e5ae7072409509052cbb2366d2c9c4254d",
+      "stage_rel": "StreamingAssets/config.txt"
+    },
     {
       "path": "Dialog/Mm6AndoverDialog.xml",
       "kind": "dialog",
@@ -27,29 +35,29 @@
     {
       "path": "Localisation/en/loca.xml",
       "kind": "loca",
-      "size": 5950,
-      "sha256": "eb68c476b5b07b51dbde3975e21be5e4f8b89f9d9d5e8c4a1031c33d0e30821a",
+      "size": 6238,
+      "sha256": "2318cbeada523ad9dfb2789f5c496845de81e30f3e5fd60e89f2dab3d51956f7",
       "stage_rel": "StreamingAssets/Localisation/en/loca.xml"
     },
     {
       "path": "Localisation/ru/loca.xml",
       "kind": "loca",
-      "size": 7863,
-      "sha256": "d9243cd10e30e8d77735ff48e67e6d453fe6d938b1b3ba4058deb71a929afeb9",
+      "size": 8279,
+      "sha256": "c20759425ee7ca31639de1fe766d5691699c08fd923c82e6195396ec101a40e8",
       "stage_rel": "StreamingAssets/Localisation/ru/loca.xml"
     },
     {
       "path": "Maps/Goblinwatch.xml",
       "kind": "map",
-      "size": 29927,
-      "sha256": "40572036843e0e0024f554dbc78a7ae8dc5ca2b912b1220f45418e2b09a2bb0d",
+      "size": 20562,
+      "sha256": "ceaa3097cba45f625c48aaa60f43e9edf6186eb5199147f602177088d44fc10c",
       "stage_rel": "StreamingAssets/Maps/Goblinwatch.xml"
     },
     {
       "path": "Maps/New_Sorpigal.xml",
       "kind": "map",
-      "size": 179647,
-      "sha256": "07118688ff14f92b4d474f18372821ee0403c2487d3a8a2e0db58c5d83e02943",
+      "size": 390977,
+      "sha256": "e50cc9dbce63de503b36a68791a08686bd44e4c620e3910b5db5b88650a9e0e2",
       "stage_rel": "StreamingAssets/Maps/New_Sorpigal.xml"
     },
     {
@@ -86,6 +94,13 @@
       "size": 777,
       "sha256": "4dccb6bcbdaffb361ecd542c036b60a948109837a7fcff07126bfb12191cc504",
       "stage_rel": "StreamingAssets/StaticData/Token.csv"
+    },
+    {
+      "path": "StaticData/WorldMapPointsStaticData.csv",
+      "kind": "staticdata",
+      "size": 269,
+      "sha256": "678e21a184c43225d3d50e6bd6a47180d5fca1d38ce840c1483a65be7c3d2743",
+      "stage_rel": "StreamingAssets/StaticData/WorldMapPointsStaticData.csv"
     }
   ]
 }

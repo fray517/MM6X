@@ -109,8 +109,8 @@
 - [x] M4-005 Localisation
 - [x] M4-006 First quest flow
 - [x] M4-007 Goblin encounter
-- [ ] M4-008 Goblinwatch entrance
-- [ ] M4-009 Route playtest
+- [x] M4-008 Goblinwatch entrance
+- [>] M4-009 Route playtest
 - [ ] M4-010 Save/load
 
 ## M5 — Goblinwatch

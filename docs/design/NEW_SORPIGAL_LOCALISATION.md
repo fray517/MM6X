@@ -13,7 +13,7 @@ python tools\validators\validate_mmx_loca.py --check-vanilla --list
 python tools\validators\validate_mmx_mod.py
 ```
 
-Ожидание: **54** ключа, en == ru, нет коллизий с vanilla,
+Ожидание: **55** ключей, en == ru, нет коллизий с vanilla,
 dialog/map/StaticData refs закрыты.
 
 ## Группы ключей
@@ -25,7 +25,7 @@ dialog/map/StaticData refs закрыты.
 | `TOKEN_*` / `QUEST_*` | ~14 | #83 + #81 |
 | `LOREBOOK_*` | 3 | кодекс (легенда плит) |
 | `DIALOG_*` | ~20 | Mm6Janis + Mm6Andover |
-| `SIGN_*` | 7 | landmarks на greybox |
+| `SIGN_*` / `OBJECT_INTERACTION_*` | 8 | landmarks + gate locked |
 
 Точный список: `validate_mmx_loca.py --list`.
 
@@ -39,4 +39,4 @@ dialog/map/StaticData refs закрыты.
 ## In-game (позже)
 
 После stage: язык en и ru, ратуша/таверна SIGN + dialog.
-Полный playtest — M4-009.
+Полный playtest — M4-009 (`docs/design/NEW_SORPIGAL_ROUTE_PLAYTEST.md`).

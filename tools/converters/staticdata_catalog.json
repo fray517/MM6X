@@ -397,6 +397,41 @@
           "ImagePath": "ART_lore_ashan_TheWarOfBitterAshes"
         }
       ]
+    },
+    "WorldMapPointsStaticData.csv": {
+      "comments": [
+        "# MM6X World Map overlay,,,,,,,,,",
+        "#Comments,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "NameKey",
+        "InfoKey",
+        "StateChangeType",
+        "InitialState",
+        "QuestChangedType",
+        "QuestID",
+        "TokenID",
+        "GridPosition",
+        "Icon"
+      ],
+      "rows": [
+        {
+          "StaticID": {
+            "ref": "mm6.region.new_sorpigal",
+            "slot": "world_map_point"
+          },
+          "NameKey": "WORLDMAP_MM6_NEW_SORPIGAL",
+          "InfoKey": "WORLDMAP_MM6_NEW_SORPIGAL",
+          "StateChangeType": "NONE",
+          "InitialState": "VISIBLE",
+          "QuestChangedType": "NONE",
+          "QuestID": 0,
+          "TokenID": 0,
+          "GridPosition": "126,36",
+          "Icon": "ICO_worldmap_town"
+        }
+      ]
     }
   }
 }

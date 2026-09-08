@@ -242,6 +242,25 @@
           "ImagePath": "ART_lore_ashan_TheWarOfBitterAshes"
         }
       ]
+    },
+    "WorldMapPointsStaticData.csv": {
+      "comments": [
+        "# MM6X World Map overlay,,,,,,,,,",
+        "#Comments,,,,,,,,,"
+      ],
+      "header": [
+        "StaticID",
+        "NameKey",
+        "InfoKey",
+        "StateChangeType",
+        "InitialState",
+        "QuestChangedType",
+        "QuestID",
+        "TokenID",
+        "GridPosition",
+        "Icon"
+      ],
+      "rows": []
     }
   }
 }

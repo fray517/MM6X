@@ -18,6 +18,7 @@ TABLES = (
     "QuestObjectives.csv",
     "Token.csv",
     "LoreBookStaticData.csv",
+    "WorldMapPointsStaticData.csv",
 )
 
 
@@ -219,6 +220,11 @@ def run_self_test() -> None:
             },
             "LoreBookStaticData.csv": {
                 "comments": ["# Lore Books"],
+                "header": ["StaticID"],
+                "rows": [],
+            },
+            "WorldMapPointsStaticData.csv": {
+                "comments": ["# World Map"],
                 "header": ["StaticID"],
                 "rows": [],
             },

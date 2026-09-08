@@ -198,6 +198,10 @@
       "en": "Goblinwatch",
       "ru": "Дозор гоблинов"
     },
+    "OBJECT_INTERACTION_MM6_GOBLINWATCH_LOCKED": {
+      "en": "The Goblinwatch gate is locked. You need the key from the Town Hall.",
+      "ru": "Вход в Дозор гоблинов заперт. Нужен ключ из ратуши."
+    },
     "SIGN_MM6_NEW_SORPIGAL_STABLES": {
       "en": "New Sorpigal Stables",
       "ru": "Конюшни Нью-Сорпигаля"
@@ -215,8 +219,12 @@
       "ru": "Кузница Гарика — запечатана"
     },
     "SIGN_MM6_GOBLINWATCH_STUB_VAULT": {
-      "en": "Vault combination (take the plates)",
-      "ru": "Код хранилища (возьмите плиты)"
+      "en": "Vault plates — open the chest (Space), then leave via the exit sign.",
+      "ru": "Плиты хранилища — откройте сундук (Пробел), затем уходите по знаку выхода."
+    },
+    "SIGN_MM6_GOBLINWATCH_EXIT": {
+      "en": "Exit to New Sorpigal — face the portal and press Space.",
+      "ru": "Выход в Нью-Сорпигаль — повернитесь к порталу и нажмите Пробел."
     }
   }
 }

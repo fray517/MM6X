@@ -68,3 +68,17 @@ Backup: `backups/mmx/mm6x-overlay/`. Запись только с
 sample export — по-прежнему HYPOTHESIS; текущий путь = merge в
 StreamingAssets (как M0 proofs).
 
+## ADR-011 — SceneName size+walk must match reused scene
+Accepted (M4 playtest 2026-09-08).
+
+Reuse `SceneName` without matching Width/Height and PASSABLE
+footprint causes clip-through visuals (grid ≠ mesh).
+
+| Map | Scene | Size | Walk source |
+|---|---|---|---|
+| `New_Sorpigal` | `Sorpigal` | 32×30 | `references/mmx/sorpigal.walk.json` |
+| `Goblinwatch` stub | `Cave1` | 6×6 | Cave1 footprint in `mmx_map.py` |
+
+M3 approve 24×18 was HYPOTHESIS; expand allowed when smoke/playtest
+requires (`NEW_SORPIGAL_DESIGN_APPROVAL` §6). Full custom scenes → later.
+

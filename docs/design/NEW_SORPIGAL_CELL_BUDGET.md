@@ -9,8 +9,8 @@ Evidence sizes: **VERIFIED_LOCAL** (все 5 vanilla CITY =
 
 | Map | W×H | Cells | Type |
 |---|---|---:|---|
-| **`New_Sorpigal`** | **24×18** | **432** | CITY / CASTLE |
-| Goblinwatch (stub M4) | 8×8 | 64 | DUNGEON (отдельный XML) |
+| **`New_Sorpigal`** | **32×30** | **960** | CITY / CASTLE (Sorpigal scene) |
+| Goblinwatch (stub M4) | 6×6 | 36 | DUNGEON (Cave1 scene match) |
 | Goblinwatch (M5 target) | 12×12 | 144 | DUNGEON |
 
 432 ≈ **45%** площади vanilla Sorpigal (960) — намеренно:
@@ -53,7 +53,7 @@ Evidence sizes: **VERIFIED_LOCAL** (все 5 vanilla CITY =
 
 ## Expansion path
 
-1. M4: 24×18 (432) — greybox accept  
+1. M4: 32×30 (960) — scene-matched after playtest (was 24×18)  
 2. Если тесно для F3 shops → 28×20 (560)  
 3. Опционально «как CITY width» → 32×24 (768) — не блокер M4
 

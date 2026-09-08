@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "mm6.region.new_sorpigal.quest_flow_83",
-  "milestone": "M4-006",
+  "milestone": "M4-008",
   "quest": "mm6.quest.new_sorpigal.goblinwatch",
   "evidence_dialog": "VERIFIED_LOCAL",
   "evidence_stub_dungeon": "HYPOTHESIS",
@@ -12,16 +12,19 @@
       "quest_step": 20000,
       "gives_token": 20001,
       "map": "New_Sorpigal",
-      "cell": {"x": 10, "y": 9}
+      "cell": {"x": 13, "y": 15}
     },
     {
       "id": "enter_gate",
       "map": "New_Sorpigal",
-      "cell": {"x": 21, "y": 9},
+      "cell": {"x": 28, "y": 17},
       "trigger_id": 20,
       "target_map": "Goblinwatch.xml",
       "enabled": true,
-      "note": "Key consume / locked text = M4-008"
+      "require_token": 20001,
+      "consume_token": true,
+      "locked_loca": "OBJECT_INTERACTION_MM6_GOBLINWATCH_LOCKED",
+      "note": "M4-008: PARTY_CHECK + REMOVE_TOKEN ON_SUCCESS + GAME_MESSAGE ON_FAIL"
     },
     {
       "id": "stub_codex",
@@ -29,12 +32,16 @@
       "cell": {"x": 4, "y": 4},
       "trigger_id": 50,
       "commands": ["ADD_TOKEN:20002", "ADD_LOREBOOK:20000"],
-      "size": {"width": 8, "height": 8}
+      "size": {"width": 6, "height": 6},
+      "scene": "Cave1",
+      "party_cell": {"x": 0, "y": 1},
+      "note": "Walk footprint matches Cave1 (VERIFIED_LOCAL)"
     },
     {
       "id": "return_town",
       "map": "Goblinwatch",
       "exit_to": "New_Sorpigal.xml",
+      "cell": {"x": 0, "y": 1},
       "target_spawn_id": 1
     },
     {

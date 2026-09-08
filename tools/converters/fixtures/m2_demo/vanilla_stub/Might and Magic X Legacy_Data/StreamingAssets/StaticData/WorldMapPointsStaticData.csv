@@ -1,0 +1,4 @@
+# World Map,,,,,,,,,
+#Comments,,,,,,,,,
+StaticID,NameKey,InfoKey,StateChangeType,InitialState,QuestChangedType,QuestID,TokenID,GridPosition,Icon
+1,WORLDMAP_VANILLA,WORLDMAP_VANILLA,NONE,VISIBLE,NONE,0,0,10,10,ICO_worldmap_town

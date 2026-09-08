@@ -17,6 +17,7 @@ from mmx_map import (
     render_grid_xml,
     run_self_test,
     summarize,
+    verify_routes,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -110,9 +111,18 @@ def main(argv: list[str] | None = None) -> int:
     print(f"  party=({info['party']['x']},{info['party']['y']})")
     print(f"  triggers={', '.join(info['triggers'])}")
     print(
-        f"OK Goblinwatch stub 8x8 "
+        f"OK Goblinwatch stub 6x6 Cave1-walk "
         f"bytes={len(goblin_xml.encode('utf-8'))}"
     )
+    for route in verify_routes(sketch):
+        status = "OK" if route["ok"] else "FAIL"
+        print(
+            f"  route {route['id']}: bfs={route['bfs_steps']} "
+            f"via={route['via_passable']} [{status}]"
+        )
+        if not route["ok"]:
+            print("FAIL: route unreachable", file=sys.stderr)
+            return 1
 
     if args.dry_run:
         print("dry-run: maps not written")

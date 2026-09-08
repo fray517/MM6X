@@ -23,6 +23,7 @@ KIND_BY_PREFIX = (
     ("StaticData/", "staticdata"),
     ("Maps/", "map"),
 )
+CONFIG_REL = "config.txt"
 
 
 class ManifestError(ValueError):
@@ -47,6 +48,8 @@ def sha256_file(path: Path) -> str:
 
 
 def classify_kind(rel_posix: str) -> str | None:
+    if rel_posix == CONFIG_REL:
+        return "config"
     for prefix, kind in KIND_BY_PREFIX:
         if rel_posix.startswith(prefix):
             return kind

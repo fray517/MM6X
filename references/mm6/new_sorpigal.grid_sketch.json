@@ -4,18 +4,24 @@
   "region": "mm6.region.new_sorpigal",
   "evidence_layout": "HYPOTHESIS",
   "evidence_mmx_size_refs": "VERIFIED_LOCAL",
-  "note": "Logical grid plan for M4 greybox. Not MM6 ODM XY. Not a playable Map XML.",
+  "note": "M4 playtest: 32x30 + Sorpigal heights; Andover@Inn; Janis@garrison.",
   "mmx_map": {
     "name": "New_Sorpigal",
     "type": "CITY",
     "style": "CASTLE",
+    "scene_name": "Sorpigal",
     "loca_location": "LOCATION_MM6_NEW_SORPIGAL",
     "world_map_point_id": 20000,
     "separate_from_vanilla": "Do not edit Sorpigal.xml (MMX Sorpigal-by-the-Sea)."
   },
+  "terrain_source": {
+    "walk_json": "references/mmx/sorpigal.walk.json",
+    "evidence": "VERIFIED_LOCAL",
+    "note": "PASSABLE + Height from vanilla Sorpigal (stairs/mesh sync)."
+  },
   "size_proposal": {
-    "m4_greybox": {"width": 24, "height": 18},
-    "m4_rationale": "Smaller than vanilla Sorpigal 32x30; fits F0/F1 route + stubs.",
+    "m4_greybox": {"width": 32, "height": 30},
+    "m4_rationale": "SceneName=Sorpigal requires 32x30 + matching walk/heights.",
     "reference_maps": [
       {
         "name": "Sorpigal",
@@ -23,104 +29,73 @@
         "height": 30,
         "type": "CITY",
         "evidence": "VERIFIED_LOCAL"
-      },
-      {
-        "name": "SeaHaven",
-        "width": 32,
-        "height": 32,
-        "type": "CITY",
-        "evidence": "VERIFIED_LOCAL"
-      },
-      {
-        "name": "Cave1",
-        "width": 6,
-        "height": 6,
-        "type": "DUNGEON",
-        "evidence": "VERIFIED_LOCAL"
       }
     ],
     "cell_budget_detail": "see new_sorpigal.cell_budget.json (M3-008)"
   },
   "axes": {
     "x": "east (+)",
-    "y": "north (+)",
-    "note": "Convention for this sketch only; confirm vs MMX Slot Position when authoring XML."
+    "y": "north (+)"
   },
   "zones": [
     {
-      "id": "zone.waterfront",
-      "label": "Waterfront",
-      "bbox": {"x0": 0, "y0": 0, "x1": 9, "y1": 5},
-      "contains": ["lm.boats", "travel_edge_hint"]
-    },
-    {
       "id": "zone.town_core",
-      "label": "Town core",
-      "bbox": {"x0": 6, "y0": 5, "x1": 15, "y1": 12},
-      "contains": ["lm.town_hall", "lm.tavern_lonely_knight", "services_cluster"]
+      "label": "Inn + garrison",
+      "bbox": {"x0": 15, "y0": 14, "x1": 20, "y1": 21},
+      "contains": ["lm.town_hall", "lm.tavern_lonely_knight"]
     },
     {
       "id": "zone.road_east",
-      "label": "East road / outskirts",
-      "bbox": {"x0": 15, "y0": 6, "x1": 23, "y1": 12},
+      "label": "East road",
+      "bbox": {"x0": 21, "y0": 17, "x1": 29, "y1": 21},
       "contains": ["lm.goblinwatch_entrance", "encounter_goblin"]
-    },
-    {
-      "id": "zone.inland_north",
-      "label": "Inland / stables",
-      "bbox": {"x0": 8, "y0": 12, "x1": 16, "y1": 17},
-      "contains": ["lm.stables", "optional_temple_train"]
     }
   ],
   "anchors": [
     {
       "landmark_id": "lm.town_hall",
       "house_id": 89,
-      "cell": {"x": 10, "y": 9},
+      "cell": {"x": 19, "y": 20},
       "fidelity": "F0",
-      "notes": "Janis NPC_CONTAINER; party start nearby."
+      "notes": "Janis near Town Garrison (civic), not shrine."
     },
     {
       "landmark_id": "lm.tavern_lonely_knight",
       "house_id": 92,
-      "cell": {"x": 8, "y": 8},
+      "cell": {"x": 16, "y": 15},
       "fidelity": "F1",
-      "notes": "Andover; 2 cells from hall."
+      "notes": "Andover at Inn (16,14), not under Shrine."
     },
     {
       "landmark_id": "lm.goblinwatch_entrance",
       "house_id": 171,
-      "cell": {"x": 21, "y": 9},
+      "cell": {"x": 28, "y": 17},
       "fidelity": "F0",
-      "notes": "Transition/trigger to Goblinwatch map; key gate."
+      "notes": "Key gate."
     },
     {
       "landmark_id": "lm.boats",
       "house_id": 57,
-      "cell": {"x": 3, "y": 2},
-      "fidelity": "F2",
-      "notes": "Stub travel shell."
+      "cell": {"x": 3, "y": 3},
+      "fidelity": "F2"
     },
     {
       "landmark_id": "lm.stables",
       "house_id": 48,
-      "cell": {"x": 12, "y": 15},
-      "fidelity": "F2",
-      "notes": "Stub travel shell."
+      "cell": {"x": 16, "y": 25},
+      "fidelity": "F2"
     },
     {
       "landmark_id": "lm.abandoned_temple_entrance",
       "house_id": 172,
-      "cell": {"x": 18, "y": 14},
-      "fidelity": "F2",
-      "notes": "Shell only."
+      "cell": {"x": 19, "y": 21},
+      "fidelity": "F2"
     },
     {
       "landmark_id": "lm.garik_forge_entrance",
       "house_id": 188,
-      "cell": {"x": 20, "y": 5},
-      "fidelity": "F2",
-      "notes": "Shell only."
+      "cell": {"x": 24, "y": 8},
+      "fidelity": "F2"
     }
   ],
   "routes": [
@@ -129,57 +104,47 @@
       "from": "lm.town_hall",
       "to": "lm.goblinwatch_entrance",
       "via_cells": [
-        [10, 9],
-        [12, 9],
-        [14, 9],
-        [16, 9],
-        [18, 9],
-        [21, 9]
+        [19, 20],
+        [21, 20],
+        [22, 19],
+        [24, 19],
+        [27, 19],
+        [28, 17]
       ],
-      "approx_steps": 6,
-      "fidelity": "F0",
-      "notes": "Keep walkable corridor; place 1 Goblin pack on road_east."
+      "approx_steps": 12,
+      "fidelity": "F0"
     },
     {
       "id": "route.tavern_to_hall",
       "from": "lm.tavern_lonely_knight",
       "to": "lm.town_hall",
-      "via_cells": [[8, 8], [9, 8], [10, 9]],
-      "approx_steps": 2,
+      "via_cells": [[16, 15], [17, 17], [18, 19], [19, 20]],
+      "approx_steps": 8,
       "fidelity": "F1"
     }
   ],
   "encounters_on_grid": [
     {
       "id": "enc.goblin_road",
-      "cell": {"x": 17, "y": 9},
-      "monster_stem": "Goblin",
-      "mmx_spawn_static_id": 50,
+      "cell": {"x": 22, "y": 19},
+      "monster_stem": "GiantSpider",
+      "mmx_spawn_static_id": 150,
       "mmx_trigger_id": 60,
       "fidelity": "F1",
-      "notes": "M4-007: MONSTER_GOBLIN on quest83 corridor."
-    },
-    {
-      "id": "enc.peasant_fringe",
-      "cell": {"x": 14, "y": 11},
-      "monster_stem": "PeasantM2",
-      "fidelity": "F2",
-      "notes": "Optional."
+      "notes": "L1 stand-in (was Goblin 50 too strong)."
     }
   ],
   "party_start": {
-    "cell": {"x": 10, "y": 7},
+    "cell": {"x": 19, "y": 19},
     "near": "lm.town_hall",
-    "note": "HYPOTHESIS — south of hall facing core."
+    "note": "Next to Janis/garrison."
   },
   "linked_maps": [
     {
       "name": "Goblinwatch",
       "type": "DUNGEON",
-      "milestone": "M5",
-      "m4_stub": "Optional stub room or auto-grant codex for route test.",
-      "size_hint": {"width": 12, "height": 12},
-      "note": "Separate Grid XML; entrance from New_Sorpigal cell of #171."
+      "m4_stub": "6x6 Cave1 heights + OTC exit (1,1)",
+      "size_hint": {"width": 6, "height": 6}
     }
   ]
 }

@@ -241,10 +241,51 @@ def plan_from_manifest(
                 raise StageError(
                     f"нет vanilla CSV для merge: {stage_rel}"
                 )
+        elif kind == "config":
+            action["mode"] = "patch_start"
+            if not existed:
+                raise StageError(
+                    f"нет vanilla config для patch: {stage_rel}"
+                )
         else:
             raise StageError(f"unknown kind {kind}")
         actions.append(action)
     return actions
+
+
+START_LINE_RE = re.compile(
+    r'(?m)^(\s*start\s*=\s*)"[^"]*"'
+)
+
+
+def parse_config_start(overlay: str) -> str:
+    """Read start map name from overlay config fragment."""
+    match = START_LINE_RE.search(overlay)
+    if not match:
+        raise StageError("overlay config: нет start = \"...\"")
+    # Re-parse quoted value
+    line = match.group(0)
+    value = re.search(r'"([^"]*)"', line)
+    if not value:
+        raise StageError("overlay config: пустой start")
+    name = value.group(1).strip()
+    if not name:
+        raise StageError("overlay config: start пуст")
+    return name
+
+
+def patch_config_start(vanilla: str, start_map: str) -> str:
+    """Replace only the [map] start= line (VERIFIED_LOCAL schema)."""
+    patched, count = START_LINE_RE.subn(
+        rf'\1"{start_map}"',
+        vanilla,
+        count=1,
+    )
+    if count != 1:
+        raise StageError(
+            "vanilla config.txt: не найден ровно один start ="
+        )
+    return patched
 
 
 def _backup_name(stage_rel: str) -> str:
@@ -303,9 +344,15 @@ def apply_actions(
         if kind == "loca":
             merged, keys = merge_loca(vanilla_text, overlay_text)
             record["keys"] = keys
-        else:
+        elif kind == "staticdata":
             merged, sids = merge_csv(vanilla_text, overlay_text)
             record["static_ids"] = sids
+        elif kind == "config":
+            start_map = parse_config_start(overlay_text)
+            merged = patch_config_start(vanilla_text, start_map)
+            record["start"] = start_map
+        else:
+            raise StageError(f"unexpected merge kind {kind}")
         if not dry_run:
             dest = backup_dir / "files" / record["backup"]
             dest.write_bytes(encode_text(vanilla_text, has_bom))
@@ -386,6 +433,14 @@ def run_self_test(tmp: Path) -> None:
     out, sids = merge_csv(vanilla_csv, overlay_csv)
     assert sids == ["2", "3"]
     assert "2,B2" in out and "3,C" in out and "1,A" in out
+
+    vanilla_cfg = '[map]\nstart = "Sorpigal"\nmaxLevel = 50\n'
+    assert parse_config_start('start = "New_Sorpigal"\n') == (
+        "New_Sorpigal"
+    )
+    patched = patch_config_start(vanilla_cfg, "New_Sorpigal")
+    assert 'start = "New_Sorpigal"' in patched
+    assert "maxLevel = 50" in patched
 
     data = tmp / "Might and Magic X Legacy_Data"
     sa = data / "StreamingAssets"
