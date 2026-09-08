@@ -49,6 +49,14 @@ Landmarks MMX (M4-002):
 `references/mm6/new_sorpigal.landmarks_mmx.json`
 (SIGN + START_DIALOGUE; F2 shells).
 
+Localisation (M4-005):
+`docs/design/NEW_SORPIGAL_LOCALISATION.md`,
+`python tools\validators\validate_mmx_loca.py --check-vanilla`.
+
+Quest flow #83 (M4-006):
+`docs/design/NEW_SORPIGAL_QUEST_FLOW_83.md`,
+`mod/Maps/Goblinwatch.xml` stub.
+
 Refresh extracts:
 ```powershell
 python tools\extract\extract_mm6_topology.py --write-curated

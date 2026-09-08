@@ -13,6 +13,7 @@ from mmx_map import (
     DEFAULT_SKETCH,
     MapGenError,
     load_json,
+    render_goblinwatch_stub_xml,
     render_grid_xml,
     run_self_test,
     summarize,
@@ -20,6 +21,7 @@ from mmx_map import (
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = REPO_ROOT / "mod" / "Maps" / "New_Sorpigal.xml"
+DEFAULT_GOBLIN = REPO_ROOT / "mod" / "Maps" / "Goblinwatch.xml"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -41,6 +43,12 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=DEFAULT_OUT,
         help="Куда писать Maps/*.xml.",
+    )
+    parser.add_argument(
+        "--goblinwatch-output",
+        type=Path,
+        default=DEFAULT_GOBLIN,
+        help="Куда писать Goblinwatch stub XML (M4-006).",
     )
     parser.add_argument(
         "--dry-run",
@@ -88,6 +96,7 @@ def main(argv: list[str] | None = None) -> int:
         sketch = load_json(args.sketch)
         xml = render_grid_xml(sketch)
         info = summarize(sketch, xml)
+        goblin_xml = render_goblinwatch_stub_xml()
     except (OSError, MapGenError, KeyError, TypeError) as exc:
         print(f"FAIL: {exc}", file=sys.stderr)
         return 1
@@ -100,15 +109,26 @@ def main(argv: list[str] | None = None) -> int:
     )
     print(f"  party=({info['party']['x']},{info['party']['y']})")
     print(f"  triggers={', '.join(info['triggers'])}")
+    print(
+        f"OK Goblinwatch stub 8x8 "
+        f"bytes={len(goblin_xml.encode('utf-8'))}"
+    )
 
     if args.dry_run:
-        print("dry-run: map not written")
+        print("dry-run: maps not written")
         return 0
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     # UTF-8 without BOM (Cave1 style). VERIFIED_LOCAL Cave1.
     args.output.write_text(xml, encoding="utf-8", newline="\n")
     print(f"wrote {args.output}")
+    args.goblinwatch_output.parent.mkdir(parents=True, exist_ok=True)
+    args.goblinwatch_output.write_text(
+        goblin_xml,
+        encoding="utf-8",
+        newline="\n",
+    )
+    print(f"wrote {args.goblinwatch_output}")
     return 0
 
 

@@ -195,24 +195,28 @@
       "ru": "Одинокий рыцарь"
     },
     "SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE": {
-      "en": "Goblinwatch — locked",
-      "ru": "Дозор гоблинов — заперто"
+      "en": "Goblinwatch",
+      "ru": "Дозор гоблинов"
     },
     "SIGN_MM6_NEW_SORPIGAL_STABLES": {
-      "en": "Stables (travel stub)",
-      "ru": "Конюшни (заглушка)"
+      "en": "New Sorpigal Stables",
+      "ru": "Конюшни Нью-Сорпигаля"
     },
     "SIGN_MM6_NEW_SORPIGAL_BOATS": {
-      "en": "Boats (travel stub)",
-      "ru": "Лодки (заглушка)"
+      "en": "New Sorpigal Docks",
+      "ru": "Пристань Нью-Сорпигаля"
     },
     "SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE": {
-      "en": "Abandoned Temple (stub)",
-      "ru": "Заброшенный храм (заглушка)"
+      "en": "Abandoned Temple — sealed",
+      "ru": "Заброшенный храм — запечатан"
     },
     "SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE": {
-      "en": "Gharik's Forge (stub)",
-      "ru": "Кузница Гарика (заглушка)"
+      "en": "Gharik's Forge — sealed",
+      "ru": "Кузница Гарика — запечатана"
+    },
+    "SIGN_MM6_GOBLINWATCH_STUB_VAULT": {
+      "en": "Vault combination (take the plates)",
+      "ru": "Код хранилища (возьмите плиты)"
     }
   }
 }

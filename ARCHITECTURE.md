@@ -79,6 +79,7 @@ StaticData: `python tools\converters\generate_mmx_staticdata.py --dry-run`
 Manifest: `python tools\converters\build_mmx_manifest.py --dry-run`  
 Map greybox: `python tools\converters\generate_mmx_map.py --dry-run`  
 Validate: `python tools\validators\validate_mmx_mod.py`  
+Loca: `python tools\validators\validate_mmx_loca.py --check-vanilla`  
 Stage: `python tools\modding\stage_mmx_mod.py --dry-run`  
 Regression: `python tools\converters\run_m2_regression.py`.
 

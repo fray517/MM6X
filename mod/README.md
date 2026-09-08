@@ -4,11 +4,12 @@ assets и не копировать vanilla loca/CSV целиком.
 
 Сейчас:
 
-- `mod/Localisation/en|ru/loca.xml` — 53 ключа MM6X
+- `mod/Localisation/en|ru/loca.xml` — 54 ключа MM6X (M4-005/006)
 - `mod/Dialog/Mm6JanisDialog.xml` — #83 accept/key/progress/turn-in
   (FollowUp 20001 + removeTokenID; M4-004)
 - `mod/Dialog/Mm6AndoverDialog.xml` — письмо Сулмана #81 (M4-003)
-- `mod/Maps/New_Sorpigal.xml` — greybox 24×18 + landmarks (M4-001/002)
+- `mod/Maps/New_Sorpigal.xml` — greybox + gate → Goblinwatch
+- `mod/Maps/Goblinwatch.xml` — stub 8×8 + codex chest (M4-006)
 - `mod/StaticData/*.csv` — NPC 20000/20001; quests 20000–20002;
   tokens 20000–20004; lorebook 20000
 - `mod/build_manifest.json` — SHA-256 inventory для stage

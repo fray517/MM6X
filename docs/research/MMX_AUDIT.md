@@ -159,7 +159,10 @@ Evidence: VERIFIED_LOCAL (по составу каталогов)
 
 ## M2 overlay (mod/, не в игре)
 VERIFIED_LOCAL после generate:
-- `mod/Localisation/en|ru/loca.xml` — 53 ключа MM6X
+- `mod/Localisation/en|ru/loca.xml` — 54 ключа MM6X (M4-005/006);
+  `validate_mmx_loca.py --check-vanilla` OK
+- `mod/Maps/New_Sorpigal.xml` + `Goblinwatch.xml` stub (M4-006);
+  gate Enabled; chest ADD_TOKEN 20002; Goblin (17,9) id=50 (M4-007)
 - `mod/Dialog/Mm6JanisDialog.xml`, `Mm6AndoverDialog.xml`
   (Janis M4-004: turn-in on FollowUp 20001 + `removeTokenID`;
   Andover: QuestFunction 20002 + GiveToken 20004)

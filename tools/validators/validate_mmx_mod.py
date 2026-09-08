@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -443,16 +444,17 @@ def validate_mod(
         mod_dir,
         errors,
     )
-    check_new_sorpigal_map(registry, mod_dir, errors)
+    check_new_sorpigal_map(registry, mod_dir, loca_set, errors)
     return errors
 
 
 def check_new_sorpigal_map(
     registry: dict[str, Any],
     mod_dir: Path,
+    loca_keys: set[str],
     errors: list[str],
 ) -> None:
-    """Greybox New_Sorpigal.xml (M4-001) if present."""
+    """Greybox New_Sorpigal.xml (M4-001/002) if present."""
     map_names = registry_values(registry, "map")
     if "New_Sorpigal" not in map_names:
         return
@@ -493,8 +495,41 @@ def check_new_sorpigal_map(
     ):
         if key not in text:
             _err(errors, f"map: нет {key}")
-    if 'Enabled>false</Enabled>' not in text:
-        _err(errors, "map: ожидается disabled gate ENTRANCE")
+        elif key not in loca_keys:
+            _err(errors, f"map loca missing: {key}")
+    loca_name = root.findtext("LocationLocaName")
+    if loca_name and loca_name not in loca_keys:
+        _err(errors, f"map LocationLocaName missing loca: {loca_name}")
+    if "Goblinwatch.xml" not in text:
+        _err(errors, "map: нет ENTRANCE → Goblinwatch.xml")
+    if "SpawnObjectType>MONSTER" not in text:
+        _err(errors, "map: нет MONSTER (M4-007 Goblin)")
+    if "SpawnStaticID>50</SpawnStaticID>" not in text:
+        _err(errors, "map: ожидался Goblin SpawnStaticID=50")
+    # Gate must be enabled for M4-006 E2E (key gate polish = M4-008).
+    if not re.search(
+        r'Trigger ID="20"[\s\S]*?<Enabled>true</Enabled>',
+        text,
+    ):
+        _err(errors, "map: gate Trigger 20 должен быть Enabled=true")
+    gw = mod_dir / "Maps" / "Goblinwatch.xml"
+    if not gw.is_file():
+        _err(errors, "нет mod/Maps/Goblinwatch.xml (M4-006 stub)")
+    else:
+        try:
+            gtext = gw.read_text(encoding="utf-8")
+            groot = ET.fromstring(gtext)
+        except (OSError, ET.ParseError) as exc:
+            _err(errors, f"map Goblinwatch: {exc}")
+            return
+        if groot.findtext("Name") != "Goblinwatch":
+            _err(errors, "Goblinwatch: Name != Goblinwatch")
+        if groot.findtext("Width") != "8" or groot.findtext("Height") != "8":
+            _err(errors, "Goblinwatch: ожидали 8x8 stub")
+        if "ADD_TOKEN" not in gtext or "Extra=\"20002\"" not in gtext:
+            _err(errors, "Goblinwatch: нет ADD_TOKEN codex 20002")
+        if "New_Sorpigal.xml" not in gtext:
+            _err(errors, "Goblinwatch: нет exit → New_Sorpigal")
 
 
 def run_self_test() -> None:

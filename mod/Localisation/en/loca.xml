@@ -49,9 +49,10 @@
   <LocaData id="DIALOG_TEXT_MM6_ANDOVER_LETTER_HELD">You already carry Sulman's letter. Safe travels.</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_TOWN_HALL">Town Hall</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_TAVERN">The Lonely Knight</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE">Goblinwatch — locked</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_STABLES">Stables (travel stub)</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_BOATS">Boats (travel stub)</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE">Abandoned Temple (stub)</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE">Gharik's Forge (stub)</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE">Goblinwatch</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_STABLES">New Sorpigal Stables</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_BOATS">New Sorpigal Docks</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE">Abandoned Temple — sealed</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE">Gharik's Forge — sealed</LocaData>
+  <LocaData id="SIGN_MM6_GOBLINWATCH_STUB_VAULT">Vault combination (take the plates)</LocaData>
 </Localization>

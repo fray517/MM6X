@@ -106,9 +106,9 @@
 - [x] M4-002 Landmarks
 - [x] M4-003 Andover
 - [x] M4-004 Town Hall quest giver
-- [ ] M4-005 Localisation
-- [ ] M4-006 First quest flow
-- [ ] M4-007 Goblin encounter
+- [x] M4-005 Localisation
+- [x] M4-006 First quest flow
+- [x] M4-007 Goblin encounter
 - [ ] M4-008 Goblinwatch entrance
 - [ ] M4-009 Route playtest
 - [ ] M4-010 Save/load

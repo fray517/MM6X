@@ -258,15 +258,20 @@ def _trigger_entrance_stub(
     y: int,
     target_map: str,
     direction: str = "EAST",
+    *,
+    enabled: bool = True,
+    target_spawn_id: int | None = None,
 ) -> str:
-    """ENTRANCE reserved for M4-008; Enabled=false until wired."""
+    """ENTRANCE to linked map (M4-006 stub Goblinwatch)."""
     pad = _indent(4)
+    spawn = tid if target_spawn_id is None else target_spawn_id
+    en = "true" if enabled else "false"
     lines = [
         f'{pad}<Trigger ID="{tid}">',
         f"{pad}  <MonsterGroupID>0</MonsterGroupID>",
         (
             f'{pad}  <Command Type="USE_ENTRANCE" '
-            f'TargetSpawnID="{tid}" '
+            f'TargetSpawnID="{spawn}" '
             f'Extra="{target_map}" '
             f'Precondition="NONE" Timing="ON_EXECUTE" '
             f'RequiredState="NONE" ActivateCount="-1" />'
@@ -283,7 +288,46 @@ def _trigger_entrance_stub(
         f"{pad}  <SpawnDirection>{direction}</SpawnDirection>",
         f"{pad}  <SpawnStaticID>3</SpawnStaticID>",
         f"{pad}  <SpawnTime>EVERYTIME</SpawnTime>",
-        f"{pad}  <Enabled>false</Enabled>",
+        f"{pad}  <Enabled>{en}</Enabled>",
+        f"{pad}  <OpenableByMonsters>false</OpenableByMonsters>",
+        f"{pad}  <ChallengeID>0</ChallengeID>",
+        f"{pad}  <InitialState>NONE</InitialState>",
+        f"{pad}  <Position>",
+        f"{pad}    <X>{x}</X>",
+        f"{pad}    <Y>{y}</Y>",
+        f"{pad}  </Position>",
+        f"{pad}  <OffsetPosition>",
+        f"{pad}    <X>0</X>",
+        f"{pad}    <Y>0</Y>",
+        f"{pad}    <Z>0</Z>",
+        f"{pad}  </OffsetPosition>",
+        f"{pad}  <ObjectRotation>",
+        f"{pad}    <X>0</X>",
+        f"{pad}    <Y>0</Y>",
+        f"{pad}    <Z>0</Z>",
+        f"{pad}  </ObjectRotation>",
+        f"{pad}</Trigger>",
+    ]
+    return "\n".join(lines)
+
+
+def _trigger_monster(
+    tid: int,
+    x: int,
+    y: int,
+    spawn_static_id: int,
+    direction: str = "WEST",
+) -> str:
+    """Standing MONSTER spawn (Cave1 pattern). VERIFIED_LOCAL."""
+    pad = _indent(4)
+    lines = [
+        f'{pad}<Trigger ID="{tid}">',
+        f"{pad}  <MonsterGroupID>0</MonsterGroupID>",
+        f"{pad}  <SpawnObjectType>MONSTER</SpawnObjectType>",
+        f"{pad}  <SpawnDirection>{direction}</SpawnDirection>",
+        f"{pad}  <SpawnStaticID>{spawn_static_id}</SpawnStaticID>",
+        f"{pad}  <SpawnTime>EVERYTIME</SpawnTime>",
+        f"{pad}  <Enabled>true</Enabled>",
         f"{pad}  <OpenableByMonsters>false</OpenableByMonsters>",
         f"{pad}  <ChallengeID>0</ChallengeID>",
         f"{pad}  <InitialState>NONE</InitialState>",
@@ -363,10 +407,17 @@ _LANDMARK_BINDINGS: dict[str, dict[str, Any]] = {
 }
 
 
+# MMX MonsterStaticData StaticID — VERIFIED_LOCAL Ubisoft install.
+_GOBLIN_SPAWN_STATIC_ID = 50  # MONSTER_GOBLIN
+_ENCOUNTER_TRIGGER_IDS = {
+    "enc.goblin_road": 60,
+}
+
+
 def build_placements(
     sketch: dict[str, Any],
 ) -> dict[tuple[int, int], list[str]]:
-    """Map cell → XML trigger fragments (M4-001/002)."""
+    """Map cell → XML trigger fragments (M4-001/002/007)."""
     place: dict[tuple[int, int], list[str]] = {}
     start = sketch["party_start"]["cell"]
     sx, sy = int(start["x"]), int(start["y"])
@@ -399,6 +450,8 @@ def build_placements(
                     x,
                     y,
                     str(bind["target_map"]),
+                    enabled=True,
+                    target_spawn_id=1,
                 )
             )
         bucket.append(
@@ -407,6 +460,23 @@ def build_placements(
                 x,
                 y,
                 str(bind["sign_loca"]),
+            )
+        )
+
+    for enc in sketch.get("encounters_on_grid") or []:
+        eid = str(enc.get("id") or "")
+        if eid not in _ENCOUNTER_TRIGGER_IDS:
+            continue
+        cell = enc["cell"]
+        x, y = int(cell["x"]), int(cell["y"])
+        tid = _ENCOUNTER_TRIGGER_IDS[eid]
+        place.setdefault((x, y), []).append(
+            _trigger_monster(
+                tid,
+                x,
+                y,
+                _GOBLIN_SPAWN_STATIC_ID,
+                direction="WEST",
             )
         )
     return place
@@ -495,6 +565,163 @@ def render_grid_xml(sketch: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def _trigger_codex_stub(
+    tid: int,
+    x: int,
+    y: int,
+    *,
+    token_id: int = 20002,
+    lorebook_id: int = 20000,
+) -> str:
+    """COMMAND_CONTAINER: ADD_TOKEN codex + ADD_LOREBOOK (M4 stub)."""
+    pad = _indent(4)
+    lines = [
+        f'{pad}<Trigger ID="{tid}">',
+        f"{pad}  <MonsterGroupID>0</MonsterGroupID>",
+        (
+            f'{pad}  <Command Type="SET_DATA" '
+            f'TargetSpawnID="{tid}" '
+            f'Extra="PREFAB,Prefabs/InteractiveObjects/'
+            f'LootContainer/Chest/LootChest_Gold" '
+            f'Precondition="NONE" Timing="ON_SPAWN" '
+            f'RequiredState="NONE" ActivateCount="-1" />'
+        ),
+        (
+            f'{pad}  <Command Type="ADD_TOKEN" '
+            f'TargetSpawnID="{tid}" Extra="{token_id}" '
+            f'Precondition="NONE" Timing="ON_EXECUTE" '
+            f'RequiredState="NONE" ActivateCount="1" />'
+        ),
+        (
+            f'{pad}  <Command Type="ADD_LOREBOOK" '
+            f'TargetSpawnID="{tid}" Extra="{lorebook_id}" '
+            f'Precondition="NONE" Timing="ON_EXECUTE" '
+            f'RequiredState="NONE" ActivateCount="1" />'
+        ),
+        (
+            f'{pad}  <Command Type="SET_ENABLED" '
+            f'TargetSpawnID="{tid}" Extra="False" '
+            f'Precondition="NONE" Timing="ON_EXECUTE" '
+            f'RequiredState="NONE" ActivateCount="1" />'
+        ),
+        (
+            f"{pad}  <SpawnObjectType>"
+            f"COMMAND_CONTAINER</SpawnObjectType>"
+        ),
+        f"{pad}  <SpawnDirection>CENTER</SpawnDirection>",
+        f"{pad}  <SpawnStaticID>19</SpawnStaticID>",
+        f"{pad}  <SpawnTime>EVERYTIME</SpawnTime>",
+        f"{pad}  <Enabled>true</Enabled>",
+        f"{pad}  <OpenableByMonsters>false</OpenableByMonsters>",
+        f"{pad}  <ChallengeID>0</ChallengeID>",
+        f"{pad}  <InitialState>NONE</InitialState>",
+        f"{pad}  <Position>",
+        f"{pad}    <X>{x}</X>",
+        f"{pad}    <Y>{y}</Y>",
+        f"{pad}  </Position>",
+        f"{pad}  <OffsetPosition>",
+        f"{pad}    <X>0</X>",
+        f"{pad}    <Y>0</Y>",
+        f"{pad}    <Z>0</Z>",
+        f"{pad}  </OffsetPosition>",
+        f"{pad}  <ObjectRotation>",
+        f"{pad}    <X>0</X>",
+        f"{pad}    <Y>0</Y>",
+        f"{pad}    <Z>0</Z>",
+        f"{pad}  </ObjectRotation>",
+        f"{pad}</Trigger>",
+    ]
+    return "\n".join(lines)
+
+
+def render_goblinwatch_stub_xml() -> str:
+    """M4 stub DUNGEON 8x8: party, codex chest, exit to town."""
+    width, height = 8, 8
+    walk = {
+        (x, y)
+        for x in range(1, width - 1)
+        for y in range(1, height - 1)
+    }
+    placements: dict[tuple[int, int], list[str]] = {}
+    placements[(1, 1)] = [_trigger_party(1, 1, 1, "EAST")]
+    placements[(4, 4)] = [_trigger_codex_stub(50, 4, 4)]
+    placements[(1, 1)].append(
+        _trigger_entrance_stub(
+            8,
+            1,
+            1,
+            "New_Sorpigal.xml",
+            direction="WEST",
+            enabled=True,
+            target_spawn_id=1,
+        )
+    )
+    placements[(4, 4)].append(
+        _trigger_sign(
+            51,
+            4,
+            4,
+            "SIGN_MM6_GOBLINWATCH_STUB_VAULT",
+        )
+    )
+
+    lines: list[str] = [
+        '<?xml version="1.0" encoding="utf-8"?>',
+        (
+            "<Grid "
+            'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
+            'xmlns:xsd="http://www.w3.org/2001/XMLSchema">'
+        ),
+        "  <name>Goblinwatch_gridData</name>",
+        "  <hideFlags>None</hideFlags>",
+        "  <Name>Goblinwatch</Name>",
+        "  <SceneName>Goblinwatch</SceneName>",
+        "  <MinimapName>MinimapMaps/MAP_Cave_1</MinimapName>",
+        "  <LocationLocaName>LOCATION_MM6_GOBLINWATCH</LocationLocaName>",
+        "  <Type>DUNGEON</Type>",
+        "  <Style>CAVES</Style>",
+        "  <WorldMapPointID>0</WorldMapPointID>",
+        "  <MusicAudioIDDay>DungeonCave</MusicAudioIDDay>",
+        "  <MusicAudioIDNight>DungeonCave</MusicAudioIDNight>",
+        "  <IsWithFightMusic>true</IsWithFightMusic>",
+        f"  <Width>{width}</Width>",
+        f"  <Height>{height}</Height>",
+        "  <OffsetX>0</OffsetX>",
+        "  <OffsetY>0</OffsetY>",
+        "  <OffsetZ>0</OffsetZ>",
+        "  <MinLevel>1</MinLevel>",
+        "  <MaxLevel>1</MaxLevel>",
+        "  <GridSlots>",
+    ]
+    for y in range(height):
+        lines.append("    <Row>")
+        for x in range(width):
+            terr = terrain_at(x, y, width, height, walk)
+            trans = transition_types(x, y, width, height, walk)
+            lines.append(
+                f'      <Slot Height="0" Terrain="{terr}" '
+                f'TerrainSound="NONE" MapArea="NONE">'
+            )
+            lines.append("        <Position>")
+            lines.append(f"          <X>{x}</X>")
+            lines.append(f"          <Y>{y}</Y>")
+            lines.append("        </Position>")
+            for ttype in trans:
+                lines.append(
+                    f'        <Transition Type="{ttype}" '
+                    f'IsDynamic="false" />'
+                )
+            extra = _triggers_for_cell(x, y, placements)
+            if extra:
+                lines.append(extra)
+            lines.append("      </Slot>")
+        lines.append("    </Row>")
+    lines.append("  </GridSlots>")
+    lines.append("</Grid>")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def corridor_steps(sketch: dict[str, Any]) -> int:
     """PASSABLE Manhattan along route.quest83 (approx)."""
     for route in sketch.get("routes") or []:
@@ -532,6 +759,7 @@ def summarize(sketch: dict[str, Any], xml_text: str) -> dict[str, Any]:
             "Janis:10",
             "Andover:11",
             "Gate:20",
+            "Goblin:60",
             "signs:30-32,40-43",
         ],
         "sign_keys": sorted(
@@ -556,6 +784,7 @@ def run_self_test() -> None:
     assert "SpawnObjectType>SIGN" in xml
     assert "SIGN_MM6_NEW_SORPIGAL_TOWN_HALL" in xml
     assert "Goblinwatch.xml" in xml
+    assert 'Enabled>true</Enabled>' in xml
     assert "Sorpigal.xml" not in xml.replace(
         "MAP_Sorpigal", "MAP_X"
     )
@@ -563,6 +792,19 @@ def run_self_test() -> None:
     assert xml.count("<Slot ") == 24 * 18
     assert xml.count("<Row>") == 18
     assert xml.count("SpawnObjectType>SIGN") == 7
+    assert "SpawnObjectType>MONSTER" in xml
+    assert "SpawnStaticID>50</SpawnStaticID>" in xml
+    assert 'Trigger ID="60"' in xml
     info = summarize(sketch, xml)
     assert info["corridor_steps"] <= 10
     assert info["passable"] >= 50
+
+    stub = render_goblinwatch_stub_xml()
+    assert "<Name>Goblinwatch</Name>" in stub
+    assert "<Width>8</Width>" in stub
+    assert "<Height>8</Height>" in stub
+    assert stub.count("<Slot ") == 64
+    assert "ADD_TOKEN" in stub and "Extra=\"20002\"" in stub
+    assert "ADD_LOREBOOK" in stub and "Extra=\"20000\"" in stub
+    assert "New_Sorpigal.xml" in stub
+    assert "SIGN_MM6_GOBLINWATCH_STUB_VAULT" in stub

@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "created_utc": "2026-09-08T15:09:25Z",
+  "created_utc": "2026-09-08T15:21:50Z",
   "mod_id": "mm6x",
   "note": "MM6X staged overlay. Not installed until stage CLI. stage_rel is relative to game Data dir.",
   "counts": {
     "dialog": 2,
     "loca": 2,
-    "map": 1,
+    "map": 2,
     "staticdata": 5
   },
   "files": [
@@ -27,22 +27,29 @@
     {
       "path": "Localisation/en/loca.xml",
       "kind": "loca",
-      "size": 5858,
-      "sha256": "7a2c3e305b4a198c493a32e2873d017a7067522377b797b784aa056ef98f2322",
+      "size": 5950,
+      "sha256": "eb68c476b5b07b51dbde3975e21be5e4f8b89f9d9d5e8c4a1031c33d0e30821a",
       "stage_rel": "StreamingAssets/Localisation/en/loca.xml"
     },
     {
       "path": "Localisation/ru/loca.xml",
       "kind": "loca",
-      "size": 7735,
-      "sha256": "6ddda4ca6dad0d06ca850be5999f904ad797aa072934ac722ed00fe1333b905d",
+      "size": 7863,
+      "sha256": "d9243cd10e30e8d77735ff48e67e6d453fe6d938b1b3ba4058deb71a929afeb9",
       "stage_rel": "StreamingAssets/Localisation/ru/loca.xml"
+    },
+    {
+      "path": "Maps/Goblinwatch.xml",
+      "kind": "map",
+      "size": 29927,
+      "sha256": "40572036843e0e0024f554dbc78a7ae8dc5ca2b912b1220f45418e2b09a2bb0d",
+      "stage_rel": "StreamingAssets/Maps/Goblinwatch.xml"
     },
     {
       "path": "Maps/New_Sorpigal.xml",
       "kind": "map",
-      "size": 178874,
-      "sha256": "eda25de09534597a39ed242b9e8a97ecbd63ab9f7889debb085fdfe5ff87f0ac",
+      "size": 179647,
+      "sha256": "07118688ff14f92b4d474f18372821ee0403c2487d3a8a2e0db58c5d83e02943",
       "stage_rel": "StreamingAssets/Maps/New_Sorpigal.xml"
     },
     {

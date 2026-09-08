@@ -154,8 +154,10 @@
       "id": "enc.goblin_road",
       "cell": {"x": 17, "y": 9},
       "monster_stem": "Goblin",
+      "mmx_spawn_static_id": 50,
+      "mmx_trigger_id": 60,
       "fidelity": "F1",
-      "notes": "On quest83 corridor (M3-005)."
+      "notes": "M4-007: MONSTER_GOBLIN on quest83 corridor."
     },
     {
       "id": "enc.peasant_fringe",

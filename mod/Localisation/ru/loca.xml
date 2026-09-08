@@ -49,9 +49,10 @@
   <LocaData id="DIALOG_TEXT_MM6_ANDOVER_LETTER_HELD">Письмо Сулмана уже у вас. Счастливого пути.</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_TOWN_HALL">Ратуша</LocaData>
   <LocaData id="SIGN_MM6_NEW_SORPIGAL_TAVERN">Одинокий рыцарь</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE">Дозор гоблинов — заперто</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_STABLES">Конюшни (заглушка)</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_BOATS">Лодки (заглушка)</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE">Заброшенный храм (заглушка)</LocaData>
-  <LocaData id="SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE">Кузница Гарика (заглушка)</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_GOBLINWATCH_GATE">Дозор гоблинов</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_STABLES">Конюшни Нью-Сорпигаля</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_BOATS">Пристань Нью-Сорпигаля</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_ABANDONED_TEMPLE">Заброшенный храм — запечатан</LocaData>
+  <LocaData id="SIGN_MM6_NEW_SORPIGAL_GARIK_FORGE">Кузница Гарика — запечатана</LocaData>
+  <LocaData id="SIGN_MM6_GOBLINWATCH_STUB_VAULT">Код хранилища (возьмите плиты)</LocaData>
 </Localization>

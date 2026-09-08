@@ -31,13 +31,12 @@ Tier names (не спрайты в git): Гоблин / шаман / корол�
 Enc% 10; M1 Rat 40%, M2 Goblin 30%, M3 Bloodsucker 30%;
 Dif 2/2/1; refill 672. Для greybox M4 **не** обязателен.
 
-## Design для M4 (F1)
+## Design для M4 (F1) — M4-007 Done
 
-1. Минимум один outdoor **Goblin** pack на пути Town Hall →
-   Goblinwatch entrance (#171).
-2. Опционально **PeasantM2** pack (атмосфера окраины).
-3. Bind к MMX: map Trigger / `SpawnObjectType=MONSTER`
-   (**HYPOTHESIS**, схема — `MMX_DATA_SCHEMA.md`).
+1. Outdoor **Goblin** pack: cell (17,9), Trigger 60,
+   MMX `SpawnStaticID=50` (`MONSTER_GOBLIN`). **VERIFIED_LOCAL**.
+2. Опционально **PeasantM2** — не в M4-007.
+3. Bind: map Trigger / `SpawnObjectType=MONSTER`.
 4. Полный D01 encounter set — **M5**.
 
 Не копировать `MONSTERS.TXT` целиком и не класть sprite LOD.

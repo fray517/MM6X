@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <name>Goblinwatch_gridData</name>
+  <hideFlags>None</hideFlags>
+  <Name>Goblinwatch</Name>
+  <SceneName>Goblinwatch</SceneName>
+  <MinimapName>MinimapMaps/MAP_Cave_1</MinimapName>
+  <LocationLocaName>LOCATION_MM6_GOBLINWATCH</LocationLocaName>
+  <Type>DUNGEON</Type>
+  <Style>CAVES</Style>
+  <WorldMapPointID>0</WorldMapPointID>
+  <MusicAudioIDDay>DungeonCave</MusicAudioIDDay>
+  <MusicAudioIDNight>DungeonCave</MusicAudioIDNight>
+  <IsWithFightMusic>true</IsWithFightMusic>
+  <Width>8</Width>
+  <Height>8</Height>
+  <OffsetX>0</OffsetX>
+  <OffsetY>0</OffsetY>
+  <OffsetZ>0</OffsetZ>
+  <MinLevel>1</MinLevel>
+  <MaxLevel>1</MaxLevel>
+  <GridSlots>
+    <Row>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>1</X>
+          <Y>0</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>2</X>
+          <Y>0</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>3</X>
+          <Y>0</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>4</X>
+          <Y>0</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>5</X>
+          <Y>0</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>6</X>
+          <Y>0</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>7</X>
+          <Y>0</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+    </Row>
+    <Row>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>0</X>
+          <Y>1</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>1</X>
+          <Y>1</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+
+        <Trigger ID="1">
+          <MonsterGroupID>0</MonsterGroupID>
+          <SpawnObjectType>PARTY</SpawnObjectType>
+          <SpawnDirection>EAST</SpawnDirection>
+          <SpawnStaticID>0</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>1</X>
+            <Y>1</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
+        <Trigger ID="8">
+          <MonsterGroupID>0</MonsterGroupID>
+          <Command Type="USE_ENTRANCE" TargetSpawnID="1" Extra="New_Sorpigal.xml" Precondition="NONE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <Command Type="SET_DATA" TargetSpawnID="8" Extra="PREFAB,Prefabs/InteractiveObjects/ChangeLevel/ChangeLevel_Outdoor" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>ENTRANCE</SpawnObjectType>
+          <SpawnDirection>WEST</SpawnDirection>
+          <SpawnStaticID>3</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>1</X>
+            <Y>1</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>2</X>
+          <Y>1</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>3</X>
+          <Y>1</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>4</X>
+          <Y>1</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>5</X>
+          <Y>1</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>6</X>
+          <Y>1</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>7</X>
+          <Y>1</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+    </Row>
+    <Row>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>0</X>
+          <Y>2</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>1</X>
+          <Y>2</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>2</X>
+          <Y>2</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>3</X>
+          <Y>2</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>4</X>
+          <Y>2</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>5</X>
+          <Y>2</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>6</X>
+          <Y>2</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>7</X>
+          <Y>2</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+    </Row>
+    <Row>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>0</X>
+          <Y>3</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>1</X>
+          <Y>3</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>2</X>
+          <Y>3</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>3</X>
+          <Y>3</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>4</X>
+          <Y>3</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>5</X>
+          <Y>3</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>6</X>
+          <Y>3</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>7</X>
+          <Y>3</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+    </Row>
+    <Row>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>0</X>
+          <Y>4</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>1</X>
+          <Y>4</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>2</X>
+          <Y>4</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>3</X>
+          <Y>4</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>4</X>
+          <Y>4</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+
+        <Trigger ID="50">
+          <MonsterGroupID>0</MonsterGroupID>
+          <Command Type="SET_DATA" TargetSpawnID="50" Extra="PREFAB,Prefabs/InteractiveObjects/LootContainer/Chest/LootChest_Gold" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <Command Type="ADD_TOKEN" TargetSpawnID="50" Extra="20002" Precondition="NONE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="1" />
+          <Command Type="ADD_LOREBOOK" TargetSpawnID="50" Extra="20000" Precondition="NONE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="1" />
+          <Command Type="SET_ENABLED" TargetSpawnID="50" Extra="False" Precondition="NONE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="1" />
+          <SpawnObjectType>COMMAND_CONTAINER</SpawnObjectType>
+          <SpawnDirection>CENTER</SpawnDirection>
+          <SpawnStaticID>19</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>4</X>
+            <Y>4</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
+        <Trigger ID="51">
+          <MonsterGroupID>0</MonsterGroupID>
+          <ObjectTypeCommand Type="SET_DATA" TargetSpawnID="51" Extra="PREFAB,Prefabs/InteractiveObjects/Signs/Sign_V5" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
+          <ObjectTypeCommand Type="VIEW_SIGN" TargetSpawnID="51" Extra="" Precondition="PLAIN,NONE,SIGN_MM6_GOBLINWATCH_STUB_VAULT" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <SpawnObjectType>SIGN</SpawnObjectType>
+          <SpawnDirection>SOUTH</SpawnDirection>
+          <SpawnStaticID>1</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>4</X>
+            <Y>4</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>5</X>
+          <Y>4</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>6</X>
+          <Y>4</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>7</X>
+          <Y>4</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+    </Row>
+    <Row>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>0</X>
+          <Y>5</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>1</X>
+          <Y>5</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>2</X>
+          <Y>5</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>3</X>
+          <Y>5</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>4</X>
+          <Y>5</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>5</X>
+          <Y>5</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>6</X>
+          <Y>5</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>7</X>
+          <Y>5</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+    </Row>
+    <Row>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>0</X>
+          <Y>6</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>1</X>
+          <Y>6</Y>
+        </Position>
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>2</X>
+          <Y>6</Y>
+        </Position>
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>3</X>
+          <Y>6</Y>
+        </Position>
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>4</X>
+          <Y>6</Y>
+        </Position>
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>5</X>
+          <Y>6</Y>
+        </Position>
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>6</X>
+          <Y>6</Y>
+        </Position>
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="CLOSED" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>7</X>
+          <Y>6</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+    </Row>
+    <Row>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>0</X>
+          <Y>7</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>1</X>
+          <Y>7</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>2</X>
+          <Y>7</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>3</X>
+          <Y>7</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>4</X>
+          <Y>7</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>5</X>
+          <Y>7</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>6</X>
+          <Y>7</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+      <Slot Height="0" Terrain="BLOCKED" TerrainSound="NONE" MapArea="NONE">
+        <Position>
+          <X>7</X>
+          <Y>7</Y>
+        </Position>
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+        <Transition Type="OPEN" IsDynamic="false" />
+      </Slot>
+    </Row>
+  </GridSlots>
+</Grid>

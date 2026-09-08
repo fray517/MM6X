@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal.quest_flow_83",
+  "milestone": "M4-006",
+  "quest": "mm6.quest.new_sorpigal.goblinwatch",
+  "evidence_dialog": "VERIFIED_LOCAL",
+  "evidence_stub_dungeon": "HYPOTHESIS",
+  "steps": [
+    {
+      "id": "accept",
+      "npc": "mm6.npc.new_sorpigal.janis",
+      "quest_step": 20000,
+      "gives_token": 20001,
+      "map": "New_Sorpigal",
+      "cell": {"x": 10, "y": 9}
+    },
+    {
+      "id": "enter_gate",
+      "map": "New_Sorpigal",
+      "cell": {"x": 21, "y": 9},
+      "trigger_id": 20,
+      "target_map": "Goblinwatch.xml",
+      "enabled": true,
+      "note": "Key consume / locked text = M4-008"
+    },
+    {
+      "id": "stub_codex",
+      "map": "Goblinwatch",
+      "cell": {"x": 4, "y": 4},
+      "trigger_id": 50,
+      "commands": ["ADD_TOKEN:20002", "ADD_LOREBOOK:20000"],
+      "size": {"width": 8, "height": 8}
+    },
+    {
+      "id": "return_town",
+      "map": "Goblinwatch",
+      "exit_to": "New_Sorpigal.xml",
+      "target_spawn_id": 1
+    },
+    {
+      "id": "turnin",
+      "npc": "mm6.npc.new_sorpigal.janis",
+      "quest_step": 20001,
+      "requires_token": 20002,
+      "solve_removes_token": 20002
+    }
+  ],
+  "artifacts": {
+    "town_map": "mod/Maps/New_Sorpigal.xml",
+    "stub_map": "mod/Maps/Goblinwatch.xml",
+    "design": "docs/design/NEW_SORPIGAL_QUEST_FLOW_83.md"
+  }
+}

@@ -2572,6 +2572,32 @@
         <Transition Type="OPEN" IsDynamic="false" />
         <Transition Type="OPEN" IsDynamic="false" />
         <Transition Type="OPEN" IsDynamic="false" />
+
+        <Trigger ID="60">
+          <MonsterGroupID>0</MonsterGroupID>
+          <SpawnObjectType>MONSTER</SpawnObjectType>
+          <SpawnDirection>WEST</SpawnDirection>
+          <SpawnStaticID>50</SpawnStaticID>
+          <SpawnTime>EVERYTIME</SpawnTime>
+          <Enabled>true</Enabled>
+          <OpenableByMonsters>false</OpenableByMonsters>
+          <ChallengeID>0</ChallengeID>
+          <InitialState>NONE</InitialState>
+          <Position>
+            <X>17</X>
+            <Y>9</Y>
+          </Position>
+          <OffsetPosition>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </OffsetPosition>
+          <ObjectRotation>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </ObjectRotation>
+        </Trigger>
       </Slot>
       <Slot Height="0" Terrain="PASSABLE" TerrainSound="NONE" MapArea="NONE">
         <Position>
@@ -2615,13 +2641,13 @@
 
         <Trigger ID="20">
           <MonsterGroupID>0</MonsterGroupID>
-          <Command Type="USE_ENTRANCE" TargetSpawnID="20" Extra="Goblinwatch.xml" Precondition="NONE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
+          <Command Type="USE_ENTRANCE" TargetSpawnID="1" Extra="Goblinwatch.xml" Precondition="NONE" Timing="ON_EXECUTE" RequiredState="NONE" ActivateCount="-1" />
           <Command Type="SET_DATA" TargetSpawnID="20" Extra="PREFAB,Prefabs/InteractiveObjects/ChangeLevel/ChangeLevel_Outdoor" Precondition="NONE" Timing="ON_SPAWN" RequiredState="NONE" ActivateCount="-1" />
           <SpawnObjectType>ENTRANCE</SpawnObjectType>
           <SpawnDirection>EAST</SpawnDirection>
           <SpawnStaticID>3</SpawnStaticID>
           <SpawnTime>EVERYTIME</SpawnTime>
-          <Enabled>false</Enabled>
+          <Enabled>true</Enabled>
           <OpenableByMonsters>false</OpenableByMonsters>
           <ChallengeID>0</ChallengeID>
           <InitialState>NONE</InitialState>

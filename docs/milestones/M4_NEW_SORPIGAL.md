@@ -21,7 +21,8 @@
 | PARTY | (10,7) Trigger 1, face EAST |
 | Janis stub | (10,9) NPC_IDS,20000 Trigger 10 |
 | Andover stub | (8,8) NPC_IDS,20001 Trigger 11 |
-| Gate stub | (21,9) ENTRANCE→Goblinwatch **Enabled=false** |
+| Gate | (21,9) ENTRANCE→Goblinwatch **Enabled** (M4-006) |
+| Goblin | (17,9) Trigger 60, SpawnStaticID **50** (M4-007) |
 | Corridor #83 | Y≈9, ~6 PASSABLE steps |
 | PASSABLE | zone union ≈208/432 (~48%) |
 
@@ -50,7 +51,7 @@ python tools\modding\stage_mmx_mod.py --dry-run
 - SIGN ×7 (F0/F1 + F2 shells) + loca `SIGN_MM6_*`
 - Binding: `references/mm6/new_sorpigal.landmarks_mmx.json`
 - Prefab: Generic_Guard / Sign_V5 (**HYPOTHESIS** reuse)
-- Gate ENTRANCE остаётся **Enabled=false** (M4-008)
+- Gate ENTRANCE **Enabled** (M4-006); key-lock → M4-008
 - Quest content: M4-003 Andover, M4-004 Janis
 
 ```powershell
@@ -88,6 +89,42 @@ Registry: `mm6.quest.new_sorpigal.sulman_letter` + stage + item.
 
 Генератор: `removeTokenID` в `mmx_dialog.py`.
 
+## M4-005 Localisation — Done
+
+- Inventory: `docs/design/NEW_SORPIGAL_LOCALISATION.md`
+- Validator: `tools/validators/validate_mmx_loca.py`
+  (`--check-vanilla`, en/ru parity, dialog/map/CSV refs)
+- **53** keys; F2 SIGN без UI-слова «stub»
+- `validate_mmx_mod` сверяет map Location/SIGN ↔ loca
+
+```powershell
+python tools\validators\validate_mmx_loca.py --check-vanilla --list
+```
+
+## M4-006 First quest flow — Done
+
+E2E #83 (stub D01):
+
+| Step | Artifact |
+|---|---|
+| Accept + key | Janis (M4-004) |
+| Gate Enabled | `New_Sorpigal` Trigger 20 → `Goblinwatch.xml` |
+| Stub 8×8 | `mod/Maps/Goblinwatch.xml` |
+| Codex | chest ADD_TOKEN **20002** + ADD_LOREBOOK **20000** |
+| Return | exit → town party |
+| Turn-in | Janis SolveQuest (M4-004) |
+
+Doc: `docs/design/NEW_SORPIGAL_QUEST_FLOW_83.md`  
+JSON: `references/mm6/new_sorpigal.quest_flow_83.json`  
+Key-lock / consume → **M4-008**.
+
+## M4-007 Goblin encounter — Done
+
+- Cell **(17,9)** east road (`enc.goblin_road`)
+- Trigger **60**, `SpawnObjectType=MONSTER`
+- `SpawnStaticID=**50**` (`MONSTER_GOBLIN`, VERIFIED_LOCAL)
+- PeasantM2 optional — не ставили
+
 ## Дальше
 
-M4-005 Localisation (сверка ключей / smoke en+ru).
+M4-008 Goblinwatch entrance (key-lock / consume key).

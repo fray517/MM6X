@@ -57,8 +57,8 @@
           "id": 20,
           "type": "ENTRANCE",
           "target": "Goblinwatch.xml",
-          "enabled": false,
-          "note": "Enable in M4-008 when stub D01/Goblinwatch exists"
+          "enabled": true,
+          "note": "M4-006 E2E; key-lock polish = M4-008"
         },
         {
           "id": 32,
@@ -111,6 +111,7 @@
   "deferred": {
     "M4-003": "Done — Sulman letter accept + token 20004",
     "M4-004": "Done — Janis FollowUp turn-in + removeTokenID codex",
-    "M4-008": "Enable gate ENTRANCE + Goblinwatch stub map"
+    "M4-006": "Done — Goblinwatch stub + gate Enabled + codex chest",
+    "M4-008": "Key-lock gate / consume key token polish"
   }
 }
