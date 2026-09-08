@@ -159,6 +159,9 @@ F0 Town↔D01; F2 D02/D18/OutB3 + stables/boats.
 Grid sketch (M3-007): `docs/design/NEW_SORPIGAL_GRID_SKETCH.md` —
 `New_Sorpigal` 24×18; hall→gate corridor; ≠ vanilla Sorpigal.
 
+Cell budget (M3-008): `docs/design/NEW_SORPIGAL_CELL_BUDGET.md` —
+432 cells; PASSABLE 55–70%; caps F0/F1.
+
 ## Decode lod (для extract)
 
 Каталог MM6: header 256 байт, root entry сразу после него.

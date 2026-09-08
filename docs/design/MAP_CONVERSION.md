@@ -33,6 +33,9 @@ Grid sketch: `docs/design/NEW_SORPIGAL_GRID_SKETCH.md`,
 `references/mm6/new_sorpigal.grid_sketch.json`
 (24×18 CITY; layout HYPOTHESIS).
 
+Cell budget: `docs/design/NEW_SORPIGAL_CELL_BUDGET.md`,
+`references/mm6/new_sorpigal.cell_budget.json` (432 cells).
+
 Refresh extracts:
 ```powershell
 python tools\extract\extract_mm6_topology.py --write-curated

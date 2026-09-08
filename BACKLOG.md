@@ -97,7 +97,7 @@
 - [x] M3-005 Encounters
 - [x] M3-006 Exits/travel
 - [x] M3-007 Grid conversion sketch
-- [ ] M3-008 Cell budget
+- [x] M3-008 Cell budget
 - [ ] M3-009 Quest dependency graph
 - [ ] M3-010 Approve design
 

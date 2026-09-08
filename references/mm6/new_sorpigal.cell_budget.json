@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "mm6.region.new_sorpigal.cell_budget",
+  "region": "mm6.region.new_sorpigal",
+  "evidence_mmx_city_sizes": "VERIFIED_LOCAL",
+  "evidence_layout": "HYPOTHESIS",
+  "note": "Cell budget for New_Sorpigal greybox. Complements grid_sketch (M3-007).",
+  "approved_size_m4": {
+    "width": 24,
+    "height": 18,
+    "cells_total": 432,
+    "type": "CITY",
+    "style": "CASTLE",
+    "status": "design_target"
+  },
+  "vanilla_city_refs": {
+    "evidence": "VERIFIED_LOCAL",
+    "note": "All 5 vanilla CITY maps are 32x30 or 32x32 (960–1024 cells). Smaller CITY is still plausible: DUNGEON/OUTDOOR use many sizes (Cave1 6x6).",
+    "examples": [
+      {"name": "Sorpigal", "width": 32, "height": 30, "cells": 960},
+      {"name": "SeaHaven", "width": 32, "height": 32, "cells": 1024},
+      {"name": "Karthal_Slums", "width": 32, "height": 32, "cells": 1024},
+      {"name": "TheCrag", "width": 32, "height": 32, "cells": 1024}
+    ]
+  },
+  "zone_cells_inclusive": {
+    "note": "BBoxes overlap; do not sum as exclusive partition.",
+    "waterfront": {"bbox": [0, 0, 9, 5], "cells": 60},
+    "town_core": {"bbox": [6, 5, 15, 12], "cells": 80},
+    "road_east": {"bbox": [15, 6, 23, 12], "cells": 63},
+    "inland_north": {"bbox": [8, 12, 16, 17], "cells": 54}
+  },
+  "terrain_budget": {
+    "passable_target_pct": [55, 70],
+    "passable_cells_target": [238, 302],
+    "blocked_border_min": 1,
+    "blocked_fill_rest": "BUILDINGS / ROCK / water fringe as BLOCKED",
+    "corridor_quest83_min_width": 1,
+    "corridor_quest83_preferred_width": 2
+  },
+  "content_caps_m4": {
+    "landmarks_f0": {"count": 2, "cells_each": 1, "ids": ["lm.town_hall", "lm.goblinwatch_entrance"]},
+    "landmarks_f1": {"count": 1, "cells_each": 1, "ids": ["lm.tavern_lonely_knight"]},
+    "landmarks_f2_stub": {"count_max": 6, "cells_each": 1},
+    "npc_containers": {"m4_required": 2, "m4_optional_max": 4, "note": "Janis + Andover required"},
+    "monster_spawns": {"m4_required_min": 1, "m4_optional_max": 3},
+    "map_transitions": {"outbound_required": 1, "outbound_stub_max": 4, "note": "Goblinwatch required"},
+    "party_start_triggers": {"count": 1}
+  },
+  "route_budgets": {
+    "quest83_hall_to_gate": {
+      "approx_steps": 6,
+      "min_steps": 4,
+      "max_steps": 10,
+      "cells_on_path_budget": 12
+    },
+    "tavern_to_hall": {
+      "approx_steps": 2,
+      "max_steps": 4
+    }
+  },
+  "goblinwatch_linked": {
+    "milestone": "M5",
+    "m4_stub_size": {"width": 8, "height": 8, "cells": 64},
+    "m5_target_size": {"width": 12, "height": 12, "cells": 144},
+    "note": "Separate Grid XML; not counted in New_Sorpigal 432."
+  },
+  "expansion_path": [
+    {
+      "phase": "M4 greybox",
+      "size": [24, 18],
+      "cells": 432
+    },
+    {
+      "phase": "post-playtest densify",
+      "size": [28, 20],
+      "cells": 560,
+      "when": "If F3 shops feel cramped"
+    },
+    {
+      "phase": "parity with vanilla CITY width",
+      "size": [32, 24],
+      "cells": 768,
+      "when": "Optional; not required for M4 acceptance"
+    }
+  ],
+  "acceptance_for_m4": [
+    "Grid XML Width=24 Height=18 loads",
+    "Walk hall→gate in ≤10 steps on PASSABLE cells",
+    "Janis + gate + Andover tavern present",
+    "≥1 Goblin spawn on east road",
+    "No edits to vanilla Sorpigal.xml"
+  ]
+}

@@ -25,6 +25,7 @@
   "encounters": "references/mm6/new_sorpigal.encounters.json",
   "travel": "references/mm6/new_sorpigal.travel.json",
   "grid_sketch": "references/mm6/new_sorpigal.grid_sketch.json",
+  "cell_budget": "references/mm6/new_sorpigal.cell_budget.json",
   "landmarks_verified": [
     "town hall #89 (Janis)",
     "tavern Lonely Knight #92 (Dirk / Andover 2D)",

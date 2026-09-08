@@ -8,12 +8,12 @@
 
 | ID | Артефакты |
 |---|---|
-| M3-001…006 | topology / landmarks / npcs / services / encounters / travel |
-| M3-007 | `new_sorpigal.grid_sketch.json`, `NEW_SORPIGAL_GRID_SKETCH.md` |
+| M3-001…007 | topology → grid sketch |
+| M3-008 | `new_sorpigal.cell_budget.json`, `NEW_SORPIGAL_CELL_BUDGET.md` |
 
-M3-007: CITY **24×18** `New_Sorpigal`; F0 hall(10,9)→gate(21,9);
-не трогать vanilla `Sorpigal.xml`. Layout = HYPOTHESIS.
+M3-008: **24×18 = 432** cells; PASSABLE 55–70%; F0/F1 caps;
+expansion 28×20 / 32×24 optional. Vanilla CITY refs 960–1024.
 
 ## Дальше
 
-M3-008 Cell budget, M3-009 quest dependency graph, M3-010 approve.
+M3-009 Quest dependency graph, M3-010 Approve design.

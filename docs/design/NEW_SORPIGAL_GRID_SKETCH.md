@@ -20,7 +20,8 @@ Machine: `references/mm6/new_sorpigal.grid_sketch.json`.
 | `New_Sorpigal` | CITY / CASTLE | **24×18** | M4 |
 | `Goblinwatch` | DUNGEON | ~12×12 (hint) | M5 (stub OK в M4) |
 
-Точный cell budget — **M3-008**. 24×18 < vanilla город,
+Точный cell budget — **M3-008** (`NEW_SORPIGAL_CELL_BUDGET.md`):
+24×18 = **432** cells. 24×18 < vanilla город,
 хватает на F0/F1 + F2 stubs.
 
 ## Оси sketch
